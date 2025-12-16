@@ -88,3 +88,24 @@ Nothing in this repository should be interpreted as:
 The views and opinions expressed here are solely those of the author and do not represent the views, positions, or strategies of any past, present, or future employer, partner, or affiliated organization.
 
 This repository is intended as a public knowledge resource, not a substitute for professional consultation tailored to specific business, legal, or technical circumstances.
+}
+
+## Copyright and License
+
+© 2025 Pierre Hulsebus. All rights reserved.
+
+Unless otherwise noted, the content of this repository is licensed under the
+**Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+
+This means:
+
+* You are free to share, reference, and adapt the material for **non-commercial purposes**
+* Proper attribution to the author is required
+* Commercial use, resale, or inclusion in paid offerings requires explicit permission from the author
+
+The author retains full ownership of all original content and reserves the right to reuse, relicense, or incorporate this material into future books, courses, client engagements, or commercial offerings.
+
+Where third-party materials are referenced or included, all respective copyrights remain with their original owners and are used here under fair use, attribution, or license where applicable.
+
+For commercial licensing or reuse inquiries, contact the repository owner directly.
+
