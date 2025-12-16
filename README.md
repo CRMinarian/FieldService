@@ -24,6 +24,11 @@ All content here is intentionally structured, versioned by time or context, and 
 
 ---
 
+## Governance Note 
+**Governance note:** Issues, discussions, and forums are intentionally disabled—this repository is curated as a stable reference library, not a collaborative workspace or support channel.
+
+----
+
 ## Repository Structure
 
 * **/lexicon**
