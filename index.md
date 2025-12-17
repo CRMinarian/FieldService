@@ -1,18 +1,15 @@
 ---
-layout: default
-title: FieldService Knowledge Base
+layout: home
+title: FieldService
 ---
 
-# FieldService Knowledge Base
+## What This Is
+A curated, versioned, public knowledge base for AI, Field Service, and Copilot architecture.
 
-Welcome. This site is the public reference library for AI, Field Service, and Copilot architecture.
-
-## Start Here
-- [Executive Summary](README_EXECUTIVE.md)
-- [Frameworks](frameworks/)
-- [Diagrams](diagrams/)
-- [Decks](decks/)
-- [Lexicon](lexicon/)
-- [References](references/)
-
-This site is intentionally curated, versioned, and link-stable.
+## Explore
+- [Decks]({{ site.baseurl }}/decks/)
+- [Diagrams]({{ site.baseurl }}/diagrams/)
+- [Frameworks]({{ site.baseurl }}/frameworks/)
+- [Lexicon]({{ site.baseurl }}/lexicon/)
+- [References]({{ site.baseurl }}/references/)
+- [Blog]({{ site.baseurl }}/blog/)
