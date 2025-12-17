@@ -1,9 +1,9 @@
 ---
-layout: home
-title: FieldService
----
+
+## title: FieldService
 
 ## What This Is
+
 ### Welcome. Yes, This Is Pierre's GitHub Repo. No, You’re Not Lost.
 
 At some point—usually after the third tool, the fifth document, and the seventh blog site—you begin to wonder whether *you* work for your content, or your content works for *you*.
@@ -26,16 +26,93 @@ The front end runs on a Jekyll site. The back end is a GitHub repo. The two are 
 Every article, framework, diagram, and tool published on this site also lives directly in the repository. If you prefer to browse neatly formatted posts, you’re in the right place. If you’d rather pull the raw materials, clone the repo, and rummage around like a civilized engineer—also welcome.
 
 This approach solves a simple problem with a simple answer:
+
 **Why maintain separate blog sites when the work already lives in GitHub?**
 
 From here forward, this becomes the single, consolidated home for my professional thinking, writing, and tooling. Expect essays, experiments, half-formed ideas that mature in public, and resources meant to be used—not admired from a distance.
 
 Thanks for stopping by. Poke around. Clone responsibly. And if anything here helps you think more clearly or build something better, then the experiment is working.
 
+---
+
 ## Explore
-- [Decks]({{ site.baseurl }}/decks/)
-- [Diagrams]({{ site.baseurl }}/diagrams/)
-- [Frameworks]({{ site.baseurl }}/frameworks/)
-- [Lexicon]({{ site.baseurl }}/lexicon/)
-- [References]({{ site.baseurl }}/references/)
-- [Blog]({{ site.baseurl }}/blog/)
+
+* [Blog]({{ "/blog/" | relative_url }})
+* [Decks]({{ "/decks/" | relative_url }})
+* [Diagrams]({{ "/diagrams/" | relative_url }})
+* [Frameworks]({{ "/frameworks/" | relative_url }})
+* [Lexicon]({{ "/lexicon/" | relative_url }})
+* [References]({{ "/references/" | relative_url }})
+* [Tools]({{ "/tools/" | relative_url }})
+
+---
+
+## Latest Post
+
+{% assign latest = site.posts | first %}
+{% if latest %}
+**{{ latest.title }}**
+*{{ latest.date | date: "%B %d, %Y" }}*
+
+{{ latest.excerpt | strip_html | truncate: 260 }}
+
+[Read the full article]({{ latest.url | relative_url }})
+{% else %}
+No posts yet. (An empty shelf, patiently judging.)
+{% endif %}
+
+---
+
+## How to Use This Repository
+
+Use this repository when you need:
+
+* a stable reference to AI and Copilot concepts
+* clear terminology across vendors and platforms
+* architecture frameworks for Field Service and connected operations
+* downloadable decks and diagrams intended for external sharing
+
+This is not a development repository. It is a curated library.
+
+---
+
+## Publishing Philosophy
+
+* Content in this repository is considered published
+* Files are not renamed once referenced publicly
+* Updates are additive and time-scoped, not destructive
+* Git history provides provenance and evolution
+* Drafts and experimental material live elsewhere
+
+---
+
+## 📝 Note for Pierre (Yes, You Specifically)
+
+This is here so you don’t have to remember it. Because remembering it is… optimistic.
+
+### To publish a new article:
+
+1. Create a new file in `_posts/`
+2. Name it like this:
+   `YYYY-MM-DD-title-of-the-post.md`
+3. Start the file with front-matter:
+
+   ```
+   ---
+   layout: post
+   title: Your Title Here
+   date: YYYY-MM-DD
+   ---
+   ```
+4. Write the post. Full sentences optional. Clarity encouraged.
+5. Commit. Push. Walk away confidently.
+
+That’s it. No extra steps. No secret switches. No remembering where you put the thing you *just had in your hand*.
+
+This note exists because Pierre is dyslexic, brilliant, and occasionally betrayed by filenames. Future-Pierre: you’re welcome.
+
+---
+
+## Attribution
+
+Authored and curated by Pierre Hulsebus. Intended for architects, operators, and leaders working at the intersection of AI and service operations.
