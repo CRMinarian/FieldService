@@ -18,12 +18,12 @@ So rather than treating GitHub as a mysterious place where developers disappear 
 
 This site is both:
 
-* a professional front-end blog, and
-* a practical back-end repository of working assets.
+* a professional front-end blog
+* a practical back-end repository of working assets
 
-The front end runs on a Jekyll site. The back end is a GitHub repo. The two are connected in a way that feels refreshingly honest: what you read here is what actually exists behind the curtain.
+The front end runs on a Jekyll site. The back end *is* the GitHub repo. The connection is intentionally honest: what you read here is what actually exists behind the curtain.
 
-Every article, framework, diagram, and tool published on this site also lives directly in the repository. If you prefer to browse neatly formatted posts, you’re in the right place. If you’d rather pull the raw materials, clone the repo, and rummage around like a civilized engineer—also welcome.
+Every article, framework, diagram, and tool published on this site also lives directly in the repository. If you prefer neatly formatted posts, you’re in the right place. If you’d rather clone the repo and rummage around like a civilized engineer—also welcome.
 
 This approach solves a simple problem with a simple answer:
 
@@ -31,7 +31,7 @@ This approach solves a simple problem with a simple answer:
 
 From here forward, this becomes the single, consolidated home for my professional thinking, writing, and tooling. Expect essays, experiments, half-formed ideas that mature in public, and resources meant to be used—not admired from a distance.
 
-Thanks for stopping by. Poke around. Clone responsibly. And if anything here helps you think more clearly or build something better, then the experiment is working.
+Thanks for stopping by. Poke around. Clone responsibly.
 
 ---
 
@@ -58,7 +58,7 @@ Thanks for stopping by. Poke around. Clone responsibly. And if anything here hel
 
 [Read the full article]({{ latest.url | relative_url }})
 {% else %}
-No posts yet. (An empty shelf, patiently judging.)
+No posts yet. (An empty shelf. Calm. Judging quietly.)
 {% endif %}
 
 ---
@@ -78,38 +78,42 @@ This is not a development repository. It is a curated library.
 
 ## Publishing Philosophy
 
-* Content in this repository is considered published
+* Content here is considered published
 * Files are not renamed once referenced publicly
 * Updates are additive and time-scoped, not destructive
 * Git history provides provenance and evolution
-* Drafts and experimental material live elsewhere
+* Drafts and experiments live elsewhere
 
 ---
 
-## 📝 Note for Pierre (Yes, You Specifically)
-
-This is here so you don’t have to remember it. Because remembering it is… optimistic.
-
-### To publish a new article:
-
-1. Create a new file in `_posts/`
-2. Name it like this:
-   `YYYY-MM-DD-title-of-the-post.md`
-3. Start the file with front-matter:
-
-   ```
-   ---
-   layout: post
-   title: Your Title Here
-   date: YYYY-MM-DD
-   ---
-   ```
-4. Write the post. Full sentences optional. Clarity encouraged.
-5. Commit. Push. Walk away confidently.
-
-That’s it. No extra steps. No secret switches. No remembering where you put the thing you *just had in your hand*.
-
-This note exists because Pierre is dyslexic, brilliant, and occasionally betrayed by filenames. Future-Pierre: you’re welcome.
+> ## 📝 Note for Pierre (Yes, You Specifically) ❤️
+>
+> This exists so you don’t have to remember it. Because remembering it is… optimistic.
+>
+> ### To publish a new article:
+>
+> 1. Create a new file in `_posts/`
+> 2. Name it: `YYYY-MM-DD-title-of-the-post.md`
+> 3. Paste this at the top:
+>
+> ```
+> ---
+> layout: post
+> title: Your Title Here
+> date: YYYY-MM-DD
+> ---
+> ```
+>
+> 4. Write the post.
+> 5. Commit. Push. Walk away confidently.
+>
+> ### Things Future-Pierre should *not* do:
+>
+> * Do **not** rename `_posts/`
+> * Do **not** rename folders after sharing links
+> * Do **not** “just tweak” `_config.yml` late at night
+>
+> This note exists because Pierre is dyslexic, brilliant, and occasionally betrayed by filenames. Future-Pierre: you’re welcome.
 
 ---
 
