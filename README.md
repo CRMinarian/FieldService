@@ -78,11 +78,11 @@ Intended for architects, operators, and leaders working at the intersection of A
 
 ## Legal and Professional Disclaimer
 
-All materials provided in this repository are shared **in good faith** for general informational and educational purposes only.
+All materials in this repository are provided in good faith for general informational and educational purposes.
 
-The content reflects **independent perspectives and professional opinions** of the author and does not constitute legal, financial, operational, architectural, or commercial advice. Any use of the materials is undertaken at the reader’s own discretion and risk.
+The content reflects independent professional perspectives and does not constitute legal, financial, operational, architectural, or commercial advice. Use of these materials is at the reader’s discretion and risk.
 
-All examples, frameworks, and reference materials are provided on an **arm’s-length basis** and do not create any obligation, warranty, representation, or liability, express or implied.
+All examples, frameworks, and reference materials are provided as-is and do not create any obligation, warranty, representation, or liability, express or implied.
 
 Nothing in this repository should be interpreted as:
 
@@ -90,27 +90,24 @@ Nothing in this repository should be interpreted as:
 * A guarantee of performance or results
 * An endorsement of specific vendors, products, or implementations
 
-The views and opinions expressed here are solely those of the author and do not represent the views, positions, or strategies of any past, present, or future employer, partner, or affiliated organization.
+The views expressed here are solely those of the author and do not represent the views, positions, or strategies of any past, present, or future employer, partner, or affiliated organization.
 
-This repository is intended as a public knowledge resource, not a substitute for professional consultation tailored to specific business, legal, or technical circumstances.
-}
+This repository is a public knowledge resource and is not a substitute for professional consultation tailored to specific business, legal, or technical circumstances.
 
 ## Copyright and License
 
 © 2025 Pierre Hulsebus. All rights reserved.
 
-Unless otherwise noted, the content of this repository is licensed under the
-**Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+Unless otherwise noted, the content of this repository is licensed under the **Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)** license.
 
 This means:
 
-* You are free to share, reference, and adapt the material for **non-commercial purposes**
+* You are free to share, reference, and adapt the material for **non-commercial** purposes
 * Proper attribution to the author is required
 * Commercial use, resale, or inclusion in paid offerings requires explicit permission from the author
 
-The author retains full ownership of all original content and reserves the right to reuse, relicense, or incorporate this material into future books, courses, client engagements, or commercial offerings.
+The author retains ownership of all original content and may reuse, relicense, or incorporate it into future books, courses, client engagements, or commercial offerings.
 
-Where third-party materials are referenced or included, all respective copyrights remain with their original owners and are used here under fair use, attribution, or license where applicable.
+Where third-party materials are referenced or included, all respective copyrights remain with their original owners and are used under fair use, attribution, or license where applicable.
 
 For commercial licensing or reuse inquiries, contact the repository owner directly.
-
