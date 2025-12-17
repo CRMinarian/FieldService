@@ -1,5 +1,5 @@
 ---
-title: Decks
+title: Diagrams
 ---
 
 {% for file in site.static_files %}
