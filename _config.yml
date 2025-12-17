@@ -1,0 +1,26 @@
+# _config.yml
+title: FieldService Knowledge Base
+description: Canonical public knowledge base for AI, Field Service, and Copilot architecture
+theme: minima
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+collections:
+  decks:
+    output: true
+  diagrams:
+    output: true
+  frameworks:
+    output: true
+  lexicon:
+    output: true
+  references:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
