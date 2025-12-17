@@ -1,3 +1,12 @@
+# ================================================================================
+# Notion to GitHub Sync Workflow
+# VERSION: 1.0.0
+# CREATED: 2025-12-17 19:45 UTC
+# AUTHOR: Claude (Anthropic) for Pierre Hulsebus
+# CHANGELOG:
+#   - 1.0.0 (2025-12-17 19:45 UTC): Initial version using requests library
+# ================================================================================
+
 name: Notion to GitHub Sync
 
 on:
@@ -39,7 +48,7 @@ jobs:
           git config --global user.name 'Notion Sync Bot'
           git config --global user.email 'notion-sync@users.noreply.github.com'
           
-          # Add all content directories
+          # Add all content directories (|| true prevents failure if dir doesn't exist)
           git add _posts/ decks/ frameworks/ references/ blog/ || true
           
           # Check if there are changes to commit
