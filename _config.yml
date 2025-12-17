@@ -1,26 +1,58 @@
-# _config.yml
+# Site metadata
 title: FieldService Knowledge Base
 description: Canonical public knowledge base for AI, Field Service, and Copilot architecture
-theme: minima
+url: https://crminarian.github.io
+baseurl: /FieldService
 
+# Build settings
+theme: minima
 markdown: kramdown
+
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
+# Blog configuration
 collections:
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
   decks:
     output: true
+    permalink: /decks/:path/
+
   diagrams:
     output: true
+    permalink: /diagrams/:path/
+
   frameworks:
     output: true
+    permalink: /frameworks/:path/
+
   lexicon:
     output: true
+    permalink: /lexicon/:path/
+
   references:
     output: true
+    permalink: /references/:path/
 
+# Defaults
 defaults:
   - scope:
       path: ""
     values:
       layout: page
+
+  - scope:
+      path: "_blog"
+      type: blog
+    values:
+      layout: post
+
+# Excludes (keep build clean)
+exclude:
+  - tools
+  - README.md
+  - README_EXE_
