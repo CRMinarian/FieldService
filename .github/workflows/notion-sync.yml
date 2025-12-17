@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install notion-client==2.0.0
+          pip install requests
       
       - name: Sync from Notion
         env:
@@ -40,7 +40,7 @@ jobs:
           git config --global user.email 'notion-sync@users.noreply.github.com'
           
           # Add all content directories
-          git add _posts/ decks/ frameworks/ references/ blog/
+          git add _posts/ decks/ frameworks/ references/ blog/ || true
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
