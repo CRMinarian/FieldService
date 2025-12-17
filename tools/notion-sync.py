@@ -7,6 +7,14 @@ Uses requests directly to avoid notion-client version issues.
 
 Database ID: b04bfdf3-554e-4a56-bdb9-25ec1f414334
 Repository: CRMinarian/FieldService
+
+================================================================================
+VERSION: 1.0.0
+CREATED: 2025-12-17 19:45 UTC
+AUTHOR: Claude (Anthropic) for Pierre Hulsebus
+CHANGELOG:
+  - 1.0.0 (2025-12-17 19:45 UTC): Initial version using requests library directly
+================================================================================
 """
 
 import os
@@ -312,7 +320,7 @@ def update_notion_sync_status(page_id: str, github_url: str) -> None:
 def main() -> None:
     """Main sync function"""
     print("=" * 60)
-    print("🔄 Notion → GitHub Sync")
+    print("🔄 Notion → GitHub Sync (v1.0.0)")
     print("=" * 60)
     print(f"📁 Repository: {REPO_ROOT}")
     print(f"📊 Database ID: {DATABASE_ID}")
