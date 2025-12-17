@@ -3,8 +3,7 @@
 Notion to GitHub Sync
 Syncs published posts from Notion Content Pipeline database to Jekyll-compatible markdown.
 
-This script is SEPARATE from publish.py (which handles Git safety/versioning).
-Workflow: notion-sync.py creates/updates files → publish.py validates → git commit
+Uses requests directly to avoid notion-client version issues.
 
 Database ID: b04bfdf3-554e-4a56-bdb9-25ec1f414334
 Repository: CRMinarian/FieldService
@@ -12,28 +11,30 @@ Repository: CRMinarian/FieldService
 
 import os
 import re
+import requests
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
-try:
-    from notion_client import Client
-except ImportError:
-    print("Error: notion-client not installed. Run: pip install notion-client")
-    raise SystemExit(1)
-
 # Repository root (parent of tools/)
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-# Initialize Notion client
+# Notion API configuration
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 DATABASE_ID = os.environ.get("NOTION_DATABASE_ID", "b04bfdf3-554e-4a56-bdb9-25ec1f414334")
+NOTION_API_URL = "https://api.notion.com/v1"
+NOTION_VERSION = "2022-06-28"
 
 if not NOTION_TOKEN:
     print("Error: NOTION_TOKEN environment variable not set")
     raise SystemExit(1)
 
-notion = Client(auth=NOTION_TOKEN)
+# Headers for Notion API
+HEADERS = {
+    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Content-Type": "application/json",
+    "Notion-Version": NOTION_VERSION
+}
 
 # Output directory mapping by content type
 OUTPUT_DIRS = {
@@ -81,6 +82,18 @@ def get_property_value(properties: Dict, prop_name: str, prop_type: str) -> Any:
     elif prop_type == 'url':
         return prop.get('url', '')
     return ''
+
+
+def get_block_children(block_id: str) -> List[Dict]:
+    """Get children blocks of a block/page"""
+    url = f"{NOTION_API_URL}/blocks/{block_id}/children"
+    response = requests.get(url, headers=HEADERS)
+    
+    if response.status_code != 200:
+        print(f"  ⚠️ Failed to get blocks: {response.status_code}")
+        return []
+    
+    return response.json().get('results', [])
 
 
 def notion_blocks_to_markdown(blocks: List[Dict]) -> str:
@@ -139,9 +152,12 @@ def notion_blocks_to_markdown(blocks: List[Dict]) -> str:
             text = extract_text(block['toggle'].get('rich_text', []))
             markdown_lines.append(f"\n<details>\n<summary>{text}</summary>\n")
             if block.get('has_children'):
-                children = notion.blocks.children.list(block['id'])
-                child_md = notion_blocks_to_markdown(children.get('results', []))
-                markdown_lines.append(child_md)
+                try:
+                    children = get_block_children(block['id'])
+                    child_md = notion_blocks_to_markdown(children)
+                    markdown_lines.append(child_md)
+                except Exception:
+                    pass
             markdown_lines.append("</details>\n")
         
         elif block_type == 'image':
@@ -166,16 +182,25 @@ def notion_blocks_to_markdown(blocks: List[Dict]) -> str:
 
 def get_published_posts() -> List[Dict]:
     """Query Notion database for published posts"""
-    response = notion.databases.query(
-        database_id=DATABASE_ID,
-        filter={
+    url = f"{NOTION_API_URL}/databases/{DATABASE_ID}/query"
+    
+    payload = {
+        "filter": {
             "property": "Status",
             "select": {
                 "equals": "Published"
             }
         }
-    )
-    return response.get('results', [])
+    }
+    
+    response = requests.post(url, headers=HEADERS, json=payload)
+    
+    if response.status_code != 200:
+        print(f"Error querying database: {response.status_code}")
+        print(response.text)
+        return []
+    
+    return response.json().get('results', [])
 
 
 def create_markdown_file(page: Dict) -> Optional[Path]:
@@ -217,8 +242,7 @@ def create_markdown_file(page: Dict) -> Optional[Path]:
         slug = slugify(title)
     
     # Get page content (blocks)
-    blocks_response = notion.blocks.children.list(page_id)
-    blocks = blocks_response.get('results', [])
+    blocks = get_block_children(page_id)
     content = notion_blocks_to_markdown(blocks)
     
     # Determine output directory
@@ -229,12 +253,16 @@ def create_markdown_file(page: Dict) -> Optional[Path]:
     # Build frontmatter
     tags_yaml = '\n'.join([f'  - "{tag}"' for tag in tags]) if tags else '  - "Field Service"'
     
+    # Escape quotes in title and excerpt for YAML
+    safe_title = title.replace('"', '\\"')
+    safe_excerpt = excerpt.replace('"', '\\"')
+    
     frontmatter = f"""---
 layout: post
-title: "{title}"
+title: "{safe_title}"
 date: {pub_date.strftime('%Y-%m-%d')}
 author: "Pierre Hulsebus"
-excerpt: "{excerpt}"
+excerpt: "{safe_excerpt}"
 featured: {str(featured).lower()}
 tags:
 {tags_yaml}
@@ -264,14 +292,19 @@ notion_id: "{page_id}"
 
 def update_notion_sync_status(page_id: str, github_url: str) -> None:
     """Update the Notion page to mark it as synced"""
+    url = f"{NOTION_API_URL}/pages/{page_id}"
+    
+    payload = {
+        "properties": {
+            "GitHub Synced": {"checkbox": True},
+            "GitHub URL": {"url": github_url}
+        }
+    }
+    
     try:
-        notion.pages.update(
-            page_id=page_id,
-            properties={
-                "GitHub Synced": {"checkbox": True},
-                "GitHub URL": {"url": github_url}
-            }
-        )
+        response = requests.patch(url, headers=HEADERS, json=payload)
+        if response.status_code != 200:
+            print(f"  ⚠️ Could not update Notion sync status: {response.status_code}")
     except Exception as e:
         print(f"  ⚠️ Could not update Notion sync status: {e}")
 
@@ -328,7 +361,6 @@ def main() -> None:
         print("\nFiles ready for commit:")
         for f in synced_files:
             print(f"  • {f}")
-        print("\nNext step: Run `python tools/publish.py` or commit directly.")
 
 
 if __name__ == "__main__":
