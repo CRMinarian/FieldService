@@ -48,6 +48,21 @@ cd .. && DS_CHROMIUM_PATH="C:\\Program Files\\Google\\Chrome\\Application\\chrom
 - Upload localDir must be **absolute** (`Z:/Projects/FieldService/ds-bundle`) — a
   relative `./ds-bundle` got doubled by the DesignSync tool.
 
+## Unified project — not just components (added 2026-07-02)
+The Claude Design project holds the **whole model**, not only the parts bin.
+Beyond the 24 components, these reference groups were added (generators in
+`.design-sync/extras/`):
+- **Pages** (Home/Consulting/About) — full site wireframes, composed from the real
+  `window.FSN` components. Generator: `.design-sync/extras/build-extras.mjs`.
+- **Brand Guide** — the approved v3 guide as a card (`.design-sync/extras/design-guide-v3.html`).
+- **Logo** — the stamped Alfa Slab wordmark lockup.
+- **Brand Assets** — YouTube banner, YT thumbnail, LinkedIn Live, e-book cover
+  (self-contained, inlined fonts). Generator: card-emission tail of
+  `.design-sync/extras/build-assets.mjs` (reads `.design-sync/extras/brand-kit.css`).
+These extras are NOT in the `_ds_bundle.js` header `components` list (they aren't
+`window.FSN` members), so `validate` prints a benign `count mismatch: 33 previews vs
+24 components` — expected. Render check covers all 33 (0 bad).
+
 ## Component inventory (24, groups)
 Primitives: Button, Eyebrow, Pill, SectionHead, Section · Navigation: Nav ·
 Hero: Hero, TrustBar · Home: Pillars, LeadMagnet, Podcast, Videos,
