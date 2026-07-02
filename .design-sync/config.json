@@ -1,0 +1,7 @@
+{
+  "projectId": "8580f095-aac2-4392-ad30-c3d11f8aac56",
+  "projectName": "Field Service Nerd",
+  "shape": "package",
+  "offEnvelope": true,
+  "notes": "Off-envelope repo: Babel-in-browser JSX in web/, components assign to window (primitives to window.FSN). No buildable component package/dist. Layout is produced off-script per .design-sync/NOTES.md. See NOTES.md before running."
+}

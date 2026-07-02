@@ -8,11 +8,11 @@ function Nav({ onJoin, theme, onToggleTheme }) {
   return (
     <nav data-theme="dark" style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: 'rgba(6,9,16,.92)', backdropFilter: 'var(--blur-nav)',
+      background: 'rgba(24,21,16,.93)', backdropFilter: 'var(--blur-nav)',
       borderBottom: '1px solid var(--border-subtle)',
     }}>
       <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '12px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="/" className="fsn-brand" style={{ display: 'flex', alignItems: 'center', gap: 11, flex: 'none', color: 'var(--paper)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, letterSpacing: '.005em', textDecoration: 'none' }}>
+        <a href="/" className="fsn-brand" style={{ display: 'flex', alignItems: 'center', gap: 11, flex: 'none', color: 'var(--paper)', fontFamily: 'var(--font-wordmark)', fontWeight: 400, fontSize: 20, letterSpacing: '.02em', textTransform: 'uppercase', textDecoration: 'none' }}>
           <img src="assets/fsn-mark.svg" height="30" width="30" alt="" />
           <span style={{ whiteSpace: 'nowrap' }}>Field Service&nbsp;<span style={{ color: 'var(--orange)' }}>Nerd</span></span>
         </a>

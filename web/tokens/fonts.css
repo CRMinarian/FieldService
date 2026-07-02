@@ -1,11 +1,14 @@
 /* ============================================================
-   Field Service Nerd — Fonts (Signal & Grit)
-   Display : Space Grotesk — industrial technical sans; carries load
-             (hero, section heads, wordmark, stat numbers).
-   Body/UI : Inter — clean operational reading text.
-   Data    : JetBrains Mono — monospace as data. Eyebrows, labels,
-             coordinates, timestamps, status marks. Never long-form.
-   Loaded from Google Fonts (free). To self-host, drop .woff2 in
-   assets/fonts/ and swap this @import for @font-face rules.
+   Field Service Nerd — Fonts (Field Manual, v3-final)
+   Wordmark : Alfa Slab One — heavy antique slab. The stamped logo
+              face. Cover title, mega display only. Never body.
+   Display  : Oswald — condensed industrial sans. Section heads,
+              buttons, labels, UI. Carries the workhorse load.
+   Body/UI  : Inter — clean operational reading text.
+   Data     : JetBrains Mono — part numbers, specs, status marks.
+              Used sparingly.
+   Loaded from Google Fonts (free). To self-host, drop the .woff2 in
+   assets/fonts/ and swap this @import for @font-face rules (see
+   /web/brand/ for the inlined-font asset templates).
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
