@@ -1,0 +1,47 @@
+/* ============================================================
+   Field Service Nerd — Radius, shadow, border & motion (Signal & Grit)
+   Squared, instrument-panel geometry. Low radii. Restrained motion —
+   nothing bounces. Signal accents get a controlled glow.
+   ============================================================ */
+:root {
+  /* --- Corner radii (tight, engineered) --- */
+  --radius-sm:   3px;   /* inputs, chips */
+  --radius-md:   5px;   /* buttons */
+  --radius-lg:   8px;   /* cards, tiles, frames */
+  --radius-xl:   12px;  /* feature cards, CTA blocks */
+  --radius-pill: 999px; /* pills */
+
+  /* --- Borders --- */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+
+  /* --- Shadows (cold, navy-tinted; deep for control-room UI) --- */
+  --shadow-sm:  0 2px 8px rgba(3, 6, 14, 0.35);
+  --shadow-md:  0 12px 30px rgba(3, 6, 14, 0.45);
+  --shadow-lg:  0 26px 56px rgba(3, 6, 14, 0.55);
+  --shadow-glow-orange: 0 14px 40px rgba(255, 106, 26, 0.26); /* signal accent */
+  --shadow-glow-cyan:   0 10px 34px rgba(36, 211, 230, 0.20); /* data accent */
+
+  /* --- Motion --- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   0.15s;
+  --dur-base:   0.25s;
+  --lift-hover: translateY(-2px);
+
+  /* --- Effects --- */
+  --blur-nav: blur(10px);
+
+  /* Signature backgrounds — the grid beneath the noise.
+     Dot grid: the coordinate system rendered visible.
+     Scan glow: an active session / alert haze. */
+  --dot-grid:
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.4px);
+  --dot-grid-size: var(--grid-cell) var(--grid-cell);
+  --rule-grid:
+    linear-gradient(rgba(36, 211, 230, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 211, 230, 0.06) 1px, transparent 1px);
+  --control-glow: radial-gradient(1100px 520px at 82% -12%, rgba(255, 106, 26, 0.10) 0, transparent 60%);
+  /* Hero ground is a control-room dark section in BOTH themes — literal navy,
+     not a theme token, so it stays dark under a light page (heroes carry data-theme="dark"). */
+  --hero-ground:  radial-gradient(900px 480px at 78% 20%, #101a2e 0, #0A0E17 62%);
+}

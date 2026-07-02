@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Field Service AI Primer — Field Service Nerd</title>
+<script>
+  /* Don't auto-start — start manually after fonts are confirmed loaded so the
+     display/mono faces don't fall back to serif in the rendered PDF. */
+  window.PagedConfig = { auto: false, after: () => { window.__pagedReady = true; } };
+</script>
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+<script>
+  document.fonts.ready.then(function () {
+    if (window.PagedPolyfill) { window.PagedPolyfill.preview(); }
+  });
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0A0E17;
+    --ink:    #10192B;
+    --muted:  #566076;
+    --orange: #E85600;
+    --cyan:   #0B6E7D;
+    --line:   #D2DBEA;
+    --paper:  #FFFFFF;
+    --disp: 'Space Grotesk', Arial, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  @page {
+    size: 8.5in 11in;
+    margin: 0.7in 0.75in 0.8in;
+    @bottom-center {
+      content: counter(page);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt; color: #8593AB;
+    }
+    @bottom-left {
+      content: "FIELD SERVICE NERD";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt; letter-spacing: .12em; color: #8593AB;
+    }
+  }
+  @page :first { margin: 0; @bottom-center { content: none; } @bottom-left { content: none; } }
+  @page cover  { margin: 0; @bottom-center { content: none; } @bottom-left { content: none; } }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--body); color: var(--ink); line-height: 1.6; font-size: 11pt; }
+
+  .page-break { break-after: page; }
+
+  /* COVER */
+  .cover { page: cover; break-after: page; height: 100vh; background: var(--navy); color: #F1F5FB; padding: 0.9in 0.85in; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .cover::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1.4px); background-size: 26px 26px; opacity: .8; }
+  .cover-top, .cover-mid, .cover-bot { position: relative; z-index: 1; }
+  .kicker { font-family: var(--mono); font-size: 10pt; letter-spacing: .18em; text-transform: uppercase; color: #24D3E6; }
+  .cover h1 { font-family: var(--disp); font-weight: 700; font-size: 52pt; line-height: .98; margin: 0; letter-spacing: -0.01em; }
+  .cover h1 span { color: #FF6A1A; }
+  .cover-sub { font-size: 13pt; color: rgba(241,245,251,.72); max-width: 5in; margin-top: 0.2in; line-height: 1.5; }
+  .cover-rule { height: 3px; width: 120px; background: linear-gradient(90deg, #FF6A1A, #24D3E6); margin: 0.35in 0 0; }
+  .cover-author { font-family: var(--mono); font-size: 10pt; color: rgba(241,245,251,.7); letter-spacing: .04em; }
+
+  /* SECTION HEADERS */
+  .section-open { break-before: page; padding-top: 0.2in; }
+  .section-num { font-family: var(--mono); font-size: 11pt; color: var(--cyan); letter-spacing: .1em; }
+  h2 { font-family: var(--disp); font-weight: 700; font-size: 26pt; color: var(--navy); line-height: 1.05; margin: 6pt 0 4pt; letter-spacing: -0.01em; }
+  .lede { font-size: 12pt; color: var(--muted); line-height: 1.55; margin: 0 0 18pt; max-width: 5.6in; }
+  .rule { height: 2px; width: 90px; background: var(--orange); margin: 10pt 0 18pt; }
+
+  h3 { font-family: var(--disp); font-weight: 600; font-size: 13pt; color: var(--navy); margin: 18pt 0 6pt; }
+  p { margin: 0 0 10pt; }
+  ul { margin: 0 0 12pt; padding-left: 0; list-style: none; }
+  li { padding-left: 20px; position: relative; margin-bottom: 7pt; }
+  li::before { content: "+"; position: absolute; left: 0; color: var(--cyan); font-family: var(--mono); font-weight: 600; }
+
+  .callout { border-left: 3px solid var(--orange); background: #F6F9FE; padding: 12pt 16pt; margin: 14pt 0; font-size: 10.5pt; }
+  .callout .label { font-family: var(--mono); font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 4pt; }
+
+  .draft-note { font-family: var(--mono); font-size: 8.5pt; color: #8593AB; letter-spacing: .04em; }
+
+  /* CONTENTS */
+  .toc { break-after: page; padding-top: 0.3in; }
+  .toc h2 { margin-bottom: 18pt; }
+  .toc-row { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 9pt 0; font-size: 12pt; }
+  .toc-row .t { font-family: var(--disp); font-weight: 600; color: var(--navy); }
+  .toc-row .n { font-family: var(--mono); color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-top">
+    <span class="kicker">// Field Service Nerd</span>
+  </div>
+  <div class="cover-mid">
+    <span class="kicker">Practitioner Primer · v1</span>
+    <h1>AI in<br>Field <span>Service.</span></h1>
+    <p class="cover-sub">What's real, what's hype, and where AI actually pays off in Dynamics 365 Field Service operations.</p>
+    <div class="cover-rule"></div>
+  </div>
+  <div class="cover-bot">
+    <p class="cover-author">Pierre Hulsebus — ex-Microsoft Global Black Belt, D365 Field Service<br>fieldservicenerd.com</p>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section class="toc">
+  <span class="section-num">// Contents</span>
+  <h2>What's inside</h2>
+  <div class="toc-row"><span class="t">00 · How to read this</span><span class="n">p.3</span></div>
+  <div class="toc-row"><span class="t">01 · The honest state of AI in field service</span><span class="n">p.4</span></div>
+  <div class="toc-row"><span class="t">02 · Copilot — where it earns its seat</span><span class="n">p.5</span></div>
+  <div class="toc-row"><span class="t">03 · Scheduling &amp; RSO intelligence</span><span class="n">p.6</span></div>
+  <div class="toc-row"><span class="t">04 · IoT-to-work-order: the pattern that holds</span><span class="n">p.7</span></div>
+  <div class="toc-row"><span class="t">05 · The buyer's checklist</span><span class="n">p.8</span></div>
+</section>
+
+<!-- 00 -->
+<section class="section-open">
+  <span class="section-num">00</span>
+  <h2>How to read this</h2>
+  <div class="rule"></div>
+  <p class="lede">This is a practitioner's field guide, not a vendor deck. Every claim is written from the perspective of someone who has shipped — and rescued — Dynamics 365 Field Service in production.</p>
+  <p>Read it in order or jump to the section you're fighting with today. Each section ends with a decision you can actually take back to your team.</p>
+  <div class="callout"><span class="label">Draft · v1 outline</span>This edition is the structural first cut. The full prose is being written; the skeleton below is the real table of what this primer covers.</div>
+</section>
+
+<!-- 01 -->
+<section class="section-open">
+  <span class="section-num">01</span>
+  <h2>The honest state of AI in field service</h2>
+  <div class="rule"></div>
+  <p class="lede">Separating the demo from the deployment — what AI in field service actually looks like once the pilot ends.</p>
+  <h3>What this section covers</h3>
+  <ul>
+    <li>The three AI claims vendors make — and which one survives contact with a real operation</li>
+    <li>Where the value actually lands: dispatch, triage, knowledge, and forecasting</li>
+    <li>The "AI theater" tells to watch for in a demo</li>
+    <li>A realistic maturity curve: crawl / walk / run for an AI-assisted service org</li>
+  </ul>
+</section>
+
+<!-- 02 -->
+<section class="section-open">
+  <span class="section-num">02</span>
+  <h2>Copilot — where it earns its seat</h2>
+  <div class="rule"></div>
+  <p class="lede">Microsoft Copilot in Field Service: the surfaces that pay off, and the ones that don't yet.</p>
+  <h3>What this section covers</h3>
+  <ul>
+    <li>Copilot for the dispatcher vs. Copilot for the technician — different jobs, different ROI</li>
+    <li>Work order summarization and recap: real time saved, measured</li>
+    <li>Where Copilot needs clean data to be useful — and what "clean" means here</li>
+    <li>Guardrails: what you must govern before you turn it on</li>
+  </ul>
+</section>
+
+<!-- 03 -->
+<section class="section-open">
+  <span class="section-num">03</span>
+  <h2>Scheduling &amp; RSO intelligence</h2>
+  <div class="rule"></div>
+  <p class="lede">The hardest, most valuable problem in field service — and where the intelligence actually ships vs. where it's still a slide.</p>
+  <h3>What this section covers</h3>
+  <ul>
+    <li>Resource Scheduling Optimization: what it optimizes, and what it can't see</li>
+    <li>Constraints that break the demo: skills, territories, SLAs, travel, parts</li>
+    <li>Why go-live scheduling never matches the sales-cycle scheduling</li>
+    <li>The data and configuration that make optimization trustworthy</li>
+  </ul>
+</section>
+
+<!-- 04 -->
+<section class="section-open">
+  <span class="section-num">04</span>
+  <h2>IoT-to-work-order: the pattern that holds</h2>
+  <div class="rule"></div>
+  <p class="lede">Connected Field Service done right — the path from a pinging sensor to a dispatched technician that survives production.</p>
+  <h3>What this section covers</h3>
+  <ul>
+    <li>The reference pattern: signal → alert → triage → work order → dispatch</li>
+    <li>Avoiding alert storms: thresholds, debouncing, and human-in-the-loop</li>
+    <li>Where AI adds value in the loop (and where it just adds latency)</li>
+    <li>The integration topology that doesn't fall apart at scale</li>
+  </ul>
+</section>
+
+<!-- 05 -->
+<section class="section-open">
+  <span class="section-num">05</span>
+  <h2>The buyer's checklist</h2>
+  <div class="rule"></div>
+  <p class="lede">A checklist you can defend to the board before you buy or turn on any AI capability.</p>
+  <h3>What this section covers</h3>
+  <ul>
+    <li>The questions to ask a vendor that separate shipping from roadmap</li>
+    <li>Data-readiness gates: what must be true before AI is worth it</li>
+    <li>How to pilot without lying to yourself about the results</li>
+    <li>The one-page scorecard</li>
+  </ul>
+  <div class="callout"><span class="label">Next step</span>Full prose, worked examples, and the printable scorecard land in v2. Get it first — <strong>fieldservicenerd.com</strong>.</div>
+  <p class="draft-note">© Field Service Nerd · fieldservicenerd.com · CC BY-NC 4.0</p>
+</section>
+
+</body>
+</html>

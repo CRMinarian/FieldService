@@ -1,0 +1,124 @@
+/* ============================================================
+   Field Service Nerd — Color tokens (Signal & Grit)
+   Deep navy control-room ground + electric-orange SIGNAL + cold
+   cyan DATA, delivered as a TWO-THEME system. DARK is the default
+   (terminal / control-room). LIGHT is the toggle (cold paper /
+   schematic). Set [data-theme="light"] on <html> to flip.
+
+   Color carries information, not decoration:
+     ORANGE  — signal / urgency / intelligence / primary action
+     CYAN    — data / labels / coordinates / secondary accent
+     NAVY     — infrastructure / ground / clearance
+
+   Body text meets WCAG AA (>= 4.5:1) on its background in BOTH themes:
+     dark  — #C7D0E0 on #0A0E17  ~ 12.9:1
+     light — #10192B on #EEF2F9  ~ 15.1:1
+   Orange and cyan are ACCENTS — never a long-text background, and
+   cyan is never body-text color on the light (paper) ground.
+   ============================================================ */
+:root {
+  /* ===== RAW BRAND PALETTE (theme-independent) ===== */
+  --navy-ink:     #060910;  /* near-black navy — always-dark sections */
+  --orange:       #FF6A1A;  /* electric orange — the signal */
+  --orange-bright:#FF8A3D;  /* hover / lifted signal */
+  --orange-deep:  #E85600;  /* pressed / AA-on-light signal */
+  --cyan:         #24D3E6;  /* cold cyan — the data carrier */
+  --cyan-bright:  #5CE6F4;  /* data highlight on dark */
+  --cyan-deep:    #0B6E7D;  /* AA-on-light data / teal ink */
+  --paper:        #EEF2F9;  /* cold light ground */
+
+  /* dark ramp (control-room) */
+  --d-bg:        #0A0E17;   /* deepest page ground */
+  --d-bg-2:      #0D121C;   /* alternating section band */
+  --d-surface:   #121826;   /* cards / panels */
+  --d-surface-2: #1A2233;   /* elevated panel */
+  --d-line:      #263042;   /* hairlines on dark */
+  --d-text:      #C7D0E0;   /* steel body (NOT pure white) */
+  --d-strong:    #F1F5FB;   /* headlines on dark */
+  --d-muted:     #8593AB;   /* muted steel */
+
+  /* light ramp (cold paper) */
+  --l-bg:        #EEF2F9;   /* paper ground */
+  --l-band:      #E1E7F2;   /* alternating section band */
+  --l-surface:   #FFFFFF;   /* cards */
+  --l-surface-2: #F6F9FE;   /* soft card */
+  --l-line:      #D2DBEA;   /* hairlines on light */
+  --l-text:      #10192B;   /* ink navy body */
+  --l-strong:    #0A0E17;   /* headlines on light */
+  --l-muted:     #566076;   /* muted slate */
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — DARK (default). Reference THESE in components.
+   A `[data-theme="dark"]` wrapper re-applies these, so hero / signal
+   sections can stay control-room-dark inside a light page.
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --surface-page:       var(--d-bg);
+  --surface-page-alt:   var(--d-bg-2);
+  --surface-card:       var(--d-surface);
+  --surface-card-alt:   var(--d-surface-2);
+  --surface-dark:       var(--navy-ink);   /* always-dark sections */
+  --surface-accent:     var(--orange);     /* orange CTA panels */
+
+  --text-strong:        var(--d-strong);
+  --text-body:          var(--d-text);
+  --text-muted:         var(--d-muted);
+  --text-on-dark:       var(--d-text);
+  --text-on-dark-muted: var(--d-muted);
+  --text-on-accent:     var(--navy-ink);   /* text on orange */
+
+  --color-accent:       var(--orange);     /* primary punch — pops on navy */
+  --color-accent-press: var(--orange-deep);
+  --color-data:         var(--cyan);       /* monospace data marks */
+  --color-brand:        var(--cyan);       /* secondary brand accent */
+  --color-outline:      var(--orange);     /* secondary button outline */
+  --color-kicker:       var(--cyan);       /* eyebrow/kicker (data) — AA on navy */
+
+  --border-subtle:      var(--d-line);
+  --border-strong:      var(--d-text);
+
+  --link:               var(--orange);
+  --focus-ring:         var(--cyan);
+
+  /* rgba helpers for glows / hairline tints (component convenience) */
+  --orange-rgb: 255, 106, 26;
+  --cyan-rgb:   36, 211, 230;
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — LIGHT (toggle). Flip by [data-theme="light"].
+   ============================================================ */
+:root[data-theme="light"],
+[data-theme="light"] {
+  --surface-page:       var(--l-bg);
+  --surface-page-alt:   var(--l-band);
+  --surface-card:       var(--l-surface);
+  --surface-card-alt:   var(--l-surface-2);
+  --surface-dark:       var(--navy-ink);
+  --surface-accent:     var(--orange);
+
+  --text-strong:        var(--l-strong);
+  --text-body:          var(--l-text);
+  --text-muted:         var(--l-muted);
+  --text-on-dark:       var(--d-text);
+  --text-on-dark-muted: var(--d-muted);
+  --text-on-accent:     var(--navy-ink);
+
+  --color-accent:       var(--orange-deep);/* AA on paper */
+  --color-accent-press: var(--orange-deep);
+  --color-data:         var(--cyan-deep);  /* teal ink reads on paper */
+  --color-brand:        var(--cyan-deep);
+  --color-outline:      var(--orange-deep);
+  --color-kicker:       var(--cyan-deep);  /* eyebrow/kicker — AA on paper */
+
+  --border-subtle:      var(--l-line);
+  --border-strong:      var(--l-strong);
+
+  --link:               var(--orange-deep);
+  --focus-ring:         var(--cyan-deep);
+
+  --orange-rgb: 232, 86, 0;
+  --cyan-rgb:   11, 110, 125;
+}

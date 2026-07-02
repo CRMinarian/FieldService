@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Base — Field Service Nerd</title>
+<meta name="description" content="The Field Service Nerd knowledge base: decks, lexicon, frameworks, and references on Dynamics 365 Field Service, AI, scheduling, and IoT. Canonical, opinionated, no vendor gloss.">
+<meta property="og:title" content="Knowledge Base — Field Service Nerd">
+<meta property="og:description" content="Decks, lexicon, frameworks, and references on D365 Field Service, AI, scheduling, and IoT.">
+<meta property="og:image" content="https://fieldservicenerd.com/assets/fsn-youtube-channel-art.png">
+<meta property="og:url" content="https://fieldservicenerd.com/kb">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fieldservicenerd.com/kb">
+<link rel="icon" href="assets/fsn-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .kb-nav { position: sticky; top: 0; z-index: 50; background: rgba(6,9,16,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+  .kb-nav-logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--paper); text-decoration: none; }
+  .kb-nav-link { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--paper); opacity: .78; text-decoration: none; }
+  .kb-nav-link:hover { opacity: 1; }
+
+  .kb-hero { position: relative; overflow: hidden; background: var(--hero-ground); padding: 76px 24px 64px; }
+  .kb-hero-inner { position: relative; z-index: 1; max-width: var(--content-max); margin: 0 auto; }
+  .kb-hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(36px,6vw,64px); line-height: 1.0; color: var(--paper); margin: 16px 0 0; letter-spacing: var(--tracking-hero); }
+  .kb-hero h1 span { color: var(--orange); }
+  .kb-hero p { color: var(--text-on-dark-muted); font-size: 18px; line-height: 1.6; max-width: 560px; margin: 18px 0 0; }
+
+  .kb-wrap { max-width: var(--content-max); margin: 0 auto; padding: 64px 24px 80px; }
+  .kb-section { margin-bottom: 56px; }
+  .kb-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px; margin-bottom: 24px; }
+  .kb-section-head h2 { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--text-strong); margin: 0; }
+  .kb-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+  @media (max-width: 760px) { .kb-grid { grid-template-columns: 1fr; } }
+
+  .kb-card { display: flex; flex-direction: column; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; }
+  .kb-card:hover { border-color: rgba(var(--orange-rgb),.5); }
+  .kb-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--text-strong); margin: 12px 0 8px; line-height: 1.15; }
+  .kb-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin: 0 0 16px; flex: 1; }
+  .kb-card .go { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: .02em; }
+
+  .kb-shell { background: var(--surface-card-alt); border: 1px dashed var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; }
+  .kb-shell h3 { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--text-strong); margin: 10px 0 8px; }
+  .kb-shell p { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+  .kb-status { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); }
+
+  .kb-footer { border-top: 1px solid var(--border-subtle); padding: 30px 24px; text-align: center; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: .02em; }
+  .kb-footer a { color: var(--color-data); text-decoration: none; }
+</style>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('fsn-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<nav class="kb-nav">
+  <a href="/" class="kb-nav-logo"><img src="assets/fsn-mark.svg" height="26" width="26" alt=""> Field Service <span style="color:var(--orange)">Nerd</span></a>
+  <div style="display:flex;align-items:center;gap:22px;">
+    <a href="/consulting" class="kb-nav-link">Consulting</a>
+    <a href="/about" class="kb-nav-link">About</a>
+    <a href="/#join" class="kb-nav-link" style="color:var(--orange);opacity:1;">Get the Brief</a>
+  </div>
+</nav>
+
+<header class="kb-hero" data-theme="dark">
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div class="kb-hero-inner">
+    <span class="data-mark" style="color:var(--cyan)">Knowledge Base // v1</span>
+    <h1>Field Service,<br><span>documented.</span></h1>
+    <p>The canonical reference on Dynamics 365 Field Service, AI, scheduling, and IoT. Opinionated, practitioner-built, no vendor gloss. Growing as it ships.</p>
+  </div>
+</header>
+
+<main class="kb-wrap">
+
+  <!-- DECKS — live -->
+  <section class="kb-section">
+    <div class="kb-section-head">
+      <h2>Decks</h2>
+      <span class="data-mark">Summit 2025</span>
+    </div>
+    <div class="kb-grid">
+      <a class="kb-card" href="kb/decks/summit-2025-ai-in-field-service.pdf" target="_blank" rel="noopener">
+        <span class="data-mark">PDF · Summit 2025</span>
+        <h3>AI in Field Service Operations</h3>
+        <p>Where AI actually lands in a field service operation — the plays, the architecture, and the ROI, from the Summit 2025 session.</p>
+        <span class="go">Open the deck →</span>
+      </a>
+      <a class="kb-card" href="kb/decks/summit-2025-why-scheduling-is-hard.pdf" target="_blank" rel="noopener">
+        <span class="data-mark">PDF · Summit 2025</span>
+        <h3>Why Is Scheduling So Hard?</h3>
+        <p>The honest teardown of field service scheduling complexity — constraints, RSO, and why the demo never matches go-live.</p>
+        <span class="go">Open the deck →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- REFERENCES — live -->
+  <section class="kb-section">
+    <div class="kb-section-head">
+      <h2>References</h2>
+      <span class="data-mark">Citations &amp; PDFs</span>
+    </div>
+    <div class="kb-grid">
+      <a class="kb-card" href="kb/references/ai-terminology-lexicon.pdf" target="_blank" rel="noopener">
+        <span class="data-mark">PDF · Reference</span>
+        <h3>AI Terminology Lexicon Blueprint</h3>
+        <p>A working glossary of AI terminology for field service and enterprise contexts — the shared vocabulary, defined.</p>
+        <span class="go">Open the reference →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SHELLS — ready to receive content -->
+  <section class="kb-section">
+    <div class="kb-section-head">
+      <h2>Lexicon · Frameworks · Diagrams</h2>
+      <span class="data-mark">Cataloguing</span>
+    </div>
+    <div class="kb-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="kb-shell">
+        <span class="kb-status">● Cataloguing</span>
+        <h3>Lexicon</h3>
+        <p>Canonical D365 Field Service and AI terminology — Work Order, Bookable Resource, Resource Requirement, RSO, and the rest, defined precisely.</p>
+      </div>
+      <div class="kb-shell">
+        <span class="kb-status">● Cataloguing</span>
+        <h3>Frameworks</h3>
+        <p>Architecture models and operating patterns you can actually deploy — the reference architectures behind real field service systems.</p>
+      </div>
+      <div class="kb-shell">
+        <span class="kb-status">● Cataloguing</span>
+        <h3>Diagrams</h3>
+        <p>System diagrams and architecture visuals — the work order lifecycle, the integration topology, the IoT-to-dispatch path.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="kb-footer">
+  <p>Field Service Nerd · <a href="/">main site</a> · <a href="/#join">get the AI primer</a> · CC BY-NC 4.0</p>
+</footer>
+
+</body>
+</html>
