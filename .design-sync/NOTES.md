@@ -2,48 +2,73 @@
 
 Continuity notes for a future `/design-sync` run. Read before starting.
 
-## Status
-- First-time import, NOT yet done. Attempted 2026-07-01 from an embedded Claude
-  Desktop / claude.ai-code session — **DesignSync auth is unavailable there**
-  (`/design-login` needs a real interactive terminal). Re-run from a standalone
-  `claude` terminal (`/design-login` then `/design-sync`) or a Claude Code Web
-  session seeded via Claude Design's "Send to Claude Code Web."
-- Scope chosen by Pierre: **full sync** (primitives + all page components + tokens).
+## Status — SYNCED (2026-07-02)
+- First off-script sync **complete**. Project: **Field Service Nerd**
+  (`8580f095-aac2-4392-ad30-c3d11f8aac56`), 24 components, validate exit 0,
+  render check 24/24, uploaded 108 files. Design is **Field Manual v3-final**
+  (see repo `web/tokens/` + `web/app.css`; NOT the old Signal & Grit look).
 
 ## Shape: package, but OFF-ENVELOPE
 This repo is **not** a standard buildable design system. No Storybook, no
-component-library package/`dist/`. The components are **Babel-in-browser JSX**
-served at runtime from `web/`, each assigning to `window` (primitives to
-`window.FSN`). The `package.json` at root is for Firebase/puppeteer scripts, not a
-component build. So `package-build.mjs`'s auto-discovery will NOT find a buildable
-component surface — expect an **off-script** layout build (compile the `web/*.jsx`
-to JS, bundle to `_ds_bundle.js` exposing the `window.*` globals, wire `styles.css`
-to the token @import closure, author cards, verify).
+component-library `dist/`. Components are Babel-in-browser JSX served from
+`web/`, each assigning to `window` (primitives to `window.FSN`, page components
+to `window.<Name>`). `package-build.mjs` auto-discovery will NOT find them.
+So the layout is produced **off-script** by a custom generator.
 
-## Component inventory (all in `web/`)
-- **Primitives** — `_ds.jsx` (plain `React.createElement`, no JSX syntax), exposes
-  `window.FSN = { Button, Eyebrow, Pill, SectionHead, Section }` (Button variants:
-  primary/ghost/data/dark, sizes sm/md; Eyebrow; Pill tone data/signal; SectionHead
-  eyebrow/title/sub/center/onDark; Section id/alt).
-- **Nav.jsx** — `window.Nav` (props: onJoin, theme, onToggleTheme).
-- **Hero.jsx** — `window.Hero` (onJoin) + `window.TrustBar`.
-- **Sections.jsx** — `window.{Pillars, LeadMagnet, Podcast, Videos, ConsultingTeaser,
-  EmailSection, Faq, Footer}`. Holds `PLAYLIST_ID` + `FIRESTORE_KEY` placeholder.
-- **Consulting.jsx** — `window.{ConsultHero, ConsultServices, ConsultApproach, ConsultContact}`.
-- **About.jsx** — `window.{AboutHero, AboutCredentials, AboutBio, AboutConnect}`.
-- All components depend on `window.FSN` primitives + `React` (UMD) at runtime.
+## Reproducible off-script build (how this sync was made)
+Generator is committed at **`.design-sync/off-script-build.mjs`**. It:
+1. esbuild-transforms each `web/*.jsx` (loader jsx, jsxFactory React.createElement),
+   wraps each file in its own IIFE (so per-file `const {Button}=window.FSN` don't
+   collide), concatenates in load order (_ds first), and appends a normalizer that
+   folds every page component into `window.FSN.<Name>`.
+2. Emits `_ds_bundle.js` with a first-line `/* @ds-bundle: {...} */` header whose
+   required fields are `namespace` (string "FSN"), `components` (array of `{name}`),
+   `sourceHashes`, `inlinedExternals`.
+3. Emits `_ds_bundle.css` = `web/app.css`; copies `web/tokens/*` ; writes
+   `styles.css` that `@import`s tokens + `_ds_bundle.css` (fonts are a remote
+   Google `@import` → `[FONT_REMOTE]`, expected).
+4. Vendors React 18.3.1 UMD as **`_vendor/react.js`** and **`_vendor/react-dom.js`**
+   — filenames MUST be exactly those (the validator's export-smoke loads them).
+5. Emits per component: `<Name>.jsx` stub, hand-written `<Name>.d.ts`,
+   `<Name>.prompt.md`, and a `<Name>.html` card (first line `<!-- @dsCard group=.. -->`)
+   that loads `_vendor` React + `_ds_bundle.js`, links `styles.css`, and renders
+   `window.FSN.<Name>` via `React.createElement`.
+6. Writes `.ds-build-meta.json` (`{componentCount, shape:"package"}`).
 
-## Tokens / styling (the Signal & Grit look)
-- `web/styles.css` aggregates `web/tokens/{fonts,colors,typography,spacing,effects}.css`
-  via `@import`. `web/app.css` holds the signature treatments (dot-grid, schematic,
-  draw-rule, data-mark, status-dot) + responsive rules — must also be in the
-  `styles.css` @import closure for designs to receive it.
-- Fonts via Google Fonts `@import` (Space Grotesk / Inter / JetBrains Mono).
-- Dark is the default theme; `[data-theme="light"]` flips. Hero sections carry
-  `data-theme="dark"` and use literal-navy `--hero-ground` (not a theme token).
+Run it, then validate, then upload:
+```sh
+cd .ds-sync && node ds-build.mjs            # (cp .design-sync/off-script-build.mjs first)
+cd .. && DS_CHROMIUM_PATH="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" \
+  node .ds-sync/package-validate.mjs ./ds-bundle --render-sample 0
+```
+- Deps staged in `.ds-sync/` (gitignored): `npm i esbuild playwright` with
+  `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1` (no 200MB download — drive **system Chrome**
+  via `DS_CHROMIUM_PATH`). This machine has Chrome at the path above.
+- No `_ds_sync.json` anchor (off-script) → every re-sync re-verifies everything.
+- Upload localDir must be **absolute** (`Z:/Projects/FieldService/ds-bundle`) — a
+  relative `./ds-bundle` got doubled by the DesignSync tool.
 
-## Gotchas learned
-- Nested `var()` inside a custom property doesn't re-resolve under a local
-  `data-theme` context — that's why `--hero-ground` uses literal navy.
-- Component load order matters: `_ds.jsx` MUST load before the components that
-  destructure `window.FSN`.
+## Component inventory (24, groups)
+Primitives: Button, Eyebrow, Pill, SectionHead, Section · Navigation: Nav ·
+Hero: Hero, TrustBar · Home: Pillars, LeadMagnet, Podcast, Videos,
+ConsultingTeaser, EmailSection, Faq, Footer · Consulting: ConsultHero,
+ConsultServices, ConsultApproach, ConsultContact · About: AboutHero,
+AboutCredentials, AboutBio, AboutConnect.
+
+## Known render warns / triaged
+- `[FONT_REMOTE]` for Alfa Slab One / Oswald / Inter / JetBrains Mono — fonts load
+  from Google at runtime; expected, not a miss.
+- All 24 cards render non-empty; Videos/Podcast pull live YouTube (render fine).
+
+## Re-sync risks (watch-list)
+- **Component load order matters**: `_ds.jsx` MUST bundle first (page files destructure
+  `window.FSN` at eval time). The generator hardcodes the order — keep it if files are added.
+- **`_ds.jsx` references `React` at eval time** (`const e = React.createElement`). The
+  export-smoke loads the bundle with `_vendor/react.js` present, so it's fine — but if
+  React vendoring breaks, `window.FSN` never sets and all 24 read as "not a component".
+- **Leftover navy** in `LeadMagnet` primer-cover mock (`#0f1626` gradient) is old
+  Signal & Grit; renders but is slightly off-palette. Fix in `web/Sections.jsx` if it bugs you.
+- If new components are added to `web/*.jsx`, add them to the generator's `PAGE` list
+  and the per-component `M` map (group + dts props + preview expr).
+- The standalone `web/ebook/fs-ai-primer.html` is NOT token-driven (own Space Grotesk vars) —
+  it did not change with the redesign.
