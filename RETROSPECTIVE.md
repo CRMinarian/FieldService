@@ -72,8 +72,10 @@ scripts). PR #1 open.
    the title to a compliant headline (2 lines, ≤7 words, "Field Service" in orange), swaps it into
    `web/brand/yt-thumb-master.html`, renders 1280×720 to `youtube/thumbnails/`, shows the PNG.
    Batch EP03–EP10 in ONE pass — no per-thumbnail round trips.
-2. **Script via interview.** Claude asks Pierre questions on camera-topic; Pierre talks; Claude
-   drafts. Don't paste cold-generated scripts.
+2. **Content pipeline: Grok interviews → Claude executes.** Pierre uses **Grok** for the
+   conversational interview → spoken-script stage. **Claude picks up the finished script** and
+   produces final assets: markdown, thumbnails, video descriptions, Descript-ready packages.
+   Claude does NOT re-interview or regenerate the script — the handed-off script is source-of-truth.
 3. **Keep sessions focused** — finish a lane (thumbnails, or scripts, or infra) before switching.
 4. **Firebase-from-scratch pre-flight checklist** (before first deploy): enable cloudbuild +
    eventarc + run + iamcredentials + gmail/sheets/drive; grant the compute SA **Cloud Build Service
