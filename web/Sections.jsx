@@ -18,7 +18,7 @@ const LINKS = {
 // Firestore REST target — no SDK (avoids the module-timing bug).
 // TODO: replace the key with the field-service-nerd Web API key from the Firebase console.
 const FIRESTORE_PROJECT = 'field-service-nerd';
-const FIRESTORE_KEY = 'REPLACE_WITH_FIELD_SERVICE_NERD_WEB_API_KEY';
+const FIRESTORE_KEY = 'AIzaSyDQhvniVSpGmlva9QrYKgBSOLXY-Yaq12A';
 
 function Pillars() {
   const cols = [

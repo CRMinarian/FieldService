@@ -9,14 +9,14 @@ initializeApp();
 // TODO: replace <PROJECT_NUMBER> with the new project's number (Firebase console →
 // Project settings). This SA's client ID must be added to the SAME nukasoft.ai Admin
 // domain-wide-delegation entry (scopes: gmail.send, spreadsheets, drive.file).
-const SA_EMAIL = '<PROJECT_NUMBER>-compute@developer.gserviceaccount.com';
+const SA_EMAIL = '914348950122-compute@developer.gserviceaccount.com';
 // Reuse the proven skippy sender — no new Workspace mailbox needed.
 const FROM_EMAIL = 'skippy@nukasoft.ai';
 
 // Subscriber capture sheet — owned by skippy@nukasoft.ai, shared to Pierre.
 // Empty until the one-time creation run (create a subscribers doc with
 // source: '__init_sheet__'); then pin the logged spreadsheetId here and redeploy.
-const SPREADSHEET_ID = '';
+const SPREADSHEET_ID = '1dME-FtBBGIF-o300wvdFuMGmd8rNnlF12LcFrCKQCiQ';
 const SHARE_WITH = 'pierre@nukasoft.ai';
 const SHEET_TAB = 'Subscribers';
 
