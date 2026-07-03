@@ -1,92 +1,44 @@
-# Retrospective — Field Service Nerd build (2026-07-03)
+# Retrospective | Field Service Nerd Build
 
-Three perspectives folded in: Pierre's, Claude's self-review, and Gronk's session feedback. All
-three landed on the same two problems — **the thumbnail phase burned too much time**, and **the
-Claude Code ↔ Claude Design handoff is broken.**
+## Summary
 
-**Headline metric (Pierre): what would have been ~3 days of work took ~6 hours.** That's the win
-to protect.
+In a single working session we took Field Service Nerd from cold start to live.  We cloned the proven Tech Sales 110 infrastructure instead of rebuilding, which turned an estimated three days of work into roughly six hours.  Shipped: the site (five pages, Field Manual brand, patch logo, real headshot), a verified signup to welcome email to Google Sheet funnel, the design system synced to Claude Design, and a YouTube kit (channel plan, locked thumbnail style, two episodes with thumbnails and scripts).  PR #1 is open.  The session also produced two durable process wins: a locked, systematic thumbnail pipeline, and a clear Grok plus Claude plus Descript content workflow.
 
-**Shipped today (cold start → live):** the site (5 pages, Field Manual brand, patch logo, real
-headshot), a verified signup → welcome-email → Google Sheet funnel, the design system synced to
-Claude Design, and a YouTube kit (channel plan, locked thumbnail style, EP01+EP02 thumbnails +
-scripts). PR #1 open.
+## What Went Well
 
----
+- **It shipped and it works.**  The live site and the signup funnel were tested in production, not assumed.
+- **Reusing proven infrastructure was the biggest multiplier.**  Cloning TS110 is the main reason this was a day and not a week.
+- **Branding got locked.**  Patch logo, Field Manual palette, and the safety yellow thumbnail style are final and consistent.
+- **A repeatable workflow emerged.**  Start with one local folder on the Dev Drive, then point both Claude Code and Claude Cowork at it.
+- **The thumbnail work paid off as a system.**  The iteration was one time R&D that produced a locked style and a reusable template.  Future thumbnails are now mechanical.
+- **Nothing was lost.**  Memory, backlog, scripts, and the style guide are all captured in one clean project folder.
 
-## What went well
-- **It shipped and it works.** Live site, funnel verified in production — not assumed, tested.
-- **Reused proven infrastructure** (TS110) instead of architecting fresh. The main reason this
-  was a day, not a week.
-- **The visual-iteration rhythm** — once going, thumbnails moved fast and produced genuinely
-  distinctive work (patch logo, final thumbnail).
-- **Pierre's direction was crisp** — clear "this looks generic" calls, and he caught the rule
-  Claude missed: **"Field Service" must be in every headline.**
-- **The "interview me" approach for scripts clicked** (Gronk) — Pierre talking naturally, turned
-  into script quickly. Far smoother than generating cold.
-- **Nothing's lost** — memory, backlog, scripts, style guide, PR all captured (Pierre: one clean
-  project folder with all assets).
-- **A repeatable workflow emerged** (Pierre): start with a **local folder on the Dev Drive**, then
-  point **both Claude Code and Claude Cowork at that same folder.**
-- **Branding is locked** — patch logo + yellow-tape thumbnail style, reusable consulting page.
+## What Went Poorly
 
-## What went poorly
-- **The thumbnail took ~25+ messages** iterating on essentially one asset. But this was **R&D, not
-  waste (Pierre's correction):** those passes produced a *locked, systematic style* + a reusable
-  template. It's a one-time cost that now makes every future thumbnail mechanical. The real lesson
-  isn't "don't iterate" — it's **recognize when you've hit the reusable system and stop**, which
-  we did eventually reach. Next channel/style: get there faster.
-- **Claude drowned Pierre in text** — repeatedly, to a dyslexic user, *after* being told to go
-  visual. Worst recurring failure.
-- **Claude narrated limitations instead of solving** — on the design-sync login wall, handed over
-  commands and explained what it couldn't do for several rounds before just launching the session.
-- **The conversation got fragmented** (Gronk) — jumping between thumbnail feedback, scripts, and
-  side topics made it hard to stay focused.
-- **Avoidable bugs shipped:** an empty-pathspec `git reset` pushed an empty branch; a bad `sed`
-  (`\&`) clobbered the favicon on four pages; the nav pointed at a just-deleted file.
-- **Config trusted without verification** — the wrong service-account client ID (`111860…`) cost a
-  full failed deploy + propagation wait before it was caught as the wrong account.
-- **Firebase deploy was reactive** — Eventarc propagation, Cloud Build role, Token Creator grant,
-  function-shape conflict discovered serially instead of pre-flighted.
-- **Two Claude sessions in one repo** created collision risk and confusion over whose edits were whose.
-- **Claude Code ↔ Claude Design integration is genuinely poor (Pierre).** The handoff doesn't work
-  smoothly — it forced Pierre to live in the terminal and manually move things. The two tools got
-  **out of sync on the design system** (logos, components). This is the single most-cited friction
-  across all three retros.
+- **The thumbnail took too many passes to converge** (~25 messages on one asset).  It produced a real system, but we should have recognized "good enough" sooner.
+- **The Claude Code and Claude Design handoff is weak.**  The tools drifted out of sync on the design system and forced manual work in the terminal.  This was the single most cited friction of the day.
+- **The conversation fragmented.**  Jumping between thumbnails, scripts, and infrastructure made it harder to stay focused.
+- **Avoidable bugs shipped from rushed shell commands.**  An empty pathspec `git reset` pushed an empty branch, a bad `sed` clobbered the favicon on four pages, and the nav pointed at a deleted file.
+- **Config was trusted without verification.**  A wrong service account client ID cost a full failed deploy before it was caught.
 
-## Key lessons learned
-- **Lock "good enough" on visuals fast.** Design is iterative, but 3–4 passes max, then move on.
-  Time saved goes to content, which is what actually grows the channel.
-- **Default to visual + terse** with this user — image first, ≤3 lines of text, no walls.
-- **"Interview me" beats "generate cold"** for content. Pull the material out of Pierre by talking.
-- **When blocked, exhaust what's doable before surfacing an ask;** never lead with a command.
-- **Verify externally-supplied values** (IDs, keys) against a second source before acting.
-- **Pre-flight known platform gotchas** instead of hitting them one at a time.
-- **One agent per working tree.**
-- **Start every project with a local folder on the Dev Drive** (Pierre), then point the tools at it.
-- **Claude Code is the better workflow/interface** for this kind of build than Claude Cowork
-  (Pierre). And **the Claude Design integration is currently weak — plan around it, don't rely on it.**
+## Key Lessons Learned
 
-## Recommendations for next time
-1. **Thumbnails are now a mechanical pipeline.** Pierre gives **Script + Title**; Claude shortens
-   the title to a compliant headline (2 lines, ≤7 words, "Field Service" in orange), swaps it into
-   `web/brand/yt-thumb-master.html`, renders 1280×720 to `youtube/thumbnails/`, shows the PNG.
-   Batch EP03–EP10 in ONE pass — no per-thumbnail round trips.
-2. **Content pipeline: Grok interviews → Claude executes.** Pierre uses **Grok** for the
-   conversational interview → spoken-script stage. **Claude picks up the finished script** and
-   produces final assets: markdown, thumbnails, video descriptions, Descript-ready packages.
-   Claude does NOT re-interview or regenerate the script — the handed-off script is source-of-truth.
-3. **Keep sessions focused** — finish a lane (thumbnails, or scripts, or infra) before switching.
-4. **Firebase-from-scratch pre-flight checklist** (before first deploy): enable cloudbuild +
-   eventarc + run + iamcredentials + gmail/sheets/drive; grant the compute SA **Cloud Build Service
-   Account** + **Token Creator**; confirm the DWD client ID = the **compute SA's** unique ID.
-5. **Echo-verify pasted config** before running with it.
-6. **Second parallel session → use a git worktree,** never the same checkout.
-7. **Start with the local Dev Drive folder,** then point both tools at it (proven workflow).
-8. **Plan around the weak Claude Design integration** — treat the repo as the source of truth for
-   the design system; don't assume Design and Code stay in sync. Sync deliberately, not implicitly.
+- **Start every project with a local folder on the Dev Drive,** then point the tools at it.
+- **Treat the repo as the source of truth for the design system.**  The Claude Design integration is weak, so sync deliberately and plan around it.
+- **Lock "good enough" on visuals fast,** then move on.  Reclaimed time goes to content, which is what grows the channel.
+- **Lead visual and terse,** especially given dyslexia.  Image first, short text, no walls.
+- **Divide the content pipeline by strength.**  Grok runs the interview to script stage.  Claude executes the finished script into final assets.
+- **Verify externally supplied values** before acting on them.
+- **Run parallel work in a git worktree,** never a shared checkout.
 
-## Bottom line
-Productive day — a real product shipped. But too much time went into polishing one thumbnail.
-Tomorrow: be stricter about "good enough" on visuals, and spend the reclaimed time on the actual
-video content via interviews.
+## Recommendations for Next Time
+
+1. **Thumbnails are now a mechanical pipeline.**  Pierre supplies Script plus Title.  Claude shortens the title to a compliant headline (two lines, seven words max, "Field Service" in orange), renders 1280x720 from `web/brand/yt-thumb-master.html` to `youtube/thumbnails/`, and shows the PNG.  Batch EP03 through EP10 in one pass.
+2. **Content pipeline: Grok interviews, Claude executes.**  Grok produces the spoken script.  Claude turns it into the production package (markdown, thumbnails, video descriptions, Descript ready) and does not re-interview or regenerate the script.
+3. **Build the per episode production package** to close the script to recording to Descript gap: teleprompter script, B-roll cue sheet, chapter markers, and packaging.  Prove it on one episode, then batch.
+4. **Keep sessions focused.**  Finish one lane before switching.
+5. **Pre-flight known platform gotchas** rather than hitting them one at a time.
+
+## Bottom Line
+
+A productive session that shipped a real product and, more importantly, established repeatable systems.  The thumbnail pipeline and the Grok plus Claude plus Descript workflow are the start of a genuine content flywheel.  Tomorrow: batch the remaining episodes, script by interview, and begin the domain cutover.
