@@ -19,6 +19,12 @@ Pierre's directive: **use this exact style for all FSN YouTube thumbnails. Do no
 - **No episode numbers, no extra text**
 - Bottom edge: thin hazard-stripe strip
 
+## CRITICAL headline rule
+Every headline **must clearly include one of**: **"Field Service"**, **"Service Management"**,
+or **"Field Operations"**. Never ship a headline that relies on a vague phrase like "My First
+Project", "This Project", or "The Project" on its own. A viewer must know it's about Field
+Service **within 1 second**. When the term appears, set it in the orange punch color.
+
 ## The template
 `web/brand/yt-thumb-master.html` — the canonical implementation (1280×720).
 Per-episode: swap the headline lines + the stamp word, re-render.
