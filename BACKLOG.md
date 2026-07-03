@@ -40,6 +40,20 @@ Post-launch enhancements. None of these block the live site
   - Bonus once the domain's in Workspace: switch the site's welcome-email sender
     from `skippy@nukasoft.ai` to an `@fieldservicenerd.com` address (on-brand).
 
+- [ ] **Per-episode production package (the content flywheel — next-phase target).**
+  Systematize the **script → recording → Descript** handoff so idea → published video
+  goes from days to hours. The pipeline: **Grok** does interview → spoken script;
+  **Claude** turns the finished script into a full production package; **Descript**
+  handles editing + B-roll + post. Claude's package per episode:
+  1. **Teleprompter script** — spoken cadence, formatted for Descript import.
+  2. **B-roll / shot cue sheet** — each script line → suggested visual + on-screen
+     text / lower-third, so B-roll placement is paint-by-numbers in the edit.
+  3. **Chapter markers + timestamp skeleton** — for YouTube chapters.
+  4. **Packaging** — title, video description, tags, pinned comment.
+  5. **Thumbnail** — already an automated Script+Title → PNG pipeline (see
+     `youtube/THUMBNAIL-STYLE.md`).
+  Build a reusable package template first, prove it on one episode, then batch.
+
 ## Done
 - Field Manual redesign + official patch logo, real headshot, live deploy, verified
   email funnel (see git history on `build/fsn-site`).
