@@ -22,14 +22,23 @@ Post-launch enhancements. None of these block the live site
   consulting hero currently has no photo. (Distinct from the field/patch headshot
   already used on About + the podcast thumbnail.)
 
-- [ ] **Set up `pierre@fieldservicenerd.com` + FSN YouTube channel.**
-  Create a branded mailbox `pierre@fieldservicenerd.com` — cleanest path is adding
-  `fieldservicenerd.com` as a secondary domain in the existing **nukasoft.ai Google
-  Workspace** and creating the user/alias (use the `gws-admin` skill; requires the
-  domain's MX/verification records at the registrar). Then create the **Field Service
-  Nerd YouTube channel** (Brand Account) under that account and upload the brand assets
-  already built: banner, thumbnail, avatar, logo — from `web/brand/` +
-  `web/assets/fsn-logo-*.png`.
+- [ ] **YouTube channel launch (sequenced — gated on the email).**
+  1. **`pierre@fieldservicenerd.com` mailbox** — add `fieldservicenerd.com` as a
+     secondary domain in the **nukasoft.ai Google Workspace** + create the user
+     (use `gws-admin`; needs verification/MX records at the registrar). **Everything
+     below is blocked until this exists.**
+  2. **Create the channel** (Brand Account) under that Google account. Apply channel
+     art from `web/brand/yt-banner.html` + avatar `web/assets/fsn-logo-avatar.png`.
+  3. **Set up playlists** — structure by theme (e.g. AI in FS, Scheduling/RSO,
+     Copilot, Field Notes).
+  4. **Download the old videos** from the existing channel/playlist
+     (`PLD2JXXb9_ku0`) — source of "the old videos." (yt-dlp on owned content.)
+  5. **New thumbnails** — batch-generate on-brand thumbnails from the Field Manual
+     kit (`web/brand/yt-thumbnail.html` is the template). Claude can produce these.
+  6. **Re-upload** the first 5 videos with new thumbnails into the right playlists.
+     (YouTube upload tools exist but need auth to the new channel.)
+  - Bonus once the domain's in Workspace: switch the site's welcome-email sender
+    from `skippy@nukasoft.ai` to an `@fieldservicenerd.com` address (on-brand).
 
 ## Done
 - Field Manual redesign + official patch logo, real headshot, live deploy, verified
