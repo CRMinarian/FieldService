@@ -44,7 +44,7 @@ function AboutBio() {
       <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 56, alignItems: 'start' }}>
         <div>
           <div style={{ aspectRatio: '1 / 1', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', border: '1px solid var(--border-subtle)' }}>
-            <img src="assets/fsn-thumbnail-v2-pierre.png" alt="Pierre Hulsebus — Field Service Nerd" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+            <img src="assets/pierre-headshot.jpg" alt="Pierre Hulsebus — Field Service Nerd" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
         </div>
         <div>

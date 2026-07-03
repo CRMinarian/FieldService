@@ -12,9 +12,8 @@ function Nav({ onJoin, theme, onToggleTheme }) {
       borderBottom: '1px solid var(--border-subtle)',
     }}>
       <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '12px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="/" className="fsn-brand" style={{ display: 'flex', alignItems: 'center', gap: 11, flex: 'none', color: 'var(--paper)', fontFamily: 'var(--font-wordmark)', fontWeight: 400, fontSize: 20, letterSpacing: '.02em', textTransform: 'uppercase', textDecoration: 'none' }}>
-          <img src="assets/fsn-mark.svg" height="30" width="30" alt="" />
-          <span style={{ whiteSpace: 'nowrap' }}>Field Service&nbsp;<span style={{ color: 'var(--orange)' }}>Nerd</span></span>
+        <a href="/" className="fsn-brand" style={{ display: 'inline-flex', alignItems: 'center', flex: 'none', textDecoration: 'none' }}>
+          <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 48, width: 'auto', display: 'block' }} />
         </a>
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
           <a href="/kb" className="navlink nav-hide" style={link}>Knowledge Base</a>

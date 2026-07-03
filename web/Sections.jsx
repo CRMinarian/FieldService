@@ -75,7 +75,7 @@ function LeadMagnet({ onJoin }) {
         <div style={{ position: 'relative' }}>
           <div style={{
             aspectRatio: '4 / 5', borderRadius: 'var(--radius-lg)', position: 'relative', overflow: 'hidden',
-            background: 'linear-gradient(160deg, #0f1626 0%, #101a2e 55%, #0b1220 100%)',
+            background: 'linear-gradient(160deg, #353A32 0%, #2A2A2A 55%, #17140F 100%)',
             border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '30px 28px',
           }}>
@@ -121,8 +121,8 @@ function Podcast() {
             </div>
           </div>
           <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '4 / 4.2', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)' }}>
-            <img src="assets/fsn-thumbnail-v2-pierre.png" alt="The Field Service Nerd — with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            <span style={{ position: 'absolute', left: 12, bottom: 12, display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(6,9,16,.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(var(--cyan-rgb),.4)', color: 'var(--paper)', fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: 12, letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 11px', borderRadius: 'var(--radius-pill)' }}>
+            <img src="assets/pierre-headshot.jpg" alt="The Field Service Nerd — with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <span style={{ position: 'absolute', left: 12, bottom: 12, display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(23,20,15,.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(var(--steel-rgb),.4)', color: 'var(--paper)', fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: 12, letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 11px', borderRadius: 'var(--radius-pill)' }}>
               <span className="status-dot"></span> On Air
             </span>
           </div>
@@ -280,9 +280,8 @@ function Footer() {
   return (
     <footer data-theme="dark" style={{ background: 'var(--navy-ink)', color: 'var(--text-on-dark-muted)', padding: '48px 0', textAlign: 'center', fontSize: 14, fontFamily: 'var(--font-body)', borderTop: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '0 var(--content-pad-x)' }}>
-        <a href="#top" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'var(--paper)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, textDecoration: 'none', marginBottom: 14 }}>
-          <img src="assets/fsn-mark.svg" height="26" width="26" alt="" />
-          Field Service <span style={{ color: 'var(--orange)' }}>Nerd</span>
+        <a href="#top" style={{ display: 'inline-block', marginBottom: 18, textDecoration: 'none' }}>
+          <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 74, width: 'auto', display: 'inline-block' }} />
         </a>
         <p style={{ margin: '0 0 8px' }}>
           <a href="/kb" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>Knowledge Base</a> ·{' '}

@@ -132,6 +132,5 @@ body > * { position: relative; z-index: 1; }
 }
 @media (max-width: 560px) {
   .theme-toggle { display: none !important; }
-  .fsn-brand { font-size: 16px !important; gap: 8px !important; }
-  .fsn-brand img { height: 24px !important; width: 24px !important; }
+  .fsn-brand img { height: 40px !important; width: auto !important; }
 }
