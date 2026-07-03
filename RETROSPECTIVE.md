@@ -31,9 +31,11 @@ scripts). PR #1 open.
 - **Branding is locked** — patch logo + yellow-tape thumbnail style, reusable consulting page.
 
 ## What went poorly
-- **The thumbnail was over-cooked.** ~25+ messages iterating on essentially one asset. "Good
-  enough" should have been locked far earlier so the time went to actual video content. This was
-  the single biggest self-inflicted slowdown of the day. (Both retros agree.)
+- **The thumbnail took ~25+ messages** iterating on essentially one asset. But this was **R&D, not
+  waste (Pierre's correction):** those passes produced a *locked, systematic style* + a reusable
+  template. It's a one-time cost that now makes every future thumbnail mechanical. The real lesson
+  isn't "don't iterate" — it's **recognize when you've hit the reusable system and stop**, which
+  we did eventually reach. Next channel/style: get there faster.
 - **Claude drowned Pierre in text** — repeatedly, to a dyslexic user, *after* being told to go
   visual. Worst recurring failure.
 - **Claude narrated limitations instead of solving** — on the design-sync login wall, handed over
@@ -66,8 +68,10 @@ scripts). PR #1 open.
   (Pierre). And **the Claude Design integration is currently weak — plan around it, don't rely on it.**
 
 ## Recommendations for next time
-1. **Batch EP03–EP10 thumbnails in ONE pass** — style's locked, it's mechanical. No per-thumbnail
-   round trips.
+1. **Thumbnails are now a mechanical pipeline.** Pierre gives **Script + Title**; Claude shortens
+   the title to a compliant headline (2 lines, ≤7 words, "Field Service" in orange), swaps it into
+   `web/brand/yt-thumb-master.html`, renders 1280×720 to `youtube/thumbnails/`, shows the PNG.
+   Batch EP03–EP10 in ONE pass — no per-thumbnail round trips.
 2. **Script via interview.** Claude asks Pierre questions on camera-topic; Pierre talks; Claude
    drafts. Don't paste cold-generated scripts.
 3. **Keep sessions focused** — finish a lane (thumbnails, or scripts, or infra) before switching.
