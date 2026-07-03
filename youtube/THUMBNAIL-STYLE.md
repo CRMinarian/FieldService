@@ -19,11 +19,15 @@ Pierre's directive: **use this exact style for all FSN YouTube thumbnails. Do no
 - **No episode numbers, no extra text**
 - Bottom edge: thin hazard-stripe strip
 
-## CRITICAL headline rule
-Every headline **must clearly include one of**: **"Field Service"**, **"Service Management"**,
-or **"Field Operations"**. Never ship a headline that relies on a vague phrase like "My First
-Project", "This Project", or "The Project" on its own. A viewer must know it's about Field
-Service **within 1 second**. When the term appears, set it in the orange punch color.
+## CRITICAL headline rules (locked 2026-07-03)
+- **Shorten the video title into a short, powerful headline. Never use the full long title.**
+  (e.g. "What I Wish I Knew Before My First Field Service Project" → "What I Wish I Knew" + the
+  "Field Service" tag.)
+- **Maximum 2 lines** of main text.
+- **Maximum 7 words total** in the headline.
+- The headline **must contain "Field Service"** (or "Service Management" / "Field Operations"),
+  set in the **orange** punch color. A viewer must know it's about Field Service **in 1 second**.
+- Main headline stays **very large and legible even at small thumbnail size**.
 
 ## The template
 `web/brand/yt-thumb-master.html` — the canonical implementation (1280×720).
