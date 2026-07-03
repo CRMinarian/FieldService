@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>FSN Thumbnail V6 — hierarchy</title>
+<link rel="stylesheet" href="./brand-kit.css">
+<style>
+  html,body{margin:0;background:#111;}
+  /* FIGURE-GROUND: deep, quiet ground so the two figures (headline block, face) pop */
+  .t{width:1280px;height:720px;position:relative;overflow:hidden;color:var(--bone);
+     background:
+       radial-gradient(75% 100% at 82% 40%, rgba(240,130,74,.10) 0%, transparent 55%),
+       linear-gradient(160deg,#242A24 0%,#1D231E 50%,#151812 100%);}
+  .t::before{content:"";position:absolute;inset:0;background-image:var(--grain);background-size:150px 150px;opacity:.09;mix-blend-mode:overlay;z-index:1;pointer-events:none;}
+
+  /* rim glow behind the photo — lifts the face off the ground */
+  .t .glow{position:absolute;right:-40px;top:-60px;width:760px;height:900px;z-index:2;
+     background:radial-gradient(55% 50% at 55% 45%, rgba(240,130,74,.35), rgba(227,107,44,.12) 55%, transparent 75%);}
+
+  /* wordmark — smaller, clear, top-left */
+  .t .mini{position:absolute;top:30px;left:52px;font-family:var(--f-wm);text-transform:uppercase;font-size:26px;letter-spacing:.02em;color:#FFF;z-index:6;opacity:.95;}
+  .t .mini b{color:#FF9A3D;}
+
+  /* PROXIMITY + SIMILARITY: one tight headline block, one type family, hard left edge */
+  .t .left{position:absolute;left:40px;top:0;bottom:24px;width:660px;z-index:6;transform:rotate(-1.2deg);display:flex;flex-direction:column;justify-content:center;}
+  .t .title{font-family:var(--f-osw);font-weight:700;text-transform:uppercase;letter-spacing:.001em;margin:0;color:#FFFFFF;white-space:nowrap;
+     text-shadow:0 7px 0 rgba(0,0,0,.7), 0 0 30px rgba(0,0,0,.85);}
+  .t .title .l1{display:block;font-size:71px;line-height:.98;}
+  .t .title .l2{display:block;font-size:54px;line-height:1.12;color:#FF9A3D;}
+  .t .fail{display:inline-block;margin-top:16px;font-family:var(--f-wm);font-weight:400;text-transform:uppercase;
+     font-size:138px;line-height:.88;color:#FF5A1F;-webkit-text-stroke:3px #24100a;
+     text-shadow:0 8px 0 rgba(0,0,0,.65);
+     border:11px solid #FFD23F;border-radius:10px;padding:0 30px 14px;transform:rotate(-2.5deg);
+     background:rgba(0,0,0,.45);box-shadow:0 12px 26px rgba(0,0,0,.55), inset 0 0 0 4px rgba(0,0,0,.3);}
+
+  /* the FACE — ~50% of frame, patch border kept */
+  .t .facewrap{position:absolute;right:12px;top:30px;width:600px;height:668px;z-index:5;transform:rotate(1.6deg);
+     border-radius:12px;padding:12px;background:repeating-conic-gradient(#ff8d33 0deg .35deg,#d05f0e .35deg .7deg);
+     box-shadow:0 24px 48px rgba(0,0,0,.6);}
+  .t .face{width:100%;height:100%;border-radius:7px;overflow:hidden;border:2px solid rgba(0,0,0,.35);background:var(--panel);}
+  .t .face img{width:185%;height:auto;margin-left:-45%;margin-top:-8%;display:block;filter:contrast(1.12) saturate(1.1) brightness(1.04);}
+
+  /* CONTINUITY: yellow tape strips angled ALONG the eye path headline -> face */
+  .t .tape{position:absolute;height:48px;z-index:8;
+     background:
+       linear-gradient(90deg, rgba(227,107,44,.9) 0 14px, transparent 14px),
+       linear-gradient(270deg, rgba(227,107,44,.9) 0 14px, transparent 14px),
+       #FFD23F;
+     opacity:.97;box-shadow:0 4px 10px rgba(0,0,0,.4);}
+  .t .tape.tl{width:210px;left:585px;top:66px;transform:rotate(24deg);}   /* headline top -> face */
+  .t .tape.bl{width:210px;left:568px;bottom:104px;transform:rotate(-22deg);} /* FAIL -> face */
+  .t .tape.br{width:170px;right:-46px;bottom:60px;transform:rotate(-34deg);}
+
+  .t .haz{position:absolute;bottom:-6px;left:-20px;right:-20px;height:24px;background:var(--hazard);z-index:6;transform:rotate(-.8deg);}
+</style>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="silkscreen" x="-6%" y="-14%" width="112%" height="128%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.013 0.02" numOctaves="2" seed="6" result="warp"/>
+    <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="11" result="speck"/>
+    <feComponentTransfer in="speck" result="spk"><feFuncA type="discrete" tableValues="0 0 0 0 1"/></feComponentTransfer>
+    <feComposite in="rough" in2="spk" operator="out"/>
+  </filter>
+</defs></svg>
+<div class="t">
+  <div class="glow"></div>
+  <div class="mini silk">Field Service&nbsp;<b>Nerd</b></div>
+  <div class="facewrap">
+    <div class="face"><img src="../assets/pierre-headshot.jpg" alt=""></div>
+  </div>
+  <div class="tape tl"></div>
+  <div class="tape bl"></div>
+  <div class="tape br"></div>
+  <div class="left silk">
+    <h1 class="title"><span class="l1">What I Wish I Knew</span><span class="l2">Before My First Project</span></h1>
+  </div>
+  <div class="haz"></div>
+</div></body></html>
