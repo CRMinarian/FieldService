@@ -22,6 +22,15 @@ Post-launch enhancements. None of these block the live site
   consulting hero currently has no photo. (Distinct from the field/patch headshot
   already used on About + the podcast thumbnail.)
 
+- [ ] **Set up `pierre@fieldservicenerd.com` + FSN YouTube channel.**
+  Create a branded mailbox `pierre@fieldservicenerd.com` — cleanest path is adding
+  `fieldservicenerd.com` as a secondary domain in the existing **nukasoft.ai Google
+  Workspace** and creating the user/alias (use the `gws-admin` skill; requires the
+  domain's MX/verification records at the registrar). Then create the **Field Service
+  Nerd YouTube channel** (Brand Account) under that account and upload the brand assets
+  already built: banner, thumbnail, avatar, logo — from `web/brand/` +
+  `web/assets/fsn-logo-*.png`.
+
 ## Done
 - Field Manual redesign + official patch logo, real headshot, live deploy, verified
   email funnel (see git history on `build/fsn-site`).
