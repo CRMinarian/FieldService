@@ -98,7 +98,26 @@ straight 3-shot stand-up — both viable; this Burke + words-in-space version is
 
 ---
 
-## Section 3 — The Top 5 Reasons Projects Fail (2:00–11:00)
+## Section 3 — reframed "Try This" (Chris Goor value framing)
+
+Instead of "5 reasons projects fail" (Look at this), deliver **5 diagnostic questions the
+viewer runs on themselves** (Try this).  One specific question per beat, each as a VALUE PILL
+in the negative space (see `youtube/MOTION-GRAPHICS-KIT.md`).  Under each question, Pierre
+gives the war story + the fix.
+
+| # | TRY THIS — one specific question | Maps to |
+|---|---|---|
+| 1 | **Did you fix the process first?** | bad process design |
+| 2 | **Do your techs actually want this?** | change management |
+| 3 | **Did you switch on RSO too early?** | the scheduling trap |
+| 4 | **Would you trust your own data?** | data quality |
+| 5 | **Does your partner know Field Service, or just Dynamics?** | wrong partner |
+
+Delivery: pose the question (pill appears) → "here's what I mean" → the story → "so try this:
+go ask [specific thing]."  End each on an action, not a lament.  The original war-story
+quotes below still feed the answers.
+
+## Section 3 — source quotes (the war stories behind each question)
 
 **#1 · Bad Process Design Before Implementation**
 > "Number one — and this is the biggest killer — most companies try to make Dynamics Field Service fit their broken processes instead of fixing their processes first. They bring in the software hoping it will fix their operations. That almost never works."
