@@ -6,7 +6,9 @@ Launch playbook for the FSN YouTube channel.
 `@FieldServiceNerd`). **Owned by the `skippy@nukasoft.ai` Google Workspace account** (same
 identity as the site's welcome-email DWD) — so any future YouTube API automation (uploads,
 thumbnail updates) authenticates as `skippy@nukasoft.ai`. Upload-ready assets: banner
-`youtube/fsn-yt-banner.png` (2560×1440), avatar `web/assets/fsn-logo-avatar.png` (1280×1280).
+`youtube/fsn-yt-banner.png` (2560×1440), avatar `web/assets/fsn-avatar-circle.png` (circle-native FSN monogram, 800×800 — the
+rectangular patch clipped to mush in YouTube's round mask at 48/88px, so use this instead;
+the square `fsn-logo-avatar.png` stays as favicon/social).
 Remaining: apply branding, paste the About description + links, create the 4 playlists, upload videos.
 
 ## Video length
