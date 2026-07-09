@@ -46,6 +46,37 @@ LinkedIn: https://linkedin.com/in/nukasoft
 
 ---
 
+## Intro Shooting Script — "small person, words in the sky" (Burke + motion graphics)
+
+Style: shoot wide + outdoor (fleet yard / open lot), Pierre small in frame, huge negative
+space above/below for kinetic text.  Slow, cinematic pace (Burke), branded motion graphics
+in the void (see `youtube/MOTION-GRAPHICS-KIT.md`).  Comp frame: `youtube/ep01-intro-comp.png`.
+
+**Shot 1 — WIDE, Pierre low in frame, massive sky.**
+> VO: "Every one of these is a promise."
+> GFX (rise in sky, one per beat, Oswald/bone): `A FORTUNE.` → `MICROSOFT.` → `THE BEST PEOPLE.`
+
+**Shot 2 — REFRAME, low horizon, the stat dominates the void (the money shot).**
+> VO: "And more than seventy percent of them fail."
+> GFX: `70% FAIL` stamps in — huge, safety orange.  Sub: `…OR WORSE` (mono).
+> VO: "Or limp along, delivering a fraction of what they were sold."
+
+**Shot 3 — Pierre walks toward camera; words above him.**
+> VO: "You'd think | this much money, this much technology | that couldn't happen.  But it does.  Over and over."
+> GFX (mono ticks in sky): `$$$` `TECH` `EXPERTS` → glitch/fall on "but it does."
+
+**Shot 4 — ARRIVAL, medium, to camera; graphics go quiet.**
+> VO: "The reason is never the software.  It's a chain of small decisions, each connecting to the next."
+> GFX (lower third, subtle): linked nodes animate — a nod to *Connections*.
+> VO: "I've watched it for fifteen years.  Let me show you how."
+
+→ Wordmark resolves, title, then Section 2.
+
+*Alt cuts on file:* Neistat kinetic version (fast, jump-cut, wide-lens walk-and-talk) and a
+straight 3-shot stand-up — both viable; this Burke + words-in-space version is primary.
+
+---
+
 ## Hook (0:00–0:12)
 > "Hey, I've been implementing Dynamics Field Service for over 15 years… and I can tell you right now — over 70% of these projects are failing or severely under-delivering. And the crazy part? Most companies don't even realize they're doing the wrong things until it's too late."
 
