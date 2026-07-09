@@ -1,7 +1,11 @@
 # Field Service Nerd — YouTube Channel Plan
 
-Launch playbook for the FSN YouTube channel. Channel creation is gated on the
-`pierre@fieldservicenerd.com` mailbox (see repo `BACKLOG.md`).
+Launch playbook for the FSN YouTube channel.
+
+**Channel is LIVE (2026-07-03):** https://www.youtube.com/@FieldServiceNerd (handle
+`@FieldServiceNerd`). Upload-ready assets: banner `youtube/fsn-yt-banner.png` (2560×1440),
+avatar `web/assets/fsn-logo-avatar.png` (1280×1280). Remaining: apply branding, paste the
+About description + links, create the 4 playlists, upload videos.
 
 ## Video length
 - **Target: 12–15 minutes** (sweet spot for technical content).

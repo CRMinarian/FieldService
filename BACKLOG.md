@@ -22,23 +22,24 @@ Post-launch enhancements. None of these block the live site
   consulting hero currently has no photo. (Distinct from the field/patch headshot
   already used on About + the podcast thumbnail.)
 
-- [ ] **YouTube channel launch (sequenced — gated on the email).**
-  1. **`pierre@fieldservicenerd.com` mailbox** — add `fieldservicenerd.com` as a
-     secondary domain in the **nukasoft.ai Google Workspace** + create the user
-     (use `gws-admin`; needs verification/MX records at the registrar). **Everything
-     below is blocked until this exists.**
-  2. **Create the channel** (Brand Account) under that Google account. Apply channel
-     art from `web/brand/yt-banner.html` + avatar `web/assets/fsn-logo-avatar.png`.
-  3. **Set up playlists** — structure by theme (e.g. AI in FS, Scheduling/RSO,
-     Copilot, Field Notes).
-  4. **Download the old videos** from the existing channel/playlist
-     (`PLD2JXXb9_ku0`) — source of "the old videos." (yt-dlp on owned content.)
-  5. **New thumbnails** — batch-generate on-brand thumbnails from the Field Manual
-     kit (`web/brand/yt-thumbnail.html` is the template). Claude can produce these.
-  6. **Re-upload** the first 5 videos with new thumbnails into the right playlists.
-     (YouTube upload tools exist but need auth to the new channel.)
-  - Bonus once the domain's in Workspace: switch the site's welcome-email sender
-    from `skippy@nukasoft.ai` to an `@fieldservicenerd.com` address (on-brand).
+- [ ] **YouTube channel launch (in progress).**
+  Channel is **LIVE: https://www.youtube.com/@FieldServiceNerd** (`@FieldServiceNerd`).
+  1. ✅ **Channel created** (Brand Account).
+  2. [ ] **Apply branding** — banner `youtube/fsn-yt-banner.png` (2560×1440), avatar
+     `web/assets/fsn-logo-avatar.png` (1280×1280). Paste the About description + the
+     three links (site, consulting, LinkedIn).
+  3. [ ] **Create 4 playlists** — The Honest Take · From the Field · Honest Reviews ·
+     Fundamentals (see `youtube/CHANNEL-PLAN.md`).
+  4. [ ] **Download the old videos** from the existing channel/playlist
+     (`PLD2JXXb9_ku0`). (yt-dlp on owned content.)
+  5. [ ] **New thumbnails** — batch-generate from the locked master template
+     (`web/brand/yt-thumb-master.html`); EP01+EP02 already rendered in
+     `youtube/thumbnails/`.
+  6. [ ] **Re-upload** the first videos with new thumbnails into the right playlists.
+  - [ ] **`pierre@fieldservicenerd.com` mailbox** (independent now, no longer gates
+     the channel) — add `fieldservicenerd.com` to **nukasoft.ai Google Workspace** +
+     create the user (`gws-admin`). Bonus: switch the site's welcome-email sender from
+     `skippy@nukasoft.ai` to an `@fieldservicenerd.com` address.
 
 - [ ] **Per-episode production package (the content flywheel — next-phase target).**
   Systematize the **script → recording → Descript** handoff so idea → published video
