@@ -26,8 +26,8 @@ Post-launch enhancements. None of these block the live site
   Channel is **LIVE: https://www.youtube.com/@FieldServiceNerd** (`@FieldServiceNerd`).
   1. ✅ **Channel created** (Brand Account).
   2. [ ] **Apply branding** — banner `youtube/fsn-yt-banner.png` (2560×1440), avatar
-     `web/assets/fsn-avatar-circle.png` (circle-native FSN monogram, 800×800 — the patch
-     clips at small round sizes). Paste the About description + the three links.
+     `web/assets/fsn-avatar-circle.png` (circle NERD patch, 800×800 — circle-native so it
+     reads small). Paste the About description + the three links.
   3. [ ] **Create 4 playlists** — The Honest Take · From the Field · Honest Reviews ·
      Fundamentals (see `youtube/CHANNEL-PLAN.md`).
   4. [ ] **Download the old videos** from the existing channel/playlist
