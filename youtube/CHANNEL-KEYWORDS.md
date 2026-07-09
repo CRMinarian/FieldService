@@ -7,10 +7,10 @@ multi-word phrases are quoted so they stay intact.
 ## Channel keywords (paste into Studio → Settings → Channel → Keywords)
 
 ```
-"Dynamics 365 Field Service", "D365 Field Service", "Field Service Management", "Field Service Nerd", "Resource Scheduling Optimization", "RSO", "Connected Field Service", "Copilot Field Service", "AI in Field Service", "Microsoft Dynamics 365", "Field Service Implementation", "Field Service Software", "Field Service Consulting", "Power Platform", "Work Order Management", "Field Service Scheduling", "Enterprise CRM", "Pierre Hulsebus"
+Dynamics 365 Field Service, D365 Field Service, Field Service Management, Field Service Nerd, Resource Scheduling Optimization, RSO, Connected Field Service, Copilot Field Service, AI in Field Service, Microsoft Dynamics 365, Field Service Implementation, Field Service Software, Field Service Consulting, Power Platform, Work Order Management, Field Service Scheduling, Enterprise CRM, Pierre Hulsebus
 ```
 
-Prioritized, fits YouTube's channel-keyword limit, phrases quoted.
+Prioritized (early terms weigh heaviest), comma-separated, fits YouTube's channel-keyword limit.
 
 ## Full tag bank (mix + match per video; ~10-15 tags per video)
 
