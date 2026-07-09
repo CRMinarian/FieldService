@@ -1,9 +1,48 @@
 # EP01 — Why Most Dynamics Field Service Implementations Fail
 
-- **Playlist:** The Honest Take
+- **Playlist:** Fundamentals  *(was "The Honest Take"; that lane is now shorts/commentary)*
 - **Target length:** ~14 minutes
 - **Launch:** Week 1 (Tuesday, 10:00 AM ET)
-- **Thumbnail text idea:** "Most FS Projects FAIL"
+- **Thumbnail:** `youtube/thumbnails/ep01-most-fs-projects-fail.png` ("Most FS Projects FAIL")
+
+---
+
+## Production Package (upload metadata)
+
+**Title:** Why Most Dynamics Field Service Implementations Fail
+
+**Description:**
+```
+Over 70% of Dynamics 365 Field Service projects fail or badly under-deliver.  Most companies don't realize it until it's too late.
+
+I've been implementing D365 Field Service for over 15 years.  This is the veteran version, not the Microsoft version: the real reasons these projects break, the warning signs you're already in trouble, and what to do differently.
+
+If you're about to start a Field Service project, or you're stuck in one right now, watch to the end.
+
+CHAPTERS
+0:00 The 70% nobody admits
+0:45 What success actually looks like
+2:00 #1 Bad process design
+3:45 #2 Underestimating change management
+5:30 #3 The scheduling trap (RSO too early)
+7:20 #4 Garbage in, garbage out
+9:10 #5 The wrong implementation partner
+11:00 4 warning signs you're in trouble
+12:30 What to do differently
+
+New video every Tuesday.  Subscribe for no-BS Field Service content.
+
+Site: https://fieldservicenerd.com
+Stuck on an implementation? https://fieldservicenerd.com/consulting
+LinkedIn: https://linkedin.com/in/nukasoft
+
+#Dynamics365 #FieldService #D365
+```
+*(Chapter times are estimates from the outline — adjust to the final cut; keep the first at 0:00.)*
+
+**Tags:** Dynamics 365 Field Service, D365 Field Service, field service management, field service implementation, RSO, Resource Scheduling Optimization, Microsoft Dynamics 365, field service software, Dynamics implementation, field service consultant, Copilot Field Service, field service best practices, CRM implementation, why implementations fail
+
+**Pinned comment:** Where are you in your Field Service journey | about to start, mid-implementation, or cleaning up a mess?  Drop it below.  I read every comment.
 
 ---
 
