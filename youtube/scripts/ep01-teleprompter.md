@@ -114,31 +114,39 @@ wrong partner.
 
 ---
 
-## WARNING SIGNS  *(quick gut check, direct to camera)*
+## WARNING SIGNS  *(gut check, to camera; pills stack in the negative space, one per beat)*
+
+`[PILL HEADER: WATCH FOR]`
 
 Alright.  Say you're already in one of these projects right now.  Here's your gut check.  Four
 signs you're in trouble.
 
+`[PILL: 1 · "We'll figure that out later"]`
 One.  Your team keeps saying "we'll figure that out later."  Later never comes.
 
+`[PILL: 2 · Consultants don't get your techs]`
 Two.  The consultants don't seem to get the day to day reality of your techs.
 
+`[PILL: 3 · Leadership rushing go-live]`
 Three.  Leadership keeps pushing to go live even though the team clearly isn't ready.
 
+`[PILL: 4 · Configuring more than fixing]`
 Four.  You're spending more time configuring the system than fixing your actual process.
 
+`[PILLS dim / check off as he lands the line]`
 Nodding at any of those?  Pump the brakes.  Today.  It's so much cheaper to slow down now than
 to rescue this thing in six months.  Trust me on that one.  Rescuing broken projects is
 literally part of how I make a living, and I'd still rather you never need to call me.
 
 ---
 
-## CLOSE / CTA
+## CLOSE / CTA  *(walk out / wide, graphics resolve behind him)*
 
 Look.  Field Service done right is one of the best things Microsoft makes.  I've watched it
 change how a whole company runs.  But it's easy to get wrong, and now you know exactly where
 the landmines are.
 
+`[PILL HEADER: THIS WEEK]  [PILL: Ask your team all 5 questions. Out loud.]`
 So here's your challenge this week.  Take those five questions and ask them about your project,
 out loud, with your team in the room.  Be honest.  Then drop a comment and tell me where you
 landed.  Which question made you flinch?  I read every single one.
@@ -146,4 +154,5 @@ landed.  Which question made you flinch?  I read every single one.
 If this helped, hit like.  It genuinely moves the channel.  And subscribe if you want the no
 fluff version of Field Service.  I'm just getting started here.
 
+`[END CARD: wordmark + "New video every Tuesday"]`
 Have a super day.  I'll see you in the next one.
