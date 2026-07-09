@@ -32,11 +32,21 @@ Remaining: apply branding, paste the About description + links, create the 4 pla
 | 7 | How to Actually Make Money as a Field Service Consultant | 13 min |
 | 8 | The Real Difference Between Good and Bad Field Service Dispatchers | 12 min |
 
-## Playlists
-- **The Honest Take** — Why Implementations Fail · 5 Things Microsoft Won't Tell You · The Ugly Truth About RSO · The Biggest Scheduling Mistake
-- **From the Field** — What I Wish I Knew · Good vs Bad Dispatchers · How to Actually Make Money Consulting
-- **Honest Reviews** — Copilot After 3 Months · The 2026 Mobile App
-- **Fundamentals** — Field Service vs Customer Service
+## Playlists (official — Pierre, 2026-07-03)
+The four content lanes, by who the video is about:
+
+1. **The Builders** — the people who make Field Service work behind the scenes.  ISVs,
+   Microsoft product folks, partners, and the wider ecosystem we all build alongside.
+   Conversations with the players shaping the platform.
+2. **Fundamentals** — the technical bedrock.  KPIs, systems, architecture, and what
+   makers and builders actually do and measure.  Where to start to understand how Field
+   Service really works.
+3. **From The Field** — the people actually using these systems.  Techs, engineers,
+   dispatchers, and customers, and the real ways they get the job done.  Ground truth
+   from the field, not the slide deck.
+4. **The Honest Take** — Pierre's thoughts, no filter.  Shorts and quick bites (the old
+   "Public Comment" / Equal Time / Andy Rooney style commentary) on what's happening in
+   Field Service and the industry.
 
 ## Video structure (every video)
 1. **Hook (0:00–0:12)** — one strong statement. *"90% of Field Service implementations are failing… and most people don't even realize it."*

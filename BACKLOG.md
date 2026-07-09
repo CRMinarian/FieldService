@@ -28,8 +28,8 @@ Post-launch enhancements. None of these block the live site
   2. [ ] **Apply branding** — banner `youtube/fsn-yt-banner.png` (2560×1440), avatar
      `web/assets/fsn-avatar-circle.png` (circle NERD patch, 800×800 — circle-native so it
      reads small). Paste the About description + the three links.
-  3. [ ] **Create 4 playlists** — The Honest Take · From the Field · Honest Reviews ·
-     Fundamentals (see `youtube/CHANNEL-PLAN.md`).
+  3. [ ] **Create 4 playlists** — The Builders · Fundamentals · From The Field · The
+     Honest Take (descriptions in `youtube/CHANNEL-PLAN.md`).
   4. [ ] **Download the old videos** from the existing channel/playlist
      (`PLD2JXXb9_ku0`). (yt-dlp on owned content.)
   5. [ ] **New thumbnails** — batch-generate from the locked master template
