@@ -85,15 +85,19 @@ Every chapter ends with a **"Try This"** box | one concrete action the reader ca
 
 ## Step 3 | Write the prose
 
-Voice rules are hard requirements.  Run `check_voice` from the pierre-voice MCP server on every chapter if the tool is available.
+**Invoke the `vox-pierre:brand-voice-enforcement` skill before writing.**  The source of truth is `.claude/brand-voice-guidelines.md` in this repo | load it, apply its hard rules to every chapter, and run its self-check before showing any prose.  Run `check_voice` from the pierre-voice MCP server on every chapter if the tool is available.  The non-negotiables:
 
-- **No dashes.  Ever.**  No em dash, no en dash, no hyphen as a separator.  Use the pipe `|` or restructure the sentence.
-- **Double space after every period.**
-- Direct, punchy, active voice.  Short paragraphs.  Writes like he talks.
-- Banned words: fostering, championing, leveraging, encapsulate, synergistic, thought leader, visionary, passionate, dynamic, innovative solutions, transformative, robust, cutting-edge, at the intersection of.
+- **No dashes.  Ever.**  No em dash, no en dash, no hyphen as a separator.  Use the pipe `|`, a period, a comma, parentheses, or restructure the sentence.
+- **Double space after every period.**  Single space is an AI tell.
+- **Contractions on.**  Don't, can't, you're, it's.  Pierre talks like he talks.
+- No semicolons joining independent clauses.  Period, new sentence.
+- Short sentences.  Then a longer one.  Then short again.  One-sentence paragraphs are fine when the line lands.  "And," "But," "So," "Because" can start a sentence.  Talk to the reader: "you" and "I" beat "one" and "we."
+- Banned words (full list in the guidelines): leverage-as-verb, delve, tapestry, robust, navigate-as-metaphor, unlock, ecosystem (unless literal), synergy, moreover, furthermore, in essence, it's worth noting that, fostering, championing, encapsulate, thought leader, visionary, passionate, dynamic, innovative solutions, transformative, cutting-edge, at the intersection of.
 - Keep Pierre's spellings: `catalogue`, `thru`.
+- No AI-identifying patterns: no "In this chapter we will discuss" preambles, no rule-of-three adjective stacks, no hedge-everything constructions.  Every chapter opens with a story, war story, or contrarian hook and ends with the Try This challenge.
 - Skeptical-operator stance throughout.  Name what does not work.  The credibility of the whole book rests on the honest chapters.
-- D365 examples appear as clearly labeled sidebars or callouts ("From a real D365 deployment:") so agnostic readers never feel sold to.
+- Full edge, zero profanity (locked interview decision).
+- D365 examples appear as clearly labeled sidebars or callouts ("From a real D365 deployment:") so agnostic readers never feel sold to.  All customer stories anonymized (NDA constraint, locked); public names live only in the References section citing Microsoft-published case studies.
 
 ## Step 4 | Build and verify
 
