@@ -5,6 +5,13 @@ Post-launch enhancements. None of these block the live site
 
 ## Open
 
+- [ ] **Restore the Knowledge Base (gated on the e-book refresh).**
+  KB was pulled from the live site 2026-07-15 (no formatted content yet). `web/kb.html`
+  is parked on disk, just unlinked. When the e-book refresh and KB content are ready,
+  re-add: nav link (`Nav.jsx`), hero CTA (`Hero.jsx`), the homepage pillar (revert
+  "Two signals" → "Three signals" in `Sections.jsx`), footer link, About CTA, and the
+  community page card. Also revisit `index.html` meta (still mentions "knowledge base").
+
 - [ ] **Redirect `Hulsebus.net` → Consulting page.**
   Point Pierre's personal domain `Hulsebus.net` at the consulting landing page
   (`fieldservicenerd.com/consulting`, or the `.web.app` URL until the custom domain
