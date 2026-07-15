@@ -25,11 +25,11 @@ Post-launch enhancements. None of these block the live site
   "Two signals" → "Three signals" in `Sections.jsx`), footer link, About CTA, and the
   community page card. Also revisit `index.html` meta (still mentions "knowledge base").
 
-- [ ] **Redirect `Hulsebus.net` → Consulting page.**
-  Point Pierre's personal domain `Hulsebus.net` at the consulting landing page
-  (`fieldservicenerd.com/consulting`, or the `.web.app` URL until the custom domain
-  is cut over) with a 301 redirect. DNS at whichever registrar holds `Hulsebus.net`
-  — use the `domain-manager` skill.
+- [x] **Redirect `Hulsebus.net` → Consulting page.** DONE 2026-07-15.
+  GoDaddy Domain Forwarding, 301 → `https://fieldservicenerd.com/consulting` (verified
+  live). Set via browser (GoDaddy forwarding API is deprecated). Email untouched
+  (MX/SPF/DMARC on Google Workspace preserved). Fully resolves once the
+  fieldservicenerd.com SSL cert finishes provisioning.
 
 - [ ] **Add a personal introduction video.**
   Short, personal "who I am / what this is" video from Pierre. Likely placement: the
