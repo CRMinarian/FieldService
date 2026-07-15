@@ -9,6 +9,40 @@ Three sections per entry: What happened / What's pending / Watch out for
 
 ---
 
+## 2026-07-15 — Site session (build/fsn-site: merge, deploy, DNS launch)
+
+### What happened
+- **Merged** the e-book branch into `build/fsn-site` (21-page Playbook + assets + this session's
+  KB removal + zero-dash voice sweep).  Clean merge, no conflicts.
+- **Deployed to Firebase Hosting** (`field-service-nerd`).  Verified live:
+  `/ebook/fs-ai-primer.pdf` serves the 3.6 MB / 21-page build; homepage clean (KB gone, "Two
+  signals", pipes not dashes).
+- **fieldservicenerd.com** pointed at Firebase: apex `A → 199.36.158.100`, TXT
+  `hosting-site=field-service-nerd` verified, Google SSL cert issued.  Serving on updated edges.
+- **hulsebus.net → 301 → fieldservicenerd.com/consulting** via GoDaddy Domain Forwarding
+  (browser-driven; the forwarding API is deprecated).  Email MX/SPF/DMARC untouched.
+- Ran `/vox-pierre:enforce-voice` across all site copy (48 em-dashes to pipes); saved
+  `.claude/brand-voice-guidelines.md` for instant reload.
+- Added `PROJECT-RETROSPECTIVE.md` (What Works / What Doesn't / the Playbook).
+
+### What's pending
+- [ ] Confirm `www.fieldservicenerd.com` is registered in Firebase (redirect to root) | check console.
+- [ ] Let fieldservicenerd.com edge propagation finish globally (some machines still saw "Site Not
+  Found" | that is edge lag, the domain is connected with a valid cert).
+- [ ] EP02 through EP10 scripts + thumbnails (batch); record EP01 from `youtube/scripts/ep01-teleprompter.md`.
+- [ ] Personal intro video; pro headshot on the Consulting page.
+- [ ] Restore the KB when content is ready (`BACKLOG.md` has the exact revert list).
+
+### Watch out for
+- Firebase custom-domain "Site Not Found" during rollout is **edge lag, not a break** (valid cert +
+  content serving on some edges = connected + propagating).
+- Firebase login token expires | may need `firebase login --reauth` before a deploy.
+- **GoDaddy forwarding API is deprecated (404).**  Forwarding changes go through the console/browser.
+- `web/` is the Firebase public dir | keep `references/ebook-interview-notes.md` OUT of it (NDA).
+- DNS is owned by the `domain-manager` skill; never change records ad hoc.
+
+---
+
 ## 2026-07-15 — Hot Rod (Skippy/field-service-ai-ebook-57c092 → build/fsn-site)
 
 ### What happened
