@@ -1,0 +1,136 @@
+/* ============================================================
+   Field Service Nerd — shared page chrome + Field Manual signatures
+   (v3-final). Linked on every page AFTER styles.css. Holds the worn
+   texture and the reusable manual treatments: grain, stencil rules,
+   hazard stripes, mono data marks, part-tag chrome.
+   Class names are kept stable so page components keep resolving.
+   ============================================================ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  line-height: 1.55;
+  transition: background .2s var(--ease-out), color .2s var(--ease-out);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Worn ground — the manual has been handled. Fine grain + faint
+   diagonal scuffing + edge vignette, fixed over the whole page. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: var(--grain); background-size: 160px 160px;
+  opacity: .06; mix-blend-mode: overlay;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(64deg, rgba(255,255,255,.012) 0 2px, transparent 2px 240px),
+    repeating-linear-gradient(114deg, rgba(0,0,0,.04) 0 1px, transparent 1px 360px),
+    radial-gradient(125% 90% at 50% 0%, transparent 62%, rgba(0,0,0,.22));
+}
+:root[data-theme="light"] body::before { mix-blend-mode: multiply; opacity: .05; }
+/* keep real content above the texture layers */
+body > * { position: relative; z-index: 1; }
+
+/* ---- Links / nav ---- */
+.navlink { transition: color .12s var(--ease-out), opacity .12s var(--ease-out); }
+.navlink:hover { color: var(--color-accent) !important; opacity: 1 !important; }
+
+.theme-toggle {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  background: transparent; border: 1px solid currentColor; color: inherit;
+  border-radius: var(--radius-sm); padding: 6px 12px;
+  font-family: var(--font-mono); font-weight: 500; font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; opacity: .8;
+  transition: opacity .12s var(--ease-out);
+}
+.theme-toggle:hover { opacity: 1; }
+
+/* ---- Wordmark (Nav brand) ---- */
+.fsn-brand { font-family: var(--font-wordmark); }
+
+/* ---- Toast ---- */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+  background: var(--navy-ink); color: var(--bone);
+  padding: 13px 20px; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--font-mono); font-weight: 500; font-size: 13px;
+  letter-spacing: .04em; text-transform: uppercase;
+  z-index: 100; display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--color-accent);
+}
+
+/* ============================================================
+   SIGNATURE TREATMENTS (manual)
+   ============================================================ */
+
+/* 1 · Grain patch — worn overlay for a positioned dark section.
+   (Kept the .dot-grid class name; it is now grain, not a dot grid.)
+   Drop <div class="dot-grid"> as a z-0 layer inside a positioned section. */
+.dot-grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: var(--grain); background-size: 150px 150px;
+  opacity: .10; mix-blend-mode: overlay;
+}
+
+/* 2 · Schematic — faint grain behind data-dense sections (legacy hook). */
+.schematic {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: var(--grain); background-size: 130px 130px; opacity: .08;
+}
+
+/* 3 · Control shade — a worn vignette over dark sections (no glow). */
+.control-glow { position: absolute; inset: 0; pointer-events: none; z-index: 0; background: var(--control-glow); }
+
+/* 4 · Hazard divider — a warning-tape rule. */
+.rule-divider {
+  height: 12px; width: 100%; border: 0; margin: 0;
+  background: var(--hazard); opacity: .9;
+}
+
+/* 5 · Stencil rule — a stamped safety-orange accent bar (static). */
+.draw-rule { height: 3px; width: 88px; border-radius: 1px; overflow: hidden; background: var(--color-accent); }
+.draw-rule::before {
+  content: ""; display: block; height: 100%; width: 100%;
+  background: var(--color-accent);
+  transform: scaleX(1); transform-origin: left center;
+}
+.draw-rule.center { margin-left: auto; margin-right: auto; }
+/* legacy scroll-reveal hook still supported, but visible by default */
+.draw-rule.in-view::before { transform: scaleX(1); }
+
+/* 6 · Monospace data mark — inline label like a stamped readout. */
+.data-mark {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: var(--tracking-data); text-transform: uppercase;
+  color: var(--color-kicker);
+}
+
+/* 7 · Status dot — steel service indicator (restrained pulse). */
+.status-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--color-data);
+  box-shadow: 0 0 0 0 rgba(var(--steel-rgb), .6);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .status-dot { animation: statusPulse 2.6s ease-in-out infinite; }
+}
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--steel-rgb), .5); opacity: 1; }
+  50%      { box-shadow: 0 0 0 6px rgba(var(--steel-rgb), 0);  opacity: .75; }
+}
+
+/* ---- Responsive grid collapses (shared class hooks) ---- */
+@media (max-width: 880px) {
+  .two-col, .hero-grid, .vid-grid, .svc-grid, .step-grid { grid-template-columns: 1fr !important; }
+  .nav-hide { display: none !important; }
+  .nav-links { gap: 14px !important; }
+}
+@media (max-width: 560px) {
+  .theme-toggle { display: none !important; }
+  .fsn-brand img { height: 40px !important; width: auto !important; }
+}

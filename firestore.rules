@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Email capture — anyone can add a subscriber, no reads from the client.
+    // firstName is allowed (the site form sends it); source carries the '__init_sheet__'
+    // and '__sheet_maintenance__' control signals for the Cloud Function.
+    match /subscribers/{doc} {
+      allow create: if request.resource.data.keys().hasOnly(['firstName', 'email', 'source', 'createdAt'])
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() < 256;
+      allow read, update, delete: if false;
+    }
+  }
+}

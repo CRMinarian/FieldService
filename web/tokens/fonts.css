@@ -1,0 +1,14 @@
+/* ============================================================
+   Field Service Nerd — Fonts (Field Manual, v3-final)
+   Wordmark : Alfa Slab One — heavy antique slab. The stamped logo
+              face. Cover title, mega display only. Never body.
+   Display  : Oswald — condensed industrial sans. Section heads,
+              buttons, labels, UI. Carries the workhorse load.
+   Body/UI  : Inter — clean operational reading text.
+   Data     : JetBrains Mono — part numbers, specs, status marks.
+              Used sparingly.
+   Loaded from Google Fonts (free). To self-host, drop the .woff2 in
+   assets/fonts/ and swap this @import for @font-face rules (see
+   /web/brand/ for the inlined-font asset templates).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');

@@ -1,0 +1,127 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FSN — YouTube Thumbnail 1280x720</title>
+<link rel="stylesheet" href="./brand-kit.css">
+
+<style>
+/* ---------- 1 · YouTube channel banner 2560x1440 ---------- */
+.yt-banner{width:2560px;height:1440px;background:var(--graphite);position:relative;overflow:hidden;color:var(--bone);}
+.yt-banner .edge-haz{position:absolute;top:0;left:0;right:0;height:14px;background:var(--hazard);z-index:3;}
+.yt-banner .edge-rule{position:absolute;top:14px;left:0;right:0;height:4px;background:var(--orange);z-index:3;}
+.yt-banner .wmk{position:absolute;font-family:var(--f-wm);font-size:560px;line-height:1;color:#000;opacity:.05;right:-30px;top:-140px;text-transform:uppercase;z-index:0;}
+.yt-banner .safe{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1500px;height:423px;display:flex;align-items:center;gap:64px;z-index:2;}
+.yt-banner .lock{flex:none;}
+.yt-banner .tag-manual{font-size:15px;padding:6px 13px 5px;}
+.yt-banner .fs{font-size:38px;letter-spacing:.34em;margin-top:16px;}
+.yt-banner .nerd{font-size:196px;margin-top:-4px;}
+.yt-banner .haz-underline{height:12px;width:560px;background:var(--hazard);margin-top:16px;opacity:.9;}
+.yt-banner .vrule{width:2px;height:320px;background:var(--line);flex:none;}
+.yt-banner .info{display:flex;flex-direction:column;gap:22px;position:relative;padding-top:6px;}
+.yt-banner .kick{font-family:var(--f-osw);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:26px;color:var(--bone);}
+.yt-banner .topics{display:flex;flex-wrap:wrap;gap:10px;max-width:560px;}
+.yt-banner .topics span{font-family:var(--f-mono);font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-muted);border:1px solid var(--line);border-radius:2px;padding:7px 13px;}
+.yt-banner .topics span.o{color:var(--orange);border-color:rgba(227,107,44,.45);}
+.yt-banner .host{font-family:var(--f-mono);font-size:15px;color:var(--steel-lt);letter-spacing:.05em;text-transform:uppercase;}
+.yt-banner .approve.big{position:absolute;right:-24px;top:-96px;transform:rotate(-9deg);padding:12px 18px 9px;}
+.yt-banner .approve.big .a1{font-size:23px;} .yt-banner .approve.big .a2{font-size:10px;margin-top:5px;}
+.yt-banner .ribbon{position:absolute;bottom:0;left:0;right:0;height:60px;background:var(--navy);color:var(--bone-dim);border-top:3px solid var(--orange);font-family:var(--f-mono);font-size:15px;letter-spacing:.14em;display:flex;align-items:center;white-space:nowrap;overflow:hidden;padding-left:26px;z-index:3;}
+
+/* ---------- 2 · YouTube thumbnail 1280x720 ---------- */
+.yt-thumb{width:1280px;height:720px;background:var(--od);position:relative;overflow:hidden;color:var(--bone);}
+.yt-thumb .lrule{position:absolute;left:0;top:0;bottom:0;width:12px;background:var(--orange);z-index:3;}
+.yt-thumb .top{position:absolute;top:34px;left:52px;right:44px;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.yt-thumb .mini{font-family:var(--f-wm);text-transform:uppercase;font-size:26px;letter-spacing:.02em;color:var(--bone);}
+.yt-thumb .mini b{color:var(--orange);}
+.yt-thumb .parttag{font-size:16px;padding:7px 13px;}
+.yt-thumb .body{position:absolute;left:52px;right:40px;top:118px;bottom:64px;display:flex;gap:30px;z-index:2;}
+.yt-thumb .left{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.yt-thumb .topic{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--steel-lt);font-size:20px;margin-bottom:16px;}
+.yt-thumb .title{font-family:var(--f-osw);font-weight:700;text-transform:uppercase;font-size:98px;line-height:.92;letter-spacing:.01em;margin:0;color:var(--bone);}
+.yt-thumb .title .o{color:var(--orange);}
+.yt-thumb .sub{font-family:var(--f-osw);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:26px;color:var(--bone-muted);margin-top:20px;}
+.yt-thumb .right{width:300px;flex:none;position:relative;display:flex;align-items:center;justify-content:center;}
+.yt-thumb .portrait{width:284px;height:352px;border:2px solid var(--line);border-radius:4px;background:linear-gradient(180deg,var(--panel-2),var(--panel));display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:19px;color:var(--bone-dim);letter-spacing:.16em;text-align:center;line-height:1.7;}
+.yt-thumb .stamp{position:absolute;bottom:8px;right:-8px;transform:rotate(-8deg);padding:8px 12px 6px;}
+.yt-thumb .stamp .a1{font-size:18px;} .yt-thumb .stamp .a2{font-size:9px;margin-top:3px;}
+.yt-thumb .haz{position:absolute;bottom:0;left:0;right:0;height:14px;background:var(--hazard);z-index:3;}
+
+/* ---------- 3 · LinkedIn Live 1280x720 ---------- */
+.li-live{width:1280px;height:720px;background:var(--graphite);position:relative;overflow:hidden;color:var(--bone);}
+.li-live .seriesbar{position:absolute;top:0;left:0;right:0;height:72px;background:var(--navy);border-bottom:3px solid var(--orange);display:flex;align-items:center;justify-content:space-between;padding:0 44px;z-index:3;}
+.li-live .series{font-family:var(--f-wm);text-transform:uppercase;font-size:25px;letter-spacing:.02em;color:var(--bone);}
+.li-live .series b{color:var(--orange);}
+.li-live .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-osw);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:18px;color:var(--warn);border:2px solid var(--warn);border-radius:3px;padding:6px 13px;}
+.li-live .badge i{width:11px;height:11px;border-radius:50%;background:#D94A2A;box-shadow:0 0 0 3px rgba(217,74,42,.22);}
+.li-live .body{position:absolute;left:52px;right:52px;top:158px;z-index:2;}
+.li-live .topic{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--steel-lt);font-size:19px;margin-bottom:18px;}
+.li-live .title{font-family:var(--f-osw);font-weight:700;text-transform:uppercase;font-size:80px;line-height:.98;letter-spacing:.01em;margin:0;max-width:1050px;color:var(--bone);}
+.li-live .title .o{color:var(--orange);}
+.li-live .meta{display:flex;align-items:center;gap:18px;margin-top:34px;}
+.li-live .parttag{font-size:18px;padding:9px 15px;}
+.li-live .host{font-family:var(--f-osw);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:24px;color:var(--bone);}
+.li-live .host b{color:var(--orange);}
+.li-live .foot{position:absolute;bottom:30px;left:52px;right:52px;display:flex;justify-content:space-between;align-items:flex-end;z-index:2;}
+.li-live .url{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.14em;color:var(--bone-dim);font-size:17px;}
+.li-live .stamp{transform:rotate(-7deg);padding:9px 13px 7px;}
+.li-live .stamp .a1{font-size:19px;} .li-live .stamp .a2{font-size:10px;margin-top:4px;}
+
+/* ---------- 4 · E-book cover 1600x2560 ---------- */
+.ebook{width:1600px;height:2560px;background:var(--od);position:relative;overflow:hidden;color:var(--bone);}
+.ebook .frame{position:absolute;inset:40px;border:2px solid rgba(240,237,230,.12);border-radius:4px;pointer-events:none;z-index:2;}
+.ebook .topbar{position:absolute;top:88px;left:100px;right:100px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:24px;z-index:3;}
+.ebook .tag-manual{font-size:20px;padding:9px 16px 7px;letter-spacing:.4em;}
+.ebook .kicker{font-size:19px;}
+.ebook .mid{position:absolute;top:372px;left:100px;right:100px;z-index:3;}
+.ebook .fs{font-family:var(--f-osw);font-weight:700;text-transform:uppercase;letter-spacing:.36em;font-size:54px;color:var(--bone);}
+.ebook .nerd{font-family:var(--f-wm);text-transform:uppercase;color:var(--orange);font-size:302px;line-height:.8;letter-spacing:.01em;margin-top:4px;text-shadow:0 4px 0 rgba(0,0,0,.4);}
+.ebook .haz{height:16px;background:var(--hazard);margin:40px 0 0;opacity:.9;width:100%;}
+.ebook .title{font-family:var(--f-osw);font-weight:700;text-transform:uppercase;font-size:96px;line-height:1;letter-spacing:.01em;margin:60px 0 0;color:var(--bone);}
+.ebook .title .o{color:var(--orange);}
+.ebook .sub{font-family:var(--f-body);font-size:31px;line-height:1.5;color:var(--bone-muted);margin:38px 0 0;max-width:1150px;}
+.ebook .stampwrap{position:absolute;top:150px;right:130px;z-index:4;}
+.ebook .approve{padding:18px 26px 14px;transform:rotate(-10deg);}
+.ebook .approve .a1{font-size:36px;} .ebook .approve .a2{font-size:15px;margin-top:8px;}
+.ebook .foot{position:absolute;bottom:120px;left:100px;right:100px;z-index:3;}
+.ebook .author{font-family:var(--f-wm);text-transform:uppercase;font-size:66px;color:var(--bone);letter-spacing:.02em;line-height:1;}
+.ebook .cred{font-family:var(--f-mono);font-size:22px;color:var(--steel-lt);letter-spacing:.05em;text-transform:uppercase;margin-top:16px;}
+.ebook .hazfoot{height:14px;background:var(--hazard);margin-top:32px;}
+.ebook .rivets{margin-top:28px;}
+.ebook .rivets i{width:16px;height:16px;}
+</style>
+<style>html,body{margin:0;background:#111;}body{display:flex;align-items:flex-start;justify-content:flex-start;}</style>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="silkscreen" x="-6%" y="-14%" width="112%" height="128%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.013 0.02" numOctaves="2" seed="6" result="warp"/>
+    <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="11" result="speck"/>
+    <feComponentTransfer in="speck" result="spk"><feFuncA type="discrete" tableValues="0 0 0 0 1"/></feComponentTransfer>
+    <feComposite in="rough" in2="spk" operator="out"/>
+  </filter>
+  <filter id="stampink" x="-12%" y="-24%" width="124%" height="148%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.016 0.024" numOctaves="2" seed="4" result="warp"/>
+    <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="9" result="speck"/>
+    <feComponentTransfer in="speck" result="spk"><feFuncA type="discrete" tableValues="0 0 0 1 1"/></feComponentTransfer>
+    <feComposite in="rough" in2="spk" operator="out"/>
+  </filter>
+</defs></svg>
+<div class="canvas yt-thumb worn">
+  <div class="lrule"></div>
+  <div class="top">
+    <span class="mini">Field Service&nbsp;<b>Nerd</b></span>
+    <span class="parttag">EP 012</span>
+  </div>
+  <div class="body">
+    <div class="left">
+      <div class="topic">RSO &middot; Scheduling</div>
+      <h1 class="title">Fix Your <span class="o">RSO</span> Scheduling</h1>
+      <div class="sub">Real deployment wins &mdash; not hype.</div>
+    </div>
+    <div class="right">
+      <div class="portrait">HOST<br>PHOTO</div>
+      <div class="approve stampink stamp"><div class="a1">Field</div><div class="a2">Tested</div></div>
+    </div>
+  </div>
+  <div class="haz"></div>
+</div></body></html>

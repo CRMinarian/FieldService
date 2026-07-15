@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community | Field Service Nerd</title>
+<meta name="description" content="Welcome to the Field Service Nerd community. Download the free Field Service AI Primer and dig into the knowledge base.">
+<meta property="og:title" content="Community | Field Service Nerd">
+<meta property="og:description" content="Your free Field Service AI Primer and the knowledge base | right here.">
+<meta property="og:image" content="https://fieldservicenerd.com/assets/fsn-logo-social.png">
+<meta property="og:url" content="https://fieldservicenerd.com/community">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fieldservicenerd.com/community">
+<link rel="icon" type="image/png" href="assets/fsn-logo-avatar.png">
+<link rel="apple-touch-icon" href="assets/fsn-logo-avatar.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .comm-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(23,20,15,.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 24px; height: 62px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .comm-nav-logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-wordmark); font-weight: 400; font-size: 18px; text-transform: uppercase; letter-spacing: var(--tracking-wordmark); color: var(--paper); text-decoration: none; }
+  .comm-nav-link { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--paper); opacity: .78; text-decoration: none; }
+  .comm-nav-link:hover { opacity: 1; }
+
+  .comm-hero { position: relative; overflow: hidden; background: var(--hero-ground); padding: 80px 24px 68px; text-align: center; }
+  .comm-hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(34px,6vw,60px); line-height: 1.02; color: var(--paper); margin: 0 0 8px; letter-spacing: var(--tracking-hero); }
+  .comm-hero h1 span { color: var(--orange); }
+  .comm-hero-sub { color: var(--text-on-dark-muted); font-size: 18px; line-height: 1.55; max-width: 520px; margin: 14px auto 0; }
+  .comm-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(var(--cyan-rgb),.10); border: 1px solid rgba(var(--cyan-rgb),.3); border-radius: 999px; padding: 8px 16px; margin-top: 26px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--cyan); }
+
+  .comm-grid { max-width: var(--content-max); margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 760px) { .comm-grid { grid-template-columns: 1fr; } }
+  .comm-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; }
+  .comm-card h2 { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--text-strong); line-height: 1.1; margin: 12px 0 10px; }
+  .comm-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin: 0 0 20px; }
+  .comm-card ul { padding: 0 0 0 18px; margin: 0 0 22px; color: var(--text-muted); font-size: 15px; line-height: 1.95; }
+  .dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--color-accent); color: var(--text-on-accent); font-family: var(--font-display); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; border: none; border-radius: var(--radius-md); padding: 14px 24px; cursor: pointer; text-decoration: none; width: 100%; margin-top: auto; }
+  .dl-btn:hover { background: var(--orange-bright); }
+  .dl-btn.secondary { background: transparent; color: var(--color-data); border: 1px solid rgba(var(--cyan-rgb),.4); margin-top: 10px; }
+
+  .ebook-cover { width: 100%; aspect-ratio: 4/3; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: linear-gradient(160deg,#353A32,#2A2A2A 55%,#17140F); display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 22px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .comm-footer { border-top: 1px solid var(--border-subtle); padding: 30px 24px; text-align: center; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: .02em; }
+  .comm-footer a { color: var(--color-data); text-decoration: none; }
+</style>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('fsn-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<nav class="comm-nav">
+  <a href="/" class="comm-nav-logo"><img src="assets/fsn-logo-patch.png" height="46" alt="Field Service Nerd"></a>
+  <div style="display:flex;align-items:center;gap:22px;">
+    <a href="/kb" class="comm-nav-link">Knowledge Base</a>
+    <a href="/consulting" class="comm-nav-link">Consulting</a>
+    <a href="/about" class="comm-nav-link">About</a>
+  </div>
+</nav>
+
+<section class="comm-hero" data-theme="dark">
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div style="position:relative;z-index:1;">
+    <h1>You're in.<br><span>Welcome to the signal.</span></h1>
+    <p class="comm-hero-sub">Your free Field Service AI Primer is right here, along with the knowledge base and the field notes. No paywall. Just the good stuff.</p>
+    <div class="comm-badge"><span class="status-dot"></span> Community Member | Field Service Nerd</div>
+  </div>
+</section>
+
+<div class="comm-grid">
+
+  <div class="comm-card">
+    <div class="ebook-cover">
+      <span class="data-mark" style="color:var(--cyan)">Field_Service_Nerd / primer.pdf</span>
+      <div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--paper);line-height:1.02;">AI in<br>Field Service</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--orange);margin-top:10px;letter-spacing:.06em;">PRACTITIONER PRIMER · v1</div>
+      </div>
+    </div>
+    <span class="data-mark">Free Download</span>
+    <h2>The Field Service AI Primer</h2>
+    <p>What’s real, what’s hype, and where AI actually pays off in field service | Copilot, scheduling intelligence, IoT-triggered work, and the traps that burn budgets.</p>
+    <a href="ebook/fs-ai-primer.pdf" download="Field-Service-AI-Primer.pdf" class="dl-btn">⬇ Download the Primer (PDF)</a>
+  </div>
+
+  <div class="comm-card">
+    <span class="data-mark">Members Path</span>
+    <h2>Dig Into the Knowledge Base</h2>
+    <p>The canonical, opinionated reference | no vendor gloss. Start here and go as deep as you want.</p>
+    <ul>
+      <li>The Summit decks: AI in Field Service, Why Scheduling Is Hard</li>
+      <li>Lexicon | D365 Field Service terminology</li>
+      <li>Frameworks | architecture &amp; operating patterns</li>
+      <li>The AI terminology reference</li>
+      <li>New material added as it ships</li>
+    </ul>
+    <a href="/kb" class="dl-btn" style="margin-top:auto;">Open the Knowledge Base →</a>
+    <a href="#playlist" class="dl-btn secondary">▶ Watch the Playlist</a>
+  </div>
+
+</div>
+
+<!-- PLAYLIST EMBED -->
+<section id="playlist" style="max-width:var(--content-max);margin:0 auto;padding:8px 24px 72px;">
+  <div style="text-align:center;margin-bottom:28px;">
+    <span class="data-mark" style="display:inline-flex;">Watch // The Channel</span>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--text-strong);margin:12px 0 0;">Latest from the channel</h2>
+  </div>
+  <div style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);background:var(--navy-ink);">
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLD2JXXb9_ku0&rel=0&modestbranding=1"
+      title="Field Service Nerd | YouTube playlist"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block;"></iframe>
+  </div>
+</section>
+
+<footer class="comm-footer">
+  <p>Field Service Nerd · <a href="/">back to main site</a> · <a href="/consulting">consulting</a></p>
+  <p style="margin-top:6px;">Questions? Reply to your welcome email.</p>
+</footer>
+
+</body>
+</html>
