@@ -59,7 +59,7 @@ Mechanics for adapter A:
 
 - Entra app registration, client credentials flow, an application user in the environment with a minimal read-only security role (work orders, bookings, incident types, assets, resources, annotations).
 - Daily delta query: work orders whose system status reached Completed or Posted and whose `modifiedon` falls in the last N days (N defaults to 2 for late edits; idempotency in section 6 makes overlap harmless).
-- **Per-org field map as config, not code.**  Where the "real resolution notes" actually live varies wildly per implementation: booking resolution fields, service task notes, closure annotations, custom fields on the work order.  The adapter reads a `fieldmap.yaml` that names the source columns for problem text, resolution text, asset lookup, crew, work order type, and incident type.  Exact schema names (`msdyn_workorder` and friends) get verified against the target org during implementation, not hardcoded from memory.  Same fact-check discipline as the ebook.
+- **Per-org field map as config, not code.**  Where the "real resolution notes" actually live varies wildly per implementation: booking resolution fields, service task notes, closure annotations, custom fields on the work order.  The adapter reads a `fieldmap.yaml` that names the source columns for problem text, resolution text, asset lookup, site, crew, work order type, and incident type.  Exact schema names (`msdyn_workorder` and friends) get verified against the target org during implementation, not hardcoded from memory.  Same fact-check discipline as the ebook.
 
 The **synthetic generator** is the third adapter and it is not optional.  The public build log cannot show client data, so the generator produces a few hundred realistic closures across the full quality spectrum: "fixed" one-worders, decent-but-vague notes, and frame-it closures, spread across fake crews and incident types.  It doubles as the test fixture.
 
@@ -107,13 +107,18 @@ One table, one row per scored work order:
 ```
 scores(
   workorder_id, wo_number, closed_on, run_date,
-  crew, work_order_type, incident_type,
+  site, crew, work_order_type, incident_type,
   score_problem, score_resolution, score_asset, score_total, verdict,
   evidence_json, coaching_note,
-  model, prompt_version, source_hash,
+  scored_by, model, prompt_version, source_hash,
   UNIQUE(workorder_id, source_hash)
 )
 ```
+
+The `site`, `scored_by`, and date columns mirror the printed scoresheet's Site / Scored by / Date
+identity line, so a paper pull and an agent run are the same record shape.  `scored_by` is the
+agent identity (model + version) or the human scorer's name for hand-scored calibration rows;
+`site` comes from the work order's service territory or account thru the field map.
 
 `source_hash` is a hash of the normalized input text.  Daily aggregates are computed at report time, never stored; the row level is the source of truth and re-slicing (new crew rollup, new date window) costs nothing.
 
