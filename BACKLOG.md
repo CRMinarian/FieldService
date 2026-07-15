@@ -5,6 +5,19 @@ Post-launch enhancements. None of these block the live site
 
 ## Open
 
+- [ ] **Interactive Work Order Quality Quiz → community access (parked by Pierre 2026-07-15).**
+  Web version of the book's page-6 scoresheet on fieldservicenerd.com: visitor scores up to
+  twenty closed work orders in the browser (three measures, 0 to 3 apiece), gets the persona
+  verdict per order (Documentation Darling | Almost-There Operator | "Fixed." Philosopher) and
+  the 180-max band for the pull (140+ AI-ready | 90 to 139 closure discipline first | under 90
+  training budget).  The score screen is the community hook: enter email via the existing
+  subscribers funnel to save the score and unlock community access.  Rubric, personas, and copy
+  are LOCKED in the ebook (branch `Skippy/field-service-ai-ebook-57c092`, asset
+  `web/brand/work-order-quality-quiz.png`, FSN-QUIZ-03) | reuse verbatim.  Related but separate:
+  the daily D365 scoring-agent design (also parked) at
+  `docs/superpowers/specs/2026-07-15-work-order-quality-quiz-agent-design.md` on
+  `Skippy/sad-brahmagupta-adab08`.
+
 - [ ] **Restore the Knowledge Base (gated on the e-book refresh).**
   KB was pulled from the live site 2026-07-15 (no formatted content yet). `web/kb.html`
   is parked on disk, just unlinked. When the e-book refresh and KB content are ready,
