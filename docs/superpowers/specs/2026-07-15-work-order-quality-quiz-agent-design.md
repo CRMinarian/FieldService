@@ -1,14 +1,14 @@
-# Work Order Cosmo Quiz Agent | Design
+# Work Order Quality Quiz Agent | Design
 
-_2026-07-15.  Design spec for the daily agent that scores every closed work order on the Cosmo Quiz and turns closure discipline into a dashboard.  Source framework: "The Field Service AI Playbook," chapter 03, plus Pierre's Q8 annotation in `references/ebook-interview-notes.md`.  This is three things at once: an FSN content asset (public build log), a consulting deliverable (drops into a client tenant), and the book's "ideal first custom agent" made real._
+_2026-07-15.  Design spec for the daily agent that scores every closed work order on the Work Order Quality Quiz and turns closure discipline into a dashboard.  Source framework: "The Field Service AI Playbook," chapter 03.  ("Cosmo Quiz" was the drafting name; the book shipped it as the **Work Order Quality Quiz**, full-page scoresheet on page 6, standalone asset `web/brand/work-order-quality-quiz.png`, part tag FSN-QUIZ-03, all on branch `Skippy/field-service-ai-ebook-57c092`.)  Interview context: Q8 in `references/ebook-interview-notes.md` on that branch.  This is three things at once: an FSN content asset (public build log), a consulting deliverable (drops into a client tenant), and the book's "ideal first custom agent" made real._
 
 ---
 
 ## 1.  What it does
 
-Every day the agent pulls the work orders that closed in Dynamics 365 Field Service, scores each one on the Work Order Cosmo Quiz, stores the scores, and regenerates a trend dashboard plus a short daily report.  Best and worst crews, work order types, and incident types surface with verbatim evidence quotes and a coaching note, so a service manager knows exactly what to fix first.
+Every day the agent pulls the work orders that closed in Dynamics 365 Field Service, scores each one on the Work Order Quality Quiz, stores the scores, and regenerates a trend dashboard plus a short daily report.  Best and worst crews, work order types, and incident types surface with verbatim evidence quotes and a coaching note, so a service manager knows exactly what to fix first.
 
-The quiz, verbatim from the book:
+The quiz, locked as shipped in the book:
 
 | Measure | Points |
 |---|---|
@@ -16,7 +16,15 @@ The quiz, verbatim from the book:
 | Real resolution notes | 0 to 3 |
 | Correct asset attached | 0 to 3 |
 
-Verdict bands: **8 or 9, frame it.  5 to 7, coaching fixes it.  4 or under, your AI is reading a blank page.**
+Per-work-order verdicts use the scoresheet personas verbatim.  **These names appear in every agent output** | digest, dashboard, coaching notes:
+
+| Points | Verdict | Read |
+|---|---|---|
+| 8 or 9 | **The Documentation Darling** | Frame it.  Your techs write like the next tech matters. |
+| 5 to 7 | **The Almost-There Operator** | There's a story in there, it just mumbles.  One toolbox talk pays for itself. |
+| 0 to 4 | **The "Fixed." Philosopher** | One word, zero context, total confidence.  Your AI will be exactly as informative. |
+
+The scoresheet also grades a 20-order sample pull as a total, 180 max: **140+** AI-ready, buy the workload.  **90 to 139** run 90 days of closure discipline first, then buy.  **Under 90** the next AI dollar is a training dollar.  The agent speaks the same units: its headline metric is the rolling **book-scale total** (mean score × 20), so a manager who took the quiz on paper reads the dashboard with no conversion table.
 
 One design principle governs everything below: **no evidence, no seat.**  The retired 2020 D365 incident type suggestions showed their work ("of the 80 work orders with this incident type, 66 also include this product").  This agent holds itself to the same standard.  Every score ships with the verbatim quote that earned it.
 
@@ -74,7 +82,7 @@ LLM rubric (one call per work order, temperature 0, JSON schema enforced):
 | Resolution notes | Action named, no detail | What was done plus parts/steps | Cause, action, and verification it worked |
 | Asset | Attached but contradicted by the notes or location | Attached and consistent with the work | Attached, consistent, and referenced in the notes |
 
-Output per work order: three sub-scores, total, verdict band, **one verbatim evidence quote per measure**, and a one-line coaching note ("resolution says what, never why | ask techs to name the cause").
+Output per work order: three sub-scores, total, verdict persona (Documentation Darling | Almost-There Operator | "Fixed." Philosopher), **one verbatim evidence quote per measure**, and a one-line coaching note ("resolution says what, never why | ask techs to name the cause").
 
 Evidence integrity is enforced mechanically: each quote must be a verbatim substring of the source text.  Fails validation → one retry → still fails → the work order is flagged `unverified` and excluded from trends until rerun.  The agent never gets to invent its receipts.
 
@@ -130,9 +138,9 @@ scores(
 
 **Recommendation: A now, B as the paid upgrade path once a client wants write-back.**
 
-The dashboard is one self-contained HTML file regenerated per run, styled in the locked **Field Manual v3** direction (olive/orange, Alfa Slab stamp), same visual family as the ebook:
+The dashboard is one self-contained HTML file regenerated per run, styled in the locked **Field Manual v3** direction (olive/orange, Alfa Slab stamp), visually keyed to the page-6 scoresheet (`web/brand/work-order-quality-quiz.png`, FSN-QUIZ-03) so the paper quiz and the dashboard read as one artifact:
 
-- Headline: 30-day average score plus delta, and the band mix (frame it / coaching / blank page) as a stacked bar over time.
+- Headline: rolling book-scale total (mean × 20) with its band (AI-ready | closure discipline first | training dollar), 30-day delta, and the persona mix (Darling / Almost-There / Philosopher) as a stacked bar over time.
 - Leaderboards: crews, work order types, incident types | best and worst, minimum sample size gate so a one-job crew cannot top the chart.
 - **Fix-first panel:** the lowest-scoring cluster with its evidence quotes and coaching notes.  This is the money pixel: not "crew B is bad" but "crew B's resolution notes on HVAC PMs average 0.8 of 3 | here are three verbatim examples."
 - Yesterday's worst three closures, quotes attached | the standing coaching queue.
@@ -143,7 +151,7 @@ The daily digest is the same story in ~20 lines of markdown, mailable thru the e
 
 ## 8.  Runtime and scheduling
 
-- **Language:** Python 3, matching the repo's existing `tools/` scripts.  Lives at `agents/cosmo-quiz/` with one module per component (adapter, normalize, score, store, report) plus `fieldmap.yaml` and `run.py`.
+- **Language:** Python 3, matching the repo's existing `tools/` scripts.  Lives at `agents/quality-quiz/` with one module per component (adapter, normalize, score, store, report) plus `fieldmap.yaml` and `run.py`.
 - **FSN demo instance:** GitHub Actions cron, daily, synthetic adapter, dashboard artifact published to the FSN site as the public demo page.
 - **Client instance:** the same package on an Azure Functions timer or a plain scheduled task inside the client's boundary.  Secrets (tenant URL, client id/secret, Anthropic key) via environment variables, never in the repo.
 
