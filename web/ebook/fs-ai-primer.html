@@ -153,6 +153,9 @@
   .qz-logo { height: 34pt; align-self: center; }
   .qz-brand { border-top: 1px solid var(--paperline); margin-top: 6pt; padding-top: 4pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); text-align: center; }
   .qz-sub { font-family: var(--disp); font-weight: 600; font-size: 10.5pt; color: var(--od); margin: 4pt 0 6pt; }
+  .qz-id { display: flex; gap: 12pt; margin: 0 0 7pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); }
+  .qz-id .f { flex: 1.4; border-bottom: 1pt solid var(--od); padding-bottom: 2.5pt; white-space: nowrap; }
+  .qz-id .f.d { flex: 1; }
   .qz-key { display: flex; gap: 8pt; margin-bottom: 7pt; }
   .qz-key .k { flex: 1; border: 1px solid var(--paperline); border-top: 3pt solid var(--steel); padding: 4pt 6pt; font-size: 7pt; line-height: 1.4; }
   .qz-key .k h4 { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 8.5pt; margin: 0 0 3pt; color: var(--od); letter-spacing: .03em; }
@@ -160,7 +163,7 @@
   table.qz { width: 100%; border-collapse: collapse; font-size: 8pt; margin-bottom: 7pt; }
   table.qz th { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 7.5pt; letter-spacing: .05em; color: #FFF; background: var(--od); padding: 3pt 5pt; text-align: left; }
   table.qz th.c, table.qz td.c { text-align: center; }
-  table.qz td { border: 1px solid var(--paperline); padding: 1.6pt 5pt; height: 10.5pt; }
+  table.qz td { border: 1px solid var(--paperline); padding: 1.6pt 5pt; height: 13pt; }
   table.qz td.n { font-family: var(--mono); color: var(--bone-dim); font-size: 7.5pt; width: 8%; }
   table.qz td.t { width: 13%; background: var(--paneltint); }
   table.qz tr:nth-child(even) td { background: #FBFAF6; }
@@ -419,13 +422,14 @@
       <img class="qz-logo" src="assets/fsn-logo-patch.png" alt="Field Service Nerd">
     </div>
     <p class="qz-sub">Do your work orders tell a story, or do they just say "fixed"?&#160; Pull twenty closed work orders at random and score each one below.</p>
+    <div class="qz-id"><span class="f">Site / branch</span><span class="f">Scored by</span><span class="f d">Date</span></div>
     <div class="qz-key">
       <div class="k"><h4>Problem description</h4><b>0</b> "broken," and that's it&#160;&middot;&#160;<b>1</b> one vague sentence&#160;&middot;&#160;<b>2</b> symptom plus context&#160;&middot;&#160;<b>3</b> you can picture the scene</div>
       <div class="k"><h4>Resolution notes</h4><b>0</b> "fixed."&#160;&middot;&#160;<b>1</b> what was done, barely&#160;&middot;&#160;<b>2</b> cause and fix&#160;&middot;&#160;<b>3</b> the next tech needs nothing else</div>
       <div class="k"><h4>Asset attached</h4><b>0</b> no asset anywhere&#160;&middot;&#160;<b>1</b> wrong or customer&#8209;level only&#160;&middot;&#160;<b>2</b> right asset&#160;&middot;&#160;<b>3</b> right asset, clean history</div>
     </div>
     <table class="qz">
-      <tr><th style="width:8%">WO</th><th>Work order # / notes</th><th class="c" style="width:12%">Problem 0 to 3</th><th class="c" style="width:12%">Resolution 0 to 3</th><th class="c" style="width:12%">Asset 0 to 3</th><th class="c" style="width:13%">Total /9</th></tr>
+      <tr><th style="width:8%">WO</th><th>Work order # / notes</th><th class="c" style="width:12%">Problem</th><th class="c" style="width:12%">Resolution</th><th class="c" style="width:12%">Asset</th><th class="c" style="width:13%">Total /9</th></tr>
     <tr><td class="n">01</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
     <tr><td class="n">02</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
     <tr><td class="n">03</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
