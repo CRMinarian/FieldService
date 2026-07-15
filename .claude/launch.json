@@ -5,7 +5,8 @@
       "name": "fsn-web",
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8791", "--directory", "web"],
-      "port": 8791
+      "port": 8791,
+      "autoPort": false
     }
   ]
 }
