@@ -142,3 +142,10 @@ Raw capture from the content interview.  Source of truth for the Pierre-only sto
 1. **Title:** "The Field Service AI Playbook | A Field Manual for Adding AI to Your Service Operation."  LOCKED.
 2. **Naming: anonymize every story.**  Pierre has NDAs with 3 more years to run.  All war stories run as "a mining equipment manufacturer," "a propane distributor," "an ATM servicing company in the Gulf," etc.  **Add a References section** at the back citing case studies and customer stories *as published by Microsoft* (public material only) plus the benchmark sources (Aquant, Geotab, IBM, TSIA, McKinsey).  The public citations carry the names; Pierre's stories carry the truth.  Never connect a named public case study to a Pierre story in a way that implies he worked on it.
 3. **Language:** full edge, zero profanity.
+
+---
+
+## Q8 | Post-draft revision: the Work Order Cosmo Quiz (Pierre's annotation on the PDF)
+
+- The chapter 03 scoring exercise is now a **named framework: the Work Order Cosmo Quiz.**  Three measures (real problem description, real resolution notes, correct asset attached), **0 to 3 points apiece**, so every work order scores on a roughly 10-point scale.  Quiz-style verdicts: 8 or 9 frame it, 5 to 7 coaching fixes it, 4 or under the AI is reading a blank page.  Rank the sample; the best-to-worst spread points at which crews, forms, and incident types to fix first.
+- **Agent idea (Pierre: "This would be a good Agent to Build"):** a daily agent that inspects every closed work order, scores it on the quiz, and trends the number over time.  Closure discipline becomes a dashboard.  Baked into the book as the reader's ideal first custom agent (layer six).  Candidate FSN build: content asset + consulting deliverable + possible product.
