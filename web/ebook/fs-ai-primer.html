@@ -147,9 +147,11 @@
 
   /* ---------- QUALITY QUIZ SCORESHEET ---------- */
   .quiz { border: 2pt solid var(--od); background: #FFF; padding: 8pt 11pt; margin: 2pt 0; }
-  .qz-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2.5pt solid var(--od); padding-bottom: 4pt; }
+  .qz-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2.5pt solid var(--od); padding-bottom: 5pt; }
   .qz-title { font-family: var(--wm); font-size: 17pt; color: var(--orange); text-transform: uppercase; letter-spacing: .01em; }
   .qz-tag { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .12em; color: var(--bone-dim); text-transform: uppercase; }
+  .qz-logo { height: 34pt; align-self: center; }
+  .qz-brand { border-top: 1px solid var(--paperline); margin-top: 6pt; padding-top: 4pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); text-align: center; }
   .qz-sub { font-family: var(--disp); font-weight: 600; font-size: 10.5pt; color: var(--od); margin: 4pt 0 6pt; }
   .qz-key { display: flex; gap: 8pt; margin-bottom: 7pt; }
   .qz-key .k { flex: 1; border: 1px solid var(--paperline); border-top: 3pt solid var(--steel); padding: 4pt 6pt; font-size: 7pt; line-height: 1.4; }
@@ -342,7 +344,7 @@
   <div class="quiz">
     <div class="qz-head">
       <span class="qz-title">The Work Order Quality Quiz</span>
-      <span class="qz-tag">FSN&#8209;QUIZ&#8209;03 &middot; Photocopy freely</span>
+      <img class="qz-logo" src="assets/fsn-logo-patch.png" alt="Field Service Nerd">
     </div>
     <p class="qz-sub">Do your work orders tell a story, or do they just say "fixed"?&#160; Pull twenty closed work orders at random and score each one below.</p>
     <div class="qz-key">
@@ -379,6 +381,7 @@
       <div class="qz-v v3"><span class="who">The "Fixed." Philosopher</span><span class="range">0 to 4 points</span> &middot; One word, zero context, total confidence.&#160; Your AI will be exactly as informative.</div>
     </div>
     <div class="qz-total"><b>Now add all twenty (180 max):</b>&#160; <b>140+</b> you're AI&#8209;ready, buy the workload&#160;&middot;&#160;<b>90 to 139</b> run 90 days of closure discipline first, then buy&#160;&middot;&#160;<b>under 90</b> your next AI dollar is a training budget, not a license.&#160; Rank the twenty and the spread says which crews, forms, and incident types to fix first.</div>
+    <div class="qz-brand">fieldservicenerd.com &middot; FSN&#8209;QUIZ&#8209;03 &middot; Photocopy freely &middot; Approved for field use</div>
   </div>
 </section>
 
