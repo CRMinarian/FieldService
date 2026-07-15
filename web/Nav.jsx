@@ -16,7 +16,6 @@ function Nav({ onJoin, theme, onToggleTheme }) {
           <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 48, width: 'auto', display: 'block' }} />
         </a>
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
-          <a href="/kb" className="navlink nav-hide" style={link}>Knowledge Base</a>
           <a href={isHome ? '#podcast' : '/#podcast'} className="navlink nav-hide" style={link}>Podcast</a>
           <a href="/consulting" className="navlink nav-hide" style={link}>Consulting</a>
           <a href="/about" className="navlink nav-hide" style={link}>About</a>

@@ -30,7 +30,6 @@ function Hero({ onJoin }) {
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
             <Button variant="primary" as="a" href="#join" onClick={onJoin}>Get the AI Primer →</Button>
-            <Button variant="ghost" as="a" href="/kb">Browse the Knowledge Base →</Button>
           </div>
           <div style={{ marginTop: 26, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <Pill>Ex-Microsoft GBB</Pill>

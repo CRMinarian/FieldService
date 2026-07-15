@@ -8,7 +8,7 @@ function AboutHero() {
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 720, margin: '0 auto' }}>
         <div style={{ display: 'inline-flex' }}><Eyebrow>The Practitioner</Eyebrow></div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'var(--text-4xl)', lineHeight: 1.02, letterSpacing: 'var(--tracking-hero)', color: 'var(--paper)', margin: '16px 0 0' }}>
-          30 years in the field.<br /><span style={{ color: 'var(--orange)' }}>One knowledge base.</span>
+          30 years in the field.<br /><span style={{ color: 'var(--orange)' }}>One field manual.</span>
         </h1>
         <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 18, lineHeight: 1.6, maxWidth: 540, margin: '18px auto 0' }}>
           Pierre Hulsebus spent three decades in enterprise field service | and built Field Service
@@ -59,8 +59,7 @@ function AboutBio() {
             <p>And when an implementation is broken, that’s the other half of what I do: fixed-fee engagements to diagnose it, architect it, or get it to go-live. No hourly meter. No demo theater.</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 28 }}>
-            <Button variant="primary" as="a" href="/kb">Open the Knowledge Base →</Button>
-            <Button variant="ghost" as="a" href="/consulting">Work With Me →</Button>
+            <Button variant="primary" as="a" href="/consulting">Work With Me →</Button>
           </div>
         </div>
       </div>

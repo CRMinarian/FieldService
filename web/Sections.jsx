@@ -22,15 +22,14 @@ const FIRESTORE_KEY = 'AIzaSyDQhvniVSpGmlva9QrYKgBSOLXY-Yaq12A';
 
 function Pillars() {
   const cols = [
-    { tag: 'KB', title: 'Knowledge Base', body: 'Canonical, opinionated reference on D365 Field Service, Copilot architecture, scheduling, and IoT. Lexicon, frameworks, and the decks | no marketing gloss.', href: '/kb', cta: 'Open the KB' },
     { tag: 'Signal', title: 'Podcast & Field Notes', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
     { tag: 'Rescue', title: 'Consulting', body: 'When a Field Service implementation is months behind, over budget, or quietly being abandoned | the number you call. Fixed-fee, no theater.', href: '/consulting', cta: 'See engagements' },
   ];
   return (
     <Section id="learn">
-      <SectionHead eyebrow="What this is" title="One site. Three signals." center
-        sub="Field Service Nerd is the independent home for people who run field service operations | audience and knowledge on one side, a hire-me path on the other." />
-      <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginTop: 44 }}>
+      <SectionHead eyebrow="What this is" title="One site. Two signals." center
+        sub="Field Service Nerd is the independent home for people who run field service operations. The audience content on one side, a hire-me path on the other." />
+      <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20, marginTop: 44, maxWidth: 820, marginLeft: 'auto', marginRight: 'auto' }}>
         {cols.map((c) => (
           <a key={c.tag} href={c.href} style={{
             display: 'flex', flexDirection: 'column', textDecoration: 'none',
@@ -253,10 +252,10 @@ function Faq() {
   const [open, setOpen] = React.useState(0);
   const items = [
     { q: 'Who is Field Service Nerd for?', a: 'Field service architects, D365 practitioners, technical sellers, and operations leaders working at the intersection of AI and service operations. If you run Dynamics 365 Field Service | or you’re trying to | this is built for you.' },
-    { q: 'Is the content free?', a: 'Yes. The knowledge base, the AI primer, the podcast, and the field notes are free. The consulting track is the paid, hire-me path | separate from the audience content.' },
+    { q: 'Is the content free?', a: 'Yes. The AI primer, the podcast, and the field notes are free. The consulting track is the paid, hire-me path | separate from the audience content.' },
     { q: 'What does the consulting cover?', a: 'Four fixed-fee engagements: enterprise Field Service architecture, project rescue and recovery, RFP and vendor selection, and a leadership training program. Defined outcome, defined price, no hourly meter.' },
     { q: 'Who is behind it?', a: 'Pierre Hulsebus | 30+ years in IT and sales, former Microsoft Director and Global Black Belt for Dynamics 365 Field Service. Deep in D365 FS, Power Platform, RSO, IoT / Connected Field Service, and enterprise CRM since 2002.' },
-    { q: 'Do you cover AI and Copilot specifically?', a: 'Constantly. The lead-magnet primer, the podcast, and the KB all dig into where Copilot and scheduling intelligence actually pay off in field service | and where they don’t.' },
+    { q: 'Do you cover AI and Copilot specifically?', a: 'Constantly. The lead-magnet primer and the podcast dig into where Copilot and scheduling intelligence actually pay off in field service | and where they don’t.' },
   ];
   return (
     <Section alt>
@@ -284,7 +283,6 @@ function Footer() {
           <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 74, width: 'auto', display: 'inline-block' }} />
         </a>
         <p style={{ margin: '0 0 8px' }}>
-          <a href="/kb" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>Knowledge Base</a> ·{' '}
           <a href="/consulting" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>Consulting</a> ·{' '}
           <a href="/about" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>About</a> ·{' '}
           <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>YouTube</a> ·{' '}
