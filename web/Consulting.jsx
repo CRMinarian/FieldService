@@ -13,7 +13,7 @@ const SERVICES = [
   {
     num: '02', tag: 'Project Rescue', title: 'Project Rescue & Recovery',
     body: 'When an implementation is months behind, over budget, or quietly being abandoned, I step in, diagnose what’s actually broken, and get it to go-live. Fixed fee, no surprises.',
-    price: '$25,000', label: '8–12 weeks · Fixed-fee',
+    price: '$25,000', label: '8 to 12 weeks · Fixed-fee',
   },
   {
     num: '03', tag: 'Vendor Selection', title: 'RFP & Vendor Selection',
@@ -30,7 +30,7 @@ const SERVICES = [
 const STEPS = [
   { n: '01', title: 'Diagnose, on a call', body: 'A 60-minute working session. You walk me through what’s actually happening: the dashboards, the steering committee, the vendor emails. I tell you what I’m seeing. No deck, no follow-up sales call.' },
   { n: '02', title: 'Scope the engagement', body: 'If there’s a fit, I write a one-page engagement letter: outcome, fixed fee, dates. You sign it or you don’t. Half the time the diagnosis is the engagement.' },
-  { n: '03', title: 'Get it done', body: 'I’m in your stand-ups, in your architecture sessions, in the config. At the end you have a working system, a defensible plan, or a recommendation — and no consultant retainer to unwind.' },
+  { n: '03', title: 'Get it done', body: 'I’m in your stand-ups, in your architecture sessions, in the config. At the end you have a working system, a defensible plan, or a recommendation | and no consultant retainer to unwind.' },
 ];
 
 function ConsultHero() {

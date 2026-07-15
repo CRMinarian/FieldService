@@ -24,7 +24,7 @@ function Hero({ onJoin }) {
           <div className="draw-rule" style={{ marginTop: 20 }}></div>
           <p style={{ color: 'var(--paper)', opacity: .82, fontSize: 'var(--text-lg)', margin: '24px 0 30px', maxWidth: 560, lineHeight: 1.6 }}>
             The knowledge base, podcast, and field notes for the people who run Dynamics 365
-            Field Service — the AI, the scheduling, and the architecture that actually holds
+            Field Service | the AI, the scheduling, and the architecture that actually holds
             up in production. Written by a 30-year practitioner and ex-Microsoft Field Service
             Global Black Belt.
           </p>

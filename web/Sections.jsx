@@ -22,14 +22,14 @@ const FIRESTORE_KEY = 'AIzaSyDQhvniVSpGmlva9QrYKgBSOLXY-Yaq12A';
 
 function Pillars() {
   const cols = [
-    { tag: 'KB', title: 'Knowledge Base', body: 'Canonical, opinionated reference on D365 Field Service, Copilot architecture, scheduling, and IoT. Lexicon, frameworks, and the decks — no marketing gloss.', href: '/kb', cta: 'Open the KB' },
+    { tag: 'KB', title: 'Knowledge Base', body: 'Canonical, opinionated reference on D365 Field Service, Copilot architecture, scheduling, and IoT. Lexicon, frameworks, and the decks | no marketing gloss.', href: '/kb', cta: 'Open the KB' },
     { tag: 'Signal', title: 'Podcast & Field Notes', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
-    { tag: 'Rescue', title: 'Consulting', body: 'When a Field Service implementation is months behind, over budget, or quietly being abandoned — the number you call. Fixed-fee, no theater.', href: '/consulting', cta: 'See engagements' },
+    { tag: 'Rescue', title: 'Consulting', body: 'When a Field Service implementation is months behind, over budget, or quietly being abandoned | the number you call. Fixed-fee, no theater.', href: '/consulting', cta: 'See engagements' },
   ];
   return (
     <Section id="learn">
       <SectionHead eyebrow="What this is" title="One site. Three signals." center
-        sub="Field Service Nerd is the independent home for people who run field service operations — audience and knowledge on one side, a hire-me path on the other." />
+        sub="Field Service Nerd is the independent home for people who run field service operations | audience and knowledge on one side, a hire-me path on the other." />
       <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginTop: 44 }}>
         {cols.map((c) => (
           <a key={c.tag} href={c.href} style={{
@@ -59,12 +59,12 @@ function LeadMagnet({ onJoin }) {
             The Field Service<br /><span style={{ color: 'var(--orange)' }}>AI Primer.</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-md)', lineHeight: 1.65, margin: '18px 0 24px', maxWidth: 480 }}>
-            What's real, what's hype, and where AI actually pays off in field service operations —
+            What's real, what's hype, and where AI actually pays off in field service operations.
             Copilot, scheduling intelligence, IoT-triggered work, and the traps that burn budgets.
             A practitioner's field guide, not a vendor deck.
           </p>
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'grid', gap: 10 }}>
-            {['Where Copilot earns its seat — and where it does not', 'Scheduling & RSO: the AI that ships vs. the demo', 'IoT-to-work-order: the pattern that actually holds', 'A buyer’s checklist you can defend to the board'].map((t) => (
+            {['Where Copilot earns its seat | and where it does not', 'Scheduling & RSO: the AI that ships vs. the demo', 'IoT-to-work-order: the pattern that actually holds', 'A buyer’s checklist you can defend to the board'].map((t) => (
               <li key={t} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', color: 'var(--text-body)', fontSize: 15 }}>
                 <span style={{ color: 'var(--cyan)', fontFamily: 'var(--font-mono)', fontSize: 14, marginTop: 1 }}>+</span>{t}
               </li>
@@ -110,7 +110,7 @@ function Podcast() {
             <div className="draw-rule" style={{ marginTop: 16 }}></div>
             <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 17, margin: '18px 0 22px', maxWidth: 470, lineHeight: 1.6 }}>
               Real deployments, the AI that actually ships, and the scheduling problems nobody warns
-              you about — plus guests from the field service trenches.
+              you about | plus guests from the field service trenches.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 42, marginBottom: 26 }}>
               {bars.map((h, i) => <i key={i} style={{ display: 'block', width: 4, borderRadius: 2, background: i % 3 === 0 ? 'var(--orange)' : 'var(--cyan)', opacity: .85, height: Math.round(h * 0.7) }}></i>)}
@@ -121,7 +121,7 @@ function Podcast() {
             </div>
           </div>
           <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '4 / 4.2', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)' }}>
-            <img src="assets/pierre-headshot.jpg" alt="The Field Service Nerd — with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="assets/pierre-headshot.jpg" alt="The Field Service Nerd | with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <span style={{ position: 'absolute', left: 12, bottom: 12, display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(23,20,15,.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(var(--steel-rgb),.4)', color: 'var(--paper)', fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: 12, letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 11px', borderRadius: 'var(--radius-pill)' }}>
               <span className="status-dot"></span> On Air
             </span>
@@ -136,12 +136,12 @@ function Videos() {
   return (
     <Section id="videos">
       <SectionHead eyebrow="Watch // The Channel" title="Latest from the channel" center
-        sub="Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about — shown on screen." />
+        sub="Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about | shown on screen." />
       <div style={{ maxWidth: 900, margin: '40px auto 0' }}>
         <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)', background: 'var(--navy-ink)' }}>
           <iframe
             src={LINKS.embed}
-            title="Field Service Nerd — YouTube playlist"
+            title="Field Service Nerd | YouTube playlist"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -168,7 +168,7 @@ function ConsultingTeaser() {
               When the implementation is broken, this is the number you call.
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.6, margin: 0, maxWidth: 520 }}>
-              Architecture, project rescue, vendor selection, and training — fixed-fee engagements
+              Architecture, project rescue, vendor selection, and training | fixed-fee engagements
               with a defined outcome and a defined price. No hourly meter. No scope creep.
             </p>
           </div>
@@ -233,7 +233,7 @@ function EmailSection() {
           No spam.  Unsubscribe anytime.
         </p>
         {status === 'done' ? (
-          <p style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20 }}>✓ You're in — redirecting…</p>
+          <p style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20 }}>✓ You're in | redirecting…</p>
         ) : (
           <form onSubmit={submit} style={{ display: 'flex', gap: 10, maxWidth: 480, margin: '0 auto', flexWrap: 'wrap' }}>
             <input type="text" required placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} style={{ ...inputStyle, flex: '1 1 100%' }} />
@@ -252,11 +252,11 @@ function EmailSection() {
 function Faq() {
   const [open, setOpen] = React.useState(0);
   const items = [
-    { q: 'Who is Field Service Nerd for?', a: 'Field service architects, D365 practitioners, technical sellers, and operations leaders working at the intersection of AI and service operations. If you run Dynamics 365 Field Service — or you’re trying to — this is built for you.' },
-    { q: 'Is the content free?', a: 'Yes. The knowledge base, the AI primer, the podcast, and the field notes are free. The consulting track is the paid, hire-me path — separate from the audience content.' },
+    { q: 'Who is Field Service Nerd for?', a: 'Field service architects, D365 practitioners, technical sellers, and operations leaders working at the intersection of AI and service operations. If you run Dynamics 365 Field Service | or you’re trying to | this is built for you.' },
+    { q: 'Is the content free?', a: 'Yes. The knowledge base, the AI primer, the podcast, and the field notes are free. The consulting track is the paid, hire-me path | separate from the audience content.' },
     { q: 'What does the consulting cover?', a: 'Four fixed-fee engagements: enterprise Field Service architecture, project rescue and recovery, RFP and vendor selection, and a leadership training program. Defined outcome, defined price, no hourly meter.' },
-    { q: 'Who is behind it?', a: 'Pierre Hulsebus — 30+ years in IT and sales, former Microsoft Director and Global Black Belt for Dynamics 365 Field Service. Deep in D365 FS, Power Platform, RSO, IoT / Connected Field Service, and enterprise CRM since 2002.' },
-    { q: 'Do you cover AI and Copilot specifically?', a: 'Constantly. The lead-magnet primer, the podcast, and the KB all dig into where Copilot and scheduling intelligence actually pay off in field service — and where they don’t.' },
+    { q: 'Who is behind it?', a: 'Pierre Hulsebus | 30+ years in IT and sales, former Microsoft Director and Global Black Belt for Dynamics 365 Field Service. Deep in D365 FS, Power Platform, RSO, IoT / Connected Field Service, and enterprise CRM since 2002.' },
+    { q: 'Do you cover AI and Copilot specifically?', a: 'Constantly. The lead-magnet primer, the podcast, and the KB all dig into where Copilot and scheduling intelligence actually pay off in field service | and where they don’t.' },
   ];
   return (
     <Section alt>
@@ -266,7 +266,7 @@ function Faq() {
           <div key={i} style={{ borderBottom: '1px solid var(--border-subtle)', padding: '18px 0' }}>
             <button onClick={() => setOpen(open === i ? -1 : i)} style={{ all: 'unset', cursor: 'pointer', width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 19, color: 'var(--text-strong)', lineHeight: 1.2 }}>
               {it.q}
-              <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', fontSize: 22, lineHeight: 1 }}>{open === i ? '–' : '+'}</span>
+              <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', fontSize: 22, lineHeight: 1 }}>{open === i ? '−' : '+'}</span>
             </button>
             {open === i && <p style={{ color: 'var(--text-muted)', marginTop: 10, fontSize: 15.5, lineHeight: 1.65, maxWidth: 700 }}>{it.a}</p>}
           </div>

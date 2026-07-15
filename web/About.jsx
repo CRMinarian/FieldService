@@ -11,7 +11,7 @@ function AboutHero() {
           30 years in the field.<br /><span style={{ color: 'var(--orange)' }}>One knowledge base.</span>
         </h1>
         <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 18, lineHeight: 1.6, maxWidth: 540, margin: '18px auto 0' }}>
-          Pierre Hulsebus spent three decades in enterprise field service — and built Field Service
+          Pierre Hulsebus spent three decades in enterprise field service | and built Field Service
           Nerd to put the real playbook online, without the vendor gloss.
         </p>
       </div>
@@ -44,7 +44,7 @@ function AboutBio() {
       <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 56, alignItems: 'start' }}>
         <div>
           <div style={{ aspectRatio: '1 / 1', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', border: '1px solid var(--border-subtle)' }}>
-            <img src="assets/pierre-headshot.jpg" alt="Pierre Hulsebus — Field Service Nerd" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+            <img src="assets/pierre-headshot.jpg" alt="Pierre Hulsebus | Field Service Nerd" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
         </div>
         <div>
@@ -53,9 +53,9 @@ function AboutBio() {
             Thirty years of scars.<br /><span style={{ color: 'var(--orange)' }}>Zero theater.</span>
           </h2>
           <div style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.75 }}>
-            <p style={{ marginTop: 0 }}>I’ve worked in enterprise IT and sales for more than 30 years, and in CRM since 2002. As a Director and Global Black Belt at Microsoft, I owned Dynamics 365 Field Service — the deep technical seat enterprise teams called when a deployment was on the brink.</p>
-            <p>Field Service is where it all converges: a pinging IoT sensor, a scheduling engine, a technician who carries more knowledge in their head than any manual holds. I’ve lived in that gap — the data model, RSO, Connected Field Service, the mobile and offline strategy, the dispatch and capacity planning that either holds up in production or quietly falls apart.</p>
-            <p>Field Service Nerd exists because the knowledge you actually need is scattered across vendor decks, jargon walls, and outdated advice. So I’m putting the canonical version online — the lexicon, the frameworks, the AI reality check, the podcast — free, for the people who run this stuff.</p>
+            <p style={{ marginTop: 0 }}>I’ve worked in enterprise IT and sales for more than 30 years, and in CRM since 2002. As a Director and Global Black Belt at Microsoft, I owned Dynamics 365 Field Service | the deep technical seat enterprise teams called when a deployment was on the brink.</p>
+            <p>Field Service is where it all converges: a pinging IoT sensor, a scheduling engine, a technician who carries more knowledge in their head than any manual holds. I’ve lived in that gap | the data model, RSO, Connected Field Service, the mobile and offline strategy, the dispatch and capacity planning that either holds up in production or quietly falls apart.</p>
+            <p>Field Service Nerd exists because the knowledge you actually need is scattered across vendor decks, jargon walls, and outdated advice. So I’m putting the canonical version online | the lexicon, the frameworks, the AI reality check, the podcast | free, for the people who run this stuff.</p>
             <p>And when an implementation is broken, that’s the other half of what I do: fixed-fee engagements to diagnose it, architect it, or get it to go-live. No hourly meter. No demo theater.</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 28 }}>
