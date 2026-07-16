@@ -41,7 +41,13 @@ Three sections per entry: What happened / What's pending / Watch out for
 - `web/` is the Firebase public dir | keep `references/ebook-interview-notes.md` OUT of it (NDA).
 - DNS is owned by the `domain-manager` skill; never change records ad hoc.
 
-### Cross-repo baton sent (2026-07-16)
+### Cross-repo batons sent (2026-07-16)
+- **→ `Z:\Projects\_WIKI` branch `wiki/backfill-index-rows`** (commit `3f181ca`, pushed):
+  established that repo's baton and handed off the RAG ask | Field Service attention layer
+  (conferences, movers/shakers, ISVs, competitors → a "Field Service Radar" synthesis page)
+  + the insights → content pipeline contract (content desk reads the wiki every Wednesday
+  for episode topics and post fuel).  That branch owns the wiki + `/retro`; we consume,
+  never author pages there.
 - **→ `Z:\Skippy\Dev\TechSeller` branch `seo/nukasoft-action-plan-refresh`** (commit `a5f0ee4`,
   pushed): established `machines/handoff.md` there and handed off the traffic/SEO ask |
   GSC verification for fieldservicenerd.com (DNS TXT via domain-manager), the GA4 vs

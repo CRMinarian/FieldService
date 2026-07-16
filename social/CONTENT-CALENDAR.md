@@ -21,7 +21,7 @@ The reach + content desk's standing calendar.  Owned by this repo's sessions (ch
 | Day | Action |
 |---|---|
 | Tue | Publish EP (10 AM) + LinkedIn announce (8:30 AM) |
-| Wed | Short #1 live · Grok interview for next EP |
+| Wed | Short #1 live · Grok interview for next EP · **read the wiki's Field Service Radar** (new-since-last-week → episode topics, post fuel, people to cite) |
 | Thu | LinkedIn value post (8:30 AM) · next EP script locked |
 | Fri | Short #2 live · Claude package for next EP (teleprompter, thumbnail, metadata, cue sheet) |
 | Sat/Sun | Record next EP · Descript edit |
