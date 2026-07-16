@@ -1,4 +1,4 @@
-# EP03 — The Ugly Truth About Resource Scheduling Optimization (RSO)
+# EP03 | The Ugly Truth About Resource Scheduling Optimization (RSO)
 
 - **Status: DRAFT FOR PIERRE'S ANNOTATION** | war-story slots marked `[YOUR STORY]`.  The iPad
   pass replaces the Grok interview for this one.

@@ -1,4 +1,4 @@
-# EP04 — Copilot in Field Service | The Honest Review
+# EP04 | Copilot in Field Service | The Honest Review
 
 - **Status: DRAFT FOR PIERRE'S ANNOTATION** | war-story slots marked `[YOUR STORY]`.
 - **Playlist:** Fundamentals (Honest Reviews theme)
