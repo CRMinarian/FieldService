@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "pierre-voice": {
+      "command": "node",
+      "args": ["Z:/Skippy/Dev/skippy-brain/skills/pierre-voice/server.js"],
+      "env": {}
+    }
+  }
+}

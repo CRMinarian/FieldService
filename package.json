@@ -1,0 +1,15 @@
+{
+  "name": "field-service-nerd",
+  "description": "Field Service Nerd — hybrid audience + consulting site (Firebase Hosting + Functions)",
+  "private": true,
+  "scripts": {
+    "ebook": "node scripts/generate-ebook-pdf.js",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions",
+    "serve": "firebase serve --only hosting"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.1.0"
+  }
+}

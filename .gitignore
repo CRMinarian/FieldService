@@ -1,0 +1,29 @@
+# Node / Firebase build artifacts (added for the Firebase site build)
+node_modules/
+functions/node_modules/
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+ui-debug.log
+firestore-debug.log
+*.local
+
+# macOS resource-fork junk
+.DS_Store
+._*
+
+# Jekyll (parked, but keep the workspace clean)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# design-sync (staged scripts, build output, machine cache)
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/node_modules
+.design-sync/learnings/
+
+# dev screenshots / scratch
+.shots/
+web/ebook/preview-p*.png

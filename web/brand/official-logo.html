@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Field Service Nerd — Official Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@600&display=swap" rel="stylesheet">
+<style>
+  body{
+    margin:0; min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(63deg, rgba(255,255,255,.028) 0 2px, transparent 2px 5px),
+      repeating-linear-gradient(-63deg, rgba(0,0,0,.06) 0 2px, transparent 2px 5px),
+      radial-gradient(140% 120% at 50% 45%, transparent 50%, rgba(0,0,0,.4)),
+      #232526;
+  }
+  /* merrowed overlock edge */
+  .merrow{
+    position:relative; padding:10px; border-radius:30px;
+    background:repeating-conic-gradient(#ff8d33 0deg 0.35deg, #d05f0e 0.35deg 0.7deg);
+    box-shadow:0 8px 16px rgba(0,0,0,.55), 0 2px 4px rgba(0,0,0,.45),
+               inset 0 1px 1px rgba(255,255,255,.3), inset 0 -1px 1px rgba(0,0,0,.35);
+  }
+  .patch{
+    position:relative; width:520px; height:300px; border-radius:18px;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 2px, transparent 2px 4px),
+      #17191b;
+    box-shadow:inset 0 2px 4px rgba(0,0,0,.5);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px;
+  }
+  .stitch{
+    position:absolute; inset:13px;
+    border:2px dashed rgba(255,141,51,.6); border-radius:14px;
+  }
+  .kicker{
+    font:600 22px/1 Oswald, sans-serif; letter-spacing:.46em; text-indent:.46em;
+    color:#9aa7b0;
+    text-shadow:0 1px 0 rgba(255,255,255,.08), 0 2px 2px rgba(0,0,0,.5);
+  }
+  .nerd{
+    font:400 142px/1 "Alfa Slab One", serif;
+    color:#ff8d33;
+    text-shadow:0 1px 0 rgba(255,255,255,.18), 0 3px 3px rgba(0,0,0,.55);
+  }
+  .est{
+    font:600 13px/1 Oswald, sans-serif; letter-spacing:.28em; text-indent:.28em;
+    color:#6d7880; margin-top:3px;
+  }
+</style>
+</head>
+<body>
+  <div class="merrow" data-screen-label="Official Logo">
+    <div class="patch">
+      <div class="stitch"></div>
+      <div class="kicker">FIELD SERVICE</div>
+      <div class="nerd">NERD</div>
+      <div class="est">EST. 1965</div>
+    </div>
+  </div>
+</body>
+</html>

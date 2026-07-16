@@ -1,0 +1,137 @@
+/* ============================================================
+   Field Service Nerd — Color tokens (Field Manual, v3-final)
+   A worn service-manual palette. Olive-drab + warm graphite grounds
+   (the workbench), weathered SAFETY ORANGE (the signal / primary),
+   faded STEEL BLUE (data / secondary), worn WARNING YELLOW (caution),
+   BONE off-white text. Delivered as a TWO-THEME system. DARK is the
+   default (workbench). LIGHT is the toggle (aged paper). Set
+   [data-theme="light"] on <html> to flip.
+
+   Color carries information, not decoration:
+     ORANGE  — signal / urgency / primary action
+     STEEL   — data / labels / coordinates / secondary
+     WARNING — caution / warnings only
+     OLIVE   — infrastructure / ground / clearance
+
+   Body text meets WCAG AA (>= 4.5:1) on its background in BOTH themes:
+     dark  — #DAD5C8 on #1F2421  ~ 11.5:1
+     light — #2E2A20 on #E7E0D0  ~ 10.6:1
+   Orange, steel, and warning are ACCENTS — never a long-text
+   background; steel/warning never body-text color on aged paper.
+   ============================================================ */
+:root {
+  /* ===== RAW BRAND PALETTE (theme-independent) ===== */
+  --od:          #1F2421;  /* olive-drab — deepest page ground */
+  --graphite:    #2A2A2A;  /* warm graphite — worn-metal band / cover */
+  --panel:       #2C302A;  /* cards / panels */
+  --panel-2:     #353A32;  /* elevated panel */
+  --line:        #3E443A;  /* hairlines on dark */
+  --navy-ink:    #17140F;  /* warm near-black — always-dark sections (legacy name) */
+
+  --orange:      #E36B2C;  /* weathered safety orange — the signal */
+  --orange-bright:#F0824A; /* hover / lifted signal */
+  --orange-deep: #C55A22;  /* pressed / AA-on-paper signal */
+  --steel:       #4A6B8A;  /* faded steel blue — data (AA on paper) */
+  --steel-lt:    #7A99B5;  /* steel highlight on dark */
+  --steel-deep:  #33506B;  /* pressed steel */
+  --warn:        #C9A227;  /* worn warning yellow — caution only */
+
+  --bone:        #F0EDE6;  /* off-white / bone text */
+  --bone-muted:  #ADA99C;  /* muted bone */
+  --bone-dim:    #847F74;  /* dim label bone */
+  --ink:         #1A1E1B;  /* dark text on accents */
+
+  /* aged-paper ramp (light toggle) */
+  --paper:       #F0EDE6;  /* bone (legacy name: light text on dark) */
+  --p-bg:        #E7E0D0;  /* aged paper ground */
+  --p-band:      #DBD3C0;  /* alternating paper band */
+  --p-surface:   #F1EADB;  /* paper card */
+  --p-surface-2: #E7E0D0;  /* soft paper card */
+  --p-line:      #CDC3AC;  /* hairlines on paper */
+  --p-text:      #2E2A20;  /* ink body on paper */
+  --p-strong:    #241F17;  /* headlines on paper */
+  --p-muted:     #6E685A;  /* muted paper slate */
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — DARK (default, workbench). Reference THESE.
+   A `[data-theme="dark"]` wrapper re-applies these so hero / signal
+   sections stay workbench-dark inside a light page.
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --surface-page:       var(--od);
+  --surface-page-alt:   var(--graphite);
+  --surface-card:       var(--panel);
+  --surface-card-alt:   var(--panel-2);
+  --surface-dark:       var(--navy-ink);   /* always-dark sections */
+  --surface-accent:     var(--orange);     /* orange CTA panels */
+
+  --text-strong:        var(--bone);
+  --text-body:          #DAD5C8;
+  --text-muted:         var(--bone-muted);
+  --text-on-dark:       #DAD5C8;
+  --text-on-dark-muted: var(--bone-muted);
+  --text-on-accent:     var(--ink);        /* text on orange */
+
+  --color-accent:       var(--orange);     /* primary punch */
+  --color-accent-press: var(--orange-deep);
+  --color-data:         var(--steel-lt);   /* data marks / kickers */
+  --color-brand:        var(--steel-lt);   /* secondary brand accent */
+  --color-outline:      var(--orange);     /* secondary button outline */
+  --color-kicker:       var(--steel-lt);   /* eyebrow/kicker (data) — AA on olive */
+  --color-caution:      var(--warn);       /* warnings only */
+
+  --border-subtle:      var(--line);
+  --border-strong:      var(--bone-muted);
+
+  --link:               var(--orange);
+  --focus-ring:         var(--steel-lt);
+
+  /* legacy aliases so existing components keep resolving */
+  --cyan:               var(--steel-lt);
+  --cyan-rgb:           122, 153, 181;     /* steel (legacy name) */
+  --orange-rgb:         227, 106, 44;
+  --steel-rgb:          122, 153, 181;
+  --warn-rgb:           201, 162, 39;
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — LIGHT (toggle, aged paper).
+   ============================================================ */
+:root[data-theme="light"],
+[data-theme="light"] {
+  --surface-page:       var(--p-bg);
+  --surface-page-alt:   var(--p-band);
+  --surface-card:       var(--p-surface);
+  --surface-card-alt:   var(--p-surface-2);
+  --surface-dark:       var(--navy-ink);
+  --surface-accent:     var(--orange);
+
+  --text-strong:        var(--p-strong);
+  --text-body:          var(--p-text);
+  --text-muted:         var(--p-muted);
+  --text-on-dark:       #DAD5C8;
+  --text-on-dark-muted: var(--bone-muted);
+  --text-on-accent:     var(--ink);
+
+  --color-accent:       var(--orange-deep);/* AA on paper */
+  --color-accent-press: var(--orange-deep);
+  --color-data:         var(--steel);      /* steel reads on paper */
+  --color-brand:        var(--steel);
+  --color-outline:      var(--orange-deep);
+  --color-kicker:       var(--steel);
+  --color-caution:      #9A7A12;            /* warn, AA on paper */
+
+  --border-subtle:      var(--p-line);
+  --border-strong:      var(--p-strong);
+
+  --link:               var(--orange-deep);
+  --focus-ring:         var(--steel);
+
+  --cyan:               var(--steel);
+  --cyan-rgb:           74, 107, 138;
+  --orange-rgb:         197, 90, 34;
+  --steel-rgb:          74, 107, 138;
+  --warn-rgb:           154, 122, 18;
+}

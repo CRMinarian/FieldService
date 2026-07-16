@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Field Service AI Playbook | Field Service Nerd</title>
+<script>
+  /* Don't auto-start.  Start manually after fonts are confirmed loaded so the
+     display/mono faces don't fall back to serif in the rendered PDF. */
+  window.PagedConfig = { auto: false, after: () => { window.__pagedReady = true; } };
+</script>
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+<script>
+  document.fonts.ready.then(function () {
+    if (window.PagedPolyfill) { window.PagedPolyfill.preview(); }
+  });
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --od:      #1F2421;
+    --graphite:#2A2A2A;
+    --orange:  #E36B2C;
+    --orange-deep:#C55A22;
+    --steel:   #4A6B8A;
+    --steel-lt:#7A99B5;
+    --warn:    #C9A227;
+    --bone:    #F0EDE6;
+    --bone-muted:#ADA99C;
+    --bone-dim:#847F74;
+    --paperline:#DDD8CB;
+    --paneltint:#F6F4ED;
+    --wm:   'Alfa Slab One', Georgia, serif;
+    --disp: 'Oswald', 'Arial Narrow', sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  @page {
+    size: 8.5in 11in;
+    margin: 0.68in 0.75in 0.78in;
+    @bottom-center {
+      content: counter(page);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt; color: #847F74;
+    }
+    @bottom-left {
+      content: "FIELD SERVICE NERD";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt; letter-spacing: .12em; color: #847F74;
+    }
+    @bottom-right {
+      content: "FSN-001 · REV 6";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt; letter-spacing: .08em; color: #ADA99C;
+    }
+  }
+  @page :first { margin: 0; @bottom-center { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+  @page cover  { margin: 0; @bottom-center { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--body); color: var(--graphite); line-height: 1.5; font-size: 10.5pt; }
+
+  /* ---------- COVER ---------- */
+  .cover { page: cover; break-after: page; height: 100vh; background: var(--od); color: var(--bone); padding: 0.85in 0.8in; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .cover::before { content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: .07; }
+  .cover::after { content: ""; position: absolute; inset: 24px; border: 2px solid rgba(240,237,230,.14); border-radius: 4px; pointer-events: none; }
+  .cover > * { position: relative; z-index: 1; }
+  .cover-topbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(240,237,230,.18); padding-bottom: 12pt; }
+  .tag-manual { font-family: var(--mono); font-size: 8.5pt; letter-spacing: .32em; text-transform: uppercase; border: 1px solid rgba(240,237,230,.35); padding: 4pt 8pt 3pt; color: var(--bone); }
+  .cover-kick { font-family: var(--mono); font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-muted); }
+  .cover-wordmark .fs { font-family: var(--disp); font-weight: 700; text-transform: uppercase; letter-spacing: .34em; font-size: 21pt; }
+  .cover-wordmark .nerd { font-family: var(--wm); text-transform: uppercase; color: var(--orange); font-size: 96pt; line-height: .85; letter-spacing: .01em; text-shadow: 0 3px 0 rgba(0,0,0,.4); }
+  .haz { height: 10pt; width: 100%; margin-top: 16pt; opacity: .92;
+    background: repeating-linear-gradient(135deg, var(--warn) 0 14px, var(--od) 14px 28px); }
+  .cover h1 { font-family: var(--disp); font-weight: 700; text-transform: uppercase; font-size: 34pt; line-height: 1.02; margin: 26pt 0 0; letter-spacing: .01em; }
+  .cover h1 span { color: var(--orange); }
+  .cover-sub { font-size: 11.5pt; color: var(--bone-muted); max-width: 5.4in; margin-top: 12pt; line-height: 1.55; }
+  .stamp { position: absolute; top: 0.95in; right: 0.75in; transform: rotate(-9deg); border: 3px solid var(--bone); border-radius: 4px; padding: 8pt 12pt 6pt; text-align: center; opacity: .85; }
+  .stamp .a1 { font-family: var(--disp); font-weight: 700; text-transform: uppercase; letter-spacing: .18em; font-size: 15pt; }
+  .stamp .a2 { font-family: var(--mono); font-size: 6.5pt; letter-spacing: .3em; text-transform: uppercase; margin-top: 3pt; }
+  .cover-author { font-family: var(--wm); font-size: 21pt; letter-spacing: .02em; text-transform: uppercase; }
+  .cover-cred { font-family: var(--mono); font-size: 8.5pt; color: var(--steel-lt); letter-spacing: .06em; text-transform: uppercase; margin-top: 6pt; }
+
+  /* ---------- SECTION STRUCTURE ---------- */
+  .section-open { break-before: page; padding-top: 0.1in; }
+  .section-num { font-family: var(--mono); font-size: 10pt; color: var(--orange); letter-spacing: .12em; }
+  h2 { font-family: var(--disp); font-weight: 700; text-transform: uppercase; font-size: 21pt; color: var(--od); line-height: 1.04; margin: 4pt 0 3pt; letter-spacing: .01em; }
+  .lede { font-size: 11pt; color: #5A574E; line-height: 1.5; margin: 0 0 10pt; max-width: 5.9in; font-weight: 500; }
+  .rule { height: 2.5pt; width: 82px; background: var(--orange); margin: 7pt 0 12pt; }
+
+  h3 { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 12pt; color: var(--od); margin: 12pt 0 4pt; letter-spacing: .02em; }
+  p { margin: 0 0 8pt; }
+  ul { margin: 0 0 9pt; padding-left: 0; list-style: none; }
+  li { padding-left: 18px; position: relative; margin-bottom: 4pt; }
+  li::before { content: "+"; position: absolute; left: 0; color: var(--orange); font-family: var(--mono); font-weight: 600; }
+  strong { color: var(--od); }
+
+  .sidebar { border-left: 3.5pt solid var(--steel); background: var(--paneltint); padding: 9pt 13pt; margin: 10pt 0; font-size: 9.5pt; break-inside: avoid; }
+  .sidebar .label { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); display: block; margin-bottom: 3pt; }
+
+  .trythis { border: 2pt solid var(--orange); padding: 8pt 12pt; margin: 10pt 0 2pt; font-size: 10pt; break-inside: avoid; background: #FFF; }
+  .trythis .label { font-family: var(--disp); font-weight: 700; font-size: 10pt; letter-spacing: .2em; text-transform: uppercase; color: #FFF; background: var(--orange); display: inline-block; padding: 2pt 8pt 1.5pt; margin-bottom: 6pt; }
+
+  .hottake { border-left: 5pt solid var(--orange); padding: 4pt 0 4pt 14pt; margin: 9pt 0; break-inside: avoid; }
+  .hottake .q { font-family: var(--disp); font-weight: 600; font-size: 13.5pt; line-height: 1.25; color: var(--od); }
+  .hottake .tag { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 3pt; }
+
+  figure { margin: 10pt 0; break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid var(--paperline); border-radius: 2px; }
+  figure.half img { max-height: 2.5in; width: auto; max-width: 100%; }
+  figcaption { font-family: var(--mono); font-size: 8pt; color: var(--bone-dim); margin-top: 4pt; line-height: 1.45; }
+  figcaption b { color: var(--graphite); font-weight: 600; }
+
+  .statrow { display: flex; gap: 12pt; margin: 8pt 0; break-inside: avoid; }
+  .stat { flex: 1; border-top: 3pt solid var(--orange); padding-top: 5pt; }
+  .stat .n { font-family: var(--disp); font-weight: 700; font-size: 18pt; color: var(--od); line-height: 1; }
+  .stat .l { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; color: var(--bone-dim); margin-top: 3pt; line-height: 1.5; }
+
+  table.map { width: 100%; border-collapse: collapse; font-size: 8pt; margin: 7pt 0; line-height: 1.4; }
+  table.map th { font-family: var(--disp); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; font-size: 8.5pt; text-align: left; color: var(--od); border-bottom: 2pt solid var(--od); padding: 4pt 7pt 4pt 0; }
+  table.map td { border-bottom: 1px solid var(--paperline); padding: 3pt 7pt 3pt 0; vertical-align: top; }
+  table.map td.k { font-family: var(--mono); font-size: 8pt; color: var(--orange-deep); white-space: nowrap; }
+
+  /* ---------- SIX-LAYER DIAGRAM ---------- */
+  .sixlayer { border: 1.5pt solid var(--od); background: #FFF; padding: 7pt 9pt; margin: 6pt 0; break-inside: avoid; }
+  .sl-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2pt solid var(--od); padding-bottom: 3pt; margin-bottom: 5pt; }
+  .sl-title { font-family: var(--disp); font-weight: 700; text-transform: uppercase; font-size: 11.5pt; letter-spacing: .06em; color: var(--od); }
+  .sl-tag { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .12em; color: var(--bone-dim); }
+  .sl-legend { display: flex; align-items: center; gap: 6pt; margin-bottom: 5pt; }
+  .sl-legend-note { font-family: var(--mono); font-size: 7pt; color: var(--bone-dim); letter-spacing: .04em; }
+  .chip { font-family: var(--mono); font-size: 6.5pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #FFF; border-radius: 2px; padding: 1.5pt 5pt; white-space: nowrap; }
+  .c-batch { background: var(--steel); }
+  .c-rt { background: var(--warn); }
+  .c-gen { background: var(--orange); }
+  .sl-row { display: flex; align-items: center; gap: 7pt; border: 1px solid var(--paperline); border-left-width: 4pt; padding: 2.5pt 7pt; margin-bottom: 2pt; background: var(--paneltint); }
+  .k-batch { border-left-color: var(--steel); }
+  .k-rt { border-left-color: var(--warn); }
+  .k-gen { border-left-color: var(--orange); }
+  .k-mix { border-left-color: var(--steel); }
+  .sl-num { font-family: var(--mono); font-size: 10pt; font-weight: 600; color: var(--orange-deep); }
+  .sl-name { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 9pt; letter-spacing: .02em; color: var(--od); white-space: nowrap; }
+  .sl-desc { font-size: 7.5pt; color: #5A574E; flex: 1; line-height: 1.35; }
+  .sl-base { border-top: 2pt solid var(--od); margin-top: 5pt; padding-top: 4pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .05em; text-transform: uppercase; color: var(--bone-dim); text-align: center;
+    background: repeating-linear-gradient(135deg, rgba(201,162,39,.12) 0 8px, transparent 8px 16px); }
+
+  /* ---------- QUALITY QUIZ SCORESHEET ---------- */
+  .quiz { border: 2pt solid var(--od); background: #FFF; padding: 8pt 11pt; margin: 2pt 0; }
+  .qz-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2.5pt solid var(--od); padding-bottom: 5pt; }
+  .qz-title { font-family: var(--wm); font-size: 17pt; color: var(--orange); text-transform: uppercase; letter-spacing: .01em; }
+  .qz-tag { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .12em; color: var(--bone-dim); text-transform: uppercase; }
+  .qz-logo { height: 34pt; align-self: center; }
+  .qz-brand { border-top: 1px solid var(--paperline); margin-top: 6pt; padding-top: 4pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); text-align: center; }
+  .qz-sub { font-family: var(--disp); font-weight: 600; font-size: 10.5pt; color: var(--od); margin: 4pt 0 6pt; }
+  .qz-id { display: flex; gap: 12pt; margin: 0 0 7pt; font-family: var(--mono); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--bone-dim); }
+  .qz-id .f { flex: 1.4; border-bottom: 1pt solid var(--od); padding-bottom: 2.5pt; white-space: nowrap; }
+  .qz-id .f.d { flex: 1; }
+  .qz-key { display: flex; gap: 8pt; margin-bottom: 7pt; }
+  .qz-key .k { flex: 1; border: 1px solid var(--paperline); border-top: 3pt solid var(--steel); padding: 4pt 6pt; font-size: 7pt; line-height: 1.4; }
+  .qz-key .k h4 { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 8.5pt; margin: 0 0 3pt; color: var(--od); letter-spacing: .03em; }
+  .qz-key .k b { font-family: var(--mono); color: var(--orange-deep); font-weight: 600; }
+  table.qz { width: 100%; border-collapse: collapse; font-size: 8pt; margin-bottom: 7pt; }
+  table.qz th { font-family: var(--disp); font-weight: 600; text-transform: uppercase; font-size: 7.5pt; letter-spacing: .05em; color: #FFF; background: var(--od); padding: 3pt 5pt; text-align: left; }
+  table.qz th.c, table.qz td.c { text-align: center; }
+  table.qz td { border: 1px solid var(--paperline); padding: 1.6pt 5pt; height: 13pt; }
+  table.qz td.n { font-family: var(--mono); color: var(--bone-dim); font-size: 7.5pt; width: 8%; }
+  table.qz td.t { width: 13%; background: var(--paneltint); }
+  table.qz tr:nth-child(even) td { background: #FBFAF6; }
+  table.qz tr:nth-child(even) td.t { background: var(--paneltint); }
+  .qz-verdicts { display: flex; gap: 8pt; margin-bottom: 6pt; }
+  .qz-v { flex: 1; border: 1px solid var(--paperline); border-left: 4pt solid var(--orange); padding: 4pt 7pt; font-size: 7pt; line-height: 1.4; }
+  .qz-v.v2 { border-left-color: var(--warn); }
+  .qz-v.v3 { border-left-color: var(--steel); }
+  .qz-v .range { font-family: var(--mono); font-weight: 600; font-size: 8pt; color: var(--orange-deep); }
+  .qz-v .who { font-family: var(--disp); font-weight: 700; text-transform: uppercase; font-size: 9pt; color: var(--od); display: block; margin-bottom: 2pt; }
+  .qz-total { border-top: 2pt solid var(--od); padding-top: 5pt; font-size: 8pt; line-height: 1.5; }
+  .qz-total b { font-family: var(--mono); color: var(--orange-deep); }
+
+  .check { margin: 0 0 9pt; padding-left: 0; list-style: none; }
+  .check li { padding-left: 22px; margin-bottom: 5.5pt; }
+  .check li::before { content: ""; position: absolute; left: 0; top: 2.5pt; width: 9pt; height: 9pt; border: 1.5pt solid var(--od); background: none; }
+
+  /* ---------- TOC ---------- */
+  .toc { break-after: page; padding-top: 0.25in; }
+  .toc h2 { margin-bottom: 14pt; }
+  .toc-row { display: flex; justify-content: space-between; border-bottom: 1px solid var(--paperline); padding: 7.5pt 0; font-size: 11pt; text-decoration: none; }
+  .toc-row .t { font-family: var(--disp); font-weight: 600; color: var(--od); }
+  .toc-row::after { content: "p." target-counter(attr(href url), page); font-family: var(--mono); color: var(--orange-deep); }
+  .toc-note { font-family: var(--mono); font-size: 8.5pt; color: var(--bone-dim); margin-top: 14pt; line-height: 1.6; }
+
+  /* ---------- REFERENCES / CTA ---------- */
+  .refs p, .refs li { font-size: 9.5pt; }
+  .cta { break-before: page; padding-top: 0.5in; }
+  .cta-box { background: var(--od); color: var(--bone); padding: 20pt 22pt; border-radius: 3px; margin-top: 14pt; }
+  .cta-box h3 { color: var(--bone); margin-top: 0; }
+  .cta-box p { color: var(--bone-muted); }
+  .cta-box .url { font-family: var(--mono); color: var(--orange); font-size: 12pt; }
+  .signoff { font-family: var(--disp); font-weight: 600; font-size: 13pt; color: var(--od); margin-top: 16pt; }
+  .fineprint { font-family: var(--mono); font-size: 8pt; color: var(--bone-dim); margin-top: 18pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-topbar">
+    <span class="tag-manual">Technical Manual</span>
+    <span class="cover-kick">FSN-001 &middot; REV 6 &middot; FIELD ISSUE</span>
+  </div>
+  <div class="stamp"><div class="a1">Approved</div><div class="a2">For Field Use</div></div>
+  <div class="cover-mid">
+    <div class="cover-wordmark">
+      <div class="fs">Field Service</div>
+      <div class="nerd">Nerd</div>
+    </div>
+    <div class="haz"></div>
+    <h1>The Field Service<br><span>AI Playbook</span></h1>
+    <p class="cover-sub">A field manual for adding AI to your service operation.&#8201; What's real, what's theater, and what to do first.&#8201; Written by an operator, not a vendor.</p>
+  </div>
+  <div class="cover-bot">
+    <div class="cover-author">Pierre Hulsebus</div>
+    <div class="cover-cred">Ex&#8209;Microsoft Field Service Global Black Belt &middot; fieldservicenerd.com</div>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section class="toc">
+  <span class="section-num">// Contents</span>
+  <h2>What's inside</h2>
+  <a class="toc-row" href="#ch01"><span class="t">01 &middot; The honest state of AI in field service</span></a>
+  <a class="toc-row" href="#ch02"><span class="t">02 &middot; The AI workload map</span></a>
+  <a class="toc-row" href="#ch03"><span class="t">03 &middot; Data readiness</span></a>
+  <a class="toc-row" href="#ch04"><span class="t">04 &middot; Copilot | where it earns its seat</span></a>
+  <a class="toc-row" href="#ch05"><span class="t">05 &middot; Scheduling and RSO intelligence</span></a>
+  <a class="toc-row" href="#ch06"><span class="t">06 &middot; IoT to work order | the pattern that holds</span></a>
+  <a class="toc-row" href="#ch07"><span class="t">07 &middot; Predictive maintenance without the hype</span></a>
+  <a class="toc-row" href="#ch08"><span class="t">08 &middot; AI governance | value or noise</span></a>
+  <a class="toc-row" href="#ch09"><span class="t">09 &middot; The ROI math and the first 90 days</span></a>
+  <a class="toc-row" href="#ch10"><span class="t">10 &middot; The buyer's checklist</span></a>
+  <a class="toc-row" href="#refs"><span class="t">&nbsp;&nbsp;&nbsp;&nbsp; References and further reading</span></a>
+  <p class="toc-note">Every story in this book is real and anonymized.&#160; Every chapter ends with one thing you can try this week with the system you already own.&#160; The screenshots are real Dynamics 365 Field Service builds, used as illustrations of the patterns.&#160; Feature names and availability change by release wave.</p>
+</section>
+
+<!-- 01 -->
+<section class="section-open" id="ch01">
+  <span class="section-num">01</span>
+  <h2>The honest state of AI in field service</h2>
+  <div class="rule"></div>
+  <p class="lede">Before we talk about AI, we have to agree on what a good day looks like.</p>
+
+  <p>A technician's best day looks like this.&#160; Leave the house.&#160; Drive to the site.&#160; Turn wrenches all day with a hard hat on.&#160; Go home.&#160; No meetings.&#160; No emails.&#160; Nobody from the office calling to ask if they're free next week Tuesday.&#160; Show up.&#160; Do the work.&#160; Go home.&#160; That's the happy path, and every technician I've ever managed would sign it in ink.</p>
+
+  <p>Now notice who interrupts that day.&#160; Dispatch.&#160; Billing.&#160; IT.&#160; Administration with a new policy.&#160; The happy path of the front office runs directly thru the technician's worst day.&#160; And here's the thing: <strong>every piece of a field service deployment that isn't focused on wrench time and the moment in front of the customer is where the friction comes from.</strong>&#160; That's true of your FSM system, and it's doubly true of every AI feature you bolt onto it.</p>
+
+  <p>Field service companies run a culture of safety.&#160; They open meetings with safety talks, back their trucks into parking spots, and cone their own lot.&#160; Then a software team shows up speaking LLMs and structured data governance, and the two sides stare at each other like foreigners.&#160; Most AI projects don't fail on the technology.&#160; They fail in that gap.</p>
+
+  <div class="hottake"><span class="tag">Hot take 01</span><div class="q">Most "mature" AI implementations in field service are theater.&#160; Half the orgs quoting maturity models are running spreadsheets next to the dashboard.</div></div>
+
+  <p>The industry numbers back the skepticism.&#160; IBM's research across 1,200+ enterprise deployments found that only 33% of AI initiatives meet their ROI targets, and 72% have failed to scale beyond one business unit.&#160; Aquant's 2026 benchmark says the gap between top and bottom performers is enormous: an 88% first&#8209;time fix rate at the top against 60% at the bottom.&#160; AI didn't create that gap.&#160; Operating discipline did.&#160; AI just widens it, in whichever direction you're already headed.</p>
+
+  <div class="statrow">
+    <div class="stat"><div class="n">33%</div><div class="l">of AI initiatives meet ROI targets (IBM, 2025 to 2026 research)</div></div>
+    <div class="stat"><div class="n">72%</div><div class="l">fail to scale past one business unit (IBM)</div></div>
+    <div class="stat"><div class="n">88 / 60</div><div class="l">first&#8209;time fix %, top vs bottom performers (Aquant 2026)</div></div>
+  </div>
+
+  <p>So this book has one yardstick, and we'll use it in every chapter: <strong>does this AI workload make the technician's job easier and the wrench time better?</strong>&#160; If yes, it earns its seat.&#160; If it just gives the office another dashboard, it's friction with a subscription fee.</p>
+
+  <div class="trythis"><span class="label">Try This</span>Ask three technicians one question this week: "What interrupted your work the most in the last five days?"&#160; Write the answers down, word for word.&#160; That list is your AI roadmap, already sorted by priority.</div>
+</section>
+
+<!-- 02 -->
+<section class="section-open" id="ch02">
+  <span class="section-num">02</span>
+  <h2>The AI workload map</h2>
+  <div class="rule"></div>
+  <p class="lede">Every AI pitch you'll hear this year is selling one of three different machines.&#160; They all wear the same badge.</p>
+
+  
+
+  <ul>
+    <li><strong>Batch AI.</strong>&#160; A scheduling optimizer (Microsoft's is Resource Scheduling Optimization, RSO) that evaluates the whole board at once: work orders, technicians, skills, territories, travel, SLAs, parts.&#160; It runs on a schedule, not in real time, by design.&#160; It's a chess engine, not a copilot.</li>
+    <li><strong>Real&#8209;time suggestions.</strong>&#160; Decision support in the moment: a schedule assistant proposing the best technician, a suggested priority on an alert.&#160; Fast, narrow, per&#8209;decision.</li>
+    <li><strong>Generative AI.</strong>&#160; Copilots and agents that read context and produce language: summaries, reports, knowledge answers.&#160; Brilliant with clean context.&#160; Confidently wrong without it.</li>
+  </ul>
+
+  <p>Three machines, three failure modes, three data appetites.&#160; When a seller says "our AI optimizes your field service," your first question is: <strong>which of the three is this?</strong>&#160; If they can't answer cleanly, that is your answer.</p>
+
+  <h3>The six layers you can actually buy</h3>
+  <p>Inside a platform like Dynamics 365 Field Service, the AI catalogue breaks into six workloads.&#160; And this map is not a Microsoft thing: Salesforce, IBM, Oracle, ServiceTitan, everyone sells a parallel stack.</p>
+
+  <div class="sixlayer">
+    <svg viewBox="0 0 700 306" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block" role="img" aria-label="The six-layer model drawn as an exploded stack">
+<defs>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#ADA99C" stroke-width="1.1"/></pattern>
+<marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#847F74"/></marker>
+</defs>
+<text x="18" y="17" font-family="Oswald, sans-serif" font-size="14" font-weight="700" letter-spacing="0.8" fill="#1F2421">THE SIX-LAYER MODEL</text>
+<text x="36" y="28" font-family="JetBrains Mono, monospace" font-size="6.6" letter-spacing="1.2" fill="#847F74">CHAPTER 02 &#183; EXPLODED VIEW</text>
+<line x1="172" y1="26" x2="172" y2="288" stroke="#847F74" stroke-width="0.8" stroke-dasharray="14 4 3 4"/>
+<line x1="26" y1="226" x2="26" y2="46" stroke="#847F74" stroke-width="0.9" marker-start="url(#arr)" marker-end="url(#arr)"/>
+<text x="18" y="136" transform="rotate(-90 18 136)" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.6" letter-spacing="1.3" fill="#847F74">DEPENDENCY: EACH LAYER RIDES THE ONES BELOW</text>
+<path d="M90,46 L172,62 L254,46 L254,51 L172,67 L90,51 Z" fill="#EFEDE4" stroke="#E36B2C" stroke-width="1.1"/>
+<path d="M90,46 L172,30 L254,46 L172,62 Z" fill="#FFFFFF" stroke="#E36B2C" stroke-width="1.5"/>
+<circle cx="68" cy="46" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="49" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">06</text>
+<line x1="78.5" y1="46" x2="86" y2="46" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="46" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="46" x2="300" y2="46" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="45" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">CUSTOM AGENTS</text>
+<text x="306" y="56" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Your own agents over your service data</text>
+<rect x="616" y="39" width="36" height="14" rx="2" fill="none" stroke="#E36B2C" stroke-width="1"/>
+<text x="634.0" y="49" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#E36B2C">GEN</text>
+<path d="M90,82 L172,98 L254,82 L254,87 L172,103 L90,87 Z" fill="#EFEDE4" stroke="#4A6B8A" stroke-width="1.1"/>
+<path d="M90,82 L172,66 L254,82 L172,98 Z" fill="#FFFFFF" stroke="#4A6B8A" stroke-width="1.5"/>
+<circle cx="68" cy="82" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">05</text>
+<line x1="78.5" y1="82" x2="86" y2="82" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="82" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="82" x2="300" y2="82" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="81" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">PREDICTIVE SERVICE PLANS</text>
+<text x="306" y="92" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Telemetry-driven maintenance windows, not calendar</text>
+<rect x="600" y="75" width="52" height="14" rx="2" fill="none" stroke="#4A6B8A" stroke-width="1"/>
+<text x="626.0" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#4A6B8A">B+R-T</text>
+<path d="M90,118 L172,134 L254,118 L254,123 L172,139 L90,123 Z" fill="#EFEDE4" stroke="#C9A227" stroke-width="1.1"/>
+<path d="M90,118 L172,102 L254,118 L172,134 Z" fill="#FFFFFF" stroke="#C9A227" stroke-width="1.5"/>
+<circle cx="68" cy="118" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="121" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">04</text>
+<line x1="78.5" y1="118" x2="86" y2="118" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="118" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="118" x2="300" y2="118" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="117" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">CASE-TO-WORK-ORDER ROUTING</text>
+<text x="306" y="128" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Cases triaged into pre-populated work orders</text>
+<rect x="616" y="111" width="36" height="14" rx="2" fill="none" stroke="#C9A227" stroke-width="1"/>
+<text x="634.0" y="121" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#C9A227">R-T</text>
+<path d="M90,154 L172,170 L254,154 L254,159 L172,175 L90,159 Z" fill="#EFEDE4" stroke="#E36B2C" stroke-width="1.1"/>
+<path d="M90,154 L172,138 L254,154 L172,170 Z" fill="#FFFFFF" stroke="#E36B2C" stroke-width="1.5"/>
+<circle cx="68" cy="154" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="157" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">03</text>
+<line x1="78.5" y1="154" x2="86" y2="154" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="154" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="154" x2="300" y2="154" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="153" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">COPILOT ASSISTANCE</text>
+<text x="306" y="164" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Summaries, drafts, and knowledge at the point of work</text>
+<rect x="616" y="147" width="36" height="14" rx="2" fill="none" stroke="#E36B2C" stroke-width="1"/>
+<text x="634.0" y="157" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#E36B2C">GEN</text>
+<path d="M90,190 L172,206 L254,190 L254,195 L172,211 L90,195 Z" fill="#EFEDE4" stroke="#C9A227" stroke-width="1.1"/>
+<path d="M90,190 L172,174 L254,190 L172,206 Z" fill="#FFFFFF" stroke="#C9A227" stroke-width="1.5"/>
+<circle cx="68" cy="190" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">02</text>
+<line x1="78.5" y1="190" x2="86" y2="190" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="190" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="190" x2="300" y2="190" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="189" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">CONNECTED FIELD SERVICE</text>
+<text x="306" y="200" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">IoT alerts become work orders before the call</text>
+<rect x="616" y="183" width="36" height="14" rx="2" fill="none" stroke="#C9A227" stroke-width="1"/>
+<text x="634.0" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#C9A227">R-T</text>
+<path d="M90,226 L172,242 L254,226 L254,231 L172,247 L90,231 Z" fill="#EFEDE4" stroke="#4A6B8A" stroke-width="1.1"/>
+<path d="M90,226 L172,210 L254,226 L172,242 Z" fill="#FFFFFF" stroke="#4A6B8A" stroke-width="1.5"/>
+<circle cx="68" cy="226" r="10.5" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<text x="68" y="229" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#C55A22">01</text>
+<line x1="78.5" y1="226" x2="86" y2="226" stroke="#847F74" stroke-width="0.7" stroke-dasharray="3 3"/>
+<circle cx="257" cy="226" r="1.6" fill="#1F2421"/>
+<line x1="257" y1="226" x2="300" y2="226" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="225" font-family="Oswald, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4" fill="#1F2421">SCHEDULING OPTIMIZATION</text>
+<text x="306" y="236" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Whole-board optimization: skills, travel, SLAs</text>
+<rect x="616" y="219" width="36" height="14" rx="2" fill="none" stroke="#4A6B8A" stroke-width="1"/>
+<text x="634.0" y="229" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.2" font-weight="600" fill="#4A6B8A">B</text>
+<path d="M76,265 L172,246 L268,265 L172,284 Z" fill="url(#hatch)" stroke="#1F2421" stroke-width="1.4"/>
+<circle cx="271" cy="265" r="1.6" fill="#1F2421"/>
+<line x1="271" y1="265" x2="300" y2="265" stroke="#1F2421" stroke-width="0.7"/>
+<text x="306" y="264" font-family="Oswald, sans-serif" font-size="10" font-weight="600" letter-spacing="0.6" fill="#1F2421">FOUNDATION</text>
+<text x="306" y="275" font-family="Inter, sans-serif" font-size="8" fill="#5A574E">Your work orders, assets, and service history (chapter 03)</text>
+<g font-family="JetBrains Mono, monospace" fill="#1F2421">
+<rect x="472" y="282" width="224" height="22" fill="#FFFFFF" stroke="#1F2421" stroke-width="1.2"/>
+<line x1="562" y1="282" x2="562" y2="304" stroke="#1F2421" stroke-width="0.8"/>
+<text x="479" y="291" font-size="6.6" fill="#847F74">DWG NO</text>
+<text x="479" y="300" font-size="7.6" font-weight="600" fill="#C55A22">FSN-DIAG-02</text>
+<text x="569" y="291" font-size="6.6" fill="#847F74">SCALE</text>
+<text x="569" y="300" font-size="7.2" font-weight="600">NTS &#183; REV 6</text>
+</g>
+<text x="18" y="301" font-family="JetBrains Mono, monospace" font-size="6.6" letter-spacing="1" fill="#847F74">KEY: B BATCH &#183; R-T REAL-TIME &#183; GEN GENERATIVE &#183; COLOR = DRIVING MACHINE</text>
+</svg>
+  </div>
+
+  <div class="trythis"><span class="label">Try This</span>Label your last three AI demos: batch, real&#8209;time, or generative, and which layer.&#160; A pitch spanning all six in one SKU is selling you a story.</div>
+</section>
+
+<!-- 03 -->
+<section class="section-open" id="ch03">
+  <span class="section-num">03</span>
+  <h2>Data readiness</h2>
+  <div class="rule"></div>
+  <p class="lede">Your work order history matters more than the model.&#160; Nobody wants to hear it.&#160; It decides everything.</p>
+
+  <p>A mining equipment manufacturer rolled out field service across nine languages.&#160; Real crews mixed a specialist from headquarters, a regional engineer, and local technicians around one machine.&#160; The gap got bridged the only way it ever does on a job site: everybody around the same official manufacturer documentation.&#160; Except the manuals weren't translated into all nine languages.&#160; And the job site was a mine, no internet, and nothing cloud&#8209;hosted was going to save anyone down there.</p>
+
+  <p>The fix wasn't a bigger model.&#160; The system was rebuilt to track two things it had never tracked: the technician's language, and the languages needed at each location.&#160; Manuals went portable and on&#8209;device, offline, in every language a site might need.&#160; AI earned its seat there doing the least glamorous job imaginable, translating technical manuals, and it was the highest&#8209;value AI line item in the deployment.</p>
+
+  <div class="sidebar"><span class="label">The lesson</span>Knowledge is data, with the same readiness requirements as your customer records.&#160; If it can't reach the technician at the point of work, offline included, no assistant built on top of it will either.</div>
+
+  <p>Every generative feature in chapter 02 reads your work order history as its source of truth.&#160; If your closed work orders say "fixed" in the resolution field and nothing else, that's what your AI knows about your business: nothing, confidently.</p>
+
+  <div class="statrow">
+    <div class="stat"><div class="n">68%</div><div class="l">face data&#8209;quality or silo challenges implementing AI (Geotab 2025)</div></div>
+    <div class="stat"><div class="n">85%</div><div class="l">of operators struggle with poor&#8209;quality, fragmented data (IBM)</div></div>
+    <div class="stat"><div class="n">#1</div><div class="l">data quality: the top barrier to agentic AI adoption (IBM)</div></div>
+  </div>
+
+  <p>Data readiness isn't a two&#8209;year data warehouse project, either.&#160; That's the other failure mode: getting so lost in "fixing the data" that no workload ever ships.&#160; Scheduling optimization needs clean skills, territories, and durations.&#160; Copilot needs honest resolution notes.&#160; Predictive maintenance needs asset history.&#160; Score the data the workload touches.&#160; Ignore the rest until its turn.</p>
+
+  <div class="trythis"><span class="label">Try This</span><strong>Run the Work Order Quality Quiz.</strong>&#160; The scoresheet is on the next page.&#160; Pull twenty closed work orders, score them, add it up, and read your verdict.&#160; Then make it your first custom agent (layer six): score every closed work order daily, trend it, and closure discipline becomes a dashboard.</div>
+</section>
+
+
+<!-- 03b QUIZ SHEET -->
+<section class="section-open" id="quiz03">
+  <div class="quiz">
+    <div class="qz-head">
+      <span class="qz-title">The Work Order Quality Quiz</span>
+      <img class="qz-logo" src="assets/fsn-logo-patch.png" alt="Field Service Nerd">
+    </div>
+    <p class="qz-sub">Do your work orders tell a story, or do they just say "fixed"?&#160; Pull twenty closed work orders at random and score each one below.</p>
+    <div class="qz-id"><span class="f">Site / branch</span><span class="f">Scored by</span><span class="f d">Date</span></div>
+    <div class="qz-key">
+      <div class="k"><h4>Problem description</h4><b>0</b> "broken," and that's it&#160;&middot;&#160;<b>1</b> one vague sentence&#160;&middot;&#160;<b>2</b> symptom plus context&#160;&middot;&#160;<b>3</b> you can picture the scene</div>
+      <div class="k"><h4>Resolution notes</h4><b>0</b> "fixed."&#160;&middot;&#160;<b>1</b> what was done, barely&#160;&middot;&#160;<b>2</b> cause and fix&#160;&middot;&#160;<b>3</b> the next tech needs nothing else</div>
+      <div class="k"><h4>Asset attached</h4><b>0</b> no asset anywhere&#160;&middot;&#160;<b>1</b> wrong or customer&#8209;level only&#160;&middot;&#160;<b>2</b> right asset&#160;&middot;&#160;<b>3</b> right asset, clean history</div>
+    </div>
+    <table class="qz">
+      <tr><th style="width:8%">WO</th><th>Work order # / notes</th><th class="c" style="width:12%">Problem</th><th class="c" style="width:12%">Resolution</th><th class="c" style="width:12%">Asset</th><th class="c" style="width:13%">Total /9</th></tr>
+    <tr><td class="n">01</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">02</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">03</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">04</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">05</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">06</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">07</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">08</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">09</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">10</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">11</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">12</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">13</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">14</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">15</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">16</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">17</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">18</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">19</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    <tr><td class="n">20</td><td></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="t"></td></tr>
+    </table>
+    <div class="qz-verdicts">
+      <div class="qz-v"><span class="who">The Documentation Darling</span><span class="range">8 or 9 points</span> &middot; Frame it.&#160; Your techs write like the next tech matters.&#160; Your AI is about to look brilliant, and it's your fault.</div>
+      <div class="qz-v v2"><span class="who">The Almost&#8209;There Operator</span><span class="range">5 to 7 points</span> &middot; There's a story in there, it just mumbles.&#160; One toolbox talk about closure notes pays for itself.</div>
+      <div class="qz-v v3"><span class="who">The "Fixed." Philosopher</span><span class="range">0 to 4 points</span> &middot; One word, zero context, total confidence.&#160; Your AI will be exactly as informative.</div>
+    </div>
+    <div class="qz-total"><b>Now add all twenty (180 max):</b>&#160; <b>140+</b> you're AI&#8209;ready, buy the workload&#160;&middot;&#160;<b>90 to 139</b> run 90 days of closure discipline first, then buy&#160;&middot;&#160;<b>under 90</b> your next AI dollar is a training budget, not a license.&#160; Rank the twenty and the spread says which crews, forms, and incident types to fix first.</div>
+    <div class="qz-brand">fieldservicenerd.com &middot; FSN&#8209;QUIZ&#8209;03 &middot; Photocopy freely &middot; Approved for field use</div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="section-open" id="ch04">
+  <span class="section-num">04</span>
+  <h2>Copilot | where it earns its seat</h2>
+  <div class="rule"></div>
+  <p class="lede">Copilot in field service has been a great conference room pilot demo.&#160; The job site is not a conference room.</p>
+
+  <div class="hottake"><span class="tag">Hot take 02</span><div class="q">In the demo, the sales engineer controls the room and the data is pristine.&#160; On a truck at 2pm with dirty work order history, an assistant becomes expensive autocomplete.</div></div>
+
+  <p>Let me be fair first, because Microsoft keeps iterating on this and the investment is real.&#160; Within its own context, Copilot does pretty good.&#160; Work order summaries save dispatchers real minutes, and they're generally available today on web and mobile.&#160; Summarizing a long, messy service history before a customer call is genuinely useful.&#160; Updating work order fields by voice instead of thumbs is in preview on mobile now, and that's the kind of paperwork nobody will miss.&#160; And per Salesforce's research, more than 75% of mobile workers say AI saves them time on the job.&#160; The wins are real.&#160; They're just smaller and more specific than the keynote.</p>
+
+  <p>Know the history here, because it's the best vendor honesty you'll find anywhere in this book.&#160; Microsoft shipped a wave of AI previews into Field Service around 2020: predictive work duration, incident type suggestions, IoT alert suggestions.&#160; In late 2024 it retired all three.&#160; That's not a scandal.&#160; That's what shipping AI actually looks like: some of it survives contact with the field, some doesn't, and a vendor that prunes is healthier than one that doesn't.&#160; But it's also why you buy what's generally available and in the deprecation log's clear, not what's in the keynote.</p>
+
+  <p>Here's the structural problem.&#160; Today's assistant is a standalone feature talking to one application.&#160; A technician's actual questions cut across systems the assistant can't see: <em>What's next on my schedule after this?&#160; Do I have all the parts to finish this job?&#160; What's the first and most important thing on this work order?</em>&#160; Those answers live in email, inventory, scheduling, and the work order at once.&#160; The gap isn't the model.&#160; The gap is the context it's allowed to see.</p>
+
+  <p>And then there's the part nobody demos.&#160; A technician wearing a hard hat who needs to hear an assistant needs a headset.&#160; On a lot of job sites, a headset under a helmet is a safety hazard.&#160; Gloves don't type.&#160; Machine rooms are loud.&#160; If your AI strategy assumes a quiet room and free hands, it was designed in one.</p>
+
+  <figure>
+    <img src="assets/suggestion-work-order-product.png" alt="Dynamics 365 Field Service incident type suggestion showing evidence for a product recommendation">
+    <figcaption><b>What good assistive AI looks like: a claim with evidence attached.</b>&#160; This D365 suggestion recommends adding a product to an incident type and shows its work: "Of the 80 work orders with the incident type, 66 (82.50%) also include this product."&#160; Captured from a 2020 preview that Microsoft retired in late 2024, and preserved here anyway, because the pattern is the standard to hold every suggestion feature to.&#160; No evidence, no seat.</figcaption>
+  </figure>
+
+  <p>So the buying rule for assistants: <strong>pick tasks where the context is already inside the system, the output is reviewed by a human, and the minutes saved are countable.</strong>&#160; Recaps, report drafts, knowledge answers, translations.&#160; Skip anything that needs the assistant to know the technician's whole day.&#160; It doesn't, yet.</p>
+
+  <div class="trythis"><span class="label">Try This</span>Pick one dispatcher, one week, one task: work order recap before customer calls.&#160; Count the minutes that task takes this week without the assistant, then next week with it.&#160; Make the renewal decision with that number, not the demo.</div>
+</section>
+
+<!-- 05 -->
+<section class="section-open" id="ch05">
+  <span class="section-num">05</span>
+  <h2>Scheduling and RSO intelligence</h2>
+  <div class="rule"></div>
+  <p class="lede">The hardest, most valuable problem in field service.&#160; And the place where one week can wreck a perfect plan.</p>
+
+  <p>My worst week running a service department started with a technician destroying a customer's laptop, hard drive included.&#160; Data recovery, an angry customer, a new inspection protocol.&#160; Midweek, a hi&#8209;lo driver in the warehouse backed into a pallet of thirty computers.&#160; About $100,000 of hardware.&#160; Every unit had to be unboxed, powered on, and tested so we knew what to claim.&#160; One in five was dead.&#160; That ate a week of planned capacity, and the schedule didn't recover for three.</p>
+
+  <p>Nothing about that week was preventable, and that's the point.&#160; <strong>A schedule optimized to 100% utilization has zero capacity for the week that goes sideways thru no fault of your own.</strong>&#160; The save wasn't an algorithm.&#160; It was having enough slack for management to throw extra bodies at the fire.&#160; When you configure a scheduling engine, that slack is a design decision.&#160; TSIA makes the same warning from the other direction: in the AI era, raw utilization becomes a misleading metric.&#160; Optimize outcomes, not busy&#8209;ness.</p>
+
+  <h3>Jobs to be scheduled vs. jobs to be done</h3>
+  <p>Here's the framework I want you to steal.&#160; Scheduling engines are excellent at <strong>jobs to be scheduled</strong>: getting the right person to the right place with the least windshield time.&#160; They're nearly silent on <strong>jobs to be done</strong>: what happens in the hours on site.&#160; The work breakdown structure.&#160; The assets and tasks.&#160; The procedures.&#160; The information the technician needs standing in front of the machine.&#160; Most FSM products treat getting a person to the site as the job.&#160; It isn't.&#160; The job is the job.&#160; If your deployment optimizes time&#8209;on&#8209;task and ignores the task, you've built a very efficient way to arrive unprepared.</p>
+
+  <figure>
+    <img style="width:86%" src="assets/predictive-work-duration-dashboard.png" alt="Dynamics 365 predictive work duration dashboard comparing allocated and predicted durations with prediction factors">
+    <figcaption><b>The machine reads the history you gave it.</b>&#160; A D365 predictive work duration view (2020 preview): booked 7h 30m, predicted 8h 50m, with the factors driving the gap listed line by line.&#160; Microsoft retired this preview in 2024.&#160; The pattern outlived it: duration estimates grounded in your own work order history, shown with their reasons.&#160; Meanwhile RSO itself is alive, GA, and still the only piece of the stack that uses historical traffic for travel time.</figcaption>
+  </figure>
+
+  <h3>Which scheduling brain do you buy?</h3>
+  <ul>
+    <li><strong>Batch optimization (RSO)</strong> when you're 50+ technicians with real constraint complexity: territories, skills, SLA windows, parts.&#160; This is where the 20 to 40% drive&#8209;time reductions live.</li>
+    <li><strong>Schedule assistant</strong> when a dispatcher makes good calls and needs faster ones, one booking at a time.</li>
+    <li><strong>Manual</strong> when the dispatcher knows every tech and every customer by name.&#160; A small shop's dispatcher IS the optimizer, and a good one is hard to beat.</li>
+  </ul>
+  <p>One more for the watch list: Microsoft's Scheduling Operations Agent, an agentic layer over scheduling that's still in preview as I write this.&#160; Watch it.&#160; Pilot it if you're curious.&#160; Don't bet a go&#8209;live on a preview.&#160; Chapter 04 explains why that rule exists.</p>
+
+  <div class="hottake"><span class="tag">Hot take 03</span><div class="q">Dispatchers aren't the problem.&#160; They're the last line of defense against your data.&#160; The day you remove the human override is the day your SLA compliance dies.</div></div>
+
+  <p>Your best dispatchers override the system every shift, and they're usually right, because they're correcting for constraints nobody encoded: the customer who needs the same tech every visit, the site with the gate code drama, the trainee who shouldn't solo that machine yet.&#160; Don't automate your dispatchers out.&#160; Build them a faster cockpit, and treat every override as a requirement you haven't captured.</p>
+
+  <figure>
+    <img src="assets/schedule-board-predictive-travel-1.png" alt="Schedule board showing AI adjusted travel times and durations between bookings">
+    <figcaption><b>One technician, one Tuesday.</b>&#160; AI&#8209;adjusted durations and drive times between stops on the schedule board.&#160; The gray gaps are the day's real currency: travel.&#160; Chapter 09 is about turning them into money.</figcaption>
+  </figure>
+
+  <div class="trythis"><span class="label">Try This</span>Run the schedule&#8209;vs&#8209;schedule test for one day: the optimizer's plan beside your dispatcher's.&#160; Count the overrides, and ask the dispatcher why on each one.&#160; Every answer is a constraint your configuration is missing.</div>
+</section>
+
+<!-- 06 -->
+<section class="section-open" id="ch06">
+  <span class="section-num">06</span>
+  <h2>IoT to work order | the pattern that holds</h2>
+  <div class="rule"></div>
+  <p class="lede">Detect before dispatch is real.&#160; So is the alert that can't tell a fire from a dropped ping.</p>
+
+  <p>The pattern at its best is almost boring.&#160; An ATM servicing company put IoT devices inside the machines.&#160; When cash runs low or a component drifts, the machine raises its hand and a work order exists before any customer notices anything.&#160; Detect, diagnose, dispatch, resolve.&#160; The service model flips from reactive to scheduled.&#160; That's connected field service earning its keep.</p>
+
+  <p>Now the other story.&#160; A clean&#8209;energy company runs self&#8209;serve propane and natural gas filling stations.&#160; No clerk on site.&#160; Sensors watch for leaks, and when a hazard signal fires, a technician has to be on site within a hard time window.&#160; More than once, a power outage knocked out an area's connectivity, and the board flooded with one identical error: <em>cannot reach the site.</em>&#160; That one signature means one of two things.&#160; The station is on fire.&#160; Or the router lost power for twenty minutes while customers pump gas, annoyed at nothing.&#160; From the dispatch chair, you cannot tell which.&#160; That ambiguity is the detect&#8209;before&#8209;dispatch trap, and it will drown your dispatchers exactly when the stakes are highest.</p>
+
+  <div class="hottake"><span class="tag">Hot take 04</span><div class="q">The fix wasn't more AI.&#160; It was cameras on a different carrier.&#160; Physical diversity beats elegant digital governance when the question is "is it on fire?"</div></div>
+
+  <p>The fix: solar&#8209;and&#8209;battery cameras with LTE connections on a <em>different carrier</em>, deliberately not integrated with anything.&#160; No telemetry, no workflow, no dashboard.&#160; Just out&#8209;of&#8209;band eyes a human checks before dispatching.&#160; Telecom people call this physical diversity, and mission&#8209;critical monitoring deserves it.&#160; Engineer for ambiguity before you automate the response to it.</p>
+
+  <figure>
+    <img src="assets/connected-field-service-reference-architecture.png" alt="Connected field service reference architecture from IoT devices thru Azure services into Dynamics 365 Field Service">
+    <figcaption><b>The reference pattern, still current.</b>&#160; Sensor to IoT Hub, Stream Analytics against threshold rules, Service Bus, Logic Apps, then into Field Service as an IoT alert that can become a case and a work order.&#160; This is one of the survivors: Microsoft's architecture doc still describes this exact stack today.&#160; Every box on this diagram is a place alerts can be filtered, and that's the point of the governance chapter.</figcaption>
+  </figure>
+
+  <figure class="half">
+    <img src="assets/iot-alert-suggestions-inspect-boiler.png" alt="IoT alert record with AI suggested priority, priority score, and incident type">
+    <figcaption><b>AI as triage, not trigger.</b>&#160; An IoT alert record with AI&#8209;suggested priority (score 91) and a suggested incident type, from a 2020 preview Microsoft later retired.&#160; IoT alerts live on in the product.&#160; This scoring layer didn't.&#160; Keep the screenshot's lesson anyway: the suggestion narrows human attention, it doesn't roll the truck.&#160; That division of labor is the whole game, whoever's AI is doing the suggesting.</figcaption>
+  </figure>
+
+  <div class="trythis"><span class="label">Try This</span>Take your noisiest alert type and write down every physical truth it could mean.&#160; If you can't distinguish them from a desk, design the out&#8209;of&#8209;band check (a camera, a second sensor, a phone call protocol) before you let that alert create work orders.</div>
+</section>
+
+<!-- 07 -->
+<section class="section-open" id="ch07">
+  <span class="section-num">07</span>
+  <h2>Predictive maintenance without the hype</h2>
+  <div class="rule"></div>
+  <p class="lede">A predictive model with an empty asset record is a fortune teller with amnesia.</p>
+
+  <p>Predictive maintenance is the most oversold phrase in field service.&#160; The pitch writes itself: stop fixing things on a calendar, let the data tell you when the machine is about to fail.&#160; And the ceiling is real.&#160; The World Economic Forum documents a chemical manufacturer cutting downtime by more than half with predictive analytics.&#160; But that's a lighthouse case, not a median.&#160; The median is closer to Geotab's 2025 survey: 88% of leaders got asset&#8209;uptime gains of 6 to 15% from new field service technology.&#160; Meaningful.&#160; Not magic.</p>
+
+  <p>Here's the dependency chain the pitch skips.&#160; Prediction needs two feeds: a signal from the asset (telemetry, inspections, usage) and a history of what's been done to it (work orders, parts, failures).&#160; Most organizations have neither wired up.&#160; The asset record exists, technically.&#160; It's a name and a serial number, no install date, no service history, work orders attached to the customer instead of the machine.&#160; Feed that to a model and you get confident scheduling of the wrong maintenance on the wrong assets.</p>
+
+  <p>McKinsey's list of why predictive maintenance programs fail should be printed on the box: insufficient or inaccessible data, inadequate sensors and infrastructure, poor prioritization of which assets deserve the effort, missing data science capability, weak change management, and, for plenty of assets, economics that were never going to work.&#160; Read that list again.&#160; Five of the six failure modes are yours, not the vendor's.</p>
+
+  <div class="sidebar"><span class="label">From real deployments</span>The prioritization failure is the quiet one.&#160; Not every asset earns a model.&#160; A $400 pump that fails safe and takes twenty minutes to swap gets a calendar and a spare on the shelf.&#160; Prediction is for the assets where downtime is expensive, failure is dangerous, or the repair window is long.&#160; Doing this math first is most of the program.</div>
+
+  <p>The realistic on&#8209;ramp isn't "deploy ML."&#160; It's a ladder.&#160; Rung one: usage&#8209;based maintenance instead of calendar&#8209;based (hours run, cycles, miles).&#160; Rung two: condition thresholds from the sensors you already have.&#160; Rung three: anomaly detection and real predictive windows, for the short list of assets that earned it.&#160; Each rung pays for the next, and each one needs the same thing: an asset record with real history.&#160; That's why this chapter's homework is chapter 03's homework wearing a hard hat.</p>
+
+  <div class="trythis"><span class="label">Try This</span>List your ten most downtime&#8209;expensive assets.&#160; For each, answer two questions: do we have twelve months of service history attached to this specific asset, and do we have any live signal from it?&#160; Both yes: that's your pilot list.&#160; Either no: that's your data work.</div>
+</section>
+
+<!-- 08 -->
+<section class="section-open" id="ch08">
+  <span class="section-num">08</span>
+  <h2>AI governance | value or noise</h2>
+  <div class="rule"></div>
+  <p class="lede">Organizations that skip governance don't get AI&#8209;generated value.&#160; They get AI&#8209;generated noise.</p>
+
+  <p>A propane distributor (delivery, tank inspections, installations) bought the best scheduling AI money could configure.&#160; The project team fell in love with it.&#160; Nine scheduling rule sets across the lines of business, tuned and beautiful.&#160; On paper, it beat the human dispatchers' schedule every single day.&#160; I mean that literally: we could line the two schedules up each morning and win on the math.&#160; The dispatchers didn't trust it.&#160; They wouldn't run it at scale.&#160; Their world was spreadsheets, nobody had brought them along, and the tooling made proving the machine's schedule against theirs almost impossible to see.&#160; Nine months in, the project fell apart.&#160; The math never mattered.</p>
+
+  <div class="hottake"><span class="tag">Hot take 05</span><div class="q">"Start with the low&#8209;hanging fruit and build momentum" is how that project died.&#160; The hard thing arrived last, with no trust built.&#160; Eat the biggest risk on day one.</div></div>
+
+  <p>That project taught me that trust is not a soft topic.&#160; It's an engineering deliverable with a spec, and the spec is three questions.&#160; Answer them in writing before any AI workload goes live.</p>
+
+  <h3>The three questions</h3>
+  <ul>
+    <li><strong>1 &middot; Alert governance.</strong>&#160; How do machine&#8209;raised alerts get triaged?&#160; Who has the authority to dismiss one, and what happens when they're wrong?&#160; What suppression rules keep a connectivity blip from flooding the board (chapter 06)?&#160; If nobody owns dismissal, everything becomes a truck roll.</li>
+    <li><strong>2 &middot; Override rules.</strong>&#160; When can a dispatcher overrule the optimizer, and how is that logged?&#160; Not to punish the dispatcher.&#160; The override log is your requirements backlog: every consistent override is a constraint the system doesn't know yet (chapter 05).</li>
+    <li><strong>3 &middot; Trust calibration.</strong>&#160; Which AI outputs go straight to customers, and which require human review first?&#160; A work order recap for internal use and a customer&#8209;facing message are different risk classes.&#160; Decide the boundary on purpose, per output type, before the first hallucinated SLA promise decides it for you.</li>
+  </ul>
+
+  <p>Notice none of the three questions are about model quality.&#160; The propane project failed the second question's spirit: the humans who owned the schedule were never made partners in the machine that wanted it.&#160; Governance is how you make them partners, in writing, before go&#8209;live.&#160; And it's cheap: three questions, one page, a signature from operations.&#160; Compare that to nine months.</p>
+
+  <div class="trythis"><span class="label">Try This</span>Write the one&#8209;pager this week for the AI features you already own: who dismisses alerts, when overrides are allowed and logged, which outputs need review before a customer sees them.&#160; If a question has no answer, that feature isn't governed.&#160; It's loose.</div>
+</section>
+
+<!-- 09 -->
+<section class="section-open" id="ch09">
+  <span class="section-num">09</span>
+  <h2>The ROI math and the first 90 days</h2>
+  <div class="rule"></div>
+  <p class="lede">Domino's figured out field service economics before most field service companies did.</p>
+
+  <p>The delivery cost of a pizza is buried inside its price.&#160; Call it a couple of dollars of driving baked into a $15 order.&#160; Domino's rarely gets to deliver two pizzas on one run, and it bothers them enough to experiment with trucks full of hot pizzas waiting for orders.&#160; Because a second order on a drive that's already paid for is nearly pure profit.</p>
+
+  <p>Your work orders are pizzas.&#160; Every quoted job carries its truck roll inside the price.&#160; So when the optimizer cuts drive time, that's good.&#160; But the under&#8209;appreciated win is <strong>density</strong>: finding the low&#8209;priority work order ten miles from your technician instead of sending them sixty miles to the next scheduled stop.&#160; The customer already paid for that drive when the job was quoted.&#160; The technician drives for free.&#160; <strong>That marginal, drive&#8209;free work order may be the most profitable work your company can do</strong>, and "jobs per day went from four to five" doesn't begin to describe it.&#160; A 10% cut in windshield time is a solid target, and in heavy&#8209;truck country it's not just money.&#160; Service miles carry accident risk your P&amp;L never itemizes, driven by people at hour thirteen of their day whom no DOT rule covers.&#160; Fewer miles is a safety program wearing a cost&#8209;savings badge.</p>
+
+  <h3>The external numbers, honestly labeled</h3>
+  <p>Every number below comes from a vendor with skin in the game, so treat them as directional until your own telemetry replicates them.&#160; They're still the best public map of where the money is.</p>
+
+  <div class="statrow">
+    <div class="stat"><div class="n">25%</div><div class="l">of total service cost consumed by failed visits at the median; 14% for top performers (Aquant 2026)</div></div>
+    <div class="stat"><div class="n">1 in 5</div><div class="l">truck rolls could have been resolved remotely (Aquant 2026)</div></div>
+    <div class="stat"><div class="n">20 to 40%</div><div class="l">drive&#8209;time reduction range for batch scheduling optimization at fleet scale</div></div>
+  </div>
+
+  <p>Failed visits are the clearest lever on that list.&#160; A failed visit is a full truck roll that produced a second truck roll: wrong part, wrong skills, wrong information, no site access.&#160; Every one of the six AI layers from chapter 02 attacks it from a different angle, which is why the benchmark&#8209;led loop below beats any "transformation program."&#160; Improve first dispatch accuracy, raise remote resolution, capture what your best technicians know.&#160; Repeat.</p>
+
+  <h3>The first 90 days</h3>
+  <ul>
+    <li><strong>Days 1 to 30 | Baseline.</strong>&#160; Measure the eight KPIs (chapter 10's scorecard) with consistent formulas.&#160; Pick your North Star and put it on a wall.&#160; And start socializing the hardest workload now, with the people who'll live in it.&#160; Not month seven.&#160; Day one.</li>
+    <li><strong>Days 31 to 60 | One workload.</strong>&#160; Pick the single layer your baseline says is bleeding the most (usually failed visits or windshield time).&#160; Pilot it on one territory with the schedule&#8209;vs&#8209;schedule test running in the open, where dispatchers can see it win and see it lose.</li>
+    <li><strong>Days 61 to 90 | Governance and the scale call.</strong>&#160; Write the three&#8209;question one&#8209;pager.&#160; Compare pilot numbers to baseline.&#160; Scale, fix, or kill, and say which out loud.&#160; A killed pilot with a clean number is a win.&#160; A zombie pilot is how you become IBM's 72%.</li>
+  </ul>
+
+  <div class="trythis"><span class="label">Try This</span>Compute one number this week: your fully loaded cost of a wasted truck roll (tech hour rate &times; drive and site hours, plus vehicle cost per mile &times; miles).&#160; Multiply by 20% of last month's rolls.&#160; That's the annualized pot the AI has to beat, and the opening line of your business case.</div>
+</section>
+
+<!-- 10 -->
+<section class="section-open" id="ch10">
+  <span class="section-num">10</span>
+  <h2>The buyer's checklist</h2>
+  <div class="rule"></div>
+  <p class="lede">The mortgage you pay is the moat.&#160; Understand what it buys before you decide to build.</p>
+
+  <p>Somebody on your team, or a partner who wants your business, is about to propose replacing your FSM scheduling with an LLM and some tables.&#160; Look at a real scheduling schema for five minutes.&#160; Skills, certifications, territories, SLA windows, parts, crew composition, customer preferences, travel, time zones, unions, safety rules.&#160; It is not two tables and a query away, and most of the people pitching that have never dispatched anything.</p>
+
+  <div class="hottake"><span class="tag">Hot take 06</span><div class="q">When you pay the SaaS mortgage, you're not renting features.&#160; You're renting a security team, a compliance stack, an update train, and a sovereign data boundary you'd never build alone.</div></div>
+
+  <p>That's what the moat is.&#160; It's a gilded cage, I'll grant that.&#160; But it locks both directions: your service history, customer data, and pricing live inside a governed boundary, auditable and access&#8209;controlled.&#160; <strong>You're not training a frontier lab on how to run your service business.</strong>&#160; Multi&#8209;language deployment, mobile device management, auditing, a roadmap with committed engineering behind it.&#160; Build custom agents on top of that platform (layer six), absolutely.&#160; Replace the platform because a demo made it look easy?&#160; That's how you volunteer to be somebody's cautionary tale.&#160; SaaS has survived every hype cycle for one reason: it's the fastest path to value that also survives year three.</p>
+
+  <h3>The scorecard | baseline these eight before any AI purchase</h3>
+  <ul class="check">
+    <li><strong>First&#8209;time fix rate</strong> (industry benchmark 77% | top performers 88%)</li>
+    <li><strong>Resolution time</strong>, case open to resolved (median 4.5 days | top performers 2.5)</li>
+    <li><strong>Failed&#8209;visit cost share</strong> (median 25% of service cost | top performers 14%)</li>
+    <li><strong>Remote resolution rate</strong>, and its twin, avoidable dispatch rate</li>
+    <li><strong>Technician productive time</strong>, with one written formula everyone uses</li>
+    <li><strong>Travel time</strong> per completed work order</li>
+    <li><strong>SLA attainment</strong>, by line of business</li>
+    <li><strong>CSAT or NPS</strong>, measured at all (barely half of orgs do)</li>
+  </ul>
+
+  <h3>The seven questions that separate shipping from roadmap</h3>
+  <ul>
+    <li>Which of the three kinds is this: batch, real&#8209;time, or generative?&#160; Which of the six layers?</li>
+    <li>Is this feature generally available today, in my region, at my license tier?&#160; Show me, not the roadmap.</li>
+    <li>What data does it read, and what does it do when that data is wrong?</li>
+    <li>Where's the human override, and where's the log of it?</li>
+    <li>What evidence ships with each suggestion?&#160; (Remember the 66&#8209;of&#8209;80 screen.&#160; That's the bar.)</li>
+    <li>What does it cost at my volume, all&#8209;in, next year?&#160; Consumption pricing reads small until it isn't.</li>
+    <li>Can I turn it off without breaking anything?&#160; Reversibility is the cheapest governance there is.</li>
+  </ul>
+
+  <p>And the last rule, the one this whole book has been building: <strong>run a benchmark&#8209;led improvement loop, not an AI transformation.</strong>&#160; Baseline, pick the bleeding KPI, deploy one workload against it, govern it, measure it, then go again.&#160; That's the whole playbook.&#160; It's not flashy.&#160; It works.</p>
+
+  <div class="trythis"><span class="label">Try This</span>Before your next vendor meeting, print the eight&#8209;KPI scorecard with your real numbers filled in.&#160; Hand it across the table and ask which number their product moves, by how much, and how they'd prove it in 60 days.&#160; The quality of that answer is your evaluation.</div>
+</section>
+
+<!-- REFERENCES -->
+<section class="section-open refs" id="refs">
+  <span class="section-num">//</span>
+  <h2>References and further reading</h2>
+  <div class="rule"></div>
+  <p>The war stories in this book are mine, and they're anonymized: NDAs are a promise, and mine outlive this edition.&#160; The public numbers and case studies below are published sources you can verify yourself.&#160; The two sets don't overlap: don't read any named company below into any story above.</p>
+
+  <h3>Benchmarks and research cited</h3>
+  <ul>
+    <li><strong>Aquant</strong>, 2026 Field Service Benchmark: first&#8209;time fix spread, resolution times, failed&#8209;visit cost share, remote&#8209;resolution potential.</li>
+    <li><strong>Geotab</strong>, State of AI in Field Service (2025 and 2026 editions): adoption rates, readiness confidence, data&#8209;quality barriers, asset&#8209;uptime gains.</li>
+    <li><strong>IBM</strong>, enterprise AI research (2025 to 2026): AI ROI attainment, scaling failure rates, wrench&#8209;time and data&#8209;fragmentation findings.</li>
+    <li><strong>TSIA</strong>: utilization metrics in the AI era and outcome&#8209;based measurement.</li>
+    <li><strong>McKinsey</strong>: predictive&#8209;maintenance failure modes and integration guidance.</li>
+    <li><strong>World Economic Forum</strong>: lighthouse manufacturing cases for predictive analytics.</li>
+    <li><strong>Salesforce</strong>: mobile worker AI time&#8209;savings research.</li>
+  </ul>
+
+  <h3>Product documentation and public case studies</h3>
+  <ul>
+    <li><strong>Microsoft Learn</strong>, Dynamics 365 Field Service documentation: current feature availability, release wave plans, the Connected Field Service architecture, and the published deprecations log (search "Field Service deprecations").&#160; The deprecations page is the most honest AI document Microsoft publishes.&#160; Read it before every purchase.&#160; Check the docs, not the demo.</li>
+    <li><strong>Microsoft customer stories</strong> (microsoft.com/customers): published, named field service AI case studies across manufacturing, energy, and equipment servicing.&#160; Read them the way this book taught you to: find the KPI, the baseline, and the governance, and note which of the three is missing.</li>
+  </ul>
+
+  <p class="fineprint">Screenshots in this edition are from Dynamics 365 Field Service builds, including 2020&#8209;era preview features, used to illustrate durable patterns rather than current SKUs.&#160; Verify availability for your region and license before buying anything.&#160; All third&#8209;party trademarks belong to their owners.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <span class="section-num">//</span>
+  <h2>One more thing</h2>
+  <div class="rule"></div>
+  <p>You now have the map, the yardstick, and the three questions.&#160; Here's the challenge that ties them together: <strong>this week, compute your wasted truck roll number, ask your three technicians what interrupted them, and write the governance one&#8209;pager.</strong>&#160; Three hours of work, total.&#160; It'll teach you more about your AI readiness than any vendor assessment you can buy.</p>
+
+  <div class="cta-box">
+    <h3>Field Service Nerd</h3>
+    <p>Practical field service intelligence: real results from real deployments.&#160; New teardowns, frameworks, and honest takes every week, free.</p>
+    <p class="url">fieldservicenerd.com</p>
+    <p>And when the implementation is already broken and the meeting is already scheduled, that's the other thing I do.&#160; You'll find that on the site too.</p>
+  </div>
+
+  <p class="signoff">Have a super day.&#160; | Pierre</p>
+  <p class="fineprint">&copy; Field Service Nerd &middot; fieldservicenerd.com &middot; CC BY&#8209;NC 4.0 &middot; FSN&#8209;001 REV 6 &middot; Approved for field use.</p>
+</section>
+
+</body>
+</html>

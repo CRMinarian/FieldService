@@ -1,0 +1,48 @@
+/* ============================================================
+   Field Service Nerd — Radius, shadow, border, texture & motion
+   (Field Manual, v3-final)
+   Squared, stamped-metal geometry. Tight radii. Flat controls with a
+   hard press edge — nothing glows, nothing bounces. Worn texture over
+   every ground.
+   ============================================================ */
+:root {
+  /* --- Corner radii (tight, stamped) --- */
+  --radius-sm:   2px;   /* inputs, chips */
+  --radius-md:   3px;   /* buttons */
+  --radius-lg:   4px;   /* cards, tiles, frames */
+  --radius-xl:   6px;   /* feature cards, CTA blocks */
+  --radius-pill: 2px;   /* spec tags (squared, not rounded) */
+
+  /* --- Borders --- */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+
+  /* --- Shadows (warm, deep; flat press edge on controls) --- */
+  --shadow-sm:  0 2px 6px rgba(0, 0, 0, 0.30);
+  --shadow-md:  0 10px 26px rgba(0, 0, 0, 0.42);
+  --shadow-lg:  0 22px 50px rgba(0, 0, 0, 0.52);
+  /* legacy names, repurposed as the hard "pressed control" edge */
+  --shadow-glow-orange: 0 2px 0 var(--orange-deep);
+  --shadow-glow-cyan:   0 2px 0 var(--steel-deep);
+  --shadow-press:       0 2px 0 var(--orange-deep);
+
+  /* --- Motion (restrained) --- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   0.12s;
+  --dur-base:   0.2s;
+  --lift-hover: translateY(-1px);
+
+  /* --- Effects --- */
+  --blur-nav: blur(8px);
+
+  /* Worn texture — the manual has been handled.
+     Grain: fractal paper/metal noise. Scuff + vignette applied in app.css. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --control-glow: radial-gradient(1000px 480px at 82% -8%, rgba(0,0,0,0.28) 0, transparent 62%);
+  --hazard: repeating-linear-gradient(45deg, var(--warn) 0 14px, var(--od) 14px 28px);
+
+  /* Hero / dark-section ground — warm worn graphite in BOTH themes
+     (heroes carry data-theme="dark"), so it stays workbench-dark
+     under a light page. */
+  --hero-ground: radial-gradient(900px 480px at 78% 20%, #2E2A22 0, #1F2421 62%);
+}

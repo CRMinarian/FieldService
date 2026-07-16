@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Field Service Nerd">
+  <!-- instrument tile -->
+  <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="6" fill="#060910" stroke="#263042" stroke-width="1.5"/>
+  <!-- coordinate ticks -->
+  <path d="M8 24.5h16M9.5 8.5v13M22.5 8.5v13" stroke="#263042" stroke-width="1" stroke-linecap="round"/>
+  <!-- signal arcs (data / cyan) -->
+  <path d="M12.4 20.8a5.4 5.4 0 0 1 7.2 0" stroke="#24D3E6" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M9.6 17.7a9.4 9.4 0 0 1 12.8 0" stroke="#24D3E6" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
+  <!-- node (signal / orange) -->
+  <circle cx="16" cy="23.2" r="2.6" fill="#FF6A1A"/>
+</svg>
