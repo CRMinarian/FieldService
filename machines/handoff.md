@@ -41,6 +41,12 @@ Three sections per entry: What happened / What's pending / Watch out for
 - `web/` is the Firebase public dir | keep `references/ebook-interview-notes.md` OUT of it (NDA).
 - DNS is owned by the `domain-manager` skill; never change records ad hoc.
 
+### Insight retro (2026-07-16)
+- `/retro now` scoped to the "doors for reasons" insight: context isolation is the architecture
+  (each desk its own repo, batons the only interface, missing info is a fact not a gap).
+  Section at the top of `PROJECT-RETROSPECTIVE.md`; ingested to the wiki; **`/baton`** added to
+  the skill queue (Tier 2 | the cross-repo handoff write ran twice by hand today).
+
 ### Cross-repo batons sent (2026-07-16)
 - **→ `Z:\Projects\_WIKI` branch `wiki/backfill-index-rows`** (commit `3f181ca`, pushed):
   established that repo's baton and handed off the RAG ask | Field Service attention layer

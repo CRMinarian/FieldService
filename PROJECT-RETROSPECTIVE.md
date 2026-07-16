@@ -4,7 +4,62 @@ A working retrospective on the whole build, kept so we retain the learnings.  Co
 from cold start to live launch (site, email funnel, e-book, YouTube channel, brand, voice,
 domains).  For the single day-one session write-up, see `RETROSPECTIVE.md`.
 
-Last updated 2026-07-15.
+Last updated 2026-07-16.
+
+---
+
+# 2026-07-16 | Insight Retro: "We Have Doors for Reasons" (context isolation by design)
+
+> Type: Insight (scoped `/retro now`) | Scope: the context-isolation thread of the 2026-07-16
+> session | Author: Skippy (Claude Code) on behalf of Pierre Hulsebus
+
+## Summary
+
+Pierre articulated the operating theory behind the whole multi-repo architecture: giant hungry
+models ingest everything, and everything-context is a recipe for hallucination, so the system
+has doors on purpose.  Each desk is its own repo, MEP batons are the only interface, and
+missing information is a fact to respect, not a gap to fill.  The wiki ingester's confabulation
+bug is the proof case, and the three-desk system stood up this session is the pattern working
+at scale.  Bounded context is not a workaround for model limits.  It is the design that makes a
+fleet of agents trustworthy.
+
+## What Shipped (the insight made operational)
+
+- **Three-desk charter, each behind its own door:** content desk (`FieldService`), Web Master /
+  SCO (TechSeller `seo/nukasoft-action-plan-refresh`), Wiki / RAG engine (`_WIKI`
+  `wiki/backfill-index-rows`, which also owns `/retro`).
+- **Two cross-repo MEP batons written and pushed** (TechSeller `a5f0ee4`, _WIKI `3f181ca`),
+  each staged as the single baton file against a dirty working tree, never touching the
+  resident session's work.
+- **A pipeline contract, not shared context:** the wiki's Field Service Radar feeds the content
+  desk via a Wednesday read written into `social/CONTENT-CALENDAR.md`.  Insight flows through a
+  named interface, not through an agent reading everything.
+- The principle banked to memory with its proof case, so future sessions inherit the why.
+
+## Rules Extracted
+
+| # | Observation | Rule | Skill Target |
+|---|---|---|---|
+| 1 | Pierre: "You are awesome, but you ingest EVERYTHING.  In the real world we have doors for reasons." | Load only what the task needs.  Treat missing information as a fact ("behind another door"), not a gap to fill.  File a baton ask instead of wandering repos for context. | memory (banked) + every crew skill's instructions |
+| 2 | The wiki ingester fed a model 1,500 chars, asked for a whole page back, and it confabulated the tail three times in six hours without flagging uncertainty. | Never ask a model to return more than it was given.  Partial context in, partial output out.  Any generator that expands input must mark inferred content as inferred. | wiki ingest tooling (that branch owns it) |
+| 3 | Two cross-repo batons were hand-built this session (locate repo, establish `machines/handoff.md`, newest-on-top entry, stage ONLY the baton against a dirty tree, push, record the send on both ends). | The baton write is now a repeatable mechanical procedure.  Package it. | new: `/baton` |
+| 4 | The insights → content handoff nearly became "content desk reads the wiki whenever."  It became a Wednesday Radar read with a "new since last week" convention instead. | Cross-desk flows get a named interface and a cadence, not ambient access.  Contract = what flows, which direction, when, and where it lands. | MEP protocol docs |
+| 5 | The desks only work because each repo carries its own baton, backlog, and retro.  A desk without a baton (TechSeller, _WIKI before today) is a door with no mail slot. | Standing rule: every desk repo gets `machines/handoff.md` at charter time, day one. | MEP protocol docs |
+
+## Skill / Agent Candidates
+
+- **`/baton`** | Write a MEP baton to a target repo/branch.  In: target repo or branch name +
+  the ask.  Out: `machines/handoff.md` established or prepended (newest on top, three
+  sections), staged alone, committed, pushed, and the send recorded in the source repo's baton.
+  Bakes in: locate the branch by search, never disturb a dirty working tree, respect the
+  receiving repo's conventions.  Priority: **Tier 2** | it ran twice today by hand, identical
+  shape both times.
+
+## Bottom Line
+
+The doors are the architecture, not an inconvenience.  A model that respects them hallucinates
+less, hands off cleaner, and scales to a fleet.  The one thing to remember: when information is
+missing, the correct move is a baton ask through the door, never a reach around it.
 
 ---
 
