@@ -28,6 +28,13 @@ upgrade pass rather than one-off edits.
   Workspace (currently sends as skippy@nukasoft.ai).
 - [ ] **OG/social cards per page** | `web/brand/six-layer-model.png` and
   `work-order-quality-quiz.png` are sized for it (per the e-book session handoff).
+- [ ] **Hero image on the landing page.**  The hero is currently type-only on a dark ground |
+  no visual anchor.  Candidates: a real photo of Pierre in the field (matches the About/podcast
+  headshot treatment), a fleet-yard/dispatch-board environmental shot, or a branded composite
+  from the motion-graphics kit (`youtube/ep01-intro-comp.png` shows the "small person, big
+  space" direction).  Must hold at mobile widths and in both themes; keep the orange accent
+  discipline (one orange hit).  Ties into the intro-video work | a video hero thumbnail could
+  serve both.
 
 ## Open
 
@@ -57,10 +64,16 @@ upgrade pass rather than one-off edits.
   (MX/SPF/DMARC on Google Workspace preserved). Fully resolves once the
   fieldservicenerd.com SSL cert finishes provisioning.
 
-- [ ] **Add a personal introduction video.**
-  Short, personal "who I am / what this is" video from Pierre. Likely placement: the
-  homepage hero or the About page. Record → host (YouTube embed to match the existing
-  `Videos` pattern, or self-host) → wire into a component.
+- [ ] **Welcome video (NEXT UP — Pierre, 2026-07-16).**
+  One recording, three jobs:
+  1. **Channel trailer** on @FieldServiceNerd (plays for non-subscribers | "who I am,
+     what this channel is, subscribe if you run Field Service").
+  2. **Site intro** — embed on the homepage or About (existing `Videos` pattern).
+  3. **Candidate hero visual** — a video hero or its thumbnail could double as the
+     landing-page hero image (see Site Upgrade section).
+  Claude produces the package first: teleprompter script (Pierre voice, "Try This"
+  framing, 60-90 seconds), shot suggestion, thumbnail. Then record → upload → set as
+  channel trailer → wire into the site in the v2 pass.
 
 - [ ] **Pro headshot on the Consulting page.**
   Pull Pierre's professional headshot from the Tech Sales 110 brand assets
@@ -76,12 +89,13 @@ upgrade pass rather than one-off edits.
      reads small). Paste the About description + the three links.
   3. [ ] **Create 4 playlists** — The Builders · Fundamentals · From The Field · The
      Honest Take (descriptions in `youtube/CHANNEL-PLAN.md`).
-  4. [ ] **Download the old videos** from the existing channel/playlist
-     (`PLD2JXXb9_ku0`). (yt-dlp on owned content.)
-  5. [ ] **New thumbnails** — batch-generate from the locked master template
-     (`web/brand/yt-thumb-master.html`); EP01+EP02 already rendered in
-     `youtube/thumbnails/`.
-  6. [ ] **Re-upload** the first videos with new thumbnails into the right playlists.
+  4. [ ] **Migrate existing videos (NEXT UP — Pierre, 2026-07-16).**  Download from the
+     old channel/playlist (`PLD2JXXb9_ku0`) via yt-dlp (owned content), inventory what's
+     worth migrating vs. retiring, then per keeper: new title (keyword bank in
+     `youtube/CHANNEL-KEYWORDS.md`), new description, fresh thumbnail from the locked
+     master template (`web/brand/yt-thumb-master.html`), assign to one of the four
+     playlists, upload.  EP01+EP02 thumbnails already rendered in `youtube/thumbnails/`.
+  5. [ ] **Batch remaining thumbnails** for the keepers + EP03-EP10 in one pass.
   - [ ] **`pierre@fieldservicenerd.com` mailbox** (independent now, no longer gates
      the channel) — add `fieldservicenerd.com` to **nukasoft.ai Google Workspace** +
      create the user (`gws-admin`). Bonus: switch the site's welcome-email sender from
