@@ -9,6 +9,32 @@ Three sections per entry: What happened / What's pending / Watch out for
 
 ---
 
+## 2026-07-16 — Traffic instrumentation: GA4 + SEO baseline live, deploys unblocked
+
+> Executed from the **TechSeller** repo (`seo/nukasoft-action-plan-refresh`), which owns the SEO/traffic program per the 2026-07-16 cross-repo baton.  Edits landed **here** because the files live here.  Plumbing only | **no IP or content was touched.**
+
+### What happened
+- **GA4 `G-L1S6DQHF4Z` is live on all 6 pages** (`index`, `about`, `consulting`, `community`, `kb`, `ebook/fs-ai-primer`).  Verified live: 200 + 2 gtag refs + canonical + og:title intact on every page.  The property **already existed** | Firebase auto-created it when Analytics was enabled.  Pulled the ID from `firebase apps:sdkconfig WEB`; nothing new was created.  Commit `601b29f`.
+- **SEO baseline live** (`490845d`): `web/robots.txt` (disallows `/brand/` + the render canvas under `/assets/`), `web/sitemap.xml` (6 absolute extensionless URLs, real `lastmod` from git), and the ebook reader's head (was a bare `<title>`; now description + canonical + OG + twitter-card).  Paged.js untouched, PDF pipeline unaffected.
+- Both merged to **`build/fsn-site`** and deployed.  Production and that branch match | a deploy from `build/fsn-site` would otherwise have silently reverted robots/sitemap.
+- **Deploys no longer need Pierre.**  Service-account key at `C:\Users\PierreHulsebus\.claude\fsn-admin-key.json`.  Set `GOOGLE_APPLICATION_CREDENTIALS` to it, then `firebase deploy --only hosting --project field-service-nerd`.
+- **Remote moved HTTPS → SSH.**  This repo was the last one still on HTTPS (skippy-brain, TechSeller, nukasoft.ai were converted long ago).  That is why the 2026-07-15 push was blocked.  Root cause fixed, not worked around.
+
+### What's pending
+- [ ] **`www.fieldservicenerd.com` is DEAD** (HTTP 000, no DNS, no cert).  **CLI v15.21.0 has no custom-domain command | console only, confirmed.**  Add it as a redirect to apex, then hand the DNS records to the TechSeller branch to place.
+- [ ] GSC Domain property (Pierre's Google account).  `sitemap.xml` is live and ready to submit.
+- [ ] Event/CTA tracking would have to live in the `.jsx` components; the head snippet only covers pageviews and referrers.
+
+### Watch out for
+- **`firebase login:list` LIES.**  It reported "Logged in as pierre@nukasoft.ai" while the token was dead.  Test with `firebase hosting:sites:list`, never `login:list`.
+- **A stale user token BEATS the service account.**  The CLI errored on the dead token before ever reading `GOOGLE_APPLICATION_CREDENTIALS`.  `firebase logout` cleared it and the SA worked instantly.
+- **`web/seo/` is deploy-ignored** by `firebase.json`.  A sitemap placed there would never ship.  Root `web/` only.
+- **No shared head.**  Any head change is 6 hand edits.  Do not `sed` it.
+- **`check_voice` false positive:** flags "dynamic" by substring-matching **"Dynamics"** in "Dynamics 365 Field Service."  It will fire on every page this site ever publishes.
+- A service-account key was exposed in a chat transcript 2026-07-16 (`770141dbfc…`), rotated to `38620423c219…` and the old key deleted.  **Never paste or `@` a key file | path only.**
+
+---
+
 ## 2026-07-15 — Site session (build/fsn-site: merge, deploy, DNS launch)
 
 ### What happened
