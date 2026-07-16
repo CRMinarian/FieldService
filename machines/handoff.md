@@ -41,6 +41,14 @@ Three sections per entry: What happened / What's pending / Watch out for
 - `web/` is the Firebase public dir | keep `references/ebook-interview-notes.md` OUT of it (NDA).
 - DNS is owned by the `domain-manager` skill; never change records ad hoc.
 
+### Cross-repo baton sent (2026-07-16)
+- **→ `Z:\Skippy\Dev\TechSeller` branch `seo/nukasoft-action-plan-refresh`** (commit `a5f0ee4`,
+  pushed): established `machines/handoff.md` there and handed off the traffic/SEO ask |
+  GSC verification for fieldservicenerd.com (DNS TXT via domain-manager), the GA4 vs
+  privacy-light analytics decision + install, baseline SEO pass (sitemap/robots/OG), and
+  folding FSN into the cross-site traffic monitoring.  That branch owns traffic insight now;
+  do not duplicate the work here.
+
 ### Retro addendum (`/retro now`, same day)
 - Wrote a dated launch-session section at the top of `PROJECT-RETROSPECTIVE.md` (11 rules), ingested
   to `_WIKI/projects/fsn-retrospectives.md`, logged to `_WIKI/log.md`.
