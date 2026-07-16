@@ -1,9 +1,49 @@
 # EP02 — What I Wish I Knew Before My First Field Service Project
 
-- **Playlist:** From the Field
+- **Playlist:** From The Field
 - **Target length:** ~13–14 minutes
-- **Launch:** Week 2 (Tuesday, 10:00 AM ET)
+- **Launch:** Week 2 (Tue Jul 28, 10:00 AM ET) — see `social/CONTENT-CALENDAR.md`
 - **Thumbnail:** `youtube/thumbnails/ep02-what-i-wish-i-knew.png` (two-line headline)
+- **Teleprompter (record from this):** `youtube/scripts/ep02-teleprompter.md`
+
+---
+
+## Production Package (upload metadata)
+
+**Title:** What I Wish I Knew Before My First Field Service Project
+
+**Description:**
+```
+I've done over 30 Dynamics 365 Field Service implementations.  I did it wrong the first six times.  These are the five things I wish someone had told me before my very first project.
+
+Real lessons from the field: documenting processes with AI, the data quality that makes or breaks your KPIs, why Field Service change management is nothing like ERP, the RSO mistake that costs the most, and how to pick a partner in a channel being disrupted by AI.
+
+CHAPTERS
+0:00 I did it wrong the first six times
+2:00 #1 Document your processes first (with AI now)
+4:30 #2 Data quality is everything
+7:00 #3 Change management is not optional
+9:30 #4 Don't turn on RSO too early
+11:30 #5 Choose your partner wisely
+13:30 Your challenge this week
+
+New video every Tuesday.  Subscribe for no-BS Field Service content.
+
+Free 21-page Field Service AI Playbook: https://fieldservicenerd.com
+Stuck on an implementation? https://fieldservicenerd.com/consulting
+LinkedIn: https://linkedin.com/in/nukasoft
+
+#Dynamics365 #FieldService #D365
+```
+*(Chapter times from the outline — adjust to the final cut; first stays 0:00.)*
+
+**Tags:** Dynamics 365 Field Service, D365 Field Service, field service implementation, field service management, field service best practices, RSO, Resource Scheduling Optimization, change management, data quality, field service KPIs, implementation partner, Microsoft Dynamics 365, Field Service Nerd, Pierre Hulsebus
+
+**Pinned comment:** Which of the five made you wince | process docs, data, change management, RSO, or your partner?  Drop it below.  I read every one.
+
+**Shorts to cut (Wed + Fri per the calendar):**
+1. "Your technicians will game whatever you measure" (Point 2, ~45s)
+2. "RSO is not a magic button" (Point 4, ~45s | doubles as the EP03 teaser)
 
 ---
 
