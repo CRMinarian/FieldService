@@ -41,6 +41,17 @@ Three sections per entry: What happened / What's pending / Watch out for
 - `web/` is the Firebase public dir | keep `references/ebook-interview-notes.md` OUT of it (NDA).
 - DNS is owned by the `domain-manager` skill; never change records ad hoc.
 
+### Retro addendum (`/retro now`, same day)
+- Wrote a dated launch-session section at the top of `PROJECT-RETROSPECTIVE.md` (11 rules), ingested
+  to `_WIKI/projects/fsn-retrospectives.md`, logged to `_WIKI/log.md`.
+- **Queue:** added `/console-drive` (Tier 2) to `_WIKI/projects/repeatable-patterns.md` | driving a
+  vendor console when the API is dead.  Came from Pierre's correction: *"why am I doing this admin work?"*
+- **Solved a five-session mystery:** the pierre-voice MCP was never broken.  **`.mcp.json` is
+  per-project and FieldService had none** | it was registered only in `skippy-brain`.  Added
+  `Z:\Projects\FieldService\.mcp.json`; **pierre-voice loads next session.**
+- **Durable rule:** check `.mcp.json` in the current project root before concluding an MCP tool is
+  absent or broken.  Present in project A, absent in project B is scope, not an outage.
+
 ---
 
 ## 2026-07-15 — Hot Rod (Skippy/field-service-ai-ebook-57c092 → build/fsn-site)
