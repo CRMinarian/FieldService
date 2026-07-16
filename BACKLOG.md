@@ -36,6 +36,25 @@ upgrade pass rather than one-off edits.
   discipline (one orange hit).  Ties into the intro-video work | a video hero thumbnail could
   serve both.
 
+## Social Autoposting Pipeline (draft here → approve → post)
+
+Goal: replace the old scheduling tools with the stack we already have.  **No from-scratch build
+needed** | Zapier MCP is already connected to this project's sessions.
+
+- [ ] **Pierre: add 3 actions to the Zapier MCP** at
+  https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/config :
+  LinkedIn → Create Share Update · Facebook Pages → Create Page Post · Instagram for
+  Business → Publish Photo.  (One OAuth click each; tools then appear in-session.)
+- [x] **YouTube posting works today** | Zapier `youtube_upload_video` (title, description,
+  tags, thumbnail, privacy) + `youtube_update_video_thumbnail`.
+- [ ] **Queue convention:** drafts live in `social/queue/` (one file per post: platform,
+  copy, image path, target slot).  Voice-checked via pierre-voice MCP before approval.
+- [ ] **Scheduling:** approved posts fire via the `scheduled-tasks` MCP (e.g. Tue 8:30 AM ET)
+  or post immediately on "approve."
+- **Cadence (locked with Pierre 2026-07-16):** LinkedIn Tue/Thu mornings 8:30-9:00 AM ET,
+  2-3 posts/week.  Launch post: Thu 2026-07-16 AM (manual).  Follow-up: Tue 2026-07-21,
+  e-book angle.
+
 ## Open
 
 - [ ] **Interactive Work Order Quality Quiz → community access (parked by Pierre 2026-07-15).**
