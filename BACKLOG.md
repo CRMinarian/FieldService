@@ -3,6 +3,11 @@
 Post-launch enhancements. None of these block the live site
 (https://field-service-nerd.web.app) — the core site + signup funnel are live and verified.
 
+**Charter (2026-07-16):** this repo's sessions own **reach + content** (posts, videos,
+scripts, e-book, podcast, cadence).  **Web Master / SCO** (TechSeller branch
+`seo/nukasoft-action-plan-refresh`) owns DNS, analytics/GSC, sitemaps/OG, and SEO research.
+Items below tagged `[WM/SCO]` belong to that branch | tracked here only so nothing is lost.
+
 ## Site Upgrade (v2 — plan as content + the database grow)
 
 Collected tasks for the next real site iteration.  Add here as they surface; batch into one
@@ -30,7 +35,7 @@ upgrade pass rather than one-off edits.
   podcast section pointed at real episodes instead of the placeholder playlist.
 - [ ] **Welcome-email sender to `@fieldservicenerd.com`** once the domain is in Google
   Workspace (currently sends as skippy@nukasoft.ai).
-- [ ] **OG/social cards per page** | `web/brand/six-layer-model.png` and
+- [ ] `[WM/SCO]` **OG/social cards per page** | `web/brand/six-layer-model.png` and
   `work-order-quality-quiz.png` are sized for it (per the e-book session handoff).
 - [ ] **Hero image on the landing page.**  The hero is currently type-only on a dark ground |
   no visual anchor.  Candidates: a real photo of Pierre in the field (matches the About/podcast
