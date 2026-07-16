@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>EP04 | Copilot in Field Service | The Honest Review (2026) | Field Service Nerd</title>
+<meta name="description" content="EP04 of the Field Service Nerd show: Copilot in Field Service | The Honest Review (2026).  Full show notes, script, references, and takeaways.">
+<link rel="canonical" href="https://fieldservicenerd.com/ep/ep04-copilot-honest-review">
+<link rel="icon" type="image/png" href="../assets/fsn-logo-avatar.png">
+<link rel="apple-touch-icon" href="../assets/fsn-logo-avatar.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1S6DQHF4Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L1S6DQHF4Z');
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../app.css">
+<style>
+  body { background: var(--surface-base, #17140F); color: var(--text-body, #EDE6D6); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+  .topbar img { height: 44px; }
+  .topbar a.back { color: var(--color-accent, #E36B2C); text-decoration:none; font-family: var(--font-mono, monospace); font-size: 13px; }
+  .staging { background:#5A2B0E; color:#FFD9B8; font-family: var(--font-mono, monospace); font-size: 13px; padding: 10px 14px; border-radius: 8px; margin: 10px 0 18px; letter-spacing:.03em; }
+  .eyebrow { font-family: var(--font-mono, monospace); color: var(--color-accent, #E36B2C); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  h1.ep { font-family: var(--font-display, sans-serif); font-size: clamp(30px, 5vw, 44px); line-height: 1.05; margin: 10px 0 8px; color: var(--text-strong, #fff); }
+  .meta { color: var(--text-muted, #A79E8C); font-size: 14px; margin-bottom: 22px; font-family: var(--font-mono, monospace); }
+  .video { aspect-ratio: 16/9; background: #0F0D0A; border: 1px solid var(--border-subtle, #333); border-radius: 12px; overflow: hidden; margin-bottom: 30px; display:flex; align-items:center; justify-content:center; }
+  .video iframe { width: 100%; height: 100%; }
+  .video.placeholder span { color: var(--text-muted, #A79E8C); font-family: var(--font-mono, monospace); font-size: 15px; }
+  h2 { font-family: var(--font-display, sans-serif); font-size: 20px; color: var(--text-strong, #fff); margin: 30px 0 10px; }
+  .notes p { line-height: 1.7; margin: 0 0 14px; }
+  .cue { color: var(--color-accent, #E36B2C); font-style: italic; font-size: 14px; opacity: .85; }
+  .story { border-left: 4px solid var(--color-accent, #E36B2C); background: rgba(227,107,44,.08); padding: 10px 14px; border-radius: 6px; font-weight: 600; }
+  .panel { background: var(--surface-card, #1F1B14); border: 1px solid var(--border-subtle, #333); border-radius: 12px; padding: 20px 22px; margin: 26px 0; }
+  .panel ul { margin: 8px 0 0; padding-left: 20px; }
+  .panel li { margin-bottom: 8px; line-height: 1.5; }
+  .panel a { color: var(--cyan, #7FBFD4); }
+  .soon { color: var(--text-muted, #A79E8C); }
+  .cta { text-align:center; background: var(--surface-card, #1F1B14); border: 1px solid var(--color-accent, #E36B2C); border-radius: 12px; padding: 26px 22px; margin-top: 40px; }
+  .cta a.btn { display:inline-block; background: var(--color-accent, #E36B2C); color: #17140F; font-family: var(--font-display, sans-serif); font-weight: 700; padding: 12px 26px; border-radius: 8px; text-decoration:none; margin-top: 12px; }
+  footer { margin-top: 50px; text-align:center; color: var(--text-muted, #A79E8C); font-size: 13px; }
+  footer a { color: var(--cyan, #7FBFD4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><img src="../assets/fsn-logo-patch.png" alt="Field Service Nerd"></a>
+    <a class="back" href="/">← fieldservicenerd.com</a>
+  </div>
+  <div class="staging">STAGING PREVIEW | not published.  Annotate and send notes back to the content desk.</div>
+  <div class="eyebrow">EP04 · Fundamentals · ~13 min</div>
+  <h1 class="ep">Copilot in Field Service | The Honest Review (2026)</h1>
+  <div class="meta">Publishes Tue Aug 11, 2026 · 10:00 AM ET · The Field Service Nerd Show</div>
+  <div class="video placeholder"><span>▶ Video drops Tue Aug 11, 2026 · 10:00 AM ET</span></div>
+  <h2>Show Notes</h2>
+  <div class="notes">
+<h2>COLD OPEN  (to camera)</h2>
+<p>Everybody wants to know if Copilot in Field Service is real, or if it's demo candy.</p>
+<p class="cue">[SKY: THE HONEST REVIEW]</p>
+<p>Here's my answer up front.  Some of it is genuinely useful today.  Some of it is preview, which means don't build your rollout on it.  And some of it already got killed, quietly, and nobody sent you the memo.</p>
+<p>I'm Pierre Hulsebus.  Forty years in enterprise IT, and I owned Go To Market for this product at Microsoft.  I don't do vendor spin, and I don't do doom either.  This is the honest review. What's real, what's coming, what's gone, and what you should actually do about it.</p>
+<p class="cue">[TITLE]</p>
+<h2>PART 1  [PILL: 1 · A little history you need first]</h2>
+<p>Before the review, thirty seconds of history, because it explains everything.</p>
+<p>Microsoft has been putting AI into Field Service since twenty twenty.  Predictive work duration.  Incident type suggestions.  IoT alert suggestions.  Real features, real previews, demoed at every conference.</p>
+<p>All three were retired by the end of twenty twenty four.</p>
+<p class="cue">[PILL: 2020 AI previews · RETIRED 2024]</p>
+<p>That's not a scandal.  That's how products evolve.  The lesson is the thing nobody says out loud: preview features are experiments, not commitments.  Some graduate.  Some quietly disappear.  If a feature matters to your business case, its status matters more than its demo.</p>
+<p>Keep that lens on.  Now the review.</p>
+<p class="story">[YOUR STORY: a customer who built plans on a preview that vanished | 30-60 seconds]</p>
+<h2>PART 2  [PILL: 2 · What's real today (GA)]</h2>
+<p>What's genuinely GA in Copilot for Field Service right now.</p>
+<p>The Copilot side pane.  Chat, in context, inside the app.  And work order summaries, on web and on mobile.  A technician opens a work order and gets the story so far without reading nine screens of history.  A dispatcher gets the same thing before a customer call.</p>
+<p>Is that revolutionary?  No.  Is it valuable?  Genuinely, yes.  The summary is the single most honest AI feature in the product, because it attacks the most universal problem in field service: nobody reads the history, and everybody pays for it.</p>
+<p>And remember the foundation episodes.  A summary is only as good as the data underneath it. Garbage work order notes in, garbage summary out.  The AI doesn't fix your data discipline. It exposes it.</p>
+<p class="story">[YOUR STORY: your real reaction using summaries | where it saved time, where it whiffed]</p>
+<h2>PART 3  [PILL: 3 · What's preview (watch, don't bet)]</h2>
+<p>Now the preview column.  Interesting, promising, and not what you build a business case on.</p>
+<p>Mobile AI work order updates.  A tech talks or types, and Copilot updates the work order. This is the one to watch, because technician data entry is the eternal weak link.  If this graduates and it's good, it changes the data quality story upstream of everything else.</p>
+<p>Inspection template creation from PDFs.  Point it at the paper form, get a digital inspection. Real time saver for the config team if it lands.</p>
+<p>Copilot Studio customization for Field Service, and the Scheduling Operations Agent alongside RSO.  The agent story is where Microsoft is clearly headed.  It's also exactly where the twenty twenty lesson applies.  Watch it.  Pilot it if you have the appetite.  Do not promise your board a scheduling agent this year.</p>
+<p class="cue">[PILL: PREVIEW = EXPERIMENT, NOT COMMITMENT]</p>
+<h2>PART 4  [PILL: 4 · What's already gone]</h2>
+<p>And the graveyard, because this is the part the deck never shows you.</p>
+<p>The Teams Copilot plugin for Field Service.  Killed January twenty twenty five.</p>
+<p>The Outlook add-in.  Killed October twenty twenty five.</p>
+<p>The twenty twenty AI previews we covered.  Gone in twenty twenty four.</p>
+<p>Even the old RSO Power BI reports were retired last year, with reporting pointed at Fabric.</p>
+<p>There's a pattern here.  The AI surfaces keep consolidating into the app itself and into the agent story.  The satellites get cut.  Plan accordingly: build on the core, treat the satellites as bonus.</p>
+<h2>PART 5  [PILL: 5 · So what do you actually do?]</h2>
+<p>The honest playbook, three moves.</p>
+<p>One.  Turn on what's GA.  The side pane and summaries are low risk and immediately useful. Then measure something real.  Time to dispatch.  Callback rate.  Time a tech spends reading history.  If you can't see it in a number, it didn't happen.</p>
+<p>Two.  Fix the notes.  The summary quality ceiling is your work order data quality.  This is the same sermon as episode two, and Copilot just raised the stakes on it.</p>
+<p>Three.  Watch the previews with a named owner.  Somebody on your team owns &quot;what's the status of the mobile voice updates this quarter.&quot;  Not a vibe.  A named person and a recurring calendar slot.  Because the difference between preview and GA is the difference between a demo and a dependency.</p>
+<p class="cue">[PILLS: TURN ON GA · FIX THE NOTES · OWN THE WATCH]</p>
+<h2>CLOSE / CTA</h2>
+<p>So is Copilot in Field Service real?  The summaries are real.  The agents are coming.  The graveyard is also real, and pretending otherwise is how budgets get burned.</p>
+<p class="cue">[PILL HEADER: THIS WEEK]  [PILL: Turn on summaries.  Pick ONE number to watch.]</p>
+<p>Your challenge this week.  If you're on Field Service and haven't turned on Copilot summaries, do it, and pick one number to watch for thirty days.  Then tell me in the comments what the number did.  I read every single one.</p>
+<p>If this helped, hit like, and subscribe for the no BS version of Field Service.  I'm just getting started.</p>
+<p>Have a super day.  I'll see you in the next one.</p>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">References &amp; Research</h2>
+    <ul>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/copilot-overview" target="_blank" rel="noopener">Microsoft Learn | Copilot in Field Service overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/deprecations-field-service" target="_blank" rel="noopener">Microsoft Learn | Field Service deprecations (the graveyard, official)</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/connected-field-service-architecture" target="_blank" rel="noopener">Microsoft Learn | Connected Field Service architecture</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">Downloads &amp; Takeaways</h2>
+    <ul>
+<li><span class="soon">GA vs Preview vs Gone | the status card</span> <em>(coming with the episode)</em></li>
+    </ul>
+  </div>
+  <div class="cta">
+    <div class="eyebrow">Free Download</div>
+    <h2 style="margin:8px 0 4px;">The Field Service AI Playbook</h2>
+    <p style="color:var(--text-muted,#A79E8C);">21 pages.  What&#x27;s real, what&#x27;s hype, and where AI actually pays off.</p>
+    <a class="btn" href="/#join">Get the Playbook →</a>
+  </div>
+  <footer>
+    Field Service Nerd · <a href="/">Home</a> · <a href="/consulting">Consulting</a> · <a href="https://www.youtube.com/@FieldServiceNerd" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</div>
+</body>
+</html>

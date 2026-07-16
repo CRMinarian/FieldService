@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>EP03 | The Ugly Truth About Resource Scheduling Optimization (RSO) | Field Service Nerd</title>
+<meta name="description" content="EP03 of the Field Service Nerd show: The Ugly Truth About Resource Scheduling Optimization (RSO).  Full show notes, script, references, and takeaways.">
+<link rel="canonical" href="https://fieldservicenerd.com/ep/ep03-ugly-truth-rso">
+<link rel="icon" type="image/png" href="../assets/fsn-logo-avatar.png">
+<link rel="apple-touch-icon" href="../assets/fsn-logo-avatar.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1S6DQHF4Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L1S6DQHF4Z');
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../app.css">
+<style>
+  body { background: var(--surface-base, #17140F); color: var(--text-body, #EDE6D6); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+  .topbar img { height: 44px; }
+  .topbar a.back { color: var(--color-accent, #E36B2C); text-decoration:none; font-family: var(--font-mono, monospace); font-size: 13px; }
+  .staging { background:#5A2B0E; color:#FFD9B8; font-family: var(--font-mono, monospace); font-size: 13px; padding: 10px 14px; border-radius: 8px; margin: 10px 0 18px; letter-spacing:.03em; }
+  .eyebrow { font-family: var(--font-mono, monospace); color: var(--color-accent, #E36B2C); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  h1.ep { font-family: var(--font-display, sans-serif); font-size: clamp(30px, 5vw, 44px); line-height: 1.05; margin: 10px 0 8px; color: var(--text-strong, #fff); }
+  .meta { color: var(--text-muted, #A79E8C); font-size: 14px; margin-bottom: 22px; font-family: var(--font-mono, monospace); }
+  .video { aspect-ratio: 16/9; background: #0F0D0A; border: 1px solid var(--border-subtle, #333); border-radius: 12px; overflow: hidden; margin-bottom: 30px; display:flex; align-items:center; justify-content:center; }
+  .video iframe { width: 100%; height: 100%; }
+  .video.placeholder span { color: var(--text-muted, #A79E8C); font-family: var(--font-mono, monospace); font-size: 15px; }
+  h2 { font-family: var(--font-display, sans-serif); font-size: 20px; color: var(--text-strong, #fff); margin: 30px 0 10px; }
+  .notes p { line-height: 1.7; margin: 0 0 14px; }
+  .cue { color: var(--color-accent, #E36B2C); font-style: italic; font-size: 14px; opacity: .85; }
+  .story { border-left: 4px solid var(--color-accent, #E36B2C); background: rgba(227,107,44,.08); padding: 10px 14px; border-radius: 6px; font-weight: 600; }
+  .panel { background: var(--surface-card, #1F1B14); border: 1px solid var(--border-subtle, #333); border-radius: 12px; padding: 20px 22px; margin: 26px 0; }
+  .panel ul { margin: 8px 0 0; padding-left: 20px; }
+  .panel li { margin-bottom: 8px; line-height: 1.5; }
+  .panel a { color: var(--cyan, #7FBFD4); }
+  .soon { color: var(--text-muted, #A79E8C); }
+  .cta { text-align:center; background: var(--surface-card, #1F1B14); border: 1px solid var(--color-accent, #E36B2C); border-radius: 12px; padding: 26px 22px; margin-top: 40px; }
+  .cta a.btn { display:inline-block; background: var(--color-accent, #E36B2C); color: #17140F; font-family: var(--font-display, sans-serif); font-weight: 700; padding: 12px 26px; border-radius: 8px; text-decoration:none; margin-top: 12px; }
+  footer { margin-top: 50px; text-align:center; color: var(--text-muted, #A79E8C); font-size: 13px; }
+  footer a { color: var(--cyan, #7FBFD4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><img src="../assets/fsn-logo-patch.png" alt="Field Service Nerd"></a>
+    <a class="back" href="/">← fieldservicenerd.com</a>
+  </div>
+  <div class="staging">STAGING PREVIEW | not published.  Annotate and send notes back to the content desk.</div>
+  <div class="eyebrow">EP03 · Fundamentals · ~14 min</div>
+  <h1 class="ep">The Ugly Truth About Resource Scheduling Optimization (RSO)</h1>
+  <div class="meta">Publishes Tue Aug 4, 2026 · 10:00 AM ET · The Field Service Nerd Show</div>
+  <div class="video placeholder"><span>▶ Video drops Tue Aug 4, 2026 · 10:00 AM ET</span></div>
+  <h2>Show Notes</h2>
+  <div class="notes">
+<h2>COLD OPEN  (to camera)</h2>
+<p>Last week I told you the most expensive mistake in Field Service is turning on RSO too early. This week I owe you the full story.</p>
+<p class="cue">[SKY: THE UGLY TRUTH]</p>
+<p>Resource Scheduling Optimization is real, it's powerful, and it's the single most misunderstood thing in Dynamics 365 Field Service.  Most companies buy it as a magic button. It is not a magic button.  It's an economics engine, and if you don't understand the economics, it will optimize you straight into a wall.</p>
+<p>I'm Pierre Hulsebus.  Forty years in this industry, and I've watched RSO save companies millions, and I've watched it get switched off in week two.  Both for the same reason.  Let's get into it.</p>
+<p class="cue">[TITLE]</p>
+<h2>PART 1  [PILL: 1 · What RSO actually is (and is not)]</h2>
+<p>First, let's get the definitions straight, because Microsoft gives you three different scheduling tools and people mix them up constantly.</p>
+<p>The schedule board is manual.  A human drags work onto people.</p>
+<p>The Schedule Assistant is semi automated.  A dispatcher picks one job, and the system suggests who could do it and when.  One job at a time, human in charge.  It ships with the product, and it's where most companies should live for a long while.</p>
+<p>RSO is the third thing, and it's a different animal entirely.  It's a paid add on that takes whole batches of work orders, whole territories, whole days, and reshuffles all of it against goals you define.  Minimize travel.  Maximize utilization.  Honor skills and priorities.  It runs on a schedule, it moves things a human never touched, and it does it at a scale no dispatcher can match.</p>
+<p>That's the power.  And that's also the problem.  Because you just handed the keys to an engine, and the engine only knows what you told it.</p>
+<p class="story">[YOUR STORY: a moment a customer confused Schedule Assistant with RSO, or bought RSO thinking it was a checkbox | 30-60 seconds]</p>
+<h2>PART 2  [PILL: 2 · The economics of scheduling]</h2>
+<p>Here's the part nobody explains.  Scheduling is an economics problem, not a software problem.</p>
+<p>Every schedule is a pile of costs and a pile of value.  A truck roll costs real money.  An hour of windshield time costs real money.  An expired SLA costs real money and a customer.  And a technician's day only holds so many hours.  A schedule is just how you spend those hours.</p>
+<p>When a human dispatcher builds the schedule, they're doing economics in their head.  They know Jimmy hates the north route.  They know the hospital job always runs long.  They know which customer screams the loudest.  That knowledge is real, and it's also invisible, and it walks out the door when the dispatcher does.</p>
+<p>RSO does the same economics explicitly.  Travel time, work time, skills, priorities, SLAs, all weighted in goals you configure.  It'll even use historical traffic data on travel time if you turn that goal on.</p>
+<p>So here's the question that decides everything.  Can you write down what a good day looks like? Because if you can't define it, the engine can't optimize for it.  RSO doesn't fail because the math is wrong.  It fails because nobody in the building agreed on what &quot;best schedule&quot; means before they turned on a machine that delivers exactly what you asked for.</p>
+<p class="story">[YOUR STORY: your economics framing | the numbers you use to show what one optimized hour or mile is worth across a fleet | this is the segment your EP02 teaser promised]</p>
+<h2>PART 3  [PILL: 3 · Why your dispatchers don't trust it]</h2>
+<p>Now the human part.  Your dispatchers will not trust RSO on day one, and honestly, they shouldn't.</p>
+<p>First, it threatens their expertise.  Everything they know about Jimmy and the north route, the system doesn't know unless somebody encoded it.  When the engine produces a schedule that ignores all of that invisible knowledge, they're not wrong to call it dumb.  They're early.</p>
+<p>Second, RSO is non deterministic.  Run it twice, and you can get two different answers, both technically great.  Humans hate that.  A dispatcher wants to know WHY Jimmy got moved, and &quot;the optimizer found a better global solution&quot; is not an answer a human accepts at 7 AM with trucks rolling.</p>
+<p>So you don't win trust with a rollout email.  You win it the same way I told you last week with the pod approach.  Run RSO on one territory.  Let the dispatchers compare its schedule to theirs.  Let them catch its dumb moves, and encode what they know into the rules.  The day a dispatcher says &quot;huh, I wouldn't have found that,&quot; you've turned the corner.</p>
+<p class="story">[YOUR STORY: a dispatcher who fought it and came around, or one who never did | 45-90 seconds]</p>
+<h2>PART 4  [PILL: 4 · Are you actually ready?  The checklist]</h2>
+<p>So how do you know you're ready?  Four questions.  Try these against your own operation.</p>
+<p>One.  Can your team schedule a good day by hand?  If humans can't do it manually, the engine can't do it for you.  You can't automate a process you can't perform.</p>
+<p>Two.  Would you bet money on your data?  Skills, certifications, territories, service durations, addresses.  RSO consumes all of it.  Garbage in, optimized garbage out, at scale, automatically, every night.</p>
+<p>Three.  Have you written down your goals and their order?  Travel versus utilization versus SLA.  If leadership hasn't agreed on the tradeoffs, the fight just moves inside the software.</p>
+<p>Four.  Do you have a scoreboard?  You need before-and-after numbers.  Miles per work order. Jobs per tech per day.  First time fix.  And a heads up: the old RSO Power BI reports were retired in twenty twenty five, so plan your measurement in Fabric or your own reporting.  No scoreboard, no proof, and no proof means the first loud complaint kills the project.</p>
+<p class="cue">[PILLS check off as answered: BY HAND? · DATA? · GOALS? · SCOREBOARD?]</p>
+<h2>PART 5  [PILL: 5 · When RSO actually pays]</h2>
+<p>So when is it worth it?  Because it genuinely is, for the right operation.</p>
+<p>RSO pays when the scale is real.  Dozens of techs and hundreds of daily work orders, where a few percent of travel time is real money.  It pays when the work is dense enough that reshuffling matters.  It pays when SLAs genuinely force sequencing that humans struggle to juggle.  And it pays AFTER Schedule Assistant has already made your dispatchers comfortable letting the system suggest.</p>
+<p>And a current note, mid twenty twenty six.  RSO is GA and actively updated, and Microsoft is building a Scheduling Operations Agent alongside it.  That agent is a complement to RSO, and it's still in preview.  So don't let anyone tell you RSO is legacy, and don't bet your rollout on the preview agent either.  The engine is the workhorse.  It just needs a fed, watered, and honest operation underneath it.</p>
+<p class="story">[YOUR STORY: the win | the deployment where RSO earned real money, with the number if you can say it | 60 seconds]</p>
+<h2>CLOSE / CTA</h2>
+<p>So here's the ugly truth in one line.  RSO works.  It's your operation that has to be ready.</p>
+<p class="cue">[PILL HEADER: THIS WEEK]  [PILL: Ask the four questions.  Out loud.]</p>
+<p>Your challenge this week.  Take the four readiness questions, by hand, data, goals, scoreboard, and ask them in your next ops meeting.  Out loud.  Then come back and tell me in the comments which one made the room go quiet.  I read every single one.</p>
+<p>If this helped, hit like, and subscribe for the no BS version of Field Service.  Next week: Copilot in Field Service.  The honest review.  What's real, what's preview, and what quietly got killed.</p>
+<p>Have a super day.  I'll see you in the next one.</p>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">References &amp; Research</h2>
+    <ul>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/rso-overview" target="_blank" rel="noopener">Microsoft Learn | RSO overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/rso-optimization-goal" target="_blank" rel="noopener">Microsoft Learn | RSO optimization goals</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/soa-overview" target="_blank" rel="noopener">Microsoft Learn | Scheduling Operations Agent (preview)</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/schedule-assistant" target="_blank" rel="noopener">Microsoft Learn | Schedule Assistant</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">Downloads &amp; Takeaways</h2>
+    <ul>
+<li><span class="soon">The RSO Readiness Checklist | 4 questions</span> <em>(coming with the episode)</em></li>
+    </ul>
+  </div>
+  <div class="cta">
+    <div class="eyebrow">Free Download</div>
+    <h2 style="margin:8px 0 4px;">The Field Service AI Playbook</h2>
+    <p style="color:var(--text-muted,#A79E8C);">21 pages.  What&#x27;s real, what&#x27;s hype, and where AI actually pays off.</p>
+    <a class="btn" href="/#join">Get the Playbook →</a>
+  </div>
+  <footer>
+    Field Service Nerd · <a href="/">Home</a> · <a href="/consulting">Consulting</a> · <a href="https://www.youtube.com/@FieldServiceNerd" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</div>
+</body>
+</html>

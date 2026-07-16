@@ -73,6 +73,13 @@ Three sections per entry: What happened / What's pending / Watch out for
   Section at the top of `PROJECT-RETROSPECTIVE.md`; ingested to the wiki; **`/baton`** added to
   the skill queue (Tier 2 | the cross-repo handoff write ran twice by hand today).
 
+### Episode pages shipped (2026-07-16, content desk)
+- **`/ep/` staging pages live** for EP01-EP04 (noindex + banner, unlinked, NOT in the
+  sitemap).  Generator `scripts/build-episode-pages.mjs`.  Deployed via the SA key path.
+- **WM/SCO:** keep `/ep/` OUT of sitemap.xml while pages carry noindex.  When an episode
+  publishes (status flag flips), add its URL to the sitemap | one URL per published episode.
+- Future: gated subscriber access to these pages (backlogged with the database layer).
+
 ### Cross-repo batons sent (2026-07-16)
 - **→ `Z:\Projects\_WIKI` branch `wiki/backfill-index-rows`** (commit `3f181ca`, pushed):
   established that repo's baton and handed off the RAG ask | Field Service attention layer

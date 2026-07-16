@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>EP01 | Why Most Dynamics Field Service Implementations Fail | Field Service Nerd</title>
+<meta name="description" content="EP01 of the Field Service Nerd show: Why Most Dynamics Field Service Implementations Fail.  Full show notes, script, references, and takeaways.">
+<link rel="canonical" href="https://fieldservicenerd.com/ep/ep01-why-implementations-fail">
+<link rel="icon" type="image/png" href="../assets/fsn-logo-avatar.png">
+<link rel="apple-touch-icon" href="../assets/fsn-logo-avatar.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1S6DQHF4Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L1S6DQHF4Z');
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../app.css">
+<style>
+  body { background: var(--surface-base, #17140F); color: var(--text-body, #EDE6D6); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+  .topbar img { height: 44px; }
+  .topbar a.back { color: var(--color-accent, #E36B2C); text-decoration:none; font-family: var(--font-mono, monospace); font-size: 13px; }
+  .staging { background:#5A2B0E; color:#FFD9B8; font-family: var(--font-mono, monospace); font-size: 13px; padding: 10px 14px; border-radius: 8px; margin: 10px 0 18px; letter-spacing:.03em; }
+  .eyebrow { font-family: var(--font-mono, monospace); color: var(--color-accent, #E36B2C); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  h1.ep { font-family: var(--font-display, sans-serif); font-size: clamp(30px, 5vw, 44px); line-height: 1.05; margin: 10px 0 8px; color: var(--text-strong, #fff); }
+  .meta { color: var(--text-muted, #A79E8C); font-size: 14px; margin-bottom: 22px; font-family: var(--font-mono, monospace); }
+  .video { aspect-ratio: 16/9; background: #0F0D0A; border: 1px solid var(--border-subtle, #333); border-radius: 12px; overflow: hidden; margin-bottom: 30px; display:flex; align-items:center; justify-content:center; }
+  .video iframe { width: 100%; height: 100%; }
+  .video.placeholder span { color: var(--text-muted, #A79E8C); font-family: var(--font-mono, monospace); font-size: 15px; }
+  h2 { font-family: var(--font-display, sans-serif); font-size: 20px; color: var(--text-strong, #fff); margin: 30px 0 10px; }
+  .notes p { line-height: 1.7; margin: 0 0 14px; }
+  .cue { color: var(--color-accent, #E36B2C); font-style: italic; font-size: 14px; opacity: .85; }
+  .story { border-left: 4px solid var(--color-accent, #E36B2C); background: rgba(227,107,44,.08); padding: 10px 14px; border-radius: 6px; font-weight: 600; }
+  .panel { background: var(--surface-card, #1F1B14); border: 1px solid var(--border-subtle, #333); border-radius: 12px; padding: 20px 22px; margin: 26px 0; }
+  .panel ul { margin: 8px 0 0; padding-left: 20px; }
+  .panel li { margin-bottom: 8px; line-height: 1.5; }
+  .panel a { color: var(--cyan, #7FBFD4); }
+  .soon { color: var(--text-muted, #A79E8C); }
+  .cta { text-align:center; background: var(--surface-card, #1F1B14); border: 1px solid var(--color-accent, #E36B2C); border-radius: 12px; padding: 26px 22px; margin-top: 40px; }
+  .cta a.btn { display:inline-block; background: var(--color-accent, #E36B2C); color: #17140F; font-family: var(--font-display, sans-serif); font-weight: 700; padding: 12px 26px; border-radius: 8px; text-decoration:none; margin-top: 12px; }
+  footer { margin-top: 50px; text-align:center; color: var(--text-muted, #A79E8C); font-size: 13px; }
+  footer a { color: var(--cyan, #7FBFD4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><img src="../assets/fsn-logo-patch.png" alt="Field Service Nerd"></a>
+    <a class="back" href="/">← fieldservicenerd.com</a>
+  </div>
+  <div class="staging">STAGING PREVIEW | not published.  Annotate and send notes back to the content desk.</div>
+  <div class="eyebrow">EP01 · Fundamentals · ~14 min</div>
+  <h1 class="ep">Why Most Dynamics Field Service Implementations Fail</h1>
+  <div class="meta">Publishes Tue Jul 21, 2026 · 10:00 AM ET · The Field Service Nerd Show</div>
+  <div class="video placeholder"><span>▶ Video drops Tue Jul 21, 2026 · 10:00 AM ET</span></div>
+  <h2>Show Notes</h2>
+  <div class="notes">
+<h2>COLD OPEN  (outdoor, small in frame, words in the sky)</h2>
+<p>I've been doing this for over fifteen years.  Dynamics Field Service, back when it was barely a product.  And I'm going to tell you something Microsoft will never put on a slide.</p>
+<p class="cue">[SKY: 70% FAIL] More than seventy percent of these implementations fail.  Not &quot;a little behind.&quot;  Fail.  Or they limp along doing a fraction of what somebody paid for.</p>
+<p>Now you'd think, with that much money, that much technology, that many smart people in the room, that couldn't happen.  Come on.  It happens all the time.  I've watched it.</p>
+<p>And here's the part that gets me.  It's almost never the software's fault.  It's a chain of small, human decisions.  Each one connects to the next.  And that chain quietly takes the whole thing down.</p>
+<p>So I'm not going to show you what's broken.  I'm going to hand you five questions.  Ask them out loud, about your own project.  If you flinch on any of them, we just found your problem. Let's go.</p>
+<p class="cue">[TITLE / thumbnail sting]</p>
+<h2>QUESTION 1  [PILL: 1 · Did you fix the process first?]</h2>
+<p>Question one.  Did you fix your process before you bought the software?</p>
+<p>Because most companies do it backwards.  They've got a messy way of running service, and they figure Dynamics is going to clean it up for them.  It won't.  I promise you it won't.  You just automated the mess.  Now the mess runs faster.</p>
+<p>I've walked into companies half a year after they went live, and the system is doing exactly what they asked.  The problem is what they asked for was broken on day one.</p>
+<p>So try this.  Before you configure one thing, map how a work order actually moves today.  Not how the process doc says.  How it really moves.  If you can't draw it on a whiteboard in ten minutes, you're not ready to build anything.</p>
+<h2>QUESTION 2  [PILL: 2 · Do your techs actually want this?]</h2>
+<p>Question two.  Do your technicians and dispatchers actually want this thing?</p>
+<p>Because they're the most change resistant group you'll ever meet.  And I say that with love. These are people who've made the old way work for years.  You roll in with a shiny new app, and if you didn't bring them along, they'll go around it.  Paper in the truck.  Texts to the dispatcher.  A spreadsheet nobody told you about.</p>
+<p>I've seen a beautiful implementation get quietly ignored by the field for a full year.</p>
+<p>So try this.  Go find your most skeptical senior tech.  The one who grumbles.  Put them on the project early, and actually listen.  Win that person, and you win the field.  Steamroll them, and you lose.</p>
+<h2>QUESTION 3  [PILL: 3 · Did you switch on RSO too early?]</h2>
+<p>Question three.  Did you turn on Resource Scheduling Optimization too early?</p>
+<p>RSO is powerful.  It's also the fastest way to blow up your own project if the foundation isn't solid.  People flip it on because it demos great.  But optimization only works if your data and your rules are clean underneath it.  Garbage underneath, and RSO just makes bad decisions faster, and with more confidence.</p>
+<p>So try this.  Before you even think about RSO, ask one thing.  Can my team schedule a day of work well by hand?  If the humans can't do it manually, the engine can't do it for you.  Walk before you optimize.</p>
+<h2>QUESTION 4  [PILL: 4 · Would you trust your own data?]</h2>
+<p>Question four.  Would you trust your own data?</p>
+<p>Everybody underestimates how bad their data is.  Everybody.  Wrong addresses.  Skills nobody updated since 2019.  Service territories drawn by somebody who left the company.  You feed that into Field Service, you get bad schedules, bad routes, bad recommendations.  And then people blame the software.</p>
+<p>So try this.  Pull fifty work orders and fifty resource records at random.  Just fifty.  Read them.  If you're embarrassed by what you find, that's your real project.  Fix the data before you fall in love with the features.</p>
+<h2>QUESTION 5  [PILL: 5 · Does your partner know Field Service, or just Dynamics?]</h2>
+<p>Question five.  And this one's a little uncomfortable.  Does your implementation partner actually know Field Service?  Or do they just know Dynamics?</p>
+<p>Those aren't the same thing.  A Gold partner can be brilliant at sales and finance and still have never run a real field operation in their life.  Field Service is its own animal. Scheduling, mobile, inventory in a truck, a tech standing in a parking lot with one bar of signal.  If your partner's never lived that, they'll build you something that looks right in a demo and falls apart in the field.</p>
+<p>So try this.  Next meeting, ask them to walk you through a real field day.  Dispatch to debrief.  If they can tell that story cold, keep them.  If they get vague, you've got the wrong partner.</p>
+<h2>WARNING SIGNS  (gut check, to camera; pills stack in the negative space, one per beat)</h2>
+<p class="cue">[PILL HEADER: WATCH FOR]</p>
+<p>Alright.  Say you're already in one of these projects right now.  Here's your gut check.  Four signs you're in trouble.</p>
+<p class="cue">[PILL: 1 · &quot;We'll figure that out later&quot;] One.  Your team keeps saying &quot;we'll figure that out later.&quot;  Later never comes.</p>
+<p class="cue">[PILL: 2 · Consultants don't get your techs] Two.  The consultants don't seem to get the day to day reality of your techs.</p>
+<p class="cue">[PILL: 3 · Leadership rushing go-live] Three.  Leadership keeps pushing to go live even though the team clearly isn't ready.</p>
+<p class="cue">[PILL: 4 · Configuring more than fixing] Four.  You're spending more time configuring the system than fixing your actual process.</p>
+<p class="cue">[PILLS dim / check off as he lands the line] Nodding at any of those?  Pump the brakes.  Today.  It's so much cheaper to slow down now than to rescue this thing in six months.  Trust me on that one.  Rescuing broken projects is literally part of how I make a living, and I'd still rather you never need to call me.</p>
+<h2>CLOSE / CTA  (walk out / wide, graphics resolve behind him)</h2>
+<p>Look.  Field Service done right is one of the best things Microsoft makes.  I've watched it change how a whole company runs.  But it's easy to get wrong, and now you know exactly where the landmines are.</p>
+<p class="cue">[PILL HEADER: THIS WEEK]  [PILL: Ask your team all 5 questions. Out loud.] So here's your challenge this week.  Take those five questions and ask them about your project, out loud, with your team in the room.  Be honest.  Then drop a comment and tell me where you landed.  Which question made you flinch?  I read every single one.</p>
+<p>If this helped, hit like.  It genuinely moves the channel.  And subscribe if you want the no fluff version of Field Service.  I'm just getting started here.</p>
+<p class="cue">[END CARD: wordmark + &quot;New video every Tuesday&quot;] Have a super day.  I'll see you in the next one.</p>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">References &amp; Research</h2>
+    <ul>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/overview" target="_blank" rel="noopener">Microsoft Learn | Dynamics 365 Field Service overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/rso-overview" target="_blank" rel="noopener">Microsoft Learn | Resource Scheduling Optimization overview</a></li>
+<li><a href="https://fieldservicenerd.com/#join" target="_blank" rel="noopener">The Field Service AI Playbook (free 21-page download)</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0;">Downloads &amp; Takeaways</h2>
+    <ul>
+<li><span class="soon">The 5 Questions | printable checklist</span> <em>(coming with the episode)</em></li>
+    </ul>
+  </div>
+  <div class="cta">
+    <div class="eyebrow">Free Download</div>
+    <h2 style="margin:8px 0 4px;">The Field Service AI Playbook</h2>
+    <p style="color:var(--text-muted,#A79E8C);">21 pages.  What&#x27;s real, what&#x27;s hype, and where AI actually pays off.</p>
+    <a class="btn" href="/#join">Get the Playbook →</a>
+  </div>
+  <footer>
+    Field Service Nerd · <a href="/">Home</a> · <a href="/consulting">Consulting</a> · <a href="https://www.youtube.com/@FieldServiceNerd" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</div>
+</body>
+</html>

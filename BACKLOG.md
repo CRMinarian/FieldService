@@ -27,6 +27,12 @@ upgrade pass rather than one-off edits.
   welcome emails (verified 2026-07-16: pierre@hustleisthehack.com twice).  Fix in the
   Cloud Function: check for an existing subscriber doc by email before sending/appending,
   or upsert keyed on email.
+- [ ] **Episode landing pages → gated access (monetization path, Pierre 2026-07-16).**
+  LIVE (staging, noindex): `/ep/<slug>` pages for EP01-EP04 | show notes (full script),
+  references, downloads slots, Playbook CTA.  Generator: `scripts/build-episode-pages.mjs`
+  (flip `status: 'published'` per episode to drop noindex + banner).  Next phases: real
+  cheat-sheet PDFs in the downloads slots · YouTube embed IDs at publish · **gated access
+  for subscribers** (ties to the database layer + existing funnel) · partner backlink pages.
 - [ ] **Database layer.**  Firestore already holds `subscribers`; the quiz, saved scores, and
   community access all want structured collections + rules.  Design the schema once, before
   the quiz ships, not per-feature.
