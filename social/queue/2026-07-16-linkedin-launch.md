@@ -1,7 +1,9 @@
 # LinkedIn | FSN Launch Post
 - Platform: LinkedIn (personal, /in/nukasoft)
 - Slot: Thu 2026-07-16, 8:30-9:00 AM ET | POST MANUALLY (pipeline not wired yet)
-- Status: APPROVED-DRAFT (voice-checked via pierre-voice MCP, 0 errors)
+- Status: POSTED 2026-07-16 (manual)
+- URL: https://www.linkedin.com/posts/nukasoft_two-software-generations-before-salesforce-ugcPost-7483393609480949760-Saea/
+- Note: Pierre sharpened the hook on post | "Two software generations before Salesforce"
 - Image: none (link preview pulls og:image fsn-logo-social.png)
 
 ---
