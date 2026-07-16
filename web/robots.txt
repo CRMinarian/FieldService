@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Brand render canvases, not pages.  Fixed-pixel screenshot targets
+# (YouTube thumbnails, banners, logo plates) used to export PNGs.
+Disallow: /brand/
+Disallow: /assets/fsn-vault-broadcast-thumbnails
+
+Sitemap: https://fieldservicenerd.com/sitemap.xml
