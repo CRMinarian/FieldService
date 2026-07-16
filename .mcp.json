@@ -4,6 +4,10 @@
       "command": "node",
       "args": ["Z:/Skippy/Dev/skippy-brain/skills/pierre-voice/server.js"],
       "env": {}
+    },
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
     }
   }
 }
