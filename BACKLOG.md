@@ -18,6 +18,10 @@ upgrade pass rather than one-off edits.
   community card.  `index.html` meta still mentions "knowledge base" | fine, it returns.
 - [ ] **Interactive Work Order Quality Quiz** (parked below | becomes the community hook once
   the database exists).
+- [ ] **Subscriber dedup.**  Same email can sign up twice and gets two sheet rows + two
+  welcome emails (verified 2026-07-16: pierre@hustleisthehack.com twice).  Fix in the
+  Cloud Function: check for an existing subscriber doc by email before sending/appending,
+  or upsert keyed on email.
 - [ ] **Database layer.**  Firestore already holds `subscribers`; the quiz, saved scores, and
   community access all want structured collections + rules.  Design the schema once, before
   the quiz ships, not per-feature.
