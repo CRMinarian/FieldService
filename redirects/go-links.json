@@ -1,0 +1,14 @@
+{
+  "_comment": "FSN short links | fieldservicenerd.com/go/<slug>.  Edit dest, run scripts/build-go-links.mjs, deploy.  QR codes encode the /go/ URL so printed codes never go stale.",
+  "links": {
+    "home":      { "dest": "https://fieldservicenerd.com/",                                    "label": "Homepage" },
+    "playbook":  { "dest": "https://fieldservicenerd.com/#join",                               "label": "Field Service AI Playbook signup" },
+    "consult":   { "dest": "https://fieldservicenerd.com/consulting",                          "label": "Consulting" },
+    "youtube":   { "dest": "https://www.youtube.com/@FieldServiceNerd",                        "label": "YouTube channel" },
+    "linkedin":  { "dest": "https://linkedin.com/in/nukasoft",                                 "label": "Pierre on LinkedIn" },
+    "ep01":      { "dest": "https://fieldservicenerd.com/ep/ep01-why-implementations-fail",    "label": "EP01 landing page" },
+    "ep02":      { "dest": "https://fieldservicenerd.com/ep/ep02-what-i-wish-i-knew",          "label": "EP02 landing page" },
+    "ep03":      { "dest": "https://fieldservicenerd.com/ep/ep03-ugly-truth-rso",              "label": "EP03 landing page" },
+    "ep04":      { "dest": "https://fieldservicenerd.com/ep/ep04-copilot-honest-review",       "label": "EP04 landing page" }
+  }
+}

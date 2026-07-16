@@ -33,6 +33,12 @@ upgrade pass rather than one-off edits.
   (flip `status: 'published'` per episode to drop noindex + banner).  Next phases: real
   cheat-sheet PDFs in the downloads slots · YouTube embed IDs at publish · **gated access
   for subscribers** (ties to the database layer + existing funnel) · partner backlink pages.
+- [ ] **Go-link redirector v2 (upgrade path).**  v1 is LIVE: `/go/<slug>` static pages
+  (GA4 `go_click` event + instant redirect), source `redirects/go-links.json`, generator
+  `scripts/build-go-links.mjs`, QR codes in `web/brand/qr/` (QRs encode the go-link, so
+  printed codes never go stale).  v2 when click analytics need depth: HTTP Cloud Function
+  + hosting rewrite `/go/**` for real 301s + per-click Firestore log (timestamp, referrer,
+  UA).  URL contract stays `/go/<slug>` | printed QRs survive the upgrade.
 - [ ] **Database layer.**  Firestore already holds `subscribers`; the quiz, saved scores, and
   community access all want structured collections + rules.  Design the schema once, before
   the quiz ships, not per-feature.

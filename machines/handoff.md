@@ -80,6 +80,16 @@ Three sections per entry: What happened / What's pending / Watch out for
   publishes (status flag flips), add its URL to the sitemap | one URL per published episode.
 - Future: gated subscriber access to these pages (backlogged with the database layer).
 
+### Go-links + QR kit shipped (2026-07-16, content desk)
+- **`/go/<slug>` short-link redirector live** (9 links: home, playbook, consult, youtube,
+  linkedin, ep01-ep04).  Static pages, noindex, GA4 `go_click` event with `link_slug` +
+  `link_dest` params, then instant redirect.  Source of truth `redirects/go-links.json`.
+- **QR codes** in `web/brand/qr/` encode the go-links (destinations editable behind printed
+  codes forever).
+- **WM/SCO:** keep `/go/` out of the sitemap (noindex).  In GA4, the `go_click` event is
+  the click ledger | consider registering `link_slug` as a custom dimension when you wire
+  reporting.
+
 ### Cross-repo batons sent (2026-07-16)
 - **→ `Z:\Projects\_WIKI` branch `wiki/backfill-index-rows`** (commit `3f181ca`, pushed):
   established that repo's baton and handed off the RAG ask | Field Service attention layer
