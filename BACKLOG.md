@@ -27,6 +27,17 @@ upgrade pass rather than one-off edits.
   welcome emails (verified 2026-07-16: pierre@hustleisthehack.com twice).  Fix in the
   Cloud Function: check for an existing subscriber doc by email before sending/appending,
   or upsert keyed on email.
+- [ ] **THE PAGE ENGINE (business model, Pierre 2026-07-16): every content artifact gets
+  a page it owns.**  Episodes (`/ep/`), LinkedIn Lives (`/live/`), paid lessons
+  (`/lesson/`), conference talks (`/talk/`, QR at the podium), giveaways (`/get/`).
+  Videos all host on YouTube: public for free content, **unlisted for gated** (unlisted
+  embeds on a page but is invisible on the channel | that is the gating trick; private
+  does not embed).  The page wraps the video with notes, references, downloads, and the
+  email/paid gate.  go-links + QR bridge the physical world (talks, print) to the pages.
+  Phases: (1) episodes live now → (2) email-gated pages on the existing funnel →
+  (3) paid gates on the database layer → (4) partner pages.  Generator evolves from
+  `scripts/build-episode-pages.mjs` to take a `type` (episode | live | lesson | talk | get)
+  and an `access` level (public | email | paid).
 - [ ] **Episode landing pages → gated access (monetization path, Pierre 2026-07-16).**
   LIVE (staging, noindex): `/ep/<slug>` pages for EP01-EP04 | show notes (full script),
   references, downloads slots, Playbook CTA.  Generator: `scripts/build-episode-pages.mjs`
