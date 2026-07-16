@@ -3,6 +3,32 @@
 Post-launch enhancements. None of these block the live site
 (https://field-service-nerd.web.app) — the core site + signup funnel are live and verified.
 
+## Site Upgrade (v2 — plan as content + the database grow)
+
+Collected tasks for the next real site iteration.  Add here as they surface; batch into one
+upgrade pass rather than one-off edits.
+
+- [ ] **Fix the credentials mismatch (site vs LinkedIn launch post).**  The site says
+  "30 years / 30+ yrs / CRM since 2002" (About headline + body, hero, FAQ); the launch post
+  says **40 years / CRM and sales ops since the mid 90's** (accurate | XT sale 1988, U.P.
+  deploys 1994, pre-Salesforce CRM).  Update all four spots to match the post.
+- [ ] **Restore the Knowledge Base** (gated on formatted content).  `web/kb.html` is parked
+  on disk, unlinked.  Revert list: nav link (`Nav.jsx`), hero CTA (`Hero.jsx`), homepage
+  pillar ("Two signals" → "Three signals" in `Sections.jsx`), footer link, About CTA,
+  community card.  `index.html` meta still mentions "knowledge base" | fine, it returns.
+- [ ] **Interactive Work Order Quality Quiz** (parked below | becomes the community hook once
+  the database exists).
+- [ ] **Database layer.**  Firestore already holds `subscribers`; the quiz, saved scores, and
+  community access all want structured collections + rules.  Design the schema once, before
+  the quiz ships, not per-feature.
+- [ ] **Content surfaces for the flywheel output.**  As EP videos + podcast episodes ship,
+  the site needs: an episodes page (or KB section) listing videos with thumbnails, and the
+  podcast section pointed at real episodes instead of the placeholder playlist.
+- [ ] **Welcome-email sender to `@fieldservicenerd.com`** once the domain is in Google
+  Workspace (currently sends as skippy@nukasoft.ai).
+- [ ] **OG/social cards per page** | `web/brand/six-layer-model.png` and
+  `work-order-quality-quiz.png` are sized for it (per the e-book session handoff).
+
 ## Open
 
 - [ ] **Interactive Work Order Quality Quiz → community access (parked by Pierre 2026-07-15).**
