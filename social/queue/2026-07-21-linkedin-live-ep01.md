@@ -27,3 +27,15 @@ Bring your questions.  I answer everything live, and I don't dodge.
 Grab the free 21-page Field Service AI Playbook before we start: https://fieldservicenerd.com/go/playbook
 
 Tuesday, July 21 at 11:00 AM ET.  See you there.  Have a super day.
+
+## Promo script (30s, one take | LinkedIn video post Thu AM + YouTube Short)
+
+Seventy percent of Dynamics Field Service implementations fail.  I've spent fifteen years watching it happen, and this Tuesday I'm going live to tell you why.
+
+I'm kicking off FY27 with five questions.  That's it.  Five questions you ask about your own project, out loud, with your team in the room.  If you flinch on any of them, you just found your problem.
+
+No slides.  No vendor spin.  And I answer everything live.
+
+Tuesday, eleven AM Eastern, on LinkedIn.  The link's below.  Register, bring your worst project story, and I'll see you there.
+
+Have a super day.
