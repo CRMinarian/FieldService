@@ -23,7 +23,13 @@ The consulting side.  Fixed-fee engagements when an implementation is broken: di
 
 If your Field Service project is on the brink, or you want it to never get there, start at fieldservicenerd.com.
 
-## Company Page
+## Company Page | LIVE
+- **Created 2026-07-22.**  Company ID **142898392** (admin: linkedin.com/company/142898392/admin/)
+- Zapier `linkedin_create_company_update` posts to it with `company_id: "142898392"`
+  (verified live 2026-07-22 | the enum resolved "Field Service Nerd" thru an authenticated call).
+- Personal profile posts use `linkedin_create_share_update` (no company_id).
+
+## Company Page setup copy
 - Name: Field Service Nerd
 - URL slug: field-service-nerd
 - Website: https://fieldservicenerd.com

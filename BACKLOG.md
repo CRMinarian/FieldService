@@ -79,7 +79,11 @@ needed** | Zapier MCP is already connected to this project's sessions.
   (`page_stream` = text/link post, `page_photo`, `page_video`), Instagram for
   Business (`publish_media_v2`, `publish_video`), plus the pre-existing YouTube (7),
   Gmail, Google Docs/Drive/Calendar/Tasks, Outlook, Excel, Transcript Downloader.
-- [ ] **Pierre: one OAuth click per social app** (agent cannot authorize accounts):
+- [x] **LinkedIn CONNECTED + VERIFIED 2026-07-22.**  OAuth live; company page
+  **Field Service Nerd, company_id `142898392`** resolves thru an authenticated Zapier
+  call.  Both post paths ready: `linkedin_create_share_update` (Pierre's profile) and
+  `linkedin_create_company_update` (brand page).
+- [ ] **Pierre: OAuth for the remaining two** (agent cannot authorize accounts): (agent cannot authorize accounts):
   LinkedIn https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/LinkedInCLIAPI
   · Facebook https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/FacebookV2CLIAPI
   · Instagram https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/InstagramBusinessCLIAPI
