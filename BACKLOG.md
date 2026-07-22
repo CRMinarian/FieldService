@@ -73,10 +73,17 @@ upgrade pass rather than one-off edits.
 Goal: replace the old scheduling tools with the stack we already have.  **No from-scratch build
 needed** | Zapier MCP is already connected to this project's sessions.
 
-- [ ] **Pierre: add 3 actions to the Zapier MCP** at
-  https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/config :
-  LinkedIn → Create Share Update · Facebook Pages → Create Page Post · Instagram for
-  Business → Publish Photo.  (One OAuth click each; tools then appear in-session.)
+- [x] **Zapier Pro + social actions ENABLED 2026-07-22.**  Server
+  `19e99c4d-3a68-47b3-9ece-8430e91707d4`.  Apps now on it: LinkedIn (`share` =
+  personal profile, `create_company_update` = company page), Facebook Pages
+  (`page_stream` = text/link post, `page_photo`, `page_video`), Instagram for
+  Business (`publish_media_v2`, `publish_video`), plus the pre-existing YouTube (7),
+  Gmail, Google Docs/Drive/Calendar/Tasks, Outlook, Excel, Transcript Downloader.
+- [ ] **Pierre: one OAuth click per social app** (agent cannot authorize accounts):
+  LinkedIn https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/LinkedInCLIAPI
+  · Facebook https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/FacebookV2CLIAPI
+  · Instagram https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/InstagramBusinessCLIAPI
+  (Instagram + Facebook Pages both need a Facebook Page / IG Business account.)
 - [x] **YouTube posting works today** | Zapier `youtube_upload_video` (title, description,
   tags, thumbnail, privacy) + `youtube_update_video_thumbnail`.
 - [ ] **Queue convention:** drafts live in `social/queue/` (one file per post: platform,
