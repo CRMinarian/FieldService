@@ -4,7 +4,8 @@
 - Graphic: social/linkedin-live-ep01-kickoff.png (1280x720)
 - StreamYard: brand #E36B2C / #FFD23F, background social/streamyard-background.png (or AI-generated
   workshop plate), overlay social/streamyard-overlay.png, logo web/assets/fsn-avatar-circle.png
-- Status: DESCRIPTION APPROVED-DRAFT (voice-checked; 2 known "Dynamics" false positives)
+- Status: LIVE ON LINKEDIN 2026-07-16
+- URL: https://www.linkedin.com/feed/update/urn:li:activity:7485747629641998336/
 
 ## Event description (paste)
 
