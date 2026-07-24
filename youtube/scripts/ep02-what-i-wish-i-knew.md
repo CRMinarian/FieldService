@@ -31,7 +31,7 @@ New video every Tuesday.  Subscribe for no-BS Field Service content.
 
 Free 21-page Field Service AI Playbook: https://fieldservicenerd.com
 Stuck on an implementation? https://fieldservicenerd.com/consulting
-LinkedIn: https://linkedin.com/in/nukasoft
+LinkedIn: https://linkedin.com/in/fieldservicenerd
 
 #Dynamics365 #FieldService #D365
 ```

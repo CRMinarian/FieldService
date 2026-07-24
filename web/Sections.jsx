@@ -10,7 +10,7 @@ const PLAYLIST_ID = 'PLD2JXXb9_ku0';
 const LINKS = {
   playlist: `https://www.youtube.com/playlist?list=${PLAYLIST_ID}`,
   embed: `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&rel=0&modestbranding=1`,
-  linkedin: 'https://www.linkedin.com/in/nukasoft',
+  linkedin: 'https://www.linkedin.com/in/fieldservicenerd',
   // TODO: confirm the channel handle; the playlist link above is the safe fallback.
   youtube: 'https://www.youtube.com/@FieldServiceNerd',
 };

@@ -34,7 +34,7 @@ New video every Tuesday.  Subscribe for no-BS Field Service content.
 
 Site: https://fieldservicenerd.com
 Stuck on an implementation? https://fieldservicenerd.com/consulting
-LinkedIn: https://linkedin.com/in/nukasoft
+LinkedIn: https://linkedin.com/in/fieldservicenerd
 
 #Dynamics365 #FieldService #D365
 ```

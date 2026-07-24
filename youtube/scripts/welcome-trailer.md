@@ -55,7 +55,7 @@ Every video hands you something to try, not just something to watch.  New video 
 
 Free 21-page Field Service AI Playbook: https://fieldservicenerd.com
 Consulting (implementation rescue): https://fieldservicenerd.com/consulting
-LinkedIn: https://linkedin.com/in/nukasoft
+LinkedIn: https://linkedin.com/in/fieldservicenerd
 
 #Dynamics365 #FieldService #D365
 ```

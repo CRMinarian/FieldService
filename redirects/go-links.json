@@ -5,7 +5,7 @@
     "playbook":  { "dest": "https://fieldservicenerd.com/#join",                               "label": "Field Service AI Playbook signup" },
     "consult":   { "dest": "https://fieldservicenerd.com/consulting",                          "label": "Consulting" },
     "youtube":   { "dest": "https://www.youtube.com/@FieldServiceNerd",                        "label": "YouTube channel" },
-    "linkedin":  { "dest": "https://linkedin.com/in/nukasoft",                                 "label": "Pierre on LinkedIn" },
+    "linkedin":  { "dest": "https://linkedin.com/in/fieldservicenerd",                                 "label": "Pierre on LinkedIn" },
     "ep01":      { "dest": "https://fieldservicenerd.com/ep/ep01-why-implementations-fail",    "label": "EP01 landing page" },
     "ep02":      { "dest": "https://fieldservicenerd.com/ep/ep02-what-i-wish-i-knew",          "label": "EP02 landing page" },
     "ep03":      { "dest": "https://fieldservicenerd.com/ep/ep03-ugly-truth-rso",              "label": "EP03 landing page" },

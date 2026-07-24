@@ -70,7 +70,7 @@ function AboutBio() {
 function AboutConnect() {
   const links = [
     { label: 'YouTube', href: 'https://www.youtube.com/@FieldServiceNerd', sub: '@FieldServiceNerd' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nukasoft', sub: '/in/nukasoft' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/fieldservicenerd', sub: '/in/fieldservicenerd' },
     { label: 'Consulting', href: '/consulting', sub: 'Fixed-fee engagements' },
   ];
   return (
