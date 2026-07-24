@@ -6,6 +6,8 @@
   https://www.linkedin.com/feed/update/urn:li:activity:7485747629641998336/
 - **Voice check:** 0 errors, 0 style breaks (2 warnings = "Dynamics" product false positives)
 - ✅ **Date CONFIRMED by Pierre 2026-07-24:** LinkedIn event is fixed for **Tue Jul 28, 11 AM ET**.
+- 🖼️ **ATTACH THIS IMAGE to the post:** `social/linkedin-live-ep01-kickoff.png` (1280x720,
+  dated Jul 28).  Image posts out-reach text-only on LinkedIn.  Same graphic = the event cover.
 
 ---
 
