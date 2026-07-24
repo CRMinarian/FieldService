@@ -1,5 +1,20 @@
 # Back-Catalog Migration | Upload Packages (5 episodes)
 
+## ✅ APPLIED VIA API 2026-07-24 | all 5 videos branded on @FieldServiceNerd
+Title + description + chapters + tags + custom thumbnail + playlist set on each.  Videos are
+Private/Unlisted drafts for Pierre to review, then flip to Public.
+| Package | Video ID | Playlist | State |
+|---|---|---|---|
+| AI w/ Scott LeFante | 0jaEQKwxWqo | The Builders | private |
+| Scheduling Agent | JAiskZOOxtE | The Builders | private |
+| KingswaySoft / Daniel Cai | fFPsoki5zCI | The Builders | private |
+| Advanced Mobility / Resco | RCwPz4DE25U | The Builders | private |
+| RSO Deep Dive / Humphries | MQrwm0gPrHA | Fundamentals | unlisted |
+Method: Zapier `youtube_make_api_mutating_request` (videos.update, body as JSON STRING not
+object), `youtube_update_video_thumbnail` (from public URL), `youtube_add_video_to_playlist`.
+Thumbnails served from https://fieldservicenerd.com/thumbnails/mig-*.png.
+
+
 Guest interviews migrated from the old channel to @FieldServiceNerd.  Descriptions written
 from the actual transcripts (`OG Videos/Transcribed/`, see `INDEX.md`).  Upload with **notify
 subscribers OFF** (quiet seeding).  All were recorded when Pierre was Director of Field Service
