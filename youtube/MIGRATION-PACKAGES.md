@@ -20,7 +20,7 @@ from the actual transcripts (`OG Videos/Transcribed/`, see `INDEX.md`).  Upload 
 subscribers OFF** (quiet seeding).  All were recorded when Pierre was Director of Field Service
 at Alithya | descriptions describe the conversation, they do not claim a current role.
 
-**Verify before publish:** guest surname **Anil Merching** (audio was fuzzy: Merching vs
+**Verify before publish:** guest surname **Anil Murching** (audio was fuzzy: Merching vs
 Moshing).  **Chapter timestamps are ESTIMATES** distributed across the runtime | scrub and
 adjust while uploading.
 
