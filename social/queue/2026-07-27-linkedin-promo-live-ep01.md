@@ -1,4 +1,5 @@
 # LinkedIn Promo | Monday (Jul 27) | tease Tuesday's Field Service LIVE
+> ✅ **SCHEDULED ON LINKEDIN for Mon Jul 27 (Pierre, 2026-07-24).**  Image attached.
 
 - **Post day:** Monday 2026-07-27, ~8:30 AM ET (Promo Day 1 in the weekly rhythm)
 - **Promotes:** the EP01 FY27 Kickoff LinkedIn Live | Tue Jul 28, 11:00 AM ET
