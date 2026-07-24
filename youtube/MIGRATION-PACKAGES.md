@@ -4,12 +4,14 @@
 Base layer seeded (public, unpromoted | search + credibility furniture):
 - ✅ KingswaySoft / Daniel Cai (fFPsoki5zCI) | PUBLIC
 - ✅ RSO Deep Dive / Humphries (MQrwm0gPrHA) | PUBLIC
-Staged for the weekly promoted rollout (private | one per week, each with a LinkedIn post
-that TAGS the guest = a reach event into that guest's network):
-- [ ] Tue: AI w/ Scott LeFante (0jaEQKwxWqo) | tag Scott LeFante
-- [ ] +1wk: Advanced Mobility / Resco (RCwPz4DE25U) | tag Ivan Stano
-- [ ] +2wk: Scheduling Agent / Anil Murching (JAiskZOOxtE) | tag Anil Murching
+Staged for the weekly promoted rollout | **AUTO-PUBLISH SCHEDULED via API 2026-07-24**
+(privacyStatus=private + publishAt | each flips Public itself at 10:00 AM ET / 14:00 UTC).
+Each still needs its LinkedIn guest-tag promo + pinned comment:
+- [x] **Tue Jul 28, 10 AM ET** | AI w/ Scott LeFante (0jaEQKwxWqo) | tag Scott LeFante
+- [x] **Tue Aug 4, 10 AM ET** | Advanced Mobility / Resco (RCwPz4DE25U) | tag Ivan Stano
+- [x] **Tue Aug 11, 10 AM ET** | Scheduling Agent / Anil Murching (JAiskZOOxtE) | tag Anil Murching
 Also: post each video's pinned comment (in MIGRATION-PACKAGES per-episode) as the channel.
+Note: DST | 10 AM ET = UTC-4 in summer, so publishAt is 14:00:00Z.
 
 ## ✅ APPLIED VIA API 2026-07-24 | all 5 videos branded on @FieldServiceNerd
 Title + description + chapters + tags + custom thumbnail + playlist set on each.  Videos are
