@@ -5,8 +5,7 @@
 - **Event link (paste as the post's link / first comment):**
   https://www.linkedin.com/feed/update/urn:li:activity:7485747629641998336/
 - **Voice check:** 0 errors, 0 style breaks (2 warnings = "Dynamics" product false positives)
-- ⚠️ **BEFORE POSTING:** confirm the LinkedIn event date reads **Tue Jul 28, 11 AM ET**.
-  The event was originally set for Jul 21 (passed) | reschedule it on LinkedIn if needed.
+- ✅ **Date CONFIRMED by Pierre 2026-07-24:** LinkedIn event is fixed for **Tue Jul 28, 11 AM ET**.
 
 ---
 
