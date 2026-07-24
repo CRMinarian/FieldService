@@ -1,5 +1,53 @@
 # Field Service Nerd | Content Calendar
 
+## WEEKLY OPERATING RHYTHM (locked with Pierre 2026-07-24)
+
+The repeating week.  Pierre checks in on these four days.  **Friday is the engine** | it plans,
+produces, and queues the FOLLOWING week.  Everything else executes what Friday set up.
+
+| Day | Theme | What happens |
+|---|---|---|
+| **FRIDAY** | **Field Service Content Day** | Plan + produce + QUEUE next week.  This is the work session. |
+| **MONDAY** | **Field Service Promo Day** | Promote what is coming Tuesday (tease the Live + the video). |
+| **TUESDAY** | **Field Service LIVE** | The LinkedIn Live broadcast (StreamYard) + the video drop. |
+| **THURSDAY** | **Field Service Promo Day** | Second push: recap the Live, or the guest-tag video promo. |
+
+### FRIDAY | Content Day (the engine room)
+Pierre works through the site, content, and what needs recording.  Checklist:
+- [ ] **Review the week:** video views, comments (say "check comments"), the poll result.
+- [ ] **Pick next week's Tuesday:** which video goes public + what the Live topic is.
+- [ ] **What needs RECORDING** before next Tuesday?  Flag it Friday so there is a weekend to shoot.
+- [ ] **Produce + QUEUE the week:** Claude drafts Monday promo, Tuesday Live graphic + description,
+      Thursday promo | all voice-checked, dropped in `social/queue/`, ready to fire.
+- [ ] **Site pass:** anything on the v2 backlog worth a small move (episode pages, hero, etc.).
+- [ ] **Post the next-week plan** so it is locked before the weekend.
+
+### MONDAY | Promo Day 1
+- [ ] Post: "This week on Field Service Live | [topic]. [Register link]."  Tease Tuesday.
+- [ ] If a migrated guest video goes public Tuesday, this is the pre-tease.
+
+### TUESDAY | Field Service LIVE
+- [ ] Go live on StreamYard (branded kit) at the set time.
+- [ ] Publish the week's video (new episode OR the next migrated guest video).
+- [ ] Post the video's pinned comment as the channel.
+
+### THURSDAY | Promo Day 2
+- [ ] Post: recap the Live, or the guest-tag promo for that week's video (tag the guest =
+      reach into their network).  Value-first, not just "watch my video."
+
+### The migrated-video queue feeds Tuesdays (from MIGRATION-PACKAGES.md)
+Public now: KingswaySoft, RSO Deep Dive.  Staged for weekly Tuesday release + guest-tag promo:
+LeFante (tag Scott) → Resco (tag Ivan) → Scheduling Agent (tag Anil Murching).
+
+### Cadence rules
+- One video per Tuesday | never dump.
+- Every video gets a Monday tease + a Thursday guest-tag promo.
+- Polls in the rotation (one every week or two) | cheapest engagement + free research.
+- Wednesday: read the wiki Field Service Radar for topic fuel (WM/SCO + wiki desks feed this).
+
+---
+
+
 The reach + content desk's standing calendar.  Owned by this repo's sessions (charter
 2026-07-16).  Update weekly; keep 4 weeks of runway visible.
 
