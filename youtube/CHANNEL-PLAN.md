@@ -68,3 +68,13 @@ stamp. Cohesive with the site/brand. (Sample rendered during build.)
 **Recommended: a hybrid** — high-contrast + short punchy text + strong-expression face
 (from A) rendered with FSN brand type/patch/orange (from B). Loud enough to click, still
 unmistakably Field Service Nerd.
+
+## ⚠️ Zapier YouTube auth | Brand Account gotcha (2026-07-24)
+`skippy@nukasoft.ai` manages TWO YouTube channels: **Tech Sales 110**
+(`UCP4VA2UTPmLb8pktmha51fA`) and **Field Service Nerd** (@FieldServiceNerd, Brand Account).
+Zapier's YouTube connection first authed to Tech Sales 110 by mistake | `channels?mine=true`
+returned "Tech Sales 110".  To run API metadata/uploads on FSN videos, the Zapier YouTube
+connection must be RE-authed and the **Field Service Nerd** channel selected at Google's
+"Choose a channel" screen.  Auth URL:
+https://mcp.zapier.com/mcp/servers/19e99c4d-3a68-47b3-9ece-8430e91707d4/app-auth/YouTubeV4CLIAPI
+Always verify with `channels?part=snippet&mine=true` before a batch run.
