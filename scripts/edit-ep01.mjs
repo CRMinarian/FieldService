@@ -204,7 +204,35 @@ if (stage === 'tighten') {
     '-c', 'copy', '-movflags', '+faststart', 'edit/EP01-master.mp4'], { encoding: 'utf8' });
   if (r.status !== 0) { console.error(r.stderr?.slice(-1500)); process.exit(1); }
   console.log(`done -> edit/EP01-master.mp4 (${probeDuration('edit/EP01-master.mp4').toFixed(1)}s)`);
+} else if (stage === 'shorts') {
+  // Cut vertical Shorts from edit/ep01-cut.mp4 (cut-timeline seconds).
+  // Center-crop 9:16 (Pierre is centered), overlay one big pill low-center, <60s.
+  const SHORTS = [
+    { id: 'q1-process', src: [198.1, 248.3], pill: 'q1',
+      note: 'You just automated the mess -> whiteboard Try This' },
+    { id: 'q3-rso', src: [441.9, 494.7], pill: 'q3',
+      note: 'RSO demos great / garbage underneath -> schedule a day by hand' },
+  ];
+  for (const s of SHORTS) {
+    const dur = +(s.src[1] - s.src[0]).toFixed(2);
+    const t0 = 0.8, t1 = Math.min(dur - 0.5, t0 + 7);
+    const graph =
+      `[0:v]crop=608:1080:656:0,scale=1080:1920:flags=lanczos[base];` +
+      `[1:v]format=rgba,scale=980:-1,` +
+      `fade=t=in:st=${t0}:d=0.35:alpha=1,fade=t=out:st=${(t1 - 0.35).toFixed(2)}:d=0.35:alpha=1[pill];` +
+      `[base][pill]overlay=x=(W-w)/2:y=H-h-260:shortest=1:enable='between(t,${t0},${t1})'[vout];` +
+      `[0:a]highpass=f=80,afftdn=nf=-25,loudnorm=I=-14:TP=-1.5:LRA=11[aout]`;
+    const r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y',
+      '-ss', s.src[0].toFixed(2), '-t', dur.toFixed(2), '-i', 'edit/ep01-cut.mp4',
+      '-loop', '1', '-framerate', '30', '-i', `edit/pills/${s.pill}.png`,
+      '-filter_complex', graph, '-map', '[vout]', '-map', '[aout]',
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-pix_fmt', 'yuv420p',
+      '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart',
+      `edit/EP01-short-${s.id}.mp4`], { encoding: 'utf8' });
+    if (r.status !== 0) { console.error(`short ${s.id} failed:`, r.stderr?.slice(-1200)); process.exit(1); }
+    console.log(`done -> edit/EP01-short-${s.id}.mp4 (${dur}s)`);
+  }
 } else {
-  console.error('unknown stage; use: tighten | cut | overlay [t0 t1] | finalize');
+  console.error('unknown stage; use: tighten | cut | overlay [t0 t1] | finalize | shorts');
   process.exit(1);
 }
