@@ -1,0 +1,141 @@
+{
+ "anchor": "bottom-right",
+ "note": "tStart/tEnd are seconds on edit/ep01-tight.mp4 (post-tighten timeline).  null = to be filled by whisper alignment + Pierre correction (Checkpoint B).  hold = display seconds if tEnd null.",
+ "pills": [
+  {
+   "id": "sky-70",
+   "kind": "sky",
+   "text": "70% FAIL",
+   "trigger": "more than seventy percent of these implementations fail",
+   "tStart": 29.73,
+   "hold": 5,
+   "score": 0.86,
+   "tFinal": 29.73
+  },
+  {
+   "id": "q1",
+   "kind": "pill",
+   "num": "1",
+   "tag": "TRY THIS",
+   "text": "Did You Fix The Process First?",
+   "trigger": "did you fix your process before you bought the software",
+   "tStart": 115.85,
+   "hold": 8,
+   "score": 0.57,
+   "tFinal": 115.85
+  },
+  {
+   "id": "q2",
+   "kind": "pill",
+   "num": "2",
+   "tag": "TRY THIS",
+   "text": "Do Your Techs Actually Want This?",
+   "trigger": "do your technicians and dispatchers actually want this",
+   "tStart": 326.33,
+   "hold": 8,
+   "score": 0.95,
+   "tFinal": 271.93
+  },
+  {
+   "id": "q3",
+   "kind": "pill",
+   "num": "3",
+   "tag": "TRY THIS",
+   "text": "Did You Switch On RSO Too Early?",
+   "trigger": "did you turn on resource scheduling optimization too early",
+   "tStart": 668.85,
+   "hold": 8,
+   "score": 0.77,
+   "tFinal": 367.15
+  },
+  {
+   "id": "q4",
+   "kind": "pill",
+   "num": "4",
+   "tag": "TRY THIS",
+   "text": "Would You Trust Your Own Data?",
+   "trigger": "would you trust your own data",
+   "tStart": 1303.89,
+   "hold": 8,
+   "score": 0.68,
+   "tFinal": 497.59
+  },
+  {
+   "id": "q5",
+   "kind": "pill",
+   "num": "5",
+   "tag": "TRY THIS",
+   "text": "Partner Knows Field Service, Or Just Dynamics?",
+   "trigger": "does your implementation partner actually know field service",
+   "tStart": 1439.35,
+   "hold": 8,
+   "score": 0.92,
+   "tFinal": 633.05
+  },
+  {
+   "id": "watch-hdr",
+   "kind": "header",
+   "text": "WATCH FOR",
+   "trigger": "four signs you're in trouble",
+   "tStart": 1981.17,
+   "hold": 4,
+   "score": 1,
+   "tFinal": 802.47
+  },
+  {
+   "id": "w1",
+   "kind": "pill",
+   "num": "1",
+   "text": "“We’ll Figure That Out Later”",
+   "trigger": "we'll figure that out later",
+   "tStart": 1982.37,
+   "hold": 6,
+   "score": 0.85,
+   "tFinal": 803.67
+  },
+  {
+   "id": "w2",
+   "kind": "pill",
+   "num": "2",
+   "text": "Consultants Don’t Get Your Techs",
+   "trigger": "don't seem to get the day to day reality",
+   "tStart": 2021.29,
+   "hold": 6,
+   "score": 0.69,
+   "tFinal": 825.99
+  },
+  {
+   "id": "w3",
+   "kind": "pill",
+   "num": "3",
+   "text": "Leadership Rushing Go-Live",
+   "trigger": "pushing to go live even though",
+   "tStart": 2042.69,
+   "hold": 6,
+   "score": 0.59,
+   "tFinal": 847.39
+  },
+  {
+   "id": "w4",
+   "kind": "pill",
+   "num": "4",
+   "text": "Configuring More Than Fixing",
+   "trigger": "more time configuring the system than fixing",
+   "tStart": 2275.09,
+   "hold": 6,
+   "score": 0.68,
+   "tFinal": 900.49
+  },
+  {
+   "id": "challenge",
+   "kind": "pill",
+   "tag": "THIS WEEK",
+   "text": "Ask Your Team All 5 Questions. Out Loud.",
+   "trigger": "here's your challenge this week",
+   "tStart": 2389.62,
+   "hold": 9,
+   "score": 0.62,
+   "tFinal": 951.32
+  }
+ ]
+}
