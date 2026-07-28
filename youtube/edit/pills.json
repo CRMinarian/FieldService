@@ -1,0 +1,18 @@
+{
+  "anchor": "bottom-right",
+  "note": "tStart/tEnd are seconds on edit/ep01-tight.mp4 (post-tighten timeline).  null = to be filled by whisper alignment + Pierre correction (Checkpoint B).  hold = display seconds if tEnd null.",
+  "pills": [
+    { "id": "sky-70",   "kind": "sky",    "text": "70% FAIL",                                        "trigger": "more than seventy percent of these implementations fail",       "tStart": null, "hold": 5 },
+    { "id": "q1",       "kind": "pill",   "num": "1", "tag": "TRY THIS", "text": "Did You Fix The Process First?",          "trigger": "did you fix your process before you bought the software",      "tStart": null, "hold": 8 },
+    { "id": "q2",       "kind": "pill",   "num": "2", "tag": "TRY THIS", "text": "Do Your Techs Actually Want This?",       "trigger": "do your technicians and dispatchers actually want this",       "tStart": null, "hold": 8 },
+    { "id": "q3",       "kind": "pill",   "num": "3", "tag": "TRY THIS", "text": "Did You Switch On RSO Too Early?",        "trigger": "did you turn on resource scheduling optimization too early",   "tStart": null, "hold": 8 },
+    { "id": "q4",       "kind": "pill",   "num": "4", "tag": "TRY THIS", "text": "Would You Trust Your Own Data?",          "trigger": "would you trust your own data",                                "tStart": null, "hold": 8 },
+    { "id": "q5",       "kind": "pill",   "num": "5", "tag": "TRY THIS", "text": "Partner Knows Field Service, Or Just Dynamics?", "trigger": "does your implementation partner actually know field service", "tStart": null, "hold": 8 },
+    { "id": "watch-hdr","kind": "header", "text": "WATCH FOR",                                        "trigger": "four signs you're in trouble",                                 "tStart": null, "hold": 4 },
+    { "id": "w1",       "kind": "pill",   "num": "1", "text": "“We’ll Figure That Out Later”",   "trigger": "we'll figure that out later",                    "tStart": null, "hold": 6 },
+    { "id": "w2",       "kind": "pill",   "num": "2", "text": "Consultants Don’t Get Your Techs",          "trigger": "don't seem to get the day to day reality",       "tStart": null, "hold": 6 },
+    { "id": "w3",       "kind": "pill",   "num": "3", "text": "Leadership Rushing Go-Live",                     "trigger": "pushing to go live even though",                 "tStart": null, "hold": 6 },
+    { "id": "w4",       "kind": "pill",   "num": "4", "text": "Configuring More Than Fixing",                   "trigger": "more time configuring the system than fixing",   "tStart": null, "hold": 6 },
+    { "id": "challenge","kind": "pill",   "tag": "THIS WEEK", "text": "Ask Your Team All 5 Questions. Out Loud.", "trigger": "here's your challenge this week",              "tStart": null, "hold": 9 }
+  ]
+}

@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>EP01 Title + End Cards | 1920x1080</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Alfa+Slab+One&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{ --olive:#14170F; --deep:#1F2421; --bone:#EDE6D6; --orange:#E36B2C; --yellow:#FFD23F; --steel:#8A9086; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  .card{width:1920px;height:1080px;position:relative;overflow:hidden;color:var(--bone);
+    background:radial-gradient(1200px 800px at 30% 40%, #262B23 0%, var(--deep) 55%, #171B16 100%);
+    font-family:'Oswald',sans-serif;}
+  .grain{position:absolute;inset:0;opacity:.35;
+    background-image:radial-gradient(rgba(237,230,214,.05) 1px, transparent 1px);
+    background-size:26px 26px;}
+  .rule{position:absolute;left:0;right:0;height:6px;background:var(--orange);}
+  .brand{position:absolute;top:64px;left:80px;font-weight:700;font-size:44px;text-transform:uppercase;letter-spacing:.02em;}
+  .brand .n{color:var(--orange);}
+  .ep{position:absolute;top:64px;right:80px;font-family:'JetBrains Mono',monospace;font-size:30px;
+    letter-spacing:.2em;color:var(--steel);}
+  .title-eyebrow{position:absolute;top:340px;left:80px;font-family:'JetBrains Mono',monospace;
+    font-size:30px;letter-spacing:.26em;color:var(--yellow);text-transform:uppercase;}
+  .title{position:absolute;top:400px;left:80px;width:1300px;font-weight:700;font-size:110px;
+    line-height:1.03;text-transform:uppercase;}
+  .title .o{color:var(--orange);}
+  .site{position:absolute;bottom:64px;left:80px;font-family:'JetBrains Mono',monospace;font-size:30px;
+    letter-spacing:.24em;color:var(--steel);text-transform:uppercase;}
+  /* end card */
+  .end-big{position:absolute;top:330px;left:0;right:0;text-align:center;font-weight:700;
+    font-size:96px;text-transform:uppercase;line-height:1.05;}
+  .end-big .o{color:var(--orange);}
+  .end-sub{position:absolute;top:560px;left:0;right:0;text-align:center;
+    font-family:'JetBrains Mono',monospace;font-size:34px;letter-spacing:.22em;color:var(--bone);}
+  .end-site{position:absolute;top:660px;left:0;right:0;text-align:center;font-weight:700;
+    font-size:44px;color:var(--yellow);letter-spacing:.08em;}
+</style></head><body>
+<div id="root"></div>
+<script>
+  const kind = new URLSearchParams(location.search).get('card') || 'title';
+  const root = document.getElementById('root');
+  if (kind === 'title') {
+    root.innerHTML = `<div class="card"><div class="grain"></div>
+      <div class="rule" style="top:0"></div><div class="rule" style="bottom:0"></div>
+      <div class="brand">FIELD SERVICE <span class="n">NERD</span></div>
+      <div class="ep">EP·01</div>
+      <div class="title-eyebrow">FY27 Kickoff</div>
+      <div class="title">Why Most <span class="o">Field Service</span> Implementations Fail</div>
+      <div class="site">FIELDSERVICENERD.COM</div></div>`;
+  } else {
+    root.innerHTML = `<div class="card"><div class="grain"></div>
+      <div class="rule" style="top:0"></div><div class="rule" style="bottom:0"></div>
+      <div class="brand">FIELD SERVICE <span class="n">NERD</span></div>
+      <div class="end-big">New Video <span class="o">Every Tuesday</span></div>
+      <div class="end-sub">SUBSCRIBE · FREE AI PLAYBOOK</div>
+      <div class="end-site">fieldservicenerd.com</div></div>`;
+  }
+</script>
+</body></html>

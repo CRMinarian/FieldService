@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>FSN Value Pill | transparent overlay</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Alfa+Slab+One&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Per youtube/MOTION-GRAPHICS-KIT.md.  Transparent bg; rendered with omitBackground. */
+  :root{ --olive:#14170F; --bone:#EDE6D6; --orange:#E36B2C; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:transparent;font-family:'Inter',sans-serif;display:inline-block;padding:24px;}
+  .stack{display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
+  .tag{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;letter-spacing:.16em;
+    color:#14170F;background:var(--orange);padding:8px 26px;border-radius:100px;text-transform:uppercase;}
+  .pill{display:flex;align-items:center;gap:22px;background:var(--olive);border-radius:100px;
+    padding:20px 40px 20px 26px;box-shadow:0 10px 34px rgba(0,0,0,.45);}
+  .num{font-family:'Alfa Slab One',serif;font-size:44px;line-height:1;color:var(--orange);
+    min-width:44px;text-align:center;}
+  .txt{font-size:38px;font-weight:700;color:var(--bone);line-height:1.15;white-space:nowrap;}
+  /* sky-stamp variant */
+  .sky{font-family:'Alfa Slab One',serif;font-size:170px;line-height:1;color:var(--bone);
+    transform:rotate(-1.5deg);text-shadow:0 12px 40px rgba(0,0,0,.55);}
+  .sky .o{color:var(--orange);}
+  /* header variant */
+  .hdr{font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;letter-spacing:.2em;
+    color:#14170F;background:var(--orange);padding:12px 36px;border-radius:100px;text-transform:uppercase;}
+</style></head><body>
+<div id="root" class="stack"></div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const kind = p.get('kind') || 'pill';
+  const root = document.getElementById('root');
+  if (kind === 'sky') {
+    // "70% FAIL" -> orange the word FAIL
+    const t = (p.get('text') || '').split(' ');
+    root.innerHTML = `<div class="sky">${t[0]} <span class="o">${t.slice(1).join(' ')}</span></div>`;
+  } else if (kind === 'header') {
+    root.innerHTML = `<div class="hdr">${p.get('text') || ''}</div>`;
+  } else {
+    let h = '';
+    if (p.get('tag')) h += `<div class="tag">${p.get('tag')}</div>`;
+    h += `<div class="pill">`;
+    if (p.get('num')) h += `<div class="num">${p.get('num')}</div>`;
+    h += `<div class="txt">${p.get('text') || ''}</div></div>`;
+    root.innerHTML = h;
+  }
+</script>
+</body></html>

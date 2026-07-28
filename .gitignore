@@ -27,3 +27,4 @@ ds-bundle/
 # dev screenshots / scratch
 .shots/
 web/ebook/preview-p*.png
+/edit/
