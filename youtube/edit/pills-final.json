@@ -10,7 +10,8 @@
    "tStart": 29.73,
    "hold": 5,
    "score": 0.86,
-   "tFinal": 29.73
+   "tFinal": 29.73,
+   "tEnd": 37.7
   },
   {
    "id": "q1",
@@ -22,7 +23,8 @@
    "tStart": 115.85,
    "hold": 8,
    "score": 0.57,
-   "tFinal": 115.85
+   "tFinal": 115.85,
+   "tEnd": 257.6
   },
   {
    "id": "q2",
@@ -34,7 +36,8 @@
    "tStart": 326.33,
    "hold": 8,
    "score": 0.95,
-   "tFinal": 271.93
+   "tFinal": 271.93,
+   "tEnd": 365.1
   },
   {
    "id": "q3",
@@ -46,7 +49,8 @@
    "tStart": 668.85,
    "hold": 8,
    "score": 0.77,
-   "tFinal": 367.15
+   "tFinal": 367.15,
+   "tEnd": 494.7
   },
   {
    "id": "q4",
@@ -58,7 +62,8 @@
    "tStart": 1303.89,
    "hold": 8,
    "score": 0.68,
-   "tFinal": 497.59
+   "tFinal": 497.59,
+   "tEnd": 632.7
   },
   {
    "id": "q5",
@@ -70,7 +75,8 @@
    "tStart": 1439.35,
    "hold": 8,
    "score": 0.92,
-   "tFinal": 633.05
+   "tFinal": 633.05,
+   "tEnd": 797.8
   },
   {
    "id": "watch-hdr",
@@ -80,7 +86,8 @@
    "tStart": 1981.17,
    "hold": 4,
    "score": 1,
-   "tFinal": 802.47
+   "tFinal": 802.47,
+   "tEnd": 951.32
   },
   {
    "id": "w1",
@@ -91,7 +98,8 @@
    "tStart": 1982.37,
    "hold": 6,
    "score": 0.85,
-   "tFinal": 803.67
+   "tFinal": 803.67,
+   "tEnd": 825.99
   },
   {
    "id": "w2",
@@ -102,7 +110,8 @@
    "tStart": 2021.29,
    "hold": 6,
    "score": 0.69,
-   "tFinal": 825.99
+   "tFinal": 825.99,
+   "tEnd": 847.39
   },
   {
    "id": "w3",
@@ -113,7 +122,8 @@
    "tStart": 2042.69,
    "hold": 6,
    "score": 0.59,
-   "tFinal": 847.39
+   "tFinal": 847.39,
+   "tEnd": 900.49
   },
   {
    "id": "w4",
@@ -124,7 +134,8 @@
    "tStart": 2275.09,
    "hold": 6,
    "score": 0.68,
-   "tFinal": 900.49
+   "tFinal": 900.49,
+   "tEnd": 951.32
   },
   {
    "id": "challenge",
@@ -135,7 +146,8 @@
    "tStart": 2389.62,
    "hold": 9,
    "score": 0.62,
-   "tFinal": 951.32
+   "tFinal": 951.32,
+   "tEnd": 980.3
   }
  ]
 }

@@ -152,7 +152,9 @@ if (stage === 'tighten') {
   active.forEach((p, i) => {
     inputs.push('-loop', '1', '-framerate', '30', '-i', `edit/pills/${p.id}.png`);
     const t0 = +(isTest ? p.tFinal - testStart : p.tFinal).toFixed(2);
-    const t1 = +(t0 + (p.hold || 7)).toFixed(2);
+    // Persist mode: explicit tEnd (section boundary) wins; fallback to hold-seconds pop.
+    const rawEnd = p.tEnd != null ? p.tEnd : p.tFinal + (p.hold || 7);
+    const t1 = +(isTest ? rawEnd - testStart : rawEnd).toFixed(2);
     // pills render at 2x; scale to target width. sky is big, pills medium, headers small.
     const w = p.kind === 'sky' ? 820 : p.kind === 'header' ? 420 : 760;
     const fade = 0.35;
@@ -160,8 +162,9 @@ if (stage === 'tighten') {
       `fade=t=in:st=${t0}:d=${fade}:alpha=1,fade=t=out:st=${(t1 - fade).toFixed(2)}:d=${fade}:alpha=1[p${i}]`);
     // Everything anchors bottom-right (Pierre is centered in this framing; bottom-left has the
     // baked-in StreamYard name tag).  Kit hard rule: never over the face.
+    // Headers stack ABOVE the pills so both can persist without colliding.
     const x = `W-w-56`;
-    const yBase = p.kind === 'sky' ? 'H-h-120' : `H-h-140`;
+    const yBase = p.kind === 'sky' ? 'H-h-120' : p.kind === 'header' ? 'H-h-290' : `H-h-140`;
     // slide-up 30px on entry
     const y = `${yBase}+30*max(0\\,1-((t-${t0})/${fade}))`;
     // shortest=1: end this overlay when the MAIN input ends (looped PNGs are infinite).
