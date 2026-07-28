@@ -1,8 +1,8 @@
 # EP01 — Why Most Dynamics Field Service Implementations Fail
 
 - **Playlist:** Fundamentals  *(was "The Honest Take"; that lane is now shorts/commentary)*
-- **Target length:** ~14 minutes
-- **Launch:** Week 1 (Tuesday, 10:00 AM ET)
+- **Target length:** ~14 minutes | **FINAL CUT: 16:26** (`edit/EP01-master.mp4`, edited 2026-07-28)
+- **Launch:** **Tue Aug 18, 10:00 AM ET** (Tuesdays thru Aug 11 carry the migrated guest videos)
 - **Thumbnail:** `youtube/thumbnails/ep01-most-fs-projects-fail.png` ("Most FS Projects FAIL")
 
 ---
@@ -21,14 +21,13 @@ If you're about to start a Field Service project, or you're stuck in one right n
 
 CHAPTERS
 0:00 The 70% nobody admits
-0:45 What success actually looks like
-2:00 #1 Bad process design
-3:45 #2 Underestimating change management
-5:30 #3 The scheduling trap (RSO too early)
-7:20 #4 Garbage in, garbage out
-9:10 #5 The wrong implementation partner
-11:00 4 warning signs you're in trouble
-12:30 What to do differently
+1:58 #1 Did you fix the process first?
+4:34 #2 Do your techs actually want this?
+6:09 #3 Did you switch on RSO too early?
+8:20 #4 Would you trust your own data?
+10:35 #5 Partner knows Field Service, or just Dynamics?
+13:24 Four warning signs you're in trouble
+15:53 Your challenge this week
 
 New video every Tuesday.  Subscribe for no-BS Field Service content.
 
@@ -38,7 +37,7 @@ LinkedIn: https://linkedin.com/in/fieldservicenerd
 
 #Dynamics365 #FieldService #D365
 ```
-*(Chapter times are estimates from the outline — adjust to the final cut; keep the first at 0:00.)*
+*(Chapter times are EXACT | measured from the edited master `edit/EP01-master.mp4` (16:26, includes 2.5s title card).  Do not adjust.)*
 
 **Tags:** Dynamics 365 Field Service, D365 Field Service, field service management, field service implementation, RSO, Resource Scheduling Optimization, Microsoft Dynamics 365, field service software, Dynamics implementation, field service consultant, Copilot Field Service, field service best practices, CRM implementation, why implementations fail
 
