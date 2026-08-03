@@ -11,6 +11,14 @@ I spent an afternoon standing up an agentic Power Platform environment.  Claude 
 Dataverse MCP server, PAC CLI, the whole chat to code to deploy loop that everyone is suddenly
 building.
 
+Props where props are due.  Nick Doelman pointed me to "the way," as he calls it, and he is
+right.  This is the path most solution architects are taking.  I chose a combination of Claude
+and Grok to build the pipeline out, and it took a full afternoon, several hours of getting
+everything laid in.  Once it is done, it is pretty amazing.
+
+What follows are the areas I found extremely frustrating, and a few that are genuinely
+powerful, starting with the frustrating ones.
+
 The CLI lied to me six times.  Not "the docs were unclear" lied.  Actually told me false things,
 in error messages, with confidence.
 
