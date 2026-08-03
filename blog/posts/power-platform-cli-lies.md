@@ -11,11 +11,16 @@ I spent an afternoon standing up an agentic Power Platform environment.  Claude 
 Dataverse MCP server, PAC CLI, the whole chat to code to deploy loop that everyone is suddenly
 building.
 
-Props where props are due.  [Nick Doelman](https://readyxrm.blog/) pointed me to the way, in his
-piece [Ditch the Power Apps Maker Portal](https://readyxrm.blog/2026/07/16/ditch-the-power-apps-maker-portal/).
-That is the model I am using here, and he is right.  This is the path most solution architects are taking.  I chose a combination of Claude
-and Grok to build the pipeline out, and it took a full afternoon, several hours of getting
-everything laid in.  Once it is done, it is pretty amazing.
+Props where props are due.  [Nick Doelman](https://readyxrm.blog/) wrote
+[Ditch the Power Apps Maker Portal](https://readyxrm.blog/2026/07/16/ditch-the-power-apps-maker-portal/),
+and that piece pointed me back to The Way.
+
+I call it The Way like the Mandalorian does.  A creed you hold onto even when the system works
+against you.  I'm always hunting for ideas that lead back to The Way, and Nick's model is one of
+them.  It's the path most solution architects are taking right now.
+
+I chose a combination of Claude and Grok to build the pipeline out, and it took a full
+afternoon, several hours of getting everything laid in.  Once it is done, it is pretty amazing.
 
 What follows are the areas I found extremely frustrating, and a few that are genuinely
 powerful, starting with the frustrating ones.
