@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>Field Service Nerd Blog</title>
+<link>https://fieldservicenerd.com/blog</link>
+<description>Long-form field notes on Dynamics 365 Field Service, RSO, AI, and service operations.</description>
+<item>
+<title>Why Most Dynamics Field Service Implementations Fail</title>
+<link>https://fieldservicenerd.com/blog/why-field-service-implementations-fail</link>
+<guid>https://fieldservicenerd.com/blog/why-field-service-implementations-fail</guid>
+<pubDate>Mon, 03 Aug 2026 14:00:00 GMT</pubDate>
+<description>More than 70% of D365 Field Service implementations fail or quietly under-deliver.  It is almost never the software.  Here are the five questions that find the problem before it finds you.</description>
+</item>
+</channel></rss>

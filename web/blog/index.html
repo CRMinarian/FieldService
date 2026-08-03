@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Blog | Field Service Nerd</title>
+<meta name="description" content="Long-form field notes on Dynamics 365 Field Service, RSO, AI, and running service operations that actually work.">
+<link rel="canonical" href="https://fieldservicenerd.com/blog">
+<link rel="icon" type="image/png" href="../assets/fsn-logo-avatar.png">
+<link rel="alternate" type="application/rss+xml" title="Field Service Nerd Blog" href="https://fieldservicenerd.com/blog/rss.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1S6DQHF4Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L1S6DQHF4Z');
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../app.css">
+<style>
+  body { background: var(--surface-base, #17140F); color: var(--text-body, #EDE6D6); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 80px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+  .topbar img { height: 44px; }
+  .topbar a.back { color: var(--color-accent, #E36B2C); text-decoration:none; font-family: var(--font-mono, monospace); font-size: 13px; }
+  .staging { background:#5A2B0E; color:#FFD9B8; font-family: var(--font-mono, monospace); font-size: 13px; padding: 10px 14px; border-radius: 8px; margin: 10px 0 18px; letter-spacing:.03em; }
+  .eyebrow { font-family: var(--font-mono, monospace); color: var(--color-accent, #E36B2C); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  h1.post { font-family: var(--font-display, sans-serif); font-size: clamp(30px, 5vw, 44px); line-height: 1.06; margin: 10px 0 8px; color: var(--text-strong, #fff); }
+  .meta { color: var(--text-muted, #A79E8C); font-size: 14px; margin-bottom: 26px; font-family: var(--font-mono, monospace); }
+  article { font-size: 17px; }
+  article p { line-height: 1.75; margin: 0 0 16px; }
+  article h2 { font-family: var(--font-display, sans-serif); font-size: 24px; color: var(--text-strong, #fff); margin: 36px 0 12px; }
+  article h3 { font-family: var(--font-display, sans-serif); font-size: 19px; color: var(--text-strong, #fff); margin: 26px 0 10px; }
+  article a { color: var(--cyan, #7FBFD4); }
+  article blockquote { border-left: 4px solid var(--steel, #4A6B8A); margin: 18px 0; padding: 8px 16px; color: var(--text-muted, #CFC8B8); font-style: italic; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 24px; }
+  article li { margin-bottom: 8px; line-height: 1.6; }
+  article code { background: #2A2A2A; border-radius: 4px; padding: 1px 6px; font-size: 15px; }
+  article pre { background: #12100C; border: 1px solid var(--border-subtle,#333); border-radius: 10px; padding: 14px 16px; overflow-x: auto; }
+  article hr { border: 0; border-top: 2px dashed var(--border-subtle,#3A362E); margin: 30px 0; }
+  .tablewrap { overflow-x: auto; margin: 0 0 18px; }
+  article table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  article th { text-align: left; font-family: var(--font-mono, monospace); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-accent,#E36B2C); border-bottom: 2px solid var(--border-subtle,#3A362E); padding: 8px 12px 6px; }
+  article td { border-bottom: 1px solid var(--border-subtle,#2E2B24); padding: 9px 12px; vertical-align: top; line-height: 1.5; }
+  .trythis { background: rgba(227,107,44,.08); border: 1px solid var(--color-accent,#E36B2C); border-radius: 12px; padding: 16px 20px 8px; margin: 22px 0; }
+  .trythis .tag { display:inline-block; background: var(--color-accent,#E36B2C); color:#17140F; font-family: var(--font-display,sans-serif); font-weight:700; font-size: 12px; letter-spacing:.14em; padding: 4px 12px; border-radius: 100px; margin-bottom: 10px; }
+  .cta { text-align:center; background: var(--surface-card, #1F1B14); border: 1px solid var(--color-accent, #E36B2C); border-radius: 12px; padding: 26px 22px; margin-top: 44px; }
+  .cta a.btn { display:inline-block; background: var(--color-accent, #E36B2C); color: #17140F; font-family: var(--font-display, sans-serif); font-weight: 700; padding: 12px 26px; border-radius: 8px; text-decoration:none; margin-top: 12px; }
+  footer { margin-top: 50px; text-align:center; color: var(--text-muted, #A79E8C); font-size: 13px; }
+  footer a { color: var(--cyan, #7FBFD4); }
+  .postcard { display:block; background: var(--surface-card, #1F1B14); border: 1px solid var(--border-subtle,#333); border-radius: 12px; padding: 20px 22px; margin: 16px 0; text-decoration:none; color: inherit; transition: border-color .15s; }
+  .postcard:hover { border-color: var(--color-accent,#E36B2C); }
+  .postcard h2 { font-family: var(--font-display,sans-serif); font-size: 21px; margin: 6px 0 8px; color: var(--text-strong,#fff); }
+  .postcard p { color: var(--text-muted,#CFC8B8); line-height: 1.6; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><img src="../assets/fsn-logo-patch.png" alt="Field Service Nerd"></a>
+    <a class="back" href="/">← fieldservicenerd.com</a>
+  </div>
+  <div class="eyebrow">The Long Form</div>
+  <h1 class="post">Field Notes</h1>
+  <div class="meta">The written version.  No fluff, no vendor spin, same as the channel.</div>
+  <a class="postcard" href="/blog/why-field-service-implementations-fail">
+    <div class="eyebrow">Fundamentals · 6 min · 2026-08-03</div>
+    <h2>Why Most Dynamics Field Service Implementations Fail</h2>
+    <p>More than 70% of D365 Field Service implementations fail or quietly under-deliver.  It is almost never the software.  Here are the five questions that find the problem before it finds you.</p>
+  </a>
+  <div class="cta">
+    <div class="eyebrow">Free Download</div>
+    <h2 style="margin:8px 0 4px;font-family:var(--font-display,sans-serif);">The Field Service AI Playbook</h2>
+    <p style="color:var(--text-muted,#A79E8C);">21 pages.  What&#x27;s real, what&#x27;s hype, and where AI actually pays off.</p>
+    <a class="btn" href="/#join">Get the Playbook →</a>
+  </div>
+  <footer>
+    Field Service Nerd · <a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/consulting">Consulting</a> · <a href="https://www.youtube.com/@FieldServiceNerd" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</div>
+</body>
+</html>

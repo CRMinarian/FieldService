@@ -17,6 +17,7 @@ function Nav({ onJoin, theme, onToggleTheme }) {
         </a>
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
           <a href={isHome ? '#podcast' : '/#podcast'} className="navlink nav-hide" style={link}>Podcast</a>
+          <a href="/blog" className="navlink nav-hide" style={link}>Blog</a>
           <a href="/consulting" className="navlink nav-hide" style={link}>Consulting</a>
           <a href="/about" className="navlink nav-hide" style={link}>About</a>
 

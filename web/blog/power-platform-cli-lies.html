@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Six Ways the Power Platform CLI Lies to You | Field Service Nerd</title>
+<meta name="description" content="I stood up an agentic Power Platform environment in an afternoon.  The PAC CLI told me six false things with total confidence.  Here they are, in the order they bit me.">
+<link rel="canonical" href="https://fieldservicenerd.com/blog/power-platform-cli-lies">
+<link rel="icon" type="image/png" href="../assets/fsn-logo-avatar.png">
+<link rel="alternate" type="application/rss+xml" title="Field Service Nerd Blog" href="https://fieldservicenerd.com/blog/rss.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1S6DQHF4Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L1S6DQHF4Z');
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../app.css">
+<style>
+  body { background: var(--surface-base, #17140F); color: var(--text-body, #EDE6D6); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 80px; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+  .topbar img { height: 44px; }
+  .topbar a.back { color: var(--color-accent, #E36B2C); text-decoration:none; font-family: var(--font-mono, monospace); font-size: 13px; }
+  .staging { background:#5A2B0E; color:#FFD9B8; font-family: var(--font-mono, monospace); font-size: 13px; padding: 10px 14px; border-radius: 8px; margin: 10px 0 18px; letter-spacing:.03em; }
+  .eyebrow { font-family: var(--font-mono, monospace); color: var(--color-accent, #E36B2C); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  h1.post { font-family: var(--font-display, sans-serif); font-size: clamp(30px, 5vw, 44px); line-height: 1.06; margin: 10px 0 8px; color: var(--text-strong, #fff); }
+  .meta { color: var(--text-muted, #A79E8C); font-size: 14px; margin-bottom: 26px; font-family: var(--font-mono, monospace); }
+  article { font-size: 17px; }
+  article p { line-height: 1.75; margin: 0 0 16px; }
+  article h2 { font-family: var(--font-display, sans-serif); font-size: 24px; color: var(--text-strong, #fff); margin: 36px 0 12px; }
+  article h3 { font-family: var(--font-display, sans-serif); font-size: 19px; color: var(--text-strong, #fff); margin: 26px 0 10px; }
+  article a { color: var(--cyan, #7FBFD4); }
+  article blockquote { border-left: 4px solid var(--steel, #4A6B8A); margin: 18px 0; padding: 8px 16px; color: var(--text-muted, #CFC8B8); font-style: italic; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 24px; }
+  article li { margin-bottom: 8px; line-height: 1.6; }
+  article code { background: #2A2A2A; border-radius: 4px; padding: 1px 6px; font-size: 15px; }
+  article pre { background: #12100C; border: 1px solid var(--border-subtle,#333); border-radius: 10px; padding: 14px 16px; overflow-x: auto; }
+  article hr { border: 0; border-top: 2px dashed var(--border-subtle,#3A362E); margin: 30px 0; }
+  .tablewrap { overflow-x: auto; margin: 0 0 18px; }
+  article table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  article th { text-align: left; font-family: var(--font-mono, monospace); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-accent,#E36B2C); border-bottom: 2px solid var(--border-subtle,#3A362E); padding: 8px 12px 6px; }
+  article td { border-bottom: 1px solid var(--border-subtle,#2E2B24); padding: 9px 12px; vertical-align: top; line-height: 1.5; }
+  .trythis { background: rgba(227,107,44,.08); border: 1px solid var(--color-accent,#E36B2C); border-radius: 12px; padding: 16px 20px 8px; margin: 22px 0; }
+  .trythis .tag { display:inline-block; background: var(--color-accent,#E36B2C); color:#17140F; font-family: var(--font-display,sans-serif); font-weight:700; font-size: 12px; letter-spacing:.14em; padding: 4px 12px; border-radius: 100px; margin-bottom: 10px; }
+  .cta { text-align:center; background: var(--surface-card, #1F1B14); border: 1px solid var(--color-accent, #E36B2C); border-radius: 12px; padding: 26px 22px; margin-top: 44px; }
+  .cta a.btn { display:inline-block; background: var(--color-accent, #E36B2C); color: #17140F; font-family: var(--font-display, sans-serif); font-weight: 700; padding: 12px 26px; border-radius: 8px; text-decoration:none; margin-top: 12px; }
+  footer { margin-top: 50px; text-align:center; color: var(--text-muted, #A79E8C); font-size: 13px; }
+  footer a { color: var(--cyan, #7FBFD4); }
+  .postcard { display:block; background: var(--surface-card, #1F1B14); border: 1px solid var(--border-subtle,#333); border-radius: 12px; padding: 20px 22px; margin: 16px 0; text-decoration:none; color: inherit; transition: border-color .15s; }
+  .postcard:hover { border-color: var(--color-accent,#E36B2C); }
+  .postcard h2 { font-family: var(--font-display,sans-serif); font-size: 21px; margin: 6px 0 8px; color: var(--text-strong,#fff); }
+  .postcard p { color: var(--text-muted,#CFC8B8); line-height: 1.6; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><img src="../assets/fsn-logo-patch.png" alt="Field Service Nerd"></a>
+    <a class="back" href="/blog">← all posts</a>
+  </div>
+  <div class="staging">DRAFT PREVIEW | not published, not indexed.</div>
+  <div class="eyebrow">Agentic Ops · 6 min read</div>
+  <h1 class="post">Six Ways the Power Platform CLI Lies to You</h1>
+  <div class="meta">2026-08-04 · Pierre Hulsebus</div>
+  <article>
+<p>I spent an afternoon standing up an agentic Power Platform environment.  Claude Code, the Dataverse MCP server, PAC CLI, the whole chat to code to deploy loop that everyone is suddenly building.</p>
+<p>The CLI lied to me six times.  Not &quot;the docs were unclear&quot; lied.  Actually told me false things, in error messages, with confidence.</p>
+<p>Every one of these cost me time.  A couple nearly cost me an environment.  Here they are, in the order they bit me.</p>
+<hr>
+<h2>Lie 1 | winget hands you a fossil</h2>
+<p>You want PAC CLI.  You do the obvious thing.</p>
+<pre><code>winget install Microsoft.PowerAppsCLI</code></pre>
+<p>Congratulations.  You just installed <strong>version 1.0</strong>.</p>
+<p>The current PAC CLI is 2.10.1.  The winget manifest points at an MSI that has not moved in years.  Nothing warns you.  It installs cleanly, <code>pac</code> resolves, and you spend the next hour wondering why half the verbs in the docs do not exist.</p>
+<p><strong>What to do instead:</strong></p>
+<pre><code>dotnet tool install --global Microsoft.PowerApps.CLI.Tool</code></pre>
+<p>That is the real distribution channel.  Which brings us directly to lie number two.</p>
+<hr>
+<h2>Lie 2 | &quot;DotnetToolSettings.xml was not found in the package&quot;</h2>
+<p>You run the correct install command and get this:</p>
+<pre><code>The settings file in the tool's NuGet package is invalid:
+Settings file 'DotnetToolSettings.xml' was not found in the package.
+Tool 'microsoft.powerapps.cli.tool' failed to install.
+Contact the tool author for assistance.</code></pre>
+<p>&quot;Contact the tool author.&quot;  Cool.  So the package is broken, right?</p>
+<p>The package is fine.  I unzipped it to be sure.  A <code>.nupkg</code> is just a zip, so you can check this yourself in about ten seconds.  <code>DotnetToolSettings.xml</code> is sitting right there, under:</p>
+<pre><code>tools/net10.0/any/</code></pre>
+<p><strong>PAC CLI targets net10.0.</strong>  If you only have the .NET 8 SDK, dotnet goes looking in <code>tools/net8.0/</code>, finds nothing, and blames the package instead of telling you the truth, which is that your SDK is too old.</p>
+<p><strong>Fix:</strong></p>
+<pre><code>winget install --id Microsoft.DotNet.SDK.10 --exact
+dotnet tool install --global Microsoft.PowerApps.CLI.Tool</code></pre>
+<p>I lost a good chunk of time on this one because the error points you at the package author.  It should say &quot;no compatible target framework.&quot;  It does not.</p>
+<hr>
+<h2>Lie 3 | a path to a file that does not exist</h2>
+<p>PAC ships its own MCP server now, which is genuinely great for agentic work.  You ask where it lives:</p>
+<pre><code>pac copilot mcp</code></pre>
+<p>It tells you:</p>
+<pre><code>Local MCP server location: C:\Users\you\.dotnet\tools\.store\...\pac-mcp.exe</code></pre>
+<p>That file does not exist.</p>
+<p>What exists is <code>pac-mcp.dll</code>.  It is a framework dependent assembly, so you launch it with <code>dotnet</code>, not directly.  The CLI prints a path to an executable that was never in the package.</p>
+<p><strong>What actually works:</strong></p>
+<pre><code>claude mcp add powerplatform -- dotnet &quot;C:\Users\you\.dotnet\tools\.store\microsoft.powerapps.cli.tool\2.10.1\microsoft.powerapps.cli.tool\2.10.1\tools\net10.0\any\pac-mcp.dll&quot;</code></pre>
+<p>While you are in there, note that path has the version number baked in twice.  <strong>Upgrading PAC silently breaks your MCP server.</strong>  Re run <code>claude mcp add</code> after every <code>dotnet tool update</code> or you will spend an evening wondering why your agent lost its hands.</p>
+<hr>
+<h2>Lie 4 | reporting failure on success</h2>
+<p>This is my favourite one, because it is so confidently wrong.</p>
+<pre><code>pac admin create --name &quot;My Env&quot; --type Developer</code></pre>
+<p>Output:</p>
+<pre><code>Creating Developer Dataverse database in your tenant.
+...
+Polling completed with status code : OK
+Error: There is an error parsing the data. Property 'linkedEnvironmentMetadata' is missing.</code></pre>
+<p>Read that again.  <strong>Polling completed OK.  Then an error.</strong></p>
+<p>The environment was created.  It exists.  It is healthy.  PAC just could not parse the response it got back and decided that meant the operation failed.</p>
+<p>If you trust the error and run the command again, you get a second environment.  If you trust the error and go delete things, you are deleting a working environment for no reason.</p>
+<p><strong>Always confirm before you react:</strong></p>
+<pre><code>pac env list</code></pre>
+<hr>
+<h2>Lie 5 | &quot;Is Disabled&quot; does not mean what you think</h2>
+<p>You want to know whether you can install Field Service.  Reasonable question.</p>
+<pre><code>pac admin list-app-templates --region unitedstates</code></pre>
+<pre><code>Template Name       Display Name     Is Disabled
+D365_FieldService   Field Service    True</code></pre>
+<p>Disabled.  Clear enough.  No Field Service for you, go buy licenses.</p>
+<p>I believed this.  I wrote it down.  I told my client it was a licensing problem.</p>
+<p>Then Field Service installed fine.</p>
+<p><strong>These two commands gate on completely different things:</strong></p>
+<div class="tablewrap"><table><thead><tr><th>Command</th><th>What it actually governs</th></tr></thead><tbody><tr><td><code>pac admin list-app-templates</code></td><td>Templates offered at environment <strong>creation</strong> time, for the <code>--templates</code> flag</td></tr><tr><td><code>pac application install</code></td><td>Installing into an <strong>existing</strong> environment</td></tr></tbody></table></div>
+<p>An app can be unavailable as a creation time template and still install perfectly well afterwards.  The column is named <code>Is Disabled</code> with no scope on it whatsoever, and it will absolutely convince you that you have a licensing problem you do not have.</p>
+<p>Do not diagnose entitlement from this table.  Attempt the install and read the error.</p>
+<hr>
+<h2>Lie 6 | the one that nearly cost me an environment</h2>
+<p>This is the worst, and it is not even an error message.  It is silence.</p>
+<p>Fresh Sandbox, created with Dynamics 365 apps enabled.  I check what is in it:</p>
+<pre><code>pac solution list</code></pre>
+<pre><code>Crf44fc                       Common Data Services Default Solution
+Default                       Default Solution
+DynamicsMKT_SendOptimization  Dynamics Marketing Send Optimization</code></pre>
+<p>Three solutions.  No Sales.  No Customer Service.  No <code>msdyn_</code> anything.</p>
+<p>A Dynamics 365 enabled environment has <strong>hundreds</strong> of solutions.  Three means Dataverse only. And per Microsoft Learn, <code>Enable Dynamics 365 apps</code> cannot be changed after provisioning.  So this environment is permanently useless and has to be deleted and rebuilt.</p>
+<p>That is what I was about to say.  Out loud.  To the person who had just built it.</p>
+<p>Instead I ran the install I actually wanted, as a test.  It worked.  Sales deployed without complaint.</p>
+<p><strong>First party apps deploy asynchronously and <code>pac solution list</code> lags badly behind.</strong>  Learn says Sales and Customer Service auto install when you enable D365 apps.  True eventually.  Not true immediately, and nothing tells you which state you are in.</p>
+<p>A correctly configured environment and a permanently broken one look <strong>identical</strong> for the first stretch of their life.</p>
+<p>The only reliable test is to attempt an install and read what comes back:</p>
+<div class="tablewrap"><table><thead><tr><th>Error</th><th>What it means</th></tr></thead><tbody><tr><td><code>Application successfully installed</code></td><td>Environment takes D365 apps</td></tr><tr><td><code>Installing ... on CDS instance is not supported</code></td><td>Genuinely Dataverse only</td></tr><tr><td><code>Package requested for installation was not found</code></td><td>You typed the app name wrong.  Says nothing about the environment</td></tr></tbody></table></div>
+<p>That third one is a bonus lie, by the way.  It reads like a capability problem.  It is a typo. Get exact names from <code>pac application list --environment &lt;id&gt;</code> instead of guessing.</p>
+<hr>
+<h2>Why this matters more than it used to</h2>
+<p>When a human runs a CLI, a bad error message costs an hour of confusion.</p>
+<p>When an <strong>agent</strong> runs the CLI, a bad error message becomes a wrong conclusion, written into a document, acted on with confidence.  I watched it happen in real time.  My agent read <code>Is Disabled = True</code> and correctly concluded &quot;licensing problem.&quot;  Correct reasoning.  Garbage input.</p>
+<p>The fix is not smarter agents.  The fix is the discipline of testing instead of inferring. Every one of these six lies collapses the moment you run the actual operation and read the actual result.  Every one of them survives indefinitely if you read a status field and reason from it.</p>
+<p>If you are building an agentic Power Platform pipeline right now, and a lot of us are, write your gotchas file as you go.  Mine has nine entries after one afternoon.</p>
+<p>The CLI is still the right tool.  It just is not a reliable narrator.</p>
+<hr>
+<p><em>Pierre Hulsebus builds AI powered business solutions at NukaSoft.AI.  Currently standing up an agentic Dynamics 365 pipeline and writing down everything that breaks.</em></p>
+  </article>
+  <div class="cta">
+    <div class="eyebrow">Free Download</div>
+    <h2 style="margin:8px 0 4px;font-family:var(--font-display,sans-serif);">The Field Service AI Playbook</h2>
+    <p style="color:var(--text-muted,#A79E8C);">21 pages.  What&#x27;s real, what&#x27;s hype, and where AI actually pays off.</p>
+    <a class="btn" href="/#join">Get the Playbook →</a>
+  </div>
+  <footer>
+    Field Service Nerd · <a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/consulting">Consulting</a> · <a href="https://www.youtube.com/@FieldServiceNerd" target="_blank" rel="noopener">YouTube</a>
+  </footer>
+</div>
+</body>
+</html>
