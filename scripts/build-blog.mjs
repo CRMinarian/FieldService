@@ -68,7 +68,9 @@ function render(body) {
       continue;
     }
     flushT();
-    if (s.startsWith('```')) { flushAll(); fence = []; }
+    const img = s.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/);
+    if (img) { flushAll(); out.push(`<figure class="whimsy"><img src="${img[2]}" alt="${esc(img[1])}" loading="lazy"></figure>`); }
+    else if (s.startsWith('```')) { flushAll(); fence = []; }
     else if (s.startsWith('### ')) { flushAll(); out.push(`<h3>${inline(s.slice(4))}</h3>`); }
     else if (s.startsWith('## ')) { flushAll(); out.push(`<h2>${inline(s.slice(3))}</h2>`); }
     else if (s.startsWith('> ')) { flushP(); flushL(); quote.push(s.slice(2)); }
@@ -106,6 +108,8 @@ const CSS = `
   article code { background: #2A2A2A; border-radius: 4px; padding: 1px 6px; font-size: 15px; }
   article pre { background: #12100C; border: 1px solid var(--border-subtle,#333); border-radius: 10px; padding: 14px 16px; overflow-x: auto; }
   article hr { border: 0; border-top: 2px dashed var(--border-subtle,#3A362E); margin: 30px 0; }
+  .whimsy { margin: 26px auto; text-align: center; }
+  .whimsy img { max-width: min(360px, 100%); border-radius: 12px; border: 1px solid var(--border-subtle,#3A362E); }
   .tablewrap { overflow-x: auto; margin: 0 0 18px; }
   article table { border-collapse: collapse; width: 100%; font-size: 15px; }
   article th { text-align: left; font-family: var(--font-mono, monospace); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-accent,#E36B2C); border-bottom: 2px solid var(--border-subtle,#3A362E); padding: 8px 12px 6px; }

@@ -19,6 +19,8 @@ I call it The Way like the Mandalorian does.  A creed you hold onto even when th
 against you.  I'm always hunting for ideas that lead back to The Way, and Nick's model is one of
 them.  It's the path most solution architects are taking right now.
 
+![This is the way](this-is-the-way.jpg)
+
 I chose a combination of Claude and Grok to build the pipeline out, and it took a full
 afternoon, several hours of getting everything laid in.  Once it is done, it is pretty amazing.
 
