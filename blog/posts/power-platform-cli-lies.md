@@ -1,15 +1,21 @@
 ---
-title: Six Ways the Power Platform CLI Lies to You
+title: Seven Ways the Power Platform CLI Lies to You
 slug: power-platform-cli-lies
 date: 2026-08-04
 tag: Agentic Ops
 status: draft
-description: I stood up an agentic Power Platform environment in an afternoon.  The PAC CLI told me six false things with total confidence.  Here they are, in the order they bit me.
+description: I stood up an agentic Power Platform environment in an afternoon.  The PAC CLI told me seven false things with total confidence.  Here they are, in the order they bit me.
 ---
+
+*Last updated: 2026-08-03.  This is a living post.  New traps get added as they surface, and
+the number in the title will move.  Changelog at the bottom.*
 
 I spent an afternoon standing up an agentic Power Platform environment.  Claude Code, the
 Dataverse MCP server, PAC CLI, the whole chat to code to deploy loop that everyone is suddenly
 building.
+
+The CLI lied to me seven times.  Not "the docs were unclear" lied.  Actually told me false
+things, in error messages, with confidence.
 
 Props where props are due.  [Nick Doelman](https://readyxrm.blog/) wrote
 [Ditch the Power Apps Maker Portal](https://readyxrm.blog/2026/07/16/ditch-the-power-apps-maker-portal/),
@@ -24,11 +30,20 @@ them.  It's the path most solution architects are taking right now.
 I chose a combination of Claude and Grok to build the pipeline out, and it took a full
 afternoon, several hours of getting everything laid in.  Once it is done, it is pretty amazing.
 
-What follows are the areas I found extremely frustrating, and a few that are genuinely
-powerful, starting with the frustrating ones.
+First, where this is going.  The goal is Microsoft MVP, Business Applications category, inside
+eleven months.  The method: build real things on Power Platform and Dynamics 365 Field Service
+in the open, and write down what breaks.  This post is day one output.  Seven traps, one
+afternoon, from actually standing the environment up rather than reading about it.  Coming next:
+Dataverse solution architecture, Power Pages, Field Service asset lifecycle, IoT and predictive
+maintenance, and Digital Product Passport work against the EU regulation that reached full
+application on 19 July 2026.
 
-The CLI lied to me six times.  Not "the docs were unclear" lied.  Actually told me false things,
-in error messages, with confidence.
+Everything in this post has a working, sanitized public counterpart:
+[github.com/NukaSoft/agentic-powerplatform-pipeline](https://github.com/NukaSoft/agentic-powerplatform-pipeline).
+The full setup, a gotchas doc covering all seven lies, a setup script that checks for the .NET
+10 SDK before it attempts the PAC install, and a verify script that resolves the version-pinned
+`pac-mcp.dll` path so the MCP server does not break silently on upgrade.  The post stands
+alone.  The repo is what you hand someone who wants to skip the pain.
 
 Every one of these cost me time.  A couple nearly cost me an environment.  Here they are, in the
 order they bit me.
@@ -221,14 +236,46 @@ That is what I was about to say.  Out loud.  To the person who had just built it
 Instead I ran the install I actually wanted, as a test.  It worked.  Sales deployed without
 complaint.
 
-**First party apps deploy asynchronously and `pac solution list` lags badly behind.**  Learn
-says Sales and Customer Service auto install when you enable D365 apps.  True eventually.  Not
-true immediately, and nothing tells you which state you are in.
+I assumed this was lag.  First party apps deploy asynchronously, so I figured the solutions
+would show up eventually and I had just looked too early.
 
-A correctly configured environment and a permanently broken one look **identical** for the first
-stretch of their life.
+They never showed up.
 
-The only reliable test is to attempt an install and read what comes back:
+An hour after Field Service finished installing, `pac solution list` was still reporting the
+same three rows.  So I queried the `solution` table directly:
+
+```powershell
+pac org fetch --xmlFile .\solutions.xml
+```
+
+```xml
+<fetch>
+  <entity name="solution">
+    <attribute name="uniquename" />
+    <attribute name="version" />
+  </entity>
+</fetch>
+```
+
+**Hundreds of solutions.**  Eighteen of them Field Service alone, `FieldService_Anchor` at
+8.8.148.41 right at the top, `ConnectedFieldService` sitting there quite happily.
+
+Same environment.  Same auth profile.  Same moment in time.
+
+| Method | Solutions reported |
+|---|---|
+| `pac solution list` | 3 |
+| FetchXML against `solution` | hundreds |
+
+`pac solution list` is not slow.  It is **wrong**, and it stays wrong.  A fully loaded Dynamics
+365 environment and an empty Dataverse one produce identical output from that command, which
+makes it worse than useless for the exact question everybody uses it to answer.
+
+One more trap while you are here: passing FetchXML inline with `--xml` gets mangled by
+PowerShell quoting and dies with `System.Xml.XmlException`.  Write it to a file and use
+`--xmlFile`.
+
+The only reliable test for install capability is to attempt an install and read what comes back:
 
 | Error | What it means |
 |---|---|
@@ -238,6 +285,34 @@ The only reliable test is to attempt an install and read what comes back:
 
 That third one is a bonus lie, by the way.  It reads like a capability problem.  It is a typo.
 Get exact names from `pac application list --environment <id>` instead of guessing.
+
+---
+
+## Lie 7 | "Failed to install" when it just stopped watching
+
+I wrote most of this post while waiting for Field Service to install.  Then this landed:
+
+```
+Polling to check the status of your Application... Execution time: 01:00:23
+Error: Failed to install application within maximum timeout of 60 minutes
+```
+
+**Failed to install.**  That is what it says.
+
+The install had not failed.  It was still running, perfectly happily, and the admin center was
+showing it progressing thru version 8.8.148.41 the entire time.
+
+What actually happened is that PAC has a sixty minute polling ceiling and hit it.  It stopped
+watching.  That is all.  The word for that is "timeout," and it is a completely different thing
+from "failed."
+
+Field Service is a large install.  Going past an hour is normal, not exceptional.  So the
+default behaviour of this command is to eventually tell you your normal install failed.
+
+If you wire that into CI, or hand it to an agent, you get a retry on an install that is already
+running.  Nothing good is downstream of that.
+
+**Check the admin center.  Do not re run the install.**
 
 ---
 
@@ -251,14 +326,33 @@ document, acted on with confidence.  I watched it happen in real time.  My agent
 input.
 
 The fix is not smarter agents.  The fix is the discipline of testing instead of inferring.
-Every one of these six lies collapses the moment you run the actual operation and read the
+Every one of these seven lies collapses the moment you run the actual operation and read the
 actual result.  Every one of them survives indefinitely if you read a status field and reason
 from it.
 
+That last one is the sharpest example.  An agent that believes "Failed to install" retries an
+install that is already running.  An agent that checks the admin center first does not.  Same
+model, same prompt, completely different outcome, decided entirely by whether it trusted the
+error text.
+
 If you are building an agentic Power Platform pipeline right now, and a lot of us are, write
-your gotchas file as you go.  Mine has nine entries after one afternoon.
+your gotchas file as you go.  Mine has nine entries after one afternoon.  And "as you go" is
+the load bearing part.  The moment a lie bites you is the only moment you hold the exact error
+text, the real fix, and the proof in the same pair of hands.  Write it down afterward and you
+are summarizing a memory.  Write it down in the moment and you are filing evidence.
 
 The CLI is still the right tool.  It just is not a reliable narrator.
+
+The working version of everything above lives in the companion repo:
+[github.com/NukaSoft/agentic-powerplatform-pipeline](https://github.com/NukaSoft/agentic-powerplatform-pipeline).
+Take the setup, skip the afternoon.
+
+---
+
+## Changelog
+
+- 2026-08-03 | Published with seven.  Started at six; the Field Service install timeout added
+  the seventh while the post was being written.
 
 ---
 
