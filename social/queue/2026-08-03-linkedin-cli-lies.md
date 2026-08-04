@@ -1,6 +1,6 @@
 # LinkedIn | Seven Ways the Power Platform CLI Lies to You (blog launch)
 
-- **Post:** now (Pierre posting manually, 2026-08-03)
+- **Post:** ✅ SCHEDULED on LinkedIn (Pierre, 2026-08-03)
 - **Links to:** https://fieldservicenerd.com/blog/power-platform-cli-lies (LIVE)
 - **Voice check:** 0 errors, 0 style breaks (1 warning = "Dynamics365" hashtag false positive)
 - **⚠️ TAG NICK DOELMAN** on his name when pasting (type @Nick Doelman, pick him) | the model

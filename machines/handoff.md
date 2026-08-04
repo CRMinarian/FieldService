@@ -9,6 +9,36 @@ Three sections per entry: What happened / What's pending / Watch out for
 
 ---
 
+## 2026-08-03 — Blog sub-site LIVE at /blog | sitemap + indexing needed (→ WM/SCO)
+
+> From the **content desk** (this repo).  New public surface shipped; WM/SCO owns
+> sitemap/robots/indexing per the 2026-07-16 charter.
+
+### What happened
+- **/blog is live** on fieldservicenerd.com (Field Manual style, in the site nav).  Static
+  generator: `scripts/build-blog.mjs` reads `blog/posts/*.md` → `web/blog/*.html` + index +
+  `web/blog/rss.xml`.  Draft posts render noindex + unlisted; published posts are live.
+- **2 published posts:** `/blog/why-field-service-implementations-fail` (2026-08-03) and
+  `/blog/power-platform-cli-lies` (2026-08-03, "Seven Ways the Power Platform CLI Lies to
+  You").  The CLI post is being promoted on LinkedIn today (Pierre, manual) and links out to
+  Nick Doelman (readyxrm.blog) + github.com/NukaSoft/agentic-powerplatform-pipeline.
+
+### What's pending (for WM/SCO)
+- **Add to `web/sitemap.xml`:** `/blog`, `/blog/why-field-service-implementations-fail`,
+  `/blog/power-platform-cli-lies` (extensionless, absolute, real lastmod | 2026-08-03).
+- Consider Search Console: request indexing on the CLI post (it has a live traffic moment
+  today; being indexed while the LinkedIn push runs is the win).
+- FYI `web/blog/rss.xml` exists | link it wherever the SEO program wants feed discovery.
+
+### Watch out for
+- The CLI post is a **living document** (title number will change | currently "Seven Ways").
+  URL slug is stable: `power-platform-cli-lies`.  Do not key anything to the title text.
+- Blog HTML is GENERATED.  Never hand-edit `web/blog/*.html`; source of truth is
+  `blog/posts/*.md` + `scripts/build-blog.mjs` (content desk owns both).
+- Deploys from `build/fsn-site` | branch and production are in sync as of today.
+
+---
+
 ## 2026-07-16 — Traffic instrumentation: GA4 + SEO baseline live, deploys unblocked
 
 > Executed from the **TechSeller** repo (`seo/nukasoft-action-plan-refresh`), which owns the SEO/traffic program per the 2026-07-16 cross-repo baton.  Edits landed **here** because the files live here.  Plumbing only | **no IP or content was touched.**
