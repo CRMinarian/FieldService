@@ -3,7 +3,7 @@ title: Seven Ways the Power Platform CLI Lies to You
 slug: power-platform-cli-lies
 date: 2026-08-04
 tag: Agentic Ops
-status: draft
+status: published
 description: I stood up an agentic Power Platform environment in an afternoon.  The PAC CLI told me seven false things with total confidence.  Here they are, in the order they bit me.
 ---
 

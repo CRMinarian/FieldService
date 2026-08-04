@@ -4,6 +4,13 @@
 <link>https://fieldservicenerd.com/blog</link>
 <description>Long-form field notes on Dynamics 365 Field Service, RSO, AI, and service operations.</description>
 <item>
+<title>Seven Ways the Power Platform CLI Lies to You</title>
+<link>https://fieldservicenerd.com/blog/power-platform-cli-lies</link>
+<guid>https://fieldservicenerd.com/blog/power-platform-cli-lies</guid>
+<pubDate>Tue, 04 Aug 2026 14:00:00 GMT</pubDate>
+<description>I stood up an agentic Power Platform environment in an afternoon.  The PAC CLI told me seven false things with total confidence.  Here they are, in the order they bit me.</description>
+</item>
+<item>
 <title>Why Most Dynamics Field Service Implementations Fail</title>
 <link>https://fieldservicenerd.com/blog/why-field-service-implementations-fail</link>
 <guid>https://fieldservicenerd.com/blog/why-field-service-implementations-fail</guid>
