@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Skills, System, Rhythm, Value | A Framework for Moving Revenue Needles"
+title: "Skills, System, Segmentation, Rhythm, Value | A Framework for Moving Revenue Needles"
 ---
 
-# Skills, System, Rhythm, Value
+# Skills, System, Segmentation, Rhythm, Value
 
 **A framework for turning post-sale teams into growth engines |  and for diagnosing why the last enablement program didn't work.**
 
@@ -11,31 +11,33 @@ Every company with a recurring revenue model eventually asks the same question: 
 
 So the company buys sales training.  And ninety days later, nothing has moved.
 
-This framework explains why, and what to do instead.  It comes from thirty years of watching enablement programs live and die |  in enterprise field service deals, in Microsoft's Business Value Engineering motion, and in mid-market SaaS expansion teams.  The short version: **behavior change fails in four predictable places, and a program only works when it patches all four.**
+This framework explains why, and what to do instead.  It comes from thirty years of watching enablement programs live and die |  in enterprise field service deals, in Microsoft's Business Value Engineering motion, and in mid-market SaaS expansion teams.  The short version: **behavior change fails in five predictable places, and a program only works when it patches all five.**
 
 ---
 
-## The Four Failure Modes
+## The Five Failure Modes
 
-Ask these four questions about any revenue team.  Whichever fails first is where the needle is stuck.
+Ask these five questions about any revenue team.  Whichever fails first is where the needle is stuck.
 
 1. **Can they have the conversation?**  If not, the failure is skill.
 2. **Does anything in their workflow trigger the conversation?**  If not, the failure is system.
-3. **Does anyone inspect it weekly?**  If not, the failure is rhythm.
-4. **Does the customer leave holding a number their CFO believes?**  If not, the failure is value.
+3. **Does one playbook fit all our customer types?**  If not, the failure is segmentation.
+4. **Does anyone inspect it weekly?**  If not, the failure is rhythm.
+5. **Does the customer leave holding a number their CFO believes?**  If not, the failure is value.
 
-Four failure modes, four layers.  Remove any one and you can name the exact way the program dies.
+Five failure modes, five layers.  Remove any one and you can name the exact way the program dies.
 
 ```
-SKILLS  |  can they have the conversation?
-SYSTEM  |  does the workflow trigger it?
-RHYTHM  |  does management inspect it?
-VALUE   |  does the customer leave holding a number their CFO believes?
+SKILLS        |  can they have the conversation?
+SYSTEM        |  does the workflow trigger it?
+SEGMENTATION  |  does one playbook fit all our customer types?
+RHYTHM        |  does management inspect it?
+VALUE         |  does the customer leave holding a number their CFO believes?
 ```
 
-Skills without System is a workshop everyone enjoyed and nobody applied.  System without Skills is a playbook nobody can run.  Both without Rhythm is a strong first month and a quiet second one.  All three without Value is a team having great conversations that never survive the customer's own approval chain.
+Skills without System is a workshop everyone enjoyed and nobody applied.  System without Skills is a playbook nobody can run.  Skills and System without Segmentation is one playbook stretched across coverage models that cannot run it.  All of it without Rhythm is a strong first month and a quiet second one.  Everything without Value is a team having great conversations that never survive the customer's own approval chain.
 
-The layers map cleanly to the behavioral science: COM-B calls them capability, opportunity, and motivation.  This framework adds the fourth because B2B is different |  the buying decision happens in a meeting you are not in, and your champion needs something to carry into that room.
+The layers map cleanly to the behavioral science: COM-B calls them capability, opportunity, and motivation.  This framework adds the last two because B2B is different |  no two coverage tiers can run the same motion, and the buying decision happens in a meeting you are not in.
 
 ---
 
@@ -63,9 +65,13 @@ Design rules:
 - **Ship artifacts, not advice.**  Discovery maps.  Expansion signal lists.  Churn early-warning lists.  Qualification templates.  Objection scripts.  Talk tracks.  Gawande's Checklist Manifesto logic applies: experts fail from inconsistent execution under load, not from ignorance.
 - **Mine the product the team already uses.**  Most platforms contain dormant triggers |  renewal date fields, adoption dashboards, usage alerts |  that can become the prompt layer with zero product work.  Find them before building anything new.
 
-### The Segmentation Sub-Layer
+## Layer 3 | Segmentation
 
-One system does not fit one team, because one team rarely covers one kind of customer.  Coverage ratio decides what motion is physically possible, and the system has to be built per segment or it will quietly demand the impossible:
+**The failure it patches: one playbook cannot fit three coverage models.**
+
+This one earns its own layer because it fails independently of everything else.  The skills can be present, the triggers wired, the cadence held |  and the program still dies, because the motion was designed for a coverage ratio the team does not have.  A person covering five hundred accounts cannot run discovery calls.  A person covering five accounts is wasting their ratio on templated outreach.  Same skills, same product, opposite plays.
+
+One system does not fit one team, because one team rarely covers one kind of customer.  Coverage ratio decides what motion is physically possible, and the play kit has to be built per segment or it will quietly demand the impossible:
 
 | Segment | Typical coverage | The motion the system must support | What the assets look like |
 |---|---|---|---|
@@ -73,9 +79,9 @@ One system does not fit one team, because one team rarely covers one kind of cus
 | Mid-market | One person to tens of accounts | Full consultative motion | Discovery maps, value cards, QBR templates |  the complete asset library |
 | Enterprise / strategic | One person to a handful of accounts | Account planning | Multi-site expansion maps, stakeholder maps, multi-year value roadmaps |
 
-The classic failure is writing one playbook for the mid-market motion and handing it to everyone.  The tech-touch team cannot run it |  at 500:1 there are no discovery calls, only signals |  so they ignore it, and the program gets blamed for a coverage-model mismatch.  Segment the system first: same Skills foundation, same Rhythm cadence, but a different trigger-and-asset kit per coverage tier.  A signal-driven play is not a lesser version of the consultative motion.  It is the correct motion for its ratio.
+The classic failure is writing one playbook for the mid-market motion and handing it to everyone.  The tech-touch team cannot run it |  at 500:1 there are no discovery calls, only signals |  so they ignore it, and the program gets blamed for a coverage-model mismatch.  Segment first: same Skills foundation, same Rhythm cadence, but a different trigger-and-asset kit per coverage tier.  A signal-driven play is not a lesser version of the consultative motion.  It is the correct motion for its ratio.
 
-## Layer 3 | Rhythm
+## Layer 4 | Rhythm
 
 **The failure it patches: they stop doing it.**
 
@@ -88,7 +94,7 @@ Design rules:
 - **Forecast accuracy is coached, not punished.**  The first quarter of forecasts will be wrong.  The point is that they exist, and that someone asks why.
 - **Translate the board metric into a Tuesday number.**  Nobody can act on "get NRR to 110%."  Divide the expansion target by the team, then by the month: it usually lands somewhere like two qualified expansion conversations a week and two closes a month per person.  That is a rhythm a human can hold, and it is the number the weekly cadence inspects.  When the board metric moves two quarters later, everyone can trace exactly why.
 
-## Layer 4 | Value
+## Layer 5 | Value
 
 **The failure it patches: the deal dies in the buyer's building.**
 
@@ -124,15 +130,15 @@ A seller who pitches a public-sector estates director on margin per job has alre
 
 ## Running the Framework
 
-**As a diagnostic.**  Four questions in a first meeting tell you where any client's needle is stuck.  Whichever layer fails first is where the engagement starts.  Do not sell a boot camp to a team whose failure mode is rhythm.
+**As a diagnostic.**  Five questions in a first meeting tell you where any client's needle is stuck.  Whichever layer fails first is where the engagement starts.  Do not sell a boot camp to a team whose failure mode is rhythm |  or hand a mid-market playbook to a team whose failure mode is segmentation.
 
-**As a program architecture.**  The layers tier naturally: Skills is the training engagement, System is the asset library, Rhythm is the operating cadence, Value is the content that flows thru all three.  The tiering is not packaging spin |  it is the theory itself, which makes the upsell honest: you can buy Skills alone, and the decay research tells you what happens next.
+**As a program architecture.**  The layers tier naturally: Skills is the training engagement, System and Segmentation are the asset library and its per-tier kits, Rhythm is the operating cadence, Value is the content that flows thru all of it.  The tiering is not packaging spin |  it is the theory itself, which makes the upsell honest: you can buy Skills alone, and the decay research tells you what happens next.
 
-**As a measurement plan.**  Each layer produces its own evidence.  Skills shows up in role plays and live calls.  System shows up in asset usage and trigger coverage.  Rhythm shows up in cadence held and forecasts submitted.  Value shows up in customer-authored business cases.  The result |  pipeline, then revenue, then retention |  follows in that order, on roughly a 30/60/90 arc.
+**As a measurement plan.**  Each layer produces its own evidence.  Skills shows up in role plays and live calls.  System shows up in asset usage and trigger coverage.  Segmentation shows up in every tier running a motion its ratio can sustain.  Rhythm shows up in cadence held and forecasts submitted.  Value shows up in customer-authored business cases.  The result |  pipeline, then revenue, then retention |  follows in that order, on roughly a 30/60/90 arc.
 
 **The one-line version:**
 
-> Training changes what people can do.  Systems change what they actually do.  Rhythm changes what they still do in ninety days.  Value changes what the customer's CFO approves.  The needle only moves when all four hold.
+> Training changes what people can do.  Systems change what they actually do.  Segmentation changes whether the play fits the account in front of them.  Rhythm changes what they still do in ninety days.  Value changes what the customer's CFO approves.  The needle only moves when all five hold.
 
 ---
 
