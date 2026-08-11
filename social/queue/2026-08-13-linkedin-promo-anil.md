@@ -1,6 +1,6 @@
 # LinkedIn Promo | Thursday (Aug 13) | Scheduling Agent video, guest-tag Anil Murching
 
-- **Post day:** Thursday 2026-08-13, ~8:30 AM ET (Promo Day 2 in the weekly rhythm)
+- **Post day:** ✅ DONE | scheduled/posted on LinkedIn by Pierre (2026-08-11)
 - **Promotes:** The Dynamics 365 Field Service Scheduling Agent, Demoed (JAiskZOOxtE)
   | went PUBLIC Tue Aug 11, 10 AM ET (auto-publish)
 - **Video link:** https://www.youtube.com/watch?v=JAiskZOOxtE
