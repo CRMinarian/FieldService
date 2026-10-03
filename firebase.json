@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "web",
+    "public": "dist",
+    "predeploy": ["npm run build"],
     "cleanUrls": true,
     "trailingSlash": false,
     "ignore": [
@@ -11,6 +12,14 @@
       "domain/**",
       "copy/**",
       "seo/**"
+    ],
+    "headers": [
+      {
+        "source": "/tokens/**",
+        "headers": [
+          { "key": "Content-Type", "value": "text/css; charset=utf-8" }
+        ]
+      }
     ],
     "rewrites": []
   },
