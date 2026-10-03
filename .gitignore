@@ -12,6 +12,9 @@ firestore-debug.log
 .DS_Store
 ._*
 
+# Hosting build output (npm run build → dist/)
+dist/
+
 # Jekyll (parked, but keep the workspace clean)
 _site/
 .jekyll-cache/

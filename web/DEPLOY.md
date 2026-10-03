@@ -1,8 +1,15 @@
 # Field Service Nerd — Deploy & Handoff Notes
 
 The site is a Firebase-hosted, Babel-in-browser app (cloned from the Tech Sales 110
-plumbing, dressed in the "Signal & Grit" identity). No build step — the browser compiles
-the `.jsx` files at runtime. Deploy is `firebase deploy`.
+plumbing, dressed in the Field Manual identity). The browser compiles the `.jsx`
+files at runtime. Hosting is the `dist/` tree from `npm run build`, which copies
+`web/` and explicitly stages `tokens/*.css` next to `styles.css` (the file HTML
+links). `firebase deploy` runs that build via `hosting.predeploy`.
+
+```bash
+npm run build      # web/ → dist/, including dist/tokens/*.css
+npm run preview    # serve dist/ at http://127.0.0.1:4173
+```
 
 ## Pages
 | URL | File |
@@ -57,9 +64,10 @@ redeploy. Maintenance (strip test rows): create a doc with `source: '__sheet_mai
 ```bash
 # from repo root
 cd functions && npm install && cd ..   # first time only
+npm run build                          # required — stages dist/tokens/*.css
 firebase deploy                        # hosting + functions + firestore rules
 # or narrow it:
-firebase deploy --only hosting
+npm run deploy:hosting
 firebase deploy --only functions
 ```
 
@@ -80,8 +88,9 @@ Leave `equiptive.ai` alone.
 
 ## What's parked
 
-The old Jekyll site + Notion sync are disabled (`.github/workflows/*.disabled`) so there's
-only one live site. Source content stays in the repo.
+The old Jekyll-from-root Pages workflow is gone. `.github/workflows/pages.yml`
+now builds `dist/` (with `tokens/`) and deploys that tree. Notion sync stays
+disabled. Merging to `main` publishes hosting — do not merge a draft PR to test.
 
 ## Interim links to swap when live
 - Podcast: `LINKS.podcast` in `web/Sections.jsx` currently points at YouTube — swap for the
