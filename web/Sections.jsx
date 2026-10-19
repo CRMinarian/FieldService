@@ -10,7 +10,7 @@ const PLAYLIST_ID = 'PLD2JXXb9_ku0';
 const LINKS = {
   playlist: `https://www.youtube.com/playlist?list=${PLAYLIST_ID}`,
   embed: `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&rel=0&modestbranding=1`,
-  linkedin: 'https://www.linkedin.com/in/nukasoft',
+  linkedin: 'https://www.linkedin.com/in/fieldservicenerd',
   // TODO: confirm the channel handle; the playlist link above is the safe fallback.
   youtube: 'https://www.youtube.com/@FieldServiceNerd',
 };
@@ -22,13 +22,13 @@ const FIRESTORE_KEY = 'AIzaSyDQhvniVSpGmlva9QrYKgBSOLXY-Yaq12A';
 
 function Pillars() {
   const cols = [
-    { tag: 'Signal', title: 'Podcast', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
-    { tag: 'Notes', title: 'Field Notes', body: 'The free AI primer and the field notes list. Practitioner write-ups on Copilot, scheduling, RSO, and the traps that burn budgets.', href: '#join', cta: 'Get the notes' },
+    { tag: 'Signal', title: 'Podcast & Field Notes', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
+    { tag: 'Field', title: 'AI Primer & Lexicon', body: 'What is real in Field Service AI today, where Copilot earns its seat, and the scheduling traps that burn budgets. Practitioner notes, not a vendor deck.', href: '#learn', cta: 'Get the primer' },
   ];
   return (
     <Section id="learn">
-      <SectionHead eyebrow="What this is" title="One site. Two signals." center
-        sub="Field Service Nerd is the independent home for people who run field service operations. Knowledge base, podcast, and field notes." />
+      <SectionHead eyebrow="What this is" title="Field Service, decoded." center
+        sub="Field Service Nerd is an independent knowledge base for people who run Dynamics 365 Field Service. Podcast, field notes, and free education." />
       <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20, marginTop: 44, maxWidth: 820, marginLeft: 'auto', marginRight: 'auto' }}>
         {cols.map((c) => (
           <a key={c.tag} href={c.href} style={{
@@ -120,7 +120,7 @@ function Podcast() {
             </div>
           </div>
           <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '4 / 4.2', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)' }}>
-            <img src="assets/pierre-headshot.jpg" alt="The Field Service Nerd | with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="/assets/pierre-headshot.jpg" alt="The Field Service Nerd | with Pierre Hulsebus" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <span style={{ position: 'absolute', left: 12, bottom: 12, display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(23,20,15,.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(var(--steel-rgb),.4)', color: 'var(--paper)', fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: 12, letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 11px', borderRadius: 'var(--radius-pill)' }}>
               <span className="status-dot"></span> On Air
             </span>
@@ -253,10 +253,12 @@ function Footer() {
     <footer data-theme="dark" style={{ background: 'var(--navy-ink)', color: 'var(--text-on-dark-muted)', padding: '48px 0', textAlign: 'center', fontSize: 14, fontFamily: 'var(--font-body)', borderTop: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '0 var(--content-pad-x)' }}>
         <a href="#top" style={{ display: 'inline-block', marginBottom: 18, textDecoration: 'none' }}>
-          <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 74, width: 'auto', display: 'inline-block' }} />
+          <img src="/assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 74, width: 'auto', display: 'inline-block' }} />
         </a>
         <p style={{ margin: '0 0 8px' }}>
           <a href="/about" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>About</a> ·{' '}
+          <a href="/blog" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>Blog</a> ·{' '}
+          <a href="/kb" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>KB</a> ·{' '}
           <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>YouTube</a> ·{' '}
           <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>LinkedIn</a>
         </p>

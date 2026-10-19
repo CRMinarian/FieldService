@@ -60,3 +60,19 @@ if (missing.length) {
 const listed = readdirSync(destTokens).filter((file) => file.endsWith('.css')).sort();
 console.log(`Staged ${DIST}`);
 console.log(`tokens/ → ${listed.join(', ')}`);
+
+const requiredPages = [
+  'index.html',
+  'about.html',
+  'kb.html',
+  'community.html',
+  '404.html',
+  'robots.txt',
+  'sitemap.xml',
+  'blog/index.html',
+  'ebook/fs-ai-primer.pdf',
+];
+const missingPages = requiredPages.filter((file) => !existsSync(join(DIST, file)));
+if (missingPages.length) {
+  throw new Error(`Required page(s) missing from deploy output: ${missingPages.join(', ')}`);
+}

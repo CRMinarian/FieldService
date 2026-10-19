@@ -1,0 +1,33 @@
+name: Site integrity
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-and-check-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build hosting tree and fail on missing referenced files
+        run: npm run build
+
+      - name: Confirm token CSS is in the deploy dir
+        run: |
+          test -f dist/tokens/colors.css
+          test -f dist/tokens/effects.css
+          test -f dist/tokens/fonts.css
+          test -f dist/tokens/spacing.css
+          test -f dist/tokens/typography.css
+          test -f dist/404.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          ls -l dist/tokens

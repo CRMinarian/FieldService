@@ -13,10 +13,12 @@ function Nav({ onJoin, theme, onToggleTheme }) {
     }}>
       <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '12px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" className="fsn-brand" style={{ display: 'inline-flex', alignItems: 'center', flex: 'none', textDecoration: 'none' }}>
-          <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 48, width: 'auto', display: 'block' }} />
+          <img src="/assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 48, width: 'auto', display: 'block' }} />
         </a>
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
           <a href={isHome ? '#podcast' : '/#podcast'} className="navlink nav-hide" style={link}>Podcast</a>
+          <a href="/blog" className="navlink nav-hide" style={link}>Blog</a>
+          <a href="/kb" className="navlink nav-hide" style={link}>KB</a>
           <a href="/about" className="navlink nav-hide" style={link}>About</a>
 
           <button className="theme-toggle" onClick={onToggleTheme} aria-label="Toggle light and dark" style={{ color: 'var(--paper)' }}>

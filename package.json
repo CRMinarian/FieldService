@@ -3,12 +3,13 @@
   "description": "Field Service Nerd — knowledge base, podcast, and field notes (Firebase Hosting + Functions)",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-site.mjs",
+    "build": "node scripts/build-site.mjs && node scripts/check-deploy-assets.mjs",
     "preview": "npm run build && node scripts/preview-site.mjs",
+    "check:assets": "node scripts/check-deploy-assets.mjs",
     "ebook": "node scripts/generate-ebook-pdf.js",
-    "deploy": "npm run build && firebase deploy",
-    "deploy:hosting": "npm run build && firebase deploy --only hosting",
-    "deploy:functions": "firebase deploy --only functions",
+    "deploy": "npm run build && firebase deploy --project field-service-nerd",
+    "deploy:hosting": "npm run build && firebase deploy --only hosting --project field-service-nerd",
+    "deploy:functions": "firebase deploy --only functions --project field-service-nerd",
     "serve": "npm run build && firebase serve --only hosting"
   },
   "devDependencies": {
