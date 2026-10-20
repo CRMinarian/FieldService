@@ -56,10 +56,9 @@ function AboutBio() {
             <p style={{ marginTop: 0 }}>I’ve worked in enterprise IT and sales for more than 30 years, and in CRM since 2002. As a Director and Global Black Belt at Microsoft, I owned Dynamics 365 Field Service | the deep technical seat enterprise teams called when a deployment was on the brink.</p>
             <p>Field Service is where it all converges: a pinging IoT sensor, a scheduling engine, a technician who carries more knowledge in their head than any manual holds. I’ve lived in that gap | the data model, RSO, Connected Field Service, the mobile and offline strategy, the dispatch and capacity planning that either holds up in production or quietly falls apart.</p>
             <p>Field Service Nerd exists because the knowledge you actually need is scattered across vendor decks, jargon walls, and outdated advice. So I’m putting the canonical version online | the lexicon, the frameworks, the AI reality check, the podcast | free, for the people who run this stuff.</p>
-            <p>And when an implementation is broken, that’s the other half of what I do: fixed-fee engagements to diagnose it, architect it, or get it to go-live. No hourly meter. No demo theater.</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 28 }}>
-            <Button variant="primary" as="a" href="/consulting">Work With Me →</Button>
+            <Button variant="primary" as="a" href="/#join">Read the field notes →</Button>
           </div>
         </div>
       </div>
@@ -71,12 +70,11 @@ function AboutConnect() {
   const links = [
     { label: 'YouTube', href: 'https://www.youtube.com/@FieldServiceNerd', sub: '@FieldServiceNerd' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nukasoft', sub: '/in/nukasoft' },
-    { label: 'Consulting', href: '/consulting', sub: 'Fixed-fee engagements' },
   ];
   return (
     <Section alt>
       <SectionHead eyebrow="Connect" title="Find Pierre" center />
-      <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginTop: 40 }}>
+      <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20, marginTop: 40, maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' }}>
         {links.map((l) => (
           <a key={l.label} href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined} style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-lg)', padding: '28px 20px', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
             <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, color: 'var(--text-strong)' }}>{l.label}</span>

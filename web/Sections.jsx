@@ -1,5 +1,5 @@
 // Field Service Nerd — homepage sections: pillars, lead magnet, podcast,
-// consulting teaser, email capture, FAQ, footer.
+// email capture, FAQ, footer.
 const { Button, Eyebrow, Pill, SectionHead, Section } = window.FSN;
 
 // Centralized outbound links — swap these as channels go live.
@@ -22,13 +22,13 @@ const FIRESTORE_KEY = 'AIzaSyDQhvniVSpGmlva9QrYKgBSOLXY-Yaq12A';
 
 function Pillars() {
   const cols = [
-    { tag: 'Signal', title: 'Podcast & Field Notes', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
-    { tag: 'Rescue', title: 'Consulting', body: 'When a Field Service implementation is months behind, over budget, or quietly being abandoned | the number you call. Fixed-fee, no theater.', href: '/consulting', cta: 'See engagements' },
+    { tag: 'Signal', title: 'Podcast', body: 'Real deployments, the AI that actually ships, and the scheduling problems nobody warns you about. For the commute, the lab, the go-live weekend.', href: '#podcast', cta: 'Listen in' },
+    { tag: 'Notes', title: 'Field Notes', body: 'The free AI primer and the field notes list. Practitioner write-ups on Copilot, scheduling, RSO, and the traps that burn budgets.', href: '#join', cta: 'Get the notes' },
   ];
   return (
     <Section id="learn">
       <SectionHead eyebrow="What this is" title="One site. Two signals." center
-        sub="Field Service Nerd is the independent home for people who run field service operations. The audience content on one side, a hire-me path on the other." />
+        sub="Field Service Nerd is the independent home for people who run field service operations. Knowledge base, podcast, and field notes." />
       <div className="svc-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20, marginTop: 44, maxWidth: 820, marginLeft: 'auto', marginRight: 'auto' }}>
         {cols.map((c) => (
           <a key={c.tag} href={c.href} style={{
@@ -155,32 +155,6 @@ function Videos() {
   );
 }
 
-function ConsultingTeaser() {
-  return (
-    <Section>
-      <div style={{ position: 'relative', overflow: 'hidden', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-subtle)', background: 'var(--surface-card)', padding: '44px 40px' }}>
-        <div className="schematic" aria-hidden="true"></div>
-        <div style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: '1.2fr .8fr', gap: 32, alignItems: 'center' }} className="two-col">
-          <div>
-            <Eyebrow>Consulting // Project Rescue</Eyebrow>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', margin: '14px 0 12px', lineHeight: 1.1 }}>
-              When the implementation is broken, this is the number you call.
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.6, margin: 0, maxWidth: 520 }}>
-              Architecture, project rescue, vendor selection, and training | fixed-fee engagements
-              with a defined outcome and a defined price. No hourly meter. No scope creep.
-            </p>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <Button variant="primary" as="a" href="/consulting">See the Engagements →</Button>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-muted)', letterSpacing: '.04em' }}>4 engagements · all fixed-fee</span>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 function EmailSection() {
   const [firstName, setFirstName] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -252,8 +226,7 @@ function Faq() {
   const [open, setOpen] = React.useState(0);
   const items = [
     { q: 'Who is Field Service Nerd for?', a: 'Field service architects, D365 practitioners, technical sellers, and operations leaders working at the intersection of AI and service operations. If you run Dynamics 365 Field Service | or you’re trying to | this is built for you.' },
-    { q: 'Is the content free?', a: 'Yes. The AI primer, the podcast, and the field notes are free. The consulting track is the paid, hire-me path | separate from the audience content.' },
-    { q: 'What does the consulting cover?', a: 'Four fixed-fee engagements: enterprise Field Service architecture, project rescue and recovery, RFP and vendor selection, and a leadership training program. Defined outcome, defined price, no hourly meter.' },
+    { q: 'Is the content free?', a: 'Yes. The AI primer, the podcast, and the field notes are free.' },
     { q: 'Who is behind it?', a: 'Pierre Hulsebus | 30+ years in IT and sales, former Microsoft Director and Global Black Belt for Dynamics 365 Field Service. Deep in D365 FS, Power Platform, RSO, IoT / Connected Field Service, and enterprise CRM since 2002.' },
     { q: 'Do you cover AI and Copilot specifically?', a: 'Constantly. The lead-magnet primer and the podcast dig into where Copilot and scheduling intelligence actually pay off in field service | and where they don’t.' },
   ];
@@ -283,7 +256,6 @@ function Footer() {
           <img src="assets/fsn-logo-patch.png" alt="Field Service Nerd" style={{ height: 74, width: 'auto', display: 'inline-block' }} />
         </a>
         <p style={{ margin: '0 0 8px' }}>
-          <a href="/consulting" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>Consulting</a> ·{' '}
           <a href="/about" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>About</a> ·{' '}
           <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>YouTube</a> ·{' '}
           <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>LinkedIn</a>
@@ -298,7 +270,6 @@ window.Pillars = Pillars;
 window.LeadMagnet = LeadMagnet;
 window.Podcast = Podcast;
 window.Videos = Videos;
-window.ConsultingTeaser = ConsultingTeaser;
 window.EmailSection = EmailSection;
 window.Faq = Faq;
 window.Footer = Footer;

@@ -21,6 +21,11 @@
         ]
       }
     ],
+    "redirects": [
+      { "source": "/consulting", "destination": "/", "type": 301 },
+      { "source": "/consulting/**", "destination": "/", "type": 301 },
+      { "source": "/go/consult", "destination": "/", "type": 301 }
+    ],
     "rewrites": []
   },
   "firestore": {

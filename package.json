@@ -1,6 +1,6 @@
 {
   "name": "field-service-nerd",
-  "description": "Field Service Nerd — hybrid audience + consulting site (Firebase Hosting + Functions)",
+  "description": "Field Service Nerd — knowledge base, podcast, and field notes (Firebase Hosting + Functions)",
   "private": true,
   "scripts": {
     "build": "node scripts/build-site.mjs",
