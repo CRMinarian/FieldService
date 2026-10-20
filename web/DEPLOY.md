@@ -16,9 +16,10 @@ npm run preview    # serve dist/ at http://127.0.0.1:4173
 |---|---|
 | `/` | `web/index.html` |
 | `/community` | `web/community.html` (gated post-signup hub) |
-| `/consulting` | `web/consulting.html` |
 | `/about` | `web/about.html` |
 | `/kb` | `web/kb.html` |
+
+`/consulting`, `/consulting/**`, and `/go/consult` 301 to `/` in `firebase.json`.
 
 Clean URLs come from `firebase.json` (`cleanUrls: true`). Component files are versioned
 `?v=N` in the HTML — **bump the number whenever you change a `.jsx`** so returning
@@ -96,4 +97,3 @@ disabled. Merging to `main` publishes hosting — do not merge a draft PR to tes
 - Podcast: `LINKS.podcast` in `web/Sections.jsx` currently points at YouTube — swap for the
   Buzzsprout show URL once the feed is published.
 - YouTube handle assumed `@FieldServiceNerd` (used in Nav/Sections/About) — correct if different.
-- Consulting call: `CALENDLY` in `web/Consulting.jsx` = `calendly.com/pierre-nukasoft`.
