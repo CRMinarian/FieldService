@@ -1,3 +1,19 @@
+# DISABLED — do not rename this file back to pages.yml.
+#
+# fieldservicenerd.com DNS points at Firebase Hosting (apex A records to
+# Firebase, www CNAME to field-service-nerd.web.app). GitHub Pages is not
+# the production host. A workflow that publishes to Pages on every main
+# merge is misleading: it looks like the site shipped when the domain
+# still serves whatever was last `firebase deploy`ed.
+#
+# Production publish is:
+#   firebase deploy --only hosting --project field-service-nerd
+# after `npm run build` (also a hosting.predeploy hook).
+#
+# Site integrity (tokens + referenced assets) lives in site-integrity.yml.
+#
+# Original workflow kept below for history only.
+
 name: Deploy GitHub Pages
 
 on:

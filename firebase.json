@@ -15,6 +15,12 @@
     ],
     "headers": [
       {
+        "source": "**/*.css",
+        "headers": [
+          { "key": "Content-Type", "value": "text/css; charset=utf-8" }
+        ]
+      },
+      {
         "source": "/tokens/**",
         "headers": [
           { "key": "Content-Type", "value": "text/css; charset=utf-8" }
