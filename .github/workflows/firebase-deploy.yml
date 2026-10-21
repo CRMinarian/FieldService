@@ -1,0 +1,56 @@
+name: Deploy Firebase Hosting
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: firebase-hosting-live
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build hosting tree
+        run: npm run build
+
+      - name: Check Firebase service account secret
+        id: firebase_secret
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIELD_SERVICE_NERD }}
+        run: |
+          if [ -z "$FIREBASE_SA" ]; then
+            echo "Skipping Firebase Hosting deploy: secret FIREBASE_SERVICE_ACCOUNT_FIELD_SERVICE_NERD is not set."
+            echo "Add a Firebase service account JSON with the Firebase Hosting Admin role on project field-service-nerd, then re-run this workflow."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Firebase service account secret is present. Deploying to the live channel."
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to Firebase Hosting
+        if: steps.firebase_secret.outputs.present == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIELD_SERVICE_NERD }}
+          channelId: live
+          projectId: field-service-nerd

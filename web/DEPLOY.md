@@ -53,7 +53,15 @@ These require Google/Firebase console access and can't be scripted from the repo
 
 ---
 
-## Deploy (Pierre publishes — do not deploy from a PR)
+## Deploy
+
+Merging to `main` runs `.github/workflows/firebase-deploy.yml` (`npm ci`,
+`npm run build`, then Firebase Hosting to project `field-service-nerd`,
+channel `live`). The workflow skips with a clear log if the repo secret
+`FIREBASE_SERVICE_ACCOUNT_FIELD_SERVICE_NERD` is missing. That secret is a
+service account JSON with the Firebase Hosting Admin role.
+
+Manual publish still works:
 
 ```bash
 # from repo root
@@ -63,9 +71,8 @@ firebase deploy --only hosting --project field-service-nerd
 
 Or: `npm run deploy:hosting`
 
-Do **not** merge a draft PR just to test. The GitHub Pages workflow is disabled
-(`.github/workflows/pages.yml.disabled`) because the domain does not point at
-Pages. Merging to `main` does not publish the live site.
+The GitHub Pages workflow is disabled (`.github/workflows/pages.yml.disabled`)
+because the domain does not point at Pages.
 
 ## Ebook (the AI primer PDF)
 
